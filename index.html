@@ -229,6 +229,8 @@ Error message and password prompt
 
 <li>AWX</li>
 
+<li>Docker</li>
+
 <li>error</li>
 
 <li>gist</li>
@@ -9683,13 +9685,7 @@ Error message and password prompt
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/new-here]]
-# [[$:/DefaultTiddlers]]
-# [[$:/isEncrypted]]
-# [[$:/themes/tiddlywiki/vanilla/options/sidebarlayout]]
-# [[TableOfContents]]
-# [[test]]
-# [[test2]]</pre>
+# [[Docker]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -9745,7 +9741,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210220110207563" list="TableOfContents Virtualization Automation" modified="20210220174629785" title="$:/StoryList">
+<div created="20210220110207563" list="$:/Import TableOfContents Virtualization Automation" modified="20210220175202512" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9809,7 +9805,7 @@ Error message and password prompt
 <div created="20210220112904638" modified="20210220112904638" title="$:/temp/NewFieldName-1521706823">
 <pre>caption</pre>
 </div>
-<div created="20201104145520707" modified="20201104145520707" title="$:/temp/NewTagName">
+<div created="20201104145520707" modified="20210220175229114" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20201031112729614" modified="20210220174625224" title="$:/temp/search">
@@ -9985,6 +9981,25 @@ ansible-playbook first_playbook.yml
 
 
 https://github.com/ansible/awx</pre>
+</div>
+<div created="20201116165919622" modified="20210220175233972" tags="Virtualization" title="Docker">
+<pre>
+
+```
+
+docker volume create portainer_data
+docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+```
+
+
+```
+docker save portainer &gt; portainer.tar
+docker load &lt; portainer.tar
+```
+
+
+
+/var/lib/docker/volumes/</pre>
 </div>
 <div created="20201031094624869" modified="20201104145526040" tags="TiddlyWiki" title="error">
 <pre>password &lt;br&gt;
