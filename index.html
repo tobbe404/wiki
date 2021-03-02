@@ -183,6 +183,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Automation-497309061</li>
 
+<li>$:/state/toc/TableOfContents-Linux-497309061</li>
+
 <li>$:/state/toc/TableOfContents-test--118161433</li>
 
 <li>$:/state/toc/TableOfContents-test--278054137</li>
@@ -235,6 +237,8 @@ Error message and password prompt
 
 <li>error</li>
 
+<li>get hardware info</li>
+
 <li>gist</li>
 
 <li>Linux</li>
@@ -256,6 +260,8 @@ Error message and password prompt
 <li>Terraform</li>
 
 <li>TiddlyWiki</li>
+
+<li>Vagrant</li>
 
 <li>Virtualization</li>
 
@@ -9710,6 +9716,9 @@ Error message and password prompt
 <div created="20210220113945412" modified="20210220115424554" title="$:/state/toc/TableOfContents-Automation-497309061">
 <pre>open</pre>
 </div>
+<div created="20210302064244857" modified="20210302064244857" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>open</pre>
+</div>
 <div created="20201031094620241" modified="20201031094620241" title="$:/state/toc/TableOfContents-test--118161433">
 <pre>open</pre>
 </div>
@@ -9734,7 +9743,7 @@ Error message and password prompt
 <div created="20201031115142704" modified="20210220111748467" title="$:/state/toc/TableOfContents-Windows-497309061">
 <pre>open</pre>
 </div>
-<div created="20210220114521240" modified="20210220114527701" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
+<div created="20210220114521240" modified="20210302064132044" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
 <pre>close</pre>
 </div>
 <div created="20201104090720804" modified="20201104090720805" title="$:/state/toc/TableOfContents/Windows-Powershell--278054137">
@@ -9746,7 +9755,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210221002225432" list="TableOfContents" modified="20210221002517654" title="$:/StoryList">
+<div created="20210302064110022" list="TableOfContents Linux.commands gist Automation" modified="20210302065213858" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9794,11 +9803,11 @@ Error message and password prompt
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;1200&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -9988,8 +9997,7 @@ ansible-playbook first_playbook.yml
 https://github.com/ansible/awx</pre>
 </div>
 <div created="20201116165919622" modified="20210221002501931" tags="Virtualization" title="Docker">
-<pre>
-```
+<pre>```
 docker volume create portainer_data
 docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 ```
@@ -10036,6 +10044,31 @@ Error while saving:&lt;br&gt;
 XMLHttpRequest error code: 409&lt;br&gt;
 timeout??</pre>
 </div>
+<div created="20210302064356213" modified="20210302064837564" tags="Linux.commands" title="get hardware info">
+<pre>
+```
+yum install dmidecode
+apt install dmidecode
+
+```
+
+Get serial from hardwre
+
+```
+dmidecode -s system-serial-number
+```
+
+
+```
+dmidecode -s system-manufacturer
+```
+
+
+```
+dmidecode | grep -A3 '^System Information'
+```
+</pre>
+</div>
 <div created="20201031115509117" modified="20201104105734595" tags="Powershell" title="gist">
 <pre>https://gist.github.com/tobbe404
 
@@ -10053,7 +10086,7 @@ timeout??</pre>
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20201104145137616" modified="20201104145704247" tags="TableOfContents" title="MsSQL">
+<div created="20201104145137616" modified="20210302064253081" tags="TableOfContents" title="MsSQL">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;MsSQL&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
@@ -10206,6 +10239,9 @@ To link to a tiddler and specify the text of the link:
 ```
 
 </pre>
+</div>
+<div created="20210302064207409" modified="20210302064226036" tags="Automation" title="Vagrant">
+<pre>https://www.vagrantup.com/</pre>
 </div>
 <div created="20210220174718336" modified="20210220221512292" tags="TableOfContents" title="Virtualization">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
