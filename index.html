@@ -183,6 +183,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Automation-497309061</li>
 
+<li>$:/state/toc/TableOfContents-git-497309061</li>
+
 <li>$:/state/toc/TableOfContents-Linux-497309061</li>
 
 <li>$:/state/toc/TableOfContents-test--118161433</li>
@@ -225,6 +227,8 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla/options/sidebarlayout</li>
 
+<li>add files to repo</li>
+
 <li>Ansible</li>
 
 <li>Ansible.commands</li>
@@ -240,6 +244,12 @@ Error message and password prompt
 <li>get hardware info</li>
 
 <li>gist</li>
+
+<li>git</li>
+
+<li>gitignore</li>
+
+<li>gitlab</li>
 
 <li>Linux</li>
 
@@ -9713,11 +9723,14 @@ Error message and password prompt
 <div created="20201029102045487" modified="20201031094930407" title="$:/state/tab/sidebar--595412856">
 <pre>TableOfContents</pre>
 </div>
-<div created="20210220113945412" modified="20210220115424554" title="$:/state/toc/TableOfContents-Automation-497309061">
+<div created="20210220113945412" modified="20210306150808438" title="$:/state/toc/TableOfContents-Automation-497309061">
 <pre>open</pre>
 </div>
-<div created="20210302064244857" modified="20210302064244857" title="$:/state/toc/TableOfContents-Linux-497309061">
+<div created="20210306150819375" modified="20210306150819375" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>open</pre>
+</div>
+<div created="20210302064244857" modified="20210306144928613" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>close</pre>
 </div>
 <div created="20201031094620241" modified="20201031094620241" title="$:/state/toc/TableOfContents-test--118161433">
 <pre>open</pre>
@@ -9731,8 +9744,8 @@ Error message and password prompt
 <div created="20201105072555355" modified="20210221002222696" title="$:/state/toc/TableOfContents-TiddlyWiki-497309061">
 <pre>close</pre>
 </div>
-<div created="20210221002224371" modified="20210221002224371" title="$:/state/toc/TableOfContents-Virtualization-497309061">
-<pre>open</pre>
+<div created="20210221002224371" modified="20210306144930249" title="$:/state/toc/TableOfContents-Virtualization-497309061">
+<pre>close</pre>
 </div>
 <div created="20201031115414950" modified="20201031115414950" title="$:/state/toc/TableOfContents-Windows--118161433">
 <pre>open</pre>
@@ -9740,10 +9753,10 @@ Error message and password prompt
 <div created="20201104090719470" modified="20201104090719470" title="$:/state/toc/TableOfContents-Windows--278054137">
 <pre>open</pre>
 </div>
-<div created="20201031115142704" modified="20210220111748467" title="$:/state/toc/TableOfContents-Windows-497309061">
-<pre>open</pre>
+<div created="20201031115142704" modified="20210306144934305" title="$:/state/toc/TableOfContents-Windows-497309061">
+<pre>close</pre>
 </div>
-<div created="20210220114521240" modified="20210302064132044" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
+<div created="20210220114521240" modified="20210306150814493" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
 <pre>close</pre>
 </div>
 <div created="20201104090720804" modified="20201104090720805" title="$:/state/toc/TableOfContents/Windows-Powershell--278054137">
@@ -9755,7 +9768,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210306074303620" list="$:/ControlPanel TableOfContents" modified="20210306074303620" title="$:/StoryList">
+<div created="20210306074303620" list="TableOfContents" modified="20210306151338864" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9937,6 +9950,33 @@ Error message and password prompt
 <div created="20190817120602652" modified="20190817120602652" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fluid-fixed</pre>
 </div>
+<div created="20210306145005177" modified="20210306150801194" tags="git" title="add files to repo">
+<pre>
+```
+git init
+```
+
+```
+git add .
+```
+
+```
+git commit -m &quot;initial commit&quot;
+```
+
+```
+git remote add origin [url.git]
+```
+
+```
+git remote -v
+```
+
+```
+git push -f origin master
+```
+</pre>
+</div>
 <div created="20210220111832727" modified="20210220114501064" tags="Automation" title="Ansible">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
@@ -10072,6 +10112,106 @@ dmidecode | grep -A3 '^System Information'
 <pre>https://gist.github.com/tobbe404
 
 [[helloworld|https://gist.github.com/tobbe404/940b162f0003f568f329c53802a0eaa3#file-helloworld-ps1]] </pre>
+</div>
+<div created="20210306144935855" modified="20210306151722338" tags="TableOfContents" title="git">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+&lt;&lt;toc-selective-expandable 'git'&gt;&gt;
+&lt;/div&gt;
+
+apt install git
+
+config git
+
+```
+git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;
+```
+
+
+
+
+start a repo
+
+```
+cd /folder
+git init .
+```
+
+
+clona a repo
+
+```
+git clone [url.git]
+```
+
+clone a branche
+
+```
+git clone  [url.git] -b develop
+```
+
+git add files you want to save
+
+```
+git add file1 file2 file3
+```
+
+for all files
+
+```
+git add . 
+```
+
+commit
+
+```
+git commit -am 'initial commit'
+```
+status
+
+```
+git status 
+```
+
+push
+
+```
+git push
+```
+</pre>
+</div>
+<div created="20210306151724513" modified="20210306151807233" tags="git" title="gitignore">
+<pre>.gitignore
+
+
+```
+# Vagrant
+.vagrant/
+build/
+
+# ansible
+resources/ansible/roles/geerlingguy.repo-epel
+*.retry
+
+# macOS
+*.DS_Store
+
+# IDE
+.idea
+
+# Python
+venv/
+```
+</pre>
+</div>
+<div created="20210306150821563" modified="20210306151004876" tags="git" title="gitlab">
+<pre>install sever
+
+https://about.gitlab.com/install/#ubuntu
+
+backup
+
+https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
 </div>
 <div created="20201104145334541" modified="20201104145420018" tags="TableOfContents" title="Linux">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
