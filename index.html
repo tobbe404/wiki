@@ -205,6 +205,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents/Automation-Ansible-497309061</li>
 
+<li>$:/state/toc/TableOfContents/Linux-Linux.commands-497309061</li>
+
 <li>$:/state/toc/TableOfContents/Windows-Powershell--278054137</li>
 
 <li>$:/state/toc/TableOfContents/Windows-Powershell-497309061</li>
@@ -237,6 +239,8 @@ Error message and password prompt
 
 <li>AWX</li>
 
+<li>Check_MK</li>
+
 <li>Docker</li>
 
 <li>error</li>
@@ -255,9 +259,13 @@ Error message and password prompt
 
 <li>Linux.commands</li>
 
+<li>Monitoring</li>
+
 <li>MsSQL</li>
 
 <li>MySQL</li>
+
+<li>Nagios</li>
 
 <li>Packer</li>
 
@@ -9723,13 +9731,13 @@ Error message and password prompt
 <div created="20201029102045487" modified="20201031094930407" title="$:/state/tab/sidebar--595412856">
 <pre>TableOfContents</pre>
 </div>
-<div created="20210220113945412" modified="20210306150808438" title="$:/state/toc/TableOfContents-Automation-497309061">
+<div created="20210220113945412" modified="20210309105754017" title="$:/state/toc/TableOfContents-Automation-497309061">
 <pre>open</pre>
 </div>
-<div created="20210306150819375" modified="20210306150819375" title="$:/state/toc/TableOfContents-git-497309061">
+<div created="20210306150819375" modified="20210309105732037" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>open</pre>
 </div>
-<div created="20210302064244857" modified="20210306144928613" title="$:/state/toc/TableOfContents-Linux-497309061">
+<div created="20210302064244857" modified="20210309105337686" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>close</pre>
 </div>
 <div created="20201031094620241" modified="20201031094620241" title="$:/state/toc/TableOfContents-test--118161433">
@@ -9741,11 +9749,11 @@ Error message and password prompt
 <div created="20201031115831498" modified="20201031115831498" title="$:/state/toc/TableOfContents-test-497309061">
 <pre>open</pre>
 </div>
-<div created="20201105072555355" modified="20210221002222696" title="$:/state/toc/TableOfContents-TiddlyWiki-497309061">
+<div created="20201105072555355" modified="20210309105237328" title="$:/state/toc/TableOfContents-TiddlyWiki-497309061">
 <pre>close</pre>
 </div>
-<div created="20210221002224371" modified="20210306144930249" title="$:/state/toc/TableOfContents-Virtualization-497309061">
-<pre>close</pre>
+<div created="20210221002224371" modified="20210309105808046" title="$:/state/toc/TableOfContents-Virtualization-497309061">
+<pre>open</pre>
 </div>
 <div created="20201031115414950" modified="20201031115414950" title="$:/state/toc/TableOfContents-Windows--118161433">
 <pre>open</pre>
@@ -9753,22 +9761,25 @@ Error message and password prompt
 <div created="20201104090719470" modified="20201104090719470" title="$:/state/toc/TableOfContents-Windows--278054137">
 <pre>open</pre>
 </div>
-<div created="20201031115142704" modified="20210306144934305" title="$:/state/toc/TableOfContents-Windows-497309061">
+<div created="20201031115142704" modified="20210309105241508" title="$:/state/toc/TableOfContents-Windows-497309061">
+<pre>open</pre>
+</div>
+<div created="20210220114521240" modified="20210309105759947" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
 <pre>close</pre>
 </div>
-<div created="20210220114521240" modified="20210306150814493" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
-<pre>close</pre>
+<div created="20210309105222297" modified="20210309105222298" title="$:/state/toc/TableOfContents/Linux-Linux.commands-497309061">
+<pre>open</pre>
 </div>
 <div created="20201104090720804" modified="20201104090720805" title="$:/state/toc/TableOfContents/Windows-Powershell--278054137">
 <pre>open</pre>
 </div>
-<div created="20201031115728631" modified="20201031115728631" title="$:/state/toc/TableOfContents/Windows-Powershell-497309061">
-<pre>open</pre>
+<div created="20201031115728631" modified="20210309105256693" title="$:/state/toc/TableOfContents/Windows-Powershell-497309061">
+<pre>close</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210309104942381" list="$:/ControlPanel TableOfContents" modified="20210309104942381" title="$:/StoryList">
+<div created="20210309104942381" list="TableOfContents" modified="20210309105920860" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10035,6 +10046,13 @@ ansible-playbook first_playbook.yml
 
 https://github.com/ansible/awx</pre>
 </div>
+<div created="20210309105457050" modified="20210309105719931" tags="Monitoring" title="Check_MK">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+&lt;&lt;toc-selective-expandable 'Check_MK'&gt;&gt;
+&lt;/div&gt;
+
+https://checkmk.com/product/raw-edition</pre>
+</div>
 <div created="20201116165919622" modified="20210221002501931" tags="Virtualization" title="Docker">
 <pre>```
 docker volume create portainer_data
@@ -10179,7 +10197,7 @@ git push
 ```
 </pre>
 </div>
-<div created="20210306151724513" modified="20210306151807233" tags="git" title="gitignore">
+<div created="20210306151724513" modified="20210309110117080" tags="git" title="gitignore">
 <pre>.gitignore
 
 
@@ -10189,8 +10207,8 @@ git push
 build/
 
 # ansible
-resources/ansible/roles/geerlingguy.repo-epel
 *.retry
+log
 
 # macOS
 *.DS_Store
@@ -10224,6 +10242,13 @@ https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
 
 &lt;/div&gt;</pre>
 </div>
+<div created="20210309105340783" modified="20210309105359646" tags="TableOfContents" title="Monitoring">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'Monitoring'&gt;&gt;
+
+&lt;/div&gt;</pre>
+</div>
 <div created="20201104145137616" modified="20210302064253081" tags="TableOfContents" title="MsSQL">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;MsSQL&quot; &quot;sort[title]&quot;&gt;&gt;
@@ -10233,6 +10258,15 @@ https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;MySQL&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20210309105423755" modified="20210309105453548" tags="Monitoring" title="Nagios">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'Nagios'&gt;&gt;
+
+&lt;/div&gt;
+
+https://www.nagios.org/</pre>
 </div>
 <div created="20210220141434281" modified="20210220143738762" tags="Automation" title="Packer">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
