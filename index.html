@@ -187,6 +187,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Linux-497309061</li>
 
+<li>$:/state/toc/TableOfContents-Monitoring-497309061</li>
+
 <li>$:/state/toc/TableOfContents-test--118161433</li>
 
 <li>$:/state/toc/TableOfContents-test--278054137</li>
@@ -239,9 +241,13 @@ Error message and password prompt
 
 <li>AWX</li>
 
+<li>backup</li>
+
 <li>Check_MK</li>
 
 <li>Docker</li>
+
+<li>elasticsearch</li>
 
 <li>error</li>
 
@@ -255,9 +261,13 @@ Error message and password prompt
 
 <li>gitlab</li>
 
+<li>graylog</li>
+
 <li>Linux</li>
 
 <li>Linux.commands</li>
+
+<li>MongoDB</li>
 
 <li>Monitoring</li>
 
@@ -270,6 +280,10 @@ Error message and password prompt
 <li>Packer</li>
 
 <li>Powershell</li>
+
+<li>Register a snapshot repository</li>
+
+<li>restore</li>
 
 <li>show version</li>
 
@@ -9719,7 +9733,7 @@ Error message and password prompt
 <div created="20201031102552809" modified="20201031102552809" title="$:/SiteTitle">
 <pre>TiddlyWiki</pre>
 </div>
-<div created="20201031094900477" modified="20201031094900477" title="$:/state/showeditpreview">
+<div created="20201031094900477" modified="20210309124457511" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
 <div created="20201030075711482" modified="20210221002522394" title="$:/state/tab-1749438307">
@@ -9739,6 +9753,9 @@ Error message and password prompt
 </div>
 <div created="20210302064244857" modified="20210309105337686" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>close</pre>
+</div>
+<div created="20210309123303854" modified="20210309123303854" title="$:/state/toc/TableOfContents-Monitoring-497309061">
+<pre>open</pre>
 </div>
 <div created="20201031094620241" modified="20201031094620241" title="$:/state/toc/TableOfContents-test--118161433">
 <pre>open</pre>
@@ -9779,7 +9796,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210309104942381" list="TableOfContents" modified="20210309105920860" title="$:/StoryList">
+<div created="20210309104942381" list="TableOfContents" modified="20210309124808769" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9846,7 +9863,7 @@ Error message and password prompt
 <div created="20201104145520707" modified="20210220175229114" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210220174625224" title="$:/temp/search">
+<div created="20201031112729614" modified="20210309123310458" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10046,6 +10063,44 @@ ansible-playbook first_playbook.yml
 
 https://github.com/ansible/awx</pre>
 </div>
+<div created="20210309124404103" modified="20210309124628128" tags="elasticsearch" title="backup">
+<pre>check for repository
+
+```
+curl -X GET http://localhost:9200/_snapshot/_all?pretty=true
+```
+
+
+Verifies that a snapshot repository is functional.
+
+```
+curl -X POST http://localhost:9200/_snapshot/my_backup/_verify?pretty=true
+```
+
+
+The following request creates a snapshot with the name snapshot_1 in the repository my_backup:
+
+```
+curl -X PUT http://localhost:9200/_snapshot/my_backup/snapshot_1?wait_for_completion=true
+```
+
+
+The following request creates a snapshot with the name snapshot-yyyy.mmy.dd in the repository my_backup:
+
+```
+curl -X PUT http://localhost:9200/_snapshot/my_backup/%3Csnapshot-%7Bnow%2Fd%7D%3E?wait_for_completion=true
+```
+show snapshots
+
+```
+curl -X GET http://localhost:9200/_snapshot/my_backup/_all?pretty=true
+```
+
+```
+curl -X GET http://localhost:9200/_snapshot/my_backup/snapshot_1/_status?pretty=true
+```
+</pre>
+</div>
 <div created="20210309105457050" modified="20210309105719931" tags="Monitoring" title="Check_MK">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Check_MK'&gt;&gt;
@@ -10086,6 +10141,17 @@ docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 --name=portainer --resta
 
 
 /var/lib/docker/volumes/</pre>
+</div>
+<div created="20210309123345991" modified="20210309124958282" tags="graylog" title="elasticsearch">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+&lt;&lt;toc-selective-expandable 'elasticsearch'&gt;&gt;
+&lt;/div&gt;
+
+Stop snapshot and restore operations
+
+```
+curl -X DELETE http://localhost:9200/_snapshot/my_backup/snapshot_1
+```</pre>
 </div>
 <div created="20201031094624869" modified="20201104145526040" tags="TiddlyWiki" title="error">
 <pre>password &lt;br&gt;
@@ -10230,6 +10296,11 @@ backup
 
 https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
 </div>
+<div created="20210309123317595" modified="20210309123338123" tags="Monitoring" title="graylog">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+&lt;&lt;toc-selective-expandable 'graylog'&gt;&gt;
+&lt;/div&gt;</pre>
+</div>
 <div created="20201104145334541" modified="20201104145420018" tags="TableOfContents" title="Linux">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;Linux&quot; &quot;sort[title]&quot;&gt;&gt;
@@ -10241,6 +10312,20 @@ https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
 &lt;&lt;toc-selective-expandable 'Linux.commands'&gt;&gt;
 
 &lt;/div&gt;</pre>
+</div>
+<div created="20210309124631966" modified="20210309124827955" tags="graylog" title="MongoDB">
+<pre>backup
+
+```
+mongodump --db graylog --out /data/graylog_backup_db
+```
+restore
+
+
+```
+mongorestore /patch/to/dump
+```
+</pre>
 </div>
 <div created="20210309105340783" modified="20210309105359646" tags="TableOfContents" title="Monitoring">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
@@ -10281,6 +10366,79 @@ https://www.packer.io/
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;Powershell&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20210309123514723" modified="20210309124305401" tags="elasticsearch" title="Register a snapshot repository">
+<pre>!! Register a snapshot repository
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-register-repository.html
+
+!!! check for snapshot
+
+```
+curl -X GET http://localhost:9200/_snapshot/_all?pretty=true
+```
+
+!!! Register a snapshot repository
+
+
+
+```
+mkdir /opt/backup/elasticsearch
+```
+```
+chown elasticsearch:elasticsearch /opt/backup/elasticsearch
+```
+
+/etc/elasticsearch/elasticsearch.yml
+
+insert
+
+```
+path.repo: /opt/backup/elasticsearch
+```
+
+after
+
+```
+path.logs: /var/log/elasticsearch
+```
+
+
+```
+systemctl restart elasticsearch.service
+```
+
+```
+curl -H 'Content-Type: application/json' -X PUT http://localhost:9200/_snapshot/my_backup?pretty=true -d '{&quot;type&quot;: &quot;fs&quot;,&quot;settings&quot;:{&quot;location&quot;:&quot;/opt/backup/elasticsearch&quot;}}'
+```
+ verify
+
+```
+curl -X GET http://localhost:9200/_snapshot/_all?pretty=true
+```
+Delete
+
+```
+curl -X DELETE http://localhost:9200/_snapshot/my_backup/snapshot_1
+```
+
+</pre>
+</div>
+<div created="20210309124907627" modified="20210309124947840" tags="elasticsearch" title="restore">
+<pre>
+
+
+Restore a snapshot
+
+```
+curl -X POST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore
+```
+
+```
+curl -X POST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore?wait_for_completion=true
+```
+
+</pre>
 </div>
 <div created="20201104085436637" modified="20201104085518420" tags="Powershell" title="show version">
 <pre>```
