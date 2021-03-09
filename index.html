@@ -251,6 +251,8 @@ Error message and password prompt
 
 <li>error</li>
 
+<li>Extend partition</li>
+
 <li>get hardware info</li>
 
 <li>gist</li>
@@ -279,9 +281,15 @@ Error message and password prompt
 
 <li>Packer</li>
 
+<li>plugins.vagrant</li>
+
+<li>postfix</li>
+
 <li>Powershell</li>
 
 <li>Register a snapshot repository</li>
+
+<li>relay subdomain</li>
 
 <li>restore</li>
 
@@ -294,6 +302,8 @@ Error message and password prompt
 <li>TiddlyWiki</li>
 
 <li>Vagrant</li>
+
+<li>Vagrantfile</li>
 
 <li>Virtualization</li>
 
@@ -9751,8 +9761,8 @@ Error message and password prompt
 <div created="20210306150819375" modified="20210309105732037" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>open</pre>
 </div>
-<div created="20210302064244857" modified="20210309105337686" title="$:/state/toc/TableOfContents-Linux-497309061">
-<pre>close</pre>
+<div created="20210302064244857" modified="20210309125243754" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>open</pre>
 </div>
 <div created="20210309123303854" modified="20210309123303854" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>open</pre>
@@ -9796,7 +9806,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210309104942381" list="TableOfContents" modified="20210309124808769" title="$:/StoryList">
+<div created="20210309104942381" list="TableOfContents" modified="20210309131226476" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9863,8 +9873,8 @@ Error message and password prompt
 <div created="20201104145520707" modified="20210220175229114" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210309123310458" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210309125534857" title="$:/temp/search">
+<pre>vagrant</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10167,6 +10177,32 @@ Error while saving:&lt;br&gt;
 XMLHttpRequest error code: 409&lt;br&gt;
 timeout??</pre>
 </div>
+<div created="20210309130901491" modified="20210309131213012" tags="Linux.commands" title="Extend partition">
+<pre>! for virtual-box with [[Vagrant]] and  [[vagrant-disksize|plugins.vagrant]]
+
+
+```
+fdisk /dev/sda
+```
+
+Enter'' p ''to print your initial partition table.
+
+
+
+Enter ''d'' (delete) followed by ''2'' to delete the existing partition definition (partition 1 is usually /boot and partition 2 is usually the root partition).
+
+Enter ''n'' (new) followed by ''p'' (primary) followed by ''2'' to re-create partition number 2 and ''enter'' to accept the start block and ''enter'' again to accept the end block which is defaulted to the end of the disk.
+
+Enter ''w'' to write the partition table to disk. You will see an error about device or resource busy which you can ignore.
+
+''reboot''
+
+
+```
+xfs_growfs /dev/sda1
+```
+</pre>
+</div>
 <div created="20210302064356213" modified="20210302064837564" tags="Linux.commands" title="get hardware info">
 <pre>```
 yum install dmidecode
@@ -10362,6 +10398,49 @@ https://www.packer.io/
 
 [[Intro|https://www.youtube.com/watch?v=LGwlXBC9TjY&amp;ab_channel=TheCloudCoach]]</pre>
 </div>
+<div created="20210309125633534" modified="20210309131248172" tags="Vagrant" title="plugins.vagrant">
+<pre>!! vagrant-disksize
+
+```
+vagrant plugin install vagrant-disksize
+```
+
+
+vagrantfile
+
+```
+vagrant.configure('2') do |config|
+    config.vm.box = 'ubuntu/xenial64'
+    config.disksize.size = '50GB'
+end
+```
+[[Extend partition]]
+
+
+!! vagrant-scp
+
+```
+vagrant plugin install vagrant-scp
+```
+
+scp
+
+```
+scp -r -i .vagrant/machines/default/virtualbox/private_key -P 2222 vagrant@127.0.0.1:/opt/backup .
+```
+
+```
+vagrant scp /opt/backup/ /home/vagrant/ default
+```
+</pre>
+</div>
+<div created="20210309125252708" modified="20210309125342283" tags="Linux" title="postfix">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'postfix'&gt;&gt;
+
+&lt;/div&gt;</pre>
+</div>
 <div created="20201031114949834" modified="20201104090100750" tags="Windows" title="Powershell">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;Powershell&quot; &quot;sort[title]&quot;&gt;&gt;
@@ -10422,6 +10501,37 @@ Delete
 curl -X DELETE http://localhost:9200/_snapshot/my_backup/snapshot_1
 ```
 
+</pre>
+</div>
+<div created="20210309125344568" modified="20210309125358530" tags="postfix" title="relay subdomain">
+<pre>In order to allow relay, you need to set 
+
+```
+relay_domains = subdomain.domain.tld
+```
+
+ in your postfix config (most likely /etc/postfix/main.cf).
+
+Then, you need to set destination server in the config file for this domain using 
+
+```
+transport_maps = hash:/etc/postfix/transport
+```
+
+ (or any other file postfix has access to); create this file with 
+
+content 
+
+```
+subdomain.domain.tld smtp:XX.XX.XX.XX:YYYY
+```
+(assign permissions if needed) and build the database using shell command 
+
+
+```
+postmap /etc/postfix/transport
+```
+Don't forget to restart postfix after your changes.
 </pre>
 </div>
 <div created="20210309124907627" modified="20210309124947840" tags="elasticsearch" title="restore">
@@ -10570,8 +10680,151 @@ To link to a tiddler and specify the text of the link:
 
 </pre>
 </div>
-<div created="20210302064207409" modified="20210302064226036" tags="Automation" title="Vagrant">
-<pre>https://www.vagrantup.com/</pre>
+<div created="20210302064207409" modified="20210309125831918" tags="Virtualization Automation" title="Vagrant">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'Vagrant'&gt;&gt;
+
+&lt;/div&gt;
+
+https://www.vagrantup.com/
+
+! vagrant commands
+
+
+```
+vagrant up
+vagrant destroy
+vagrant ssh
+```</pre>
+</div>
+<div created="20210309130105063" modified="20210309130626371" tags="Vagrant" title="Vagrantfile">
+<pre>! Vagrantfile
+
+
+NEW
+
+
+```
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# https://docs.vagrantup.com.
+Vagrant.configure(&quot;2&quot;) do |config|
+  #config.vm.box = &quot;centos/7&quot;
+  config.vm.box = &quot;centos/8&quot;
+  #config.vm.box = &quot;Pysis/fedora27-workstation&quot;
+  #config.vm.box = &quot;debian/jessie64&quot;
+  #config.vm.box = &quot;mwrock/Windows2012R2&quot;
+  #config.vm.box = &quot;fedora/28-cloud-base&quot;
+  #config.vm.box = &quot;peru/ubuntu-20.04-desktop-amd64&quot;
+  config.vm.network &quot;private_network&quot;, ip: &quot;172.28.128.219&quot;
+  config.ssh.forward_agent = true
+  config.vm.synced_folder &quot;.&quot;, &quot;/vagrant&quot;, disabled: true
+
+  config.vm.provider &quot;virtualbox&quot; do |vb|
+    vb.name = &quot;vagrant-agent&quot;
+    vb.gui = false
+    vb.memory = &quot;4096&quot;
+  end
+
+  # https://www.vagrantup.com/docs/provisioning/ansible.html
+  config.vm.provision &quot;ansible&quot; do |ansible|
+    ansible.compatibility_mode = &quot;2.0&quot;
+    ansible.playbook = &quot;playbook.yml&quot;
+    ansible.inventory_path = &quot;inventory.ini&quot;
+    ansible.limit = &quot;vagrant-agent&quot;
+#    ansible.tags = [&quot;base-packages, docker, letsencrypt, portainer&quot;]
+#    ansible.tags = &quot;files&quot;
+#     ansible.verbose = &quot;vvv&quot;
+  end
+
+end
+```
+!old
+
+```
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = &quot;centos/7&quot;
+
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  #config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing &quot;localhost:8080&quot; will access port 80 on the guest machine.
+  #config.vm.network :forwarded_port, guest: 80, host: 8080
+  #config.vm.network :bridged
+
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network &quot;private_network&quot;, type: &quot;dhcp&quot;, nic_type: &quot;virtio&quot;
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  #config.vm.network &quot;public_network&quot;, {bridge:'eth0', auto_config:true}
+
+  # If true, then any SSH connections made will enable agent forwarding.
+  # Default value: false
+  config.ssh.forward_agent = true
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  #config.vm.synced_folder &quot;../data&quot;, &quot;/vagrant_data&quot;
+  config.vm.synced_folder &quot;.&quot;, &quot;/vagrant&quot;, disabled: true
+
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+  # config.vm.provider &quot;virtualbox&quot; do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+  #   vb.memory = &quot;1024&quot;
+  # end
+  #
+  # View the documentation for the provider you are using for more
+  # information on available options.
+
+  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
+  # such as FTP and Heroku are also available. See the documentation at
+  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
+  # config.push.define &quot;atlas&quot; do |push|
+  #   push.app = &quot;YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME&quot;
+  # end
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # https://www.vagrantup.com/docs/provisioning/ansible.html
+  config.vm.provision &quot;ansible&quot; do |ansible|
+    ansible.playbook = &quot;playbook.yml&quot;
+    #ansible.tags = [&quot;system&quot;, &quot;base&quot;]
+    #ansible.verbose = &quot;v&quot;
+  end
+
+end
+```</pre>
 </div>
 <div created="20210220174718336" modified="20210220221512292" tags="TableOfContents" title="Virtualization">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
