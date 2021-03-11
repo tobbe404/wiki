@@ -269,6 +269,8 @@ Error message and password prompt
 
 <li>Linux.commands</li>
 
+<li>mem</li>
+
 <li>MongoDB</li>
 
 <li>Monitoring</li>
@@ -9735,7 +9737,7 @@ Error message and password prompt
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Docker]]</pre>
+# [[mem]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -9806,7 +9808,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210309104942381" list="TableOfContents" modified="20210309131226476" title="$:/StoryList">
+<div created="20210311080325916" list="$:/Import TableOfContents Linux.commands" modified="20210311080402303" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9873,8 +9875,8 @@ Error message and password prompt
 <div created="20201104145520707" modified="20210220175229114" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210309125534857" title="$:/temp/search">
-<pre>vagrant</pre>
+<div created="20201031112729614" modified="20210311073156798" title="$:/temp/search">
+<pre>post</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10349,6 +10351,36 @@ https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
 
 &lt;/div&gt;</pre>
 </div>
+<div created="20190228132313356" modified="20210311080347854" tags="Linux.commands" title="mem" tmap.id="6ac9e2d0-f112-4c3a-8068-494746da7cef">
+<pre>free -m
+
+yum install smem
+
+smem -s swap
+
+*A swappiness value of 0 means avoid swap as much as possible and only use ram.
+
+*A swappiness value of 100 means avoid ram as much as possible and only use swap.
+
+
+cat /proc/sys/vm/swappiness
+
+vi /etc/sysctl.conf
+
+from 60 to 0
+
+vm.swappiness=0
+
+''Logg top mem users in a file from cron job''
+
+mem.sh
+
+```
+#!/bin/bash
+echo `date +&quot;%Y-%m-%d %H:%M&quot;` &gt;&gt; /root/mem.txt;ps aux --sort -rss|head &gt;&gt; /root/mem.txt
+```
+</pre>
+</div>
 <div created="20210309124631966" modified="20210309124827955" tags="graylog" title="MongoDB">
 <pre>backup
 
@@ -10536,7 +10568,6 @@ Don't forget to restart postfix after your changes.
 </div>
 <div created="20210309124907627" modified="20210309124947840" tags="elasticsearch" title="restore">
 <pre>
-
 
 Restore a snapshot
 
