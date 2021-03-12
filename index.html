@@ -247,6 +247,8 @@ Error message and password prompt
 
 <li>backup</li>
 
+<li>Centos 6 Vault Repo</li>
+
 <li>Check_MK</li>
 
 <li>Docker</li>
@@ -9741,7 +9743,7 @@ Error message and password prompt
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[mem]]</pre>
+# [[Vault Repo]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -9815,7 +9817,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210311080325916" list="TableOfContents" modified="20210311135655471" title="$:/StoryList">
+<div created="20210312073525596" list="TableOfContents" modified="20210312075521141" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9882,8 +9884,8 @@ Error message and password prompt
 <div created="20201104145520707" modified="20210220175229114" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210311130513705" title="$:/temp/search">
-<pre>centos</pre>
+<div created="20201031112729614" modified="20210312073841066" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10128,6 +10130,71 @@ curl -X GET http://localhost:9200/_snapshot/my_backup/_all?pretty=true
 
 ```
 curl -X GET http://localhost:9200/_snapshot/my_backup/snapshot_1/_status?pretty=true
+```
+</pre>
+</div>
+<div created="20210222095816365" modified="20210312075519131" tags="Linux" title="Centos 6 Vault Repo" tmap.id="2af5649e-4f21-471b-be39-8ea3ca7d9080">
+<pre>*Go to /etc/yum.repos.d/ directory:
+
+
+```
+cd /etc/yum.repos.d/
+```
+
+*Make copy of original file:
+
+```
+cp CentOS-Base.repo CentOS-Base.repo.old
+```
+
+
+*Open and edit file with any text editor:
+
+```
+vi CentOS-Base.repo
+```
+
+vi
+
+```
+gg dG
+```
+
+
+```
+[base]
+name=CentOS-$releasever - Base
+baseurl=https://vault.centos.org/6.10/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+# released updates
+[updates]
+name=CentOS-$releasever - Updates
+baseurl=https://vault.centos.org/6.10/updates/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+# additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras
+baseurl=https://vault.centos.org/6.10/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+```
+
+
+
+```
+yum clean all
+```
+
+
+*Run again yum update command:
+
+
+```
+yum update
 ```
 </pre>
 </div>
@@ -10586,7 +10653,6 @@ Don't forget to restart postfix after your changes.
 </div>
 <div created="20210309124907627" modified="20210309124947840" tags="elasticsearch" title="restore">
 <pre>
-
 Restore a snapshot
 
 ```
