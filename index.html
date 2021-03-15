@@ -323,6 +323,8 @@ Error message and password prompt
 
 <li>Windows</li>
 
+<li>wmstat</li>
+
 </ul>
 </p>
 
@@ -9777,8 +9779,8 @@ Error message and password prompt
 <div created="20210306150819375" modified="20210312143832910" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
 </div>
-<div created="20210302064244857" modified="20210312143833535" title="$:/state/toc/TableOfContents-Linux-497309061">
-<pre>close</pre>
+<div created="20210302064244857" modified="20210315080412377" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>open</pre>
 </div>
 <div created="20210309123303854" modified="20210312143834317" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
@@ -9825,7 +9827,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210312073525596" list="TableOfContents" modified="20210312143753280" title="$:/StoryList">
+<div created="20210315080417489" list="TableOfContents" modified="20210315091957041" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9892,8 +9894,8 @@ Error message and password prompt
 <div created="20201104145520707" modified="20210220175229114" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210312143830256" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210314122200435" title="$:/temp/search">
+<pre>rsync</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10676,8 +10678,7 @@ Don't forget to restart postfix after your changes.
 </pre>
 </div>
 <div created="20210309124907627" modified="20210309124947840" tags="elasticsearch" title="restore">
-<pre>
-Restore a snapshot
+<pre>Restore a snapshot
 
 ```
 curl -X POST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore
@@ -11019,6 +11020,44 @@ end
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;Windows&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20210315080421842" modified="20210315091954822" tags="Linux.commands" title="wmstat">
+<pre>
+
+Just because swap is allocated, doesn't mean it's being 'used'. Whilst programs like system monitor and top will show some of your swap space being allocated (in your example 770MB) that doesn't mean that the system is actively swapping in/out.
+
+To find out if anything is swapping in/out you can use the vmstat command. Leave it running a few seconds to settle down and watch the si (swapin) and so (swapout) columns. If nothing is happening then there is no reason to be concerned.
+
+Here's the output of running vmstat 1, where you can see my machine is not swapping at all.
+
+
+```
+vmstat 1
+```
+
+```
+procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 0  0  78588 230788   9596  72196    0    0     0     0  543  652 12  6 78  0
+ 0  0  78588 230780   9596  72196    0    0     0     0  531  410  1  0 99  0
+ 0  0  78588 230796   9596  72196    0    0     0     0  300  335  1  1 97  0
+ 1  0  78588 230788   9608  72224    0    0    40     0  737  762  4  4 84  8
+ 5  0  78588 230788   9608  72224    0    0     0     0  415  385  9  3 84  0
+ 0  0  78588 230540   9616  72224    0    0     0    44  611  556 55  5 31  0
+ 0  0  78588 230532   9616  72224    0    0     0     0  574  662  1  6 89  0
+```
+
+
+Yet here in top you can see I have swap space allocated:-
+
+
+```
+Mem:    475236k total,   245076k used,   230160k free,     9720k buffers
+Swap:   491512k total,    78588k used,   412924k free,    72476k cached
+```
+
+
+</pre>
 </div>
 
 
