@@ -9851,7 +9851,7 @@ Error message and password prompt
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210316060317571" list="TableOfContents" modified="20210318081537877" title="$:/StoryList">
+<div created="20210316060317571" list="TableOfContents" modified="20210318124040755" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10714,7 +10714,7 @@ curl -X POST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore?wait_
 
 </pre>
 </div>
-<div created="20210318073814060" modified="20210318080928615" tags="Linux.commands" title="rsync">
+<div created="20210318073814060" modified="20210318124931871" tags="Linux.commands" title="rsync">
 <pre>|! |! |! |! |! . |
 |-a |arcive | archive mode; equals -rlptgoD (no -H,-A,-X) | | |
 |-v |verbose | | | |
@@ -10724,6 +10724,22 @@ curl -X POST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore?wait_
 |--no-perms|  |   | | |
 |--exclude 'Trash'|  || | |
 |--delete|  |delete extraneous files from dest dirs|more options ses man ||
+
+
+|-r, |--recursive             |recurse into directories|
+|-l, |--links                 |copy symlinks as symlinks|
+|-p, |--perms                 |preserve permissions|
+|-t, |--times                 |preserve modification times|
+|-g, |--group                 |preserve group|
+|-o, |--owner                 |preserve owner (super-user only)|
+|    |--devices               |preserve device files (super-user only)|
+|     |--specials              |preserve special files|
+| -D|                          |same as --devices --specials|
+||.||
+| -H,   |   --hard-links  |  preserve hard links |
+|  -A,  |  --acls   |  preserve ACLs (implies -p) |
+|  -X,  |  --xattrs   |  preserve extended attributes |
+
 
 
 syntax 
