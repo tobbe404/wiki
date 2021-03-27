@@ -291,6 +291,8 @@ Error message and password prompt
 
 <li>How do I Compress a Whole Linux or UNIX Directory</li>
 
+<li>install ubuntu</li>
+
 <li>jenkins</li>
 
 <li>Linux</li>
@@ -9944,7 +9946,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210327122437521" list="TableOfContents" modified="20210327165928642" title="$:/StoryList">
+<div created="20210327122437521" list="TableOfContents" modified="20210327175904886" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10683,8 +10685,28 @@ https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
 tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 ```</pre>
 </div>
-<div created="20210327165930546" modified="20210327165947366" tags="Automation" title="jenkins">
-<pre>https://pkg.jenkins.io</pre>
+<div created="20210327173407538" modified="20210327180528528" tags="jenkins" title="install ubuntu">
+<pre>
+
+```
+apt install default-jre
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+echo 'deb https://pkg.jenkins.io/debian-stable binary/' &gt;&gt; /etc/apt/sources.list
+apt-get update
+apt-get install jenkins
+
+```
+Unlock Jenkins
+
+http://ip:8080
+</pre>
+</div>
+<div created="20210327165930546" modified="20210327173404171" tags="Automation" title="jenkins">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'jenkins'&gt;&gt;
+
+&lt;/div&gt;https://pkg.jenkins.io</pre>
 </div>
 <div created="20201104145334541" modified="20201104145420018" tags="TableOfContents" title="Linux">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
