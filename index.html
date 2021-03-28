@@ -9954,7 +9954,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210328101929692" list="TableOfContents" modified="20210328111336200" title="$:/StoryList">
+<div created="20210328101929692" list="TableOfContents" modified="20210328121005738" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10136,7 +10136,7 @@ fi
 <div created="20190817120602652" modified="20190817120602652" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20210306145005177" modified="20210327141639238" tags="git" title="add files to repo">
+<div created="20210306145005177" modified="20210328121404585" tags="git" title="add files to repo">
 <pre>```
 git init
 ```
@@ -10163,6 +10163,31 @@ git push -f origin master
 
 ```
 git branch --set-upstream-to=origin/master
+```
+!Push to create a new project
+to Gitlab
+
+When you create a new repository locally, instead of manually creating a new project in GitLab
+and then cloning the repository
+locally, you can directly push it to GitLab to create the new project, all without leaving
+your terminal. If you have access rights to the associated namespace, GitLab
+automatically creates a new project under that GitLab namespace with its visibility
+set to Private by default (you can later change it in the project's settings).
+
+This can be done by using either SSH or HTTPS:
+
+Git push using SSH
+
+```
+git push --set-upstream git@gitlab.example.com:namespace/nonexistent-project.git master
+
+```
+
+Git push using HTTPS
+
+```
+git push --set-upstream https://gitlab.example.com/namespace/nonexistent-project.git master
+
 ```
 </pre>
 </div>
