@@ -337,6 +337,8 @@ Error message and password prompt
 
 <li>sort</li>
 
+<li>SSL new cert</li>
+
 <li>sysctl</li>
 
 <li>TableOfContents</li>
@@ -9868,7 +9870,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[sort]]</pre>
+# [[SSL new cert]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -9888,8 +9890,8 @@ fi
 <div created="20201030075715490" modified="20210328111318915" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20201029102045487" modified="20210327155815774" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20201029102045487" modified="20210328122822246" title="$:/state/tab/sidebar--595412856">
+<pre>TableOfContents</pre>
 </div>
 <div created="20210317114049201" modified="20210317114055077" title="$:/state/toc/graylog-elasticsearch-1310995713">
 <pre>close</pre>
@@ -9954,7 +9956,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210328101929692" list="TableOfContents" modified="20210328121005738" title="$:/StoryList">
+<div created="20210328122751947" list="$:/Import [[SSL new cert]] TableOfContents" modified="20210328122751947" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10002,11 +10004,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;1760&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;990&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10742,8 +10744,7 @@ tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 ```</pre>
 </div>
 <div created="20210327173407538" modified="20210327180528528" tags="jenkins" title="install ubuntu">
-<pre>
-```
+<pre>```
 apt install default-jre
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 echo 'deb https://pkg.jenkins.io/debian-stable binary/' &gt;&gt; /etc/apt/sources.list
@@ -11087,6 +11088,81 @@ $PSVersionTable
 ```
 cat /var/log/nginx/error2.log|awk '{print $11}'|sort|uniq -d -c
 ```
+</pre>
+</div>
+<div created="20141014132814831" modified="20210328122830518" tags="Linux" title="SSL new cert">
+<pre>```
+openssl genrsa -out {FQDN}.key 2048
+```
+
+
+
+
+```
+openssl req -new -key {FQDN}.key -out {FQDN}.csr
+```
+
+
+''one liner new key and a csr''
+
+```
+openssl req -nodes -newkey rsa:2048 -keyout {FQDN}.key -out {FQDN}.csr -subj &quot;/C=SE/ST=Stockholm/L=Stockholm/O=Företag AB/OU=IT Department/CN={FQDN}&quot;
+
+```
+
+''new csr''
+
+```
+Country Name (2 letter code) [GB]:SE
+State or Province Name (full name) [Berkshire]:Stockholm
+Locality Name (eg, city) [Newbury]:Stockholm
+Organization Name (eg, company) [My Company Ltd]:Företag AB
+Organizational Unit Name (eg, section) []:IT
+Common Name (eg, your name or your server's hostname) []: {FQDN}
+Email Address []: hostmaster@exampel.com
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:
+An optional company name []:
+```
+
+Apache + open SSL
+
+Aproval to:
+''
+(must be a mail in the domain registration)''
+postmaster@hostmaster.com
+
++++++
+
+''Apache loads intermediate certificate in a separate file''
+
+''Nginx wants all cert in one bundled file''
+
+/etc/pki/tls/certs/{FQDN}.crt
+
+```
+cat PositiveSSLCA2.crt &gt;&gt; /etc/pki/tls/certs/{FQDN}.crt   
+```
+
+
+```
+cat AddTrustExternalCARoot.crt  &gt;&gt; /etc/pki/tls/certs/{FQDN}.crt
+```
+
+```
+cat {FQDN}.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt &gt; /etc/pki/tls/certs/{FQDN}.crt
+```
+
+''This is a quick step to generate self-signed certificate''
+
+```
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout {FQDN}.key -out {FQDN}.crt
+```
+''wildcard''
+
+[enter *.domain.com for the Common Name]
 </pre>
 </div>
 <div created="20210317151818172" modified="20210318081412054" tags="Linux.commands" title="sysctl">
