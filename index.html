@@ -257,6 +257,8 @@ Error message and password prompt
 
 <li>Automation</li>
 
+<li>awk</li>
+
 <li>AWX</li>
 
 <li>backup</li>
@@ -270,6 +272,8 @@ Error message and password prompt
 <li>Docker</li>
 
 <li>elasticsearch</li>
+
+<li>env</li>
 
 <li>error</li>
 
@@ -331,6 +335,8 @@ Error message and password prompt
 
 <li>show version</li>
 
+<li>sort</li>
+
 <li>sysctl</li>
 
 <li>TableOfContents</li>
@@ -350,6 +356,8 @@ Error message and password prompt
 <li>Vagrantfile</li>
 
 <li>Virtualization</li>
+
+<li>wc</li>
 
 <li>Windows</li>
 
@@ -9860,7 +9868,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[crontab]]</pre>
+# [[sort]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -9877,7 +9885,7 @@ fi
 <div created="20201030075711482" modified="20210324121949181" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
-<div created="20201030075715490" modified="20201105100308491" title="$:/state/tab-2065006209">
+<div created="20201030075715490" modified="20210328111318915" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
 <div created="20201029102045487" modified="20210327155815774" title="$:/state/tab/sidebar--595412856">
@@ -9946,7 +9954,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210327122437521" list="TableOfContents" modified="20210327175904886" title="$:/StoryList">
+<div created="20210328101929692" list="TableOfContents" modified="20210328111258383" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9994,11 +10002,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1760&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;990&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10251,6 +10259,20 @@ ansible-playbook first_playbook.yml
 
 &lt;/div&gt;</pre>
 </div>
+<div created="20150308191321474" modified="20210328102150904" tags="Linux.commands" title="awk">
+<pre>'' filter out column 1 and 2''
+
+```
+ls -all | awk '{print $1, $2}'
+```
+
+''filter out Mondays in oktober 2015''
+
+```
+cal 10 2015 |tail -n 5 |awk  '{print $1}'
+```
+</pre>
+</div>
 <div created="20210220114353952" modified="20210220114418512" tags="Ansible" title="AWX">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
@@ -10484,6 +10506,15 @@ Stop snapshot and restore operations
 curl -X DELETE http://localhost:9200/_snapshot/my_backup/snapshot_1
 ```</pre>
 </div>
+<div created="20210328101937716" modified="20210328102057345" tags="Linux.commands" title="env">
+<pre>*printenv 
+**Print all or part of environment
+*env 
+**Display all exported environment or run a program in a modified environment.
+*set
+**List the name and value of each shell variable.
+</pre>
+</div>
 <div created="20201031094624869" modified="20201104145526040" tags="TiddlyWiki" title="error">
 <pre>password &lt;br&gt;
 Error while saving:&lt;br&gt;
@@ -10687,7 +10718,6 @@ tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 </div>
 <div created="20210327173407538" modified="20210327180528528" tags="jenkins" title="install ubuntu">
 <pre>
-
 ```
 apt install default-jre
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
@@ -11021,6 +11051,16 @@ rsync -avh  --no-perms --delete \
 <div created="20201104085436637" modified="20201104085518420" tags="Powershell" title="show version">
 <pre>```
 $PSVersionTable
+```
+</pre>
+</div>
+<div created="20141017185327687" modified="20210328102320782" tags="Linux.commands" title="sort">
+<pre>sort file1 file2 | uniq -d |wc -l
+
+''all the uniq ip in nginx error log an how many times''
+
+```
+cat /var/log/nginx/error2.log|awk '{print $11}'|sort|uniq -d -c
 ```
 </pre>
 </div>
@@ -11368,6 +11408,15 @@ end
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Virtualization'&gt;&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20210328102428964" modified="20210328102530127" tags="Linux.commands" title="wc">
+<pre>wc - print newline, word, and byte counts for each file
+
+
+```
+ls -all |wc -l
+```
+</pre>
 </div>
 <div created="20201031114917109" modified="20201031114945103" tags="TableOfContents" title="Windows">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
