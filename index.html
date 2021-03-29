@@ -271,6 +271,8 @@ Error message and password prompt
 
 <li>Docker</li>
 
+<li>Draft of 'New Tiddler'</li>
+
 <li>elasticsearch</li>
 
 <li>env</li>
@@ -336,6 +338,10 @@ Error message and password prompt
 <li>show version</li>
 
 <li>sort</li>
+
+<li>ssh</li>
+
+<li>ssh.authorized_keys</li>
 
 <li>SSL new cert</li>
 
@@ -9870,7 +9876,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[SSL new cert]]</pre>
+# [[ssh authorized_keys]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -9956,7 +9962,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210328122751947" list="$:/Import [[SSL new cert]] TableOfContents" modified="20210328122751947" title="$:/StoryList">
+<div created="20210329110419723" list="$:/Import TableOfContents Linux Linux.commands ssh [[Draft of 'New Tiddler']]" modified="20210329110526938" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10004,15 +10010,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1760&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;990&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10521,6 +10527,9 @@ docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 --name=portainer --resta
 
 
 /var/lib/docker/volumes/</pre>
+</div>
+<div created="20210329110454097" draft.of="New Tiddler" draft.title="New Tiddler" modified="20210329110454097" tags="ssh" title="Draft of 'New Tiddler'">
+<pre></pre>
 </div>
 <div created="20210309123345991" modified="20210309124958282" tags="graylog" title="elasticsearch">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
@@ -11088,6 +11097,49 @@ $PSVersionTable
 ```
 cat /var/log/nginx/error2.log|awk '{print $11}'|sort|uniq -d -c
 ```
+</pre>
+</div>
+<div created="20210329110433712" modified="20210329110451515" tags="Linux.commands" title="ssh">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'ssh'&gt;&gt;
+
+&lt;/div&gt;</pre>
+</div>
+<div created="20141014092628214" modified="20210329110603278" tags="ssh" title="ssh.authorized_keys" tmap.id="5ff7b8e9-2b98-427f-a250-9b77c3dac5b0">
+<pre>```
+chmod 700 .ssh/ 
+```
+
+
+
+```
+chmod 600 .ssh/authorized_keys
+```
+
+
+if selinux is on: 
+
+
+```
+restorecon -r -vv /root/.ssh 
+```
+
+
+
+''one-liner''
+
+```
+mkdir .ssh;touch .ssh/authorized_keys;chmod 700 .ssh/ ;chmod 600 .ssh/authorized_keys;restorecon -r -vv .ssh
+```
+
+ubuntu
+
+
+```
+mkdir .ssh;touch .ssh/authorized_keys;chmod 700 .ssh/ ;chmod 600 .ssh/authorized_keys
+```
+
 </pre>
 </div>
 <div created="20141014132814831" modified="20210328122830518" tags="Linux" title="SSL new cert">
