@@ -9972,7 +9972,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210413080444746" list="TableOfContents" modified="20210413121222938" title="$:/StoryList">
+<div created="20210413080444746" list="TableOfContents" modified="20210413122751661" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10901,7 +10901,7 @@ http://ip:8080
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20210413121225569" modified="20210413122419747" tags="Linux" title="Megaraid">
+<div created="20210413121225569" modified="20210413144507335" tags="Linux" title="Megaraid">
 <pre>! Replace disk
 
 ''Working dir''
@@ -10959,7 +10959,7 @@ Now that we know the EIDs and slot numbers of each of the drives we can go ahead
 2) Mark the failed disk as missing
 
 ```
-./MegaCli64 -pdmarkmissing -physdrv[:2] -aAll
+./MegaCli64 -pdmarkmissing -physdrv[:2] -a0
 ```
 
 
@@ -10987,9 +10987,19 @@ Now that we know the EIDs and slot numbers of each of the drives we can go ahead
 5b) If you don’t use hot spares you will need to add the disk to the array and start the rebuild manually
 
 ```
-./MegaCli64 -PdReplaceMissing -PhysDrv[:2] -Array0 -row0 -a0
+./MegaCli64 -PdReplaceMissing -PhysDrv[:2] -Array1 -row0 -a0
 ./MegaCli64 -PDRbld -Start -PhysDrv[:2] -a0
 ```
+
+
+The number'' N'' of the array parameter is the Span Reference you get using
+
+```
+./MegaCli64 -CfgDsply -aALL|grep 'Span Reference\|Physical Disk:\|s position:\|Firmware state'
+
+```
+and the number ''N'' of the row parameter is the Physical Disk in that span or array starting with zero (it’s not the physical disk’s slot!).
+
 
 
 6) Optional: We can watch the rebuild progress. Depending on the size of the array this may take a considerable amount of time. Also the raid array is usable during this time, but you can expect to encounter performance hits while the raid array is rebuilding.
@@ -11001,6 +11011,8 @@ Now that we know the EIDs and slot numbers of each of the drives we can go ahead
 
 Nice MegaCLI cheatsheet
 http://erikimh.com/megacli-cheatsheet/
+
+https://wikitech.wikimedia.org/wiki/MegaCli
 </pre>
 </div>
 <div created="20190228132313356" modified="20210311080347854" tags="Linux.commands" title="mem" tmap.id="6ac9e2d0-f112-4c3a-8068-494746da7cef">
