@@ -281,6 +281,8 @@ Error message and password prompt
 
 <li>Extend partition</li>
 
+<li>findstr</li>
+
 <li>Flush DNS cach</li>
 
 <li>get hardware info</li>
@@ -295,6 +297,8 @@ Error message and password prompt
 
 <li>graylog</li>
 
+<li>grep</li>
+
 <li>How do I Compress a Whole Linux or UNIX Directory</li>
 
 <li>jenkins</li>
@@ -304,6 +308,8 @@ Error message and password prompt
 <li>Linux</li>
 
 <li>Linux.commands</li>
+
+<li>Megaraid</li>
 
 <li>mem</li>
 
@@ -370,6 +376,8 @@ Error message and password prompt
 <li>wc</li>
 
 <li>Windows</li>
+
+<li>Windows.commands</li>
 
 <li>wmstat</li>
 
@@ -9910,11 +9918,11 @@ fi
 <div created="20210220113945412" modified="20210327122600350" title="$:/state/toc/TableOfContents-Automation-497309061">
 <pre>open</pre>
 </div>
-<div created="20210306150819375" modified="20210402120614248" title="$:/state/toc/TableOfContents-git-497309061">
-<pre>open</pre>
-</div>
-<div created="20210302064244857" modified="20210318081510005" title="$:/state/toc/TableOfContents-Linux-497309061">
+<div created="20210306150819375" modified="20210413121146166" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
+</div>
+<div created="20210302064244857" modified="20210413120220895" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>open</pre>
 </div>
 <div created="20210309123303854" modified="20210318081512884" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
@@ -9949,8 +9957,8 @@ fi
 <div created="20210311130747837" modified="20210327165927447" title="$:/state/toc/TableOfContents/Automation-Vagrant-497309061">
 <pre>close</pre>
 </div>
-<div created="20210309105222297" modified="20210309105222298" title="$:/state/toc/TableOfContents/Linux-Linux.commands-497309061">
-<pre>open</pre>
+<div created="20210309105222297" modified="20210413121212427" title="$:/state/toc/TableOfContents/Linux-Linux.commands-497309061">
+<pre>close</pre>
 </div>
 <div created="20210317114118624" modified="20210317114118624" title="$:/state/toc/TableOfContents/Virtualization-Vagrant-497309061">
 <pre>open</pre>
@@ -9964,7 +9972,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210413080444746" list="TableOfContents" modified="20210413081434640" title="$:/StoryList">
+<div created="20210413080444746" list="TableOfContents" modified="20210413121222938" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10028,11 +10036,11 @@ fi
 <div created="20210220112904638" modified="20210220112904638" title="$:/temp/NewFieldName-1521706823">
 <pre>caption</pre>
 </div>
-<div created="20201104145520707" modified="20210327144713935" title="$:/temp/NewTagName">
+<div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210413081453756" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210413120151308" title="$:/temp/search">
+<pre>grep</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10612,6 +10620,13 @@ xfs_growfs /dev/sda1
 ```
 </pre>
 </div>
+<div created="20210413121049838" modified="20210413121142756" tags="Windows.commands" title="findstr">
+<pre>''windows grep ''
+
+```
+netstat -an | findstr &quot;3389&quot;
+```</pre>
+</div>
 <div created="20210402121859191" modified="20210402131424256" tags="Linux.commands" title="Flush DNS cach">
 <pre>!Ubuntu desktop
 
@@ -10754,6 +10769,100 @@ https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
 &lt;&lt;toc-selective-expandable 'graylog'&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
+<div created="20210413120230944" modified="20210413120941187" tags="Linux.commands" title="grep">
+<pre>multiple lines multiple words
+
+```
+cat somefil.txt|grep 'word1\|word2\|word3'
+```
+
+warn and error
+
+
+```
+cat /var/log/syslog |grep -E &quot;(WARN|ERROR)&quot;
+```
+
+ESTABLISHED and TIME_WAIT
+
+```
+netstat -tulpan |grep -E 'ESTABLISHED | TIME_WAIT'
+```
+
+
+```
+netstat -tulpan |grep -E 'ESTABLISHED | TIME_WAIT | CLOSING'
+```
+
+
+find all login on Feb 12 except root
+
+
+```
+ cat /var/log/auth.log|grep 'Feb 12'|grep 'session opened for user'|grep -v 'root'
+```
+
+
+-A is the option which prints the specified N lines after the match as shown below.
+Syntax:
+
+```
+grep -A &lt;N&gt; &quot;string&quot; FILENAME
+```
+
+-B is the option which prints the specified N lines before the match.
+
+Syntax:
+
+```
+grep -B &lt;N&gt; &quot;string&quot; FILENAME
+```
+
+
+
+```
+-i, --ignore-case
+
+-e PATTERN, --regexp=PATTERN
+
+-f FILE, --file=FILE
+
+ -v, --invert-match
+ Invert the sense of matching, to select non-matching lines.
+```
+
+
+''grep pattern and only return file names''
+
+```
+grep -Rl '/var/lib/birdstep/analytics4/uploads/' -e '358672051008252'
+
+```
+'' mac adress''
+
+```
+grep -oE &quot;([0-9a-fA-F][0-9a-fA-F][-:]){5}([0-9a-fA-F][0-9a-fA-F])&quot; /tmp/dnsmasq.leases
+
+```
+```
+86400 ec:f4:bb:64:44:d6 192.168.1.106 M4800 *
+```
+
+zcat
+
+grep in .gz logs
+
+
+sort -u filename(this will sort as well as remove duplicate rows)
+
+sort /backup/file.log|uniq|wc -l
+
+sort -u /backup/file.log|wc -l
+
+
+
+</pre>
+</div>
 <div created="20141016131400060" modified="20210312143747052" tags="tar" title="How do I Compress a Whole Linux or UNIX Directory" tmap.id="b6a6f3d3-2637-44b1-8a5f-6b9e3ea03bf1">
 <pre>```
 tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
@@ -10791,6 +10900,108 @@ http://ip:8080
 &lt;&lt;toc-selective-expandable 'Linux.commands'&gt;&gt;
 
 &lt;/div&gt;</pre>
+</div>
+<div created="20210413121225569" modified="20210413122419747" tags="Linux" title="Megaraid">
+<pre>! Replace disk
+
+''Working dir''
+
+```
+cd /opt/MegaRAID/MegaCli
+```
+
+Dump all events to file
+
+```
+./MegaCli64 -AdpEventLog -GetEvents -f 2021-04-14-events -aAll
+```
+
+Silence active alarm
+
+```
+./MegaCli64 -AdpSetProp AlarmSilence -aALL
+```
+
+
+check is the status of our raid
+
+
+```
+./MegaCli64 -ldinfo -lALL -aALL
+```
+
+Next we will want to look at all of our disks:
+
+```
+./MegaCli64 -pdlist -aALL|grep 'Enclosure Device ID\|Slot Number\|Firmware state'
+```
+
+
+In our example the failed disk is shown as ‘Enclosure Device ID:N/A′ and ‘Slot Number: 2′. 
+This drive will be reference as [:2] in the examples below. 
+
+#All info on failed disk
+
+```
+./MegaCli64 -PDInfo -PhysDrv[:2] -aALL
+```
+
+
+Now that we know the EIDs and slot numbers of each of the drives we can go ahead and remove the failed drive.
+
+1) First we set the original disk offline if an error has not already cause the controller to set it offline
+
+```
+./MegaCli64 -pdoffline -physdrv[:2] -a0
+```
+
+
+2) Mark the failed disk as missing
+
+```
+./MegaCli64 -pdmarkmissing -physdrv[:2] -aAll
+```
+
+
+3) Mark the failed disk as prepared for removal
+
+```
+./MegaCli64 -pdprprmv -physdrv[:2] -a0
+```
+
+
+4) Now you can go replace the faulty disk, it might help to use the hdd identify command to locate the disk
+
+```
+./MegaCli64 -pdlocate -start -physdrv[:2] -a0
+```
+
+
+5a) If you use hot spares and the original hot spare was already put into the raid array, set the new disk to replace the hot spare that just went into service
+
+```
+./MegaCli64 -PDHSP -Set -PhysDrv[&lt;enclosure#&gt;:&lt;disk#&gt;] -a&lt;adapter#&gt;
+```
+
+
+5b) If you don’t use hot spares you will need to add the disk to the array and start the rebuild manually
+
+```
+./MegaCli64 -PdReplaceMissing -PhysDrv[:2] -Array0 -row0 -a0
+./MegaCli64 -PDRbld -Start -PhysDrv[:2] -a0
+```
+
+
+6) Optional: We can watch the rebuild progress. Depending on the size of the array this may take a considerable amount of time. Also the raid array is usable during this time, but you can expect to encounter performance hits while the raid array is rebuilding.
+
+```
+./MegaCli64 -PDRbld -ShowProg -PhysDrv[:2] -a0
+```
+
+
+Nice MegaCLI cheatsheet
+http://erikimh.com/megacli-cheatsheet/
+</pre>
 </div>
 <div created="20190228132313356" modified="20210311080347854" tags="Linux.commands" title="mem" tmap.id="6ac9e2d0-f112-4c3a-8068-494746da7cef">
 <pre>free -m
@@ -11608,6 +11819,13 @@ ls -all |wc -l
 <div created="20201031114917109" modified="20201031114945103" tags="TableOfContents" title="Windows">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;Windows&quot; &quot;sort[title]&quot;&gt;&gt;
+&lt;/div&gt;</pre>
+</div>
+<div created="20210413120959869" modified="20210413121133176" tags="Windows" title="Windows.commands">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'Windows.commands'&gt;&gt;
+
 &lt;/div&gt;</pre>
 </div>
 <div created="20210315080421842" modified="20210315091954822" tags="Linux.commands" title="wmstat">
