@@ -345,6 +345,8 @@ Error message and password prompt
 
 <li>show version</li>
 
+<li>sidecar.filebeat</li>
+
 <li>sort</li>
 
 <li>ssh</li>
@@ -9913,8 +9915,8 @@ fi
 <div created="20201029102045487" modified="20210329111052799" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20210317114049201" modified="20210317114055077" title="$:/state/toc/graylog-elasticsearch-1310995713">
-<pre>close</pre>
+<div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
+<pre>open</pre>
 </div>
 <div created="20210318073822275" modified="20210318073822275" title="$:/state/toc/Linux-Linux.commands-1152169851">
 <pre>open</pre>
@@ -9931,8 +9933,8 @@ fi
 <div created="20210302064244857" modified="20210413120220895" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>open</pre>
 </div>
-<div created="20210309123303854" modified="20210318081512884" title="$:/state/toc/TableOfContents-Monitoring-497309061">
-<pre>close</pre>
+<div created="20210309123303854" modified="20210414140636207" title="$:/state/toc/TableOfContents-Monitoring-497309061">
+<pre>open</pre>
 </div>
 <div created="20201031094620241" modified="20201031094620241" title="$:/state/toc/TableOfContents-test--118161433">
 <pre>open</pre>
@@ -9979,7 +9981,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210413080444746" list="grep TableOfContents Linux.commands ssh ssh.tunnel" modified="20210414070834196" title="$:/StoryList">
+<div created="20210413080444746" list="TableOfContents" modified="20210414140637541" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10046,8 +10048,8 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210413120151308" title="$:/temp/search">
-<pre>grep</pre>
+<div created="20201031112729614" modified="20210414071513692" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -11326,6 +11328,38 @@ rsync -avh  --no-perms --delete \
 <div created="20201104085436637" modified="20201104085518420" tags="Powershell" title="show version">
 <pre>```
 $PSVersionTable
+```
+</pre>
+</div>
+<div created="20210414140644331" modified="20210414141054046" tags="graylog" title="sidecar.filebeat">
+<pre>https://docs.graylog.org/en/3.0/pages/sidecar.html#creating-a-new-log-collector
+
+Install the RPM package on RedHat based systems
+
+```
+rpm -i graylog-sidecar-1.0.0-1.x86_64.rpm
+```
+
+Edit the configuration (see Configuration) and activate the Sidecar as a system service:
+
+```
+
+vi /etc/graylog/sidecar/sidecar.yml
+```
+
+```
+graylog-sidecar -service install
+systemctl start graylog-sidecar
+```
+
+
+
+
+https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html
+
+```
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.12.0-x86_64.rpm
+rpm -vi filebeat-7.12.0-x86_64.rpm
 ```
 </pre>
 </div>
