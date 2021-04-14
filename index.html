@@ -191,6 +191,8 @@ Error message and password prompt
 
 <li>$:/state/toc/Linux-Linux.commands-1152169851</li>
 
+<li>$:/state/toc/Linux.commands-ssh-1789903183</li>
+
 <li>$:/state/toc/TableOfContents-Automation-497309061</li>
 
 <li>$:/state/toc/TableOfContents-git-497309061</li>
@@ -350,6 +352,8 @@ Error message and password prompt
 <li>ssh.authorized_keys</li>
 
 <li>ssh.key forwarding linux</li>
+
+<li>ssh.tunnel</li>
 
 <li>SSL new cert</li>
 
@@ -9915,6 +9919,9 @@ fi
 <div created="20210318073822275" modified="20210318073822275" title="$:/state/toc/Linux-Linux.commands-1152169851">
 <pre>open</pre>
 </div>
+<div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
+<pre>open</pre>
+</div>
 <div created="20210220113945412" modified="20210327122600350" title="$:/state/toc/TableOfContents-Automation-497309061">
 <pre>open</pre>
 </div>
@@ -9972,7 +9979,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210413080444746" list="TableOfContents" modified="20210413122751661" title="$:/StoryList">
+<div created="20210413080444746" list="grep TableOfContents Linux.commands ssh ssh.tunnel" modified="20210414070834196" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10901,7 +10908,7 @@ http://ip:8080
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20210413121225569" modified="20210413144507335" tags="Linux" title="Megaraid">
+<div created="20210413121225569" modified="20210413145651209" tags="Linux" title="Megaraid">
 <pre>! Replace disk
 
 ''Working dir''
@@ -11013,6 +11020,9 @@ Nice MegaCLI cheatsheet
 http://erikimh.com/megacli-cheatsheet/
 
 https://wikitech.wikimedia.org/wiki/MegaCli
+
+https://hwraid.le-vert.net/wiki/LSIMegaRAIDSAS
+
 </pre>
 </div>
 <div created="20190228132313356" modified="20210311080347854" tags="Linux.commands" title="mem" tmap.id="6ac9e2d0-f112-4c3a-8068-494746da7cef">
@@ -11397,6 +11407,44 @@ Enables forwarding of connections from an authentication agent such as ssh-agent
 ```
 ssh -A user@host
 ```
+</pre>
+</div>
+<div created="20210414060903370" modified="20210414063415964" tags="ssh" title="ssh.tunnel">
+<pre>multi port forward
+
+```
+ssh {jumpserver} -L {local_port}:{destinationserver}:{remote_port} -L {local_port}:{destinationserver}:{remote_port}
+```
+port forward
+
+```
+ssh -f {user}@{jumpserver} -L {local_port}:{destinationserver}:{remote_port} -N
+```
+
+''Remote via jumpserver''
+
+```
+ssh -A -tt {user}@{jumpserver} ssh -tt {user}@{destinationserver}
+```
+```
+ssh -A -tt {user}@{jumpserver} ssh -tt {user}@{destinationserver}
+```
+
+scp
+
+```
+ssh -f root@jumpserver -L 2222:destinationserver:22 -N
+scp -P 2222 root@localhos:/opt/fille1 .
+```
+
+RabbitMQ webui only lissens on pocal host
+
+```
+
+ssh -L 15672:localhost:15672 user@mqserver
+```
+
+
 </pre>
 </div>
 <div created="20141014132814831" modified="20210328122830518" tags="Linux" title="SSL new cert">
