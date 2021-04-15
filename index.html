@@ -9924,17 +9924,17 @@ fi
 <div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
 <pre>open</pre>
 </div>
-<div created="20210220113945412" modified="20210327122600350" title="$:/state/toc/TableOfContents-Automation-497309061">
-<pre>open</pre>
+<div created="20210220113945412" modified="20210415215338880" title="$:/state/toc/TableOfContents-Automation-497309061">
+<pre>close</pre>
 </div>
 <div created="20210306150819375" modified="20210413121146166" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
 </div>
-<div created="20210302064244857" modified="20210413120220895" title="$:/state/toc/TableOfContents-Linux-497309061">
-<pre>open</pre>
+<div created="20210302064244857" modified="20210415215339729" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>close</pre>
 </div>
-<div created="20210309123303854" modified="20210414140636207" title="$:/state/toc/TableOfContents-Monitoring-497309061">
-<pre>open</pre>
+<div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
+<pre>close</pre>
 </div>
 <div created="20201031094620241" modified="20201031094620241" title="$:/state/toc/TableOfContents-test--118161433">
 <pre>open</pre>
@@ -9957,8 +9957,8 @@ fi
 <div created="20201104090719470" modified="20201104090719470" title="$:/state/toc/TableOfContents-Windows--278054137">
 <pre>open</pre>
 </div>
-<div created="20201031115142704" modified="20210402120552104" title="$:/state/toc/TableOfContents-Windows-497309061">
-<pre>open</pre>
+<div created="20201031115142704" modified="20210415215342471" title="$:/state/toc/TableOfContents-Windows-497309061">
+<pre>close</pre>
 </div>
 <div created="20210220114521240" modified="20210327165925893" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
 <pre>close</pre>
@@ -9981,7 +9981,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210413080444746" list="TableOfContents" modified="20210414140637541" title="$:/StoryList">
+<div created="20210415110737413" list="TableOfContents" modified="20210415215310794" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10029,11 +10029,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10048,7 +10048,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210414071513692" title="$:/temp/search">
+<div created="20201031112729614" modified="20210415215335398" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11331,8 +11331,50 @@ $PSVersionTable
 ```
 </pre>
 </div>
-<div created="20210414140644331" modified="20210414141054046" tags="graylog" title="sidecar.filebeat">
-<pre>https://docs.graylog.org/en/3.0/pages/sidecar.html#creating-a-new-log-collector
+<div created="20210414140644331" modified="20210415215256322" tags="graylog" title="sidecar.filebeat">
+<pre>
+
+```
+wget https://packages.graylog2.org/repo/packages/graylog-sidecar-repository-1-2.noarch.rpm
+
+```
+
+```
+yum install graylog-sidecar
+```
+
+
+```
+vi /etc/graylog/sidecar/sidecar.yml
+```
+
+*server_url
+
+```
+server_url: &quot;https://graylog.schoolsoft.se/api/&quot;
+```
+
+*api token
+
+
+
+```
+graylog-sidecar -service install
+systemctl start graylog-sidecar
+```
+
+
+centos 6 
+
+```
+/etc/init.d/graylog-sidecar start
+```
+
+
+
++++++++++++++++++++++++++++
+
+https://docs.graylog.org/en/3.0/pages/sidecar.html#creating-a-new-log-collector
 
 Install the RPM package on RedHat based systems
 
