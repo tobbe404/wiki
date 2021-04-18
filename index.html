@@ -311,6 +311,8 @@ Error message and password prompt
 
 <li>Linux.commands</li>
 
+<li>linux.firewall</li>
+
 <li>Megaraid</li>
 
 <li>mem</li>
@@ -9981,7 +9983,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210415110737413" list="TableOfContents" modified="20210415215310794" title="$:/StoryList">
+<div created="20210418090023235" list="TableOfContents Linux linux.firewall" modified="20210418090040426" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10029,15 +10031,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10048,8 +10050,8 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210415215335398" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210418090036607" title="$:/temp/search">
+<pre>firewall</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10910,6 +10912,43 @@ http://ip:8080
 
 &lt;/div&gt;</pre>
 </div>
+<div created="20210418090049758" modified="20210418091011211" tags="Linux" title="linux.firewall">
+<pre>!Firewalld
+
+
+```
+systemctl status firewalld
+```
+
+```
+firewall-cmd --zone=public --add-port=6556/tcp --permanent
+
+firewall-cmd --reload
+
+```
+
+''Disabling firewalld''
+
+```
+systemctl disable firewalld;systemctl stop firewalld
+
+```
+''installing iptables''
+
+```
+yum install iptables-services
+```
+
+```
+touch /etc/sysconfig/iptables;touch /etc/sysconfig/ip6tables;systemctl start iptables;systemctl start ip6tables;systemctl enable iptables;systemctl enable ip6tables
+```
+
+```
+iptables -L
+```
+
+</pre>
+</div>
 <div created="20210413121225569" modified="20210413145651209" tags="Linux" title="Megaraid">
 <pre>! Replace disk
 
@@ -11333,7 +11372,6 @@ $PSVersionTable
 </div>
 <div created="20210414140644331" modified="20210415215256322" tags="graylog" title="sidecar.filebeat">
 <pre>
-
 ```
 wget https://packages.graylog2.org/repo/packages/graylog-sidecar-repository-1-2.noarch.rpm
 
