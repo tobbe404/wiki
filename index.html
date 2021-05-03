@@ -9987,7 +9987,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210503090609661" list="TableOfContents" modified="20210503090645674" title="$:/StoryList">
+<div created="20210503090609661" list="TableOfContents" modified="20210503103150169" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -11152,7 +11152,7 @@ mongorestore /patch/to/dump
 &lt;&lt;toc-selective-expandable  &quot;MsSQL&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20210428144740342" modified="20210428145907324" tags="Linux.commands" title="multitail">
+<div created="20210428144740342" modified="20210503150413928" tags="Linux.commands" title="multitail">
 <pre>The first example shows only lines from /var/log/messages which have the string &quot;gnu-pop3d&quot; somewhere in them. 
 
 ```
@@ -11165,6 +11165,11 @@ The second example only shows lines which do not have the string &quot;ssh&quot;
 multitail -v -e &quot;ssh&quot; -v -e &quot;gnu-pop3d&quot; -e &quot;localhost&quot; /var/log/messages
 ```
 
+merge 2 logs with different colors
+
+```
+multitail -ci green --mergeall /var/log/syslog -ci red /var/log/auth.log
+```
 
 
 
