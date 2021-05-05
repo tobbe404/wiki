@@ -269,6 +269,8 @@ Error message and password prompt
 
 <li>Check_MK</li>
 
+<li>chmod</li>
+
 <li>crontab</li>
 
 <li>date</li>
@@ -9987,7 +9989,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210503090609661" list="TableOfContents" modified="20210503103150169" title="$:/StoryList">
+<div created="20210503090609661" list="TableOfContents" modified="20210505174158276" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10054,8 +10056,8 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210503091422880" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210505123710431" title="$:/temp/search">
+<pre>path</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10450,6 +10452,38 @@ yum update
 &lt;/div&gt;
 
 https://checkmk.com/product/raw-edition</pre>
+</div>
+<div created="20210505173221329" modified="20210505174141028" tags="Linux.commands" title="chmod">
+<pre>
+* 0 = ---
+* 1 = --x
+* 2 = -w-
+* 3 = -wx
+* 4 = r-
+* 5 = r-x
+* 6 = rw-
+* 7 = rwx
+example:
+
+* chmod 777 foldername will give read, write, and execute permissions for everyone.
+* chmod 700 foldername will give read, write, and execute permissions for the user only.
+* chmod 327 foldername will give write and execute (3) permission for the user, w (2) for the group, and read, write, and execute for the users.
+
+&lt;br&gt;
+
+* chmod +rwx filename to add permissions.
+* chmod -rwx directoryname to remove permissions.
+* chmod +x filename to allow executable permissions.
+* chmod -wx filename to take out write and executable permissions.
+
+“g” for group or “o” for users:
+
+* chmod g+w filename
+* chmod g-wx filename
+* chmod o+w filename
+* chmod o-rwx foldername
+
+</pre>
 </div>
 <div created="20141011100335137" modified="20210327155633248" tags="Linux" title="crontab">
 <pre>For details see man 4 crontabs
