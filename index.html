@@ -229,6 +229,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents/Windows-Powershell-497309061</li>
 
+<li>$:/state/toc/TableOfContents/Windows-Windows.commands-497309061</li>
+
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
 <li>$:/StoryList</li>
@@ -9967,7 +9969,7 @@ fi
 <div created="20201104090719470" modified="20201104090719470" title="$:/state/toc/TableOfContents-Windows--278054137">
 <pre>open</pre>
 </div>
-<div created="20201031115142704" modified="20210415215342471" title="$:/state/toc/TableOfContents-Windows-497309061">
+<div created="20201031115142704" modified="20210505213602740" title="$:/state/toc/TableOfContents-Windows-497309061">
 <pre>close</pre>
 </div>
 <div created="20210220114521240" modified="20210327165925893" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
@@ -9988,10 +9990,13 @@ fi
 <div created="20201031115728631" modified="20210402120553460" title="$:/state/toc/TableOfContents/Windows-Powershell-497309061">
 <pre>open</pre>
 </div>
+<div created="20210505213556308" modified="20210505213556308" title="$:/state/toc/TableOfContents/Windows-Windows.commands-497309061">
+<pre>open</pre>
+</div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210503090609661" list="TableOfContents" modified="20210505213045057" title="$:/StoryList">
+<div created="20210503090609661" list="TableOfContents" modified="20210505213701305" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -11317,7 +11322,7 @@ tar cf - mysqldb|ssh 192.168.0.18 tar xf -
 ```
 </pre>
 </div>
-<div created="20210505204620683" modified="20210505210218190" tags="Linux" title="regexp">
+<div created="20210505204620683" modified="20210505213922910" tags="Linux" title="regexp">
 <pre>emty line
 
 ```
@@ -11327,6 +11332,21 @@ all lines starting with #
 
 ```
 ^#.*
+```
+dose not work over 9
+
+```
+ls sup2*[1-9].log.[1-9]
+```
+
+use
+
+```
+ls sup2*{1..12].log.{1..12}
+```
+
+```
+ls /var/log/sup/sup2-*[a-z].log
 ```
 </pre>
 </div>
