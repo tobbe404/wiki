@@ -9991,7 +9991,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210503090609661" list="TableOfContents" modified="20210505210535172" title="$:/StoryList">
+<div created="20210503090609661" list="TableOfContents" modified="20210505213045057" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10741,7 +10741,7 @@ dmidecode | grep -A3 '^System Information'
 
 [[helloworld|https://gist.github.com/tobbe404/940b162f0003f568f329c53802a0eaa3#file-helloworld-ps1]] </pre>
 </div>
-<div created="20210306144935855" modified="20210306151722338" tags="TableOfContents" title="git">
+<div created="20210306144935855" modified="20210505213350236" tags="TableOfContents" title="git">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'git'&gt;&gt;
 &lt;/div&gt;
@@ -10806,6 +10806,26 @@ push
 ```
 git push
 ```
+
+Clone contents of a git repository (without the folder itself)
+
+If the current directory is empty, you can do that with:
+
+```
+git clone git@github.com:me/name.git .
+```
+If it's not empty
+The solution in this case is:
+
+
+```
+git init
+git remote add origin git@github.com:me/name.git
+git pull origin master
+```
+
+
+
 </pre>
 </div>
 <div created="20210306151724513" modified="20210309110117080" tags="git" title="gitignore">
