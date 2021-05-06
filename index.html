@@ -9996,7 +9996,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210503090609661" list="TableOfContents" modified="20210505213701305" title="$:/StoryList">
+<div created="20210503090609661" list="TableOfContents" modified="20210506101359611" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10063,7 +10063,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210505210601214" title="$:/temp/search">
+<div created="20201031112729614" modified="20210506103945308" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10746,7 +10746,7 @@ dmidecode | grep -A3 '^System Information'
 
 [[helloworld|https://gist.github.com/tobbe404/940b162f0003f568f329c53802a0eaa3#file-helloworld-ps1]] </pre>
 </div>
-<div created="20210306144935855" modified="20210505213350236" tags="TableOfContents" title="git">
+<div created="20210306144935855" modified="20210506090246882" tags="TableOfContents" title="git">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'git'&gt;&gt;
 &lt;/div&gt;
@@ -10827,8 +10827,19 @@ The solution in this case is:
 git init
 git remote add origin git@github.com:me/name.git
 git pull origin master
+git branch --set-upstream-to=origin/&lt;branch&gt; master
 ```
 
+list the existing remotes
+
+```
+git remote -v
+```
+Change a remote Git repository
+
+```
+git remote set-url origin git@github.com:me/name.git
+```
 
 
 </pre>
