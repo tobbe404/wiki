@@ -9996,7 +9996,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210503090609661" list="TableOfContents" modified="20210506101359611" title="$:/StoryList">
+<div created="20210506104107114" list="TableOfContents" modified="20210506104107114" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10460,9 +10460,8 @@ yum update
 
 https://checkmk.com/product/raw-edition</pre>
 </div>
-<div created="20210505173221329" modified="20210505174141028" tags="Linux.commands" title="chmod">
-<pre>
-* 0 = ---
+<div created="20210505173221329" modified="20210506104144887" tags="Linux.commands" title="chmod">
+<pre>* 0 = ---
 * 1 = --x
 * 2 = -w-
 * 3 = -wx
@@ -10475,6 +10474,13 @@ example:
 * chmod 777 foldername will give read, write, and execute permissions for everyone.
 * chmod 700 foldername will give read, write, and execute permissions for the user only.
 * chmod 327 foldername will give write and execute (3) permission for the user, w (2) for the group, and read, write, and execute for the users.
+
+Chmod Recursive
+
+
+```
+chmod -R MODE DIRECTORY
+```
 
 &lt;br&gt;
 
@@ -10562,7 +10568,6 @@ Cron job prevent the sending of errors and output
 </div>
 <div created="20210503090649236" modified="20210503091332219" tags="Linux.commands" title="date">
 <pre>
-
 
 ```
 echo $(date --date=&quot;40 days ago&quot;)
