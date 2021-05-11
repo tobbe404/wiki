@@ -592,7 +592,7 @@ if [ -n &quot;$force_color_prompt&quot; ]; then
 fi
 
 if [ &quot;$color_prompt&quot; = yes ]; then
-    PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}$(venv_info)(%B%F{%(#.red.blue)}%n%(#.������.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+    PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}$(venv_info)(%B%F{%(#.red.blue)}%n%(#.������.㉿)%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
     RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
 
     # enable syntax-highlighting
@@ -10174,8 +10174,8 @@ fi
 <div created="20210306150819375" modified="20210413121146166" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
 </div>
-<div created="20210302064244857" modified="20210503091342484" title="$:/state/toc/TableOfContents-Linux-497309061">
-<pre>close</pre>
+<div created="20210302064244857" modified="20210511095523973" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>open</pre>
 </div>
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
@@ -10228,7 +10228,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210507091003692" list="TableOfContents" modified="20210507111904226" title="$:/StoryList">
+<div created="20210510060203612" list="TableOfContents" modified="20210511100031991" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10295,7 +10295,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210507111819504" title="$:/temp/search">
+<div created="20201031112729614" modified="20210510060205071" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10799,8 +10799,7 @@ Cron job prevent the sending of errors and output
 </pre>
 </div>
 <div created="20210503090649236" modified="20210503091332219" tags="Linux.commands" title="date">
-<pre>
-```
+<pre>```
 echo $(date --date=&quot;40 days ago&quot;)
 ```
 
@@ -11975,7 +11974,7 @@ ssh -L 15672:localhost:15672 user@mqserver
 
 </pre>
 </div>
-<div created="20141014132814831" modified="20210328122830518" tags="Linux" title="SSL new cert">
+<div created="20141014132814831" modified="20210511100026050" tags="Linux" title="SSL new cert">
 <pre>```
 openssl genrsa -out {FQDN}.key 2048
 ```
@@ -12027,14 +12026,14 @@ postmaster@hostmaster.com
 
 /etc/pki/tls/certs/{FQDN}.crt
 
+''Bundle''
+
 ```
-cat PositiveSSLCA2.crt &gt;&gt; /etc/pki/tls/certs/{FQDN}.crt   
+cat {FQDN}.crt intermediate.crt &gt; {FQDN}_bundle.crt
 ```
 
 
-```
-cat AddTrustExternalCARoot.crt  &gt;&gt; /etc/pki/tls/certs/{FQDN}.crt
-```
+''Comodo''
 
 ```
 cat {FQDN}.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt &gt; /etc/pki/tls/certs/{FQDN}.crt
