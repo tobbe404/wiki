@@ -375,6 +375,8 @@ Error message and password prompt
 
 <li>sysctl</li>
 
+<li>systemctl</li>
+
 <li>TableOfContents</li>
 
 <li>tar</li>
@@ -10228,7 +10230,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210510060203612" list="TableOfContents" modified="20210512214049755" title="$:/StoryList">
+<div created="20210518213406062" list="TableOfContents" modified="20210519125147738" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10295,7 +10297,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210512214047275" title="$:/temp/search">
+<div created="20201031112729614" modified="20210519125224581" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12061,6 +12063,17 @@ net.inet.sctp.blackhole=2  #Prevent sending an ABORT for incoming INIT and unexp
 net.inet.tcp.drop_synfin=1  #Drop TCP packets with SYN+FIN
 net.inet.tcp.syncookies=1  #Use TCP SYN cookies if the syncache overflows
 
+```
+</pre>
+</div>
+<div created="20210519125104996" modified="20210519125144718" tags="Linux.commands" title="systemctl">
+<pre>
+```
+systemctl reset-failed
+```
+
+```
+systemctl list-units --type=service
 ```
 </pre>
 </div>
