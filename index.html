@@ -357,6 +357,8 @@ Error message and password prompt
 
 <li>rsync</li>
 
+<li>sed</li>
+
 <li>show version</li>
 
 <li>sidecar.filebeat</li>
@@ -10129,16 +10131,11 @@ fi
 <div created="20201104085551529" modified="20201104085844514" title="$:/GitLab/Username">
 <pre></pre>
 </div>
-<div plugin-type="import" status="pending" title="$:/Import" type="application/json">
-<pre>{
-    &quot;tiddlers&quot;: {
-        &quot;Untitled&quot;: {
-            &quot;title&quot;: &quot;Untitled&quot;,
-            &quot;text&quot;: &quot;my_env&quot;,
-            &quot;type&quot;: &quot;text/plain&quot;
-        }
-    }
-}</pre>
+<div status="complete" title="$:/Import">
+<pre>The following tiddlers were imported:
+
+# [[Untitled]]
+# [[sed]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10230,7 +10227,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210518213406062" list="TableOfContents" modified="20210519125147738" title="$:/StoryList">
+<div created="20210518213406062" list="TableOfContents" modified="20210519144831588" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10297,7 +10294,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210519125224581" title="$:/temp/search">
+<div created="20201031112729614" modified="20210519145808044" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11760,6 +11757,43 @@ rsync -avh  --no-perms --delete \
 /source /destination
 ```
 
+</pre>
+</div>
+<div created="20191202123433909" modified="20210519145759906" tags="Linux.commands" title="sed" tmap.id="fbb677a5-9621-445e-b87e-02aade9bc27f">
+<pre>```
+sed -i 's/True/False/g' contacts.mk
+
+sed -i 's/10\.10\.32\.56/10.10.10.44/g' /etc/ntp.conf
+```
+```
+sed -i 's/192\.168\.0\.112/10.10.10.46/g' /etc/hosts.allow
+sed -i 's/192\.168\.0\.112/10.10.10.46/g' /etc/xinetd.d/check_mk
+service xinetd restart
+```
+```
+sed -i 's/10\.10\.10\.44/se.pool.ntp.org/g' /etc/ntp.conf
+service ntpd restart
+```
+
+
+
+! Remove a table from a mysqldump
+
+```
+zcat backup.sql.gz |grep -n 'Table structure\|Dumping data for table'
+```
+
+
+```
+15581:-- Table structure for table `log_solicits`
+15700:-- Dumping data for table `log_solicits`
+535180:-- Table structure for table `log_solicits_apn`
+```
+!! keeping table but no data
+
+```
+zcat backup.sql.gz |sed '15700,535179 d' &gt; no_log_solicits.sql
+```
 </pre>
 </div>
 <div created="20201104085436637" modified="20201104085518420" tags="Powershell" title="show version">
