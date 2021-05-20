@@ -10227,7 +10227,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210518213406062" list="TableOfContents" modified="20210519144831588" title="$:/StoryList">
+<div created="20210520202014488" list="TableOfContents" modified="20210520202214423" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10684,12 +10684,21 @@ yum update
 ```
 </pre>
 </div>
-<div created="20210309105457050" modified="20210309105719931" tags="Monitoring" title="Check_MK">
+<div created="20210309105457050" modified="20210520202211404" tags="Monitoring" title="Check_MK">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Check_MK'&gt;&gt;
 &lt;/div&gt;
 
-https://checkmk.com/product/raw-edition</pre>
+https://checkmk.com/product/raw-edition
+
+checkmk over ssh
+
+Edited rule in ruleset &quot;Individual program call instead of agent access&quot; in folder &quot;Main directory&quot; (checkmk 2.0)
+
+```
+ssh root@$_HOSTADDRESS_4$ ./check_mk_agent
+```
+</pre>
 </div>
 <div created="20210505173221329" modified="20210506104144887" tags="Linux.commands" title="chmod">
 <pre>* 0 = ---
@@ -12101,8 +12110,7 @@ net.inet.tcp.syncookies=1  #Use TCP SYN cookies if the syncache overflows
 </pre>
 </div>
 <div created="20210519125104996" modified="20210519125144718" tags="Linux.commands" title="systemctl">
-<pre>
-```
+<pre>```
 systemctl reset-failed
 ```
 
