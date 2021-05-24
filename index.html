@@ -337,6 +337,8 @@ Error message and password prompt
 
 <li>Nagios</li>
 
+<li>netstat</li>
+
 <li>Packer</li>
 
 <li>plugins.vagrant</li>
@@ -10227,7 +10229,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210520225832409" list="TableOfContents" modified="20210520225832409" title="$:/StoryList">
+<div created="20210524071117039" list="TableOfContents" modified="20210524132732092" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10275,15 +10277,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10294,7 +10296,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210519145808044" title="$:/temp/search">
+<div created="20201031112729614" modified="20210524132620324" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11254,7 +11256,7 @@ http://ip:8080
 &lt;&lt;toc-selective-expandable  &quot;Linux&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20210220111934295" modified="20210220112000028" tags="Linux" title="Linux.commands">
+<div created="20210220111934295" modified="20210524130644054" tags="Linux" title="Linux.commands">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
 &lt;&lt;toc-selective-expandable 'Linux.commands'&gt;&gt;
@@ -11511,6 +11513,25 @@ https://github.com/loncarales/CheatSheets/blob/master/ccze_multitail.md
 &lt;/div&gt;
 
 https://www.nagios.org/</pre>
+</div>
+<div created="20210524130651313" modified="20210524132503267" tags="Linux.commands" title="netstat">
+<pre>Display summary statistics for each protocol
+
+```
+netstat -s
+```
+Routing
+
+```
+netstat -f
+```
+
+
+```
+netstat -tulpan |grep -E 'ESTABLISHED | TIME_WAIT | CLOSING'
+
+```
+</pre>
 </div>
 <div created="20210220141434281" modified="20210220143738762" tags="Automation" title="Packer">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
