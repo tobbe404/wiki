@@ -149,6 +149,8 @@ Error message and password prompt
 
 <li>$:/config/NewJournal/Title</li>
 
+<li>$:/config/RelinkOnRename</li>
+
 <li>$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/new-here</li>
 
 <li>$:/core</li>
@@ -373,6 +375,8 @@ Error message and password prompt
 
 <li>sed</li>
 
+<li>set timezone</li>
+
 <li>show version</li>
 
 <li>sidecar.filebeat</li>
@@ -402,8 +406,6 @@ Error message and password prompt
 <li>TiddlyWiki</li>
 
 <li>ubuntu</li>
-
-<li>ubuntu set timezone</li>
 
 <li>ubuntu.firefox.java</li>
 
@@ -742,6 +744,9 @@ fi
 </div>
 <div created="20210318081611185" modified="20210318081611185" title="$:/config/NewJournal/Title">
 <pre>YYYY-0MM-0DD DDD</pre>
+</div>
+<div created="20210604130233215" modified="20210604130233215" title="$:/config/RelinkOnRename">
+<pre>yes</pre>
 </div>
 <div created="20201027100119777" modified="20201027100119777" title="$:/config/ViewToolbarButtons/Visibility/$:/core/ui/Buttons/new-here">
 <pre>show</pre>
@@ -10251,7 +10256,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210531063838603" list="TableOfContents" modified="20210603211058960" title="$:/StoryList">
+<div created="20210531063838603" list="TableOfContents" modified="20210604130305943" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10318,8 +10323,8 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210603211105792" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210604130146957" title="$:/temp/search">
+<pre>linu</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12007,6 +12012,9 @@ zcat backup.sql.gz |sed '15700,535179 d' &gt; no_log_solicits.sql
 ```
 </pre>
 </div>
+<div created="20210327145607037" modified="20210604130235239" tags="ubuntu Linux.commands" title="set timezone">
+<pre>timedatectl set-timezone Europe/Stockholm</pre>
+</div>
 <div created="20201104085436637" modified="20201104085518420" tags="Powershell" title="show version">
 <pre>```
 $PSVersionTable
@@ -12505,9 +12513,6 @@ To link to a tiddler and specify the text of the link:
 &lt;&lt;toc-selective-expandable 'ubuntu'&gt;&gt;
 
 &lt;/div&gt;</pre>
-</div>
-<div created="20210327145607037" modified="20210327155500783" tags="ubuntu" title="ubuntu set timezone">
-<pre>timedatectl set-timezone Europe/Stockholm</pre>
 </div>
 <div created="20210529085524867" modified="20210603201707289" tags="ubuntu" title="ubuntu.firefox.java">
 <pre>~~apt install icedtea-netx-common~~
