@@ -10256,7 +10256,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210531063838603" list="TableOfContents" modified="20210604130305943" title="$:/StoryList">
+<div created="20210607141021168" list="TableOfContents" modified="20210607141641733" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10304,11 +10304,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10323,8 +10323,8 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210604130146957" title="$:/temp/search">
-<pre>linu</pre>
+<div created="20201031112729614" modified="20210607141656498" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10713,7 +10713,7 @@ yum update
 ```
 </pre>
 </div>
-<div created="20210309105457050" modified="20210520202211404" tags="Monitoring" title="Check_MK">
+<div created="20210309105457050" modified="20210607141525854" tags="Monitoring" title="Check_MK">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Check_MK'&gt;&gt;
 &lt;/div&gt;
@@ -10726,6 +10726,14 @@ Edited rule in ruleset &quot;Individual program call instead of agent access&quo
 
 ```
 ssh root@$_HOSTADDRESS_4$ ./check_mk_agent
+```
+! monitor [[Megaraid]]
+
+install magaraid and add a symlink in /usr/local/bin/
+
+```
+cd /usr/local/bin/
+ln -s /opt/MegaRAID/MegaCli/MegaCli64 MegaCli64
 ```
 </pre>
 </div>
@@ -11456,7 +11464,7 @@ iptables -L
 
 </pre>
 </div>
-<div created="20210413121225569" modified="20210413145651209" tags="Linux" title="Megaraid">
+<div created="20210413121225569" modified="20210607141559612" tags="Linux" title="Megaraid">
 <pre>! Replace disk
 
 ''Working dir''
@@ -11571,7 +11579,7 @@ https://wikitech.wikimedia.org/wiki/MegaCli
 
 https://hwraid.le-vert.net/wiki/LSIMegaRAIDSAS
 
-</pre>
+monitoring with [[Check_MK]]</pre>
 </div>
 <div created="20190228132313356" modified="20210311080347854" tags="Linux.commands" title="mem" tmap.id="6ac9e2d0-f112-4c3a-8068-494746da7cef">
 <pre>free -m
