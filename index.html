@@ -225,6 +225,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents/Automation-Ansible-497309061</li>
 
+<li>$:/state/toc/TableOfContents/Automation-jenkins-497309061</li>
+
 <li>$:/state/toc/TableOfContents/Automation-Vagrant-497309061</li>
 
 <li>$:/state/toc/TableOfContents/Linux-Linux.commands-497309061</li>
@@ -348,6 +350,8 @@ Error message and password prompt
 <li>Nagios</li>
 
 <li>netstat</li>
+
+<li>openssl base64</li>
 
 <li>Packer</li>
 
@@ -10178,7 +10182,7 @@ fi
 <div created="20201030075715490" modified="20210328111318915" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20201029102045487" modified="20210329111052799" title="$:/state/tab/sidebar--595412856">
+<div created="20201029102045487" modified="20210610122046865" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
@@ -10193,8 +10197,8 @@ fi
 <div created="20210603201943614" modified="20210603201943614" title="$:/state/toc/Password manager-KeePass-1918720731">
 <pre>open</pre>
 </div>
-<div created="20210220113945412" modified="20210603211104103" title="$:/state/toc/TableOfContents-Automation-497309061">
-<pre>close</pre>
+<div created="20210220113945412" modified="20210610075738964" title="$:/state/toc/TableOfContents-Automation-497309061">
+<pre>open</pre>
 </div>
 <div created="20210306150819375" modified="20210603201232575" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
@@ -10232,6 +10236,9 @@ fi
 <div created="20210220114521240" modified="20210603202235405" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
 <pre>close</pre>
 </div>
+<div created="20210610075742372" modified="20210610075742372" title="$:/state/toc/TableOfContents/Automation-jenkins-497309061">
+<pre>open</pre>
+</div>
 <div created="20210311130747837" modified="20210327165927447" title="$:/state/toc/TableOfContents/Automation-Vagrant-497309061">
 <pre>close</pre>
 </div>
@@ -10256,7 +10263,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210607141021168" list="TableOfContents" modified="20210607141641733" title="$:/StoryList">
+<div created="20210610075743047" list="TableOfContents" modified="20210610122048421" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10323,7 +10330,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210607141656498" title="$:/temp/search">
+<div created="20201031112729614" modified="20210610122034654" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11697,6 +11704,21 @@ netstat -tulpan |grep -E 'ESTABLISHED | TIME_WAIT | CLOSING'
 ```
 </pre>
 </div>
+<div created="20210610120713921" modified="20210610121128994" tags="Linux" title="openssl base64">
+<pre>text to binary
+
+```
+openssl enc -d -base64 -A -in Plaintext.b64 -out Plaintext.bin
+```
+
+bin to text
+
+```
+openssl base64 -A -in Plaintext.bin -out Plaintext.b64
+```
+
+</pre>
+</div>
 <div created="20210220141434281" modified="20210220143738762" tags="Automation" title="Packer">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Packer'&gt;&gt;
@@ -12673,13 +12695,27 @@ Vagrant.configure(&quot;2&quot;) do |config|
 end
 ```</pre>
 </div>
-<div created="20210603201507038" modified="20210603211042655" tags="[[Password manager]]" title="Vault">
+<div created="20210603201507038" modified="20210610122024474" tags="[[Password manager]]" title="Vault">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Vault'&gt;&gt;
 &lt;/div&gt;
  Vault by ~HashiCorp
 
-https://www.vaultproject.io/</pre>
+https://www.vaultproject.io/
+
+vault cli
+
+```
+export VAULT_ADDR=https://..:8200
+
+vault login
+
+vault kv get -field=my_b64_key keys/testkeys &gt; Plaintext.b64
+```
+
+{{openssl base64}}
+
+</pre>
 </div>
 <div created="20210220174718336" modified="20210220221512292" tags="TableOfContents" title="Virtualization">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
