@@ -10263,7 +10263,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210611203723404" list="TableOfContents" modified="20210614112300710" title="$:/StoryList">
+<div created="20210617071346898" list="TableOfContents" modified="20210617210047622" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10330,7 +10330,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210614112325579" title="$:/temp/search">
+<div created="20201031112729614" modified="20210617205020687" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10977,7 +10977,7 @@ blacklist {
 ```
 </pre>
 </div>
-<div created="20210309130901491" modified="20210614112259262" tags="Linux.commands" title="Extend partition">
+<div created="20210309130901491" modified="20210309131213012" tags="Linux.commands" title="Extend partition">
 <pre>! for virtual-box with [[Vagrant]] and  [[vagrant-disksize|plugins.vagrant]]
 
 
@@ -11001,16 +11001,6 @@ Enter ''w'' to write the partition table to disk. You will see an error about de
 ```
 xfs_growfs /dev/sda1
 ```
-
-! AWS Linux 2
-
-disk with no partitions
-
-
-```
-xfs_growfs -d /data
-```
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
 </pre>
 </div>
 <div created="20210413121049838" modified="20210413121142756" tags="Windows.commands" title="findstr">
@@ -12411,7 +12401,7 @@ tar -zcvpf /opt/backup/www_diff-`date +&quot;%Y-%m-%d&quot;`.tar.gz -g /opt/back
 ```
 </pre>
 </div>
-<div created="20210220111854189" modified="20210526160007362" tags="Automation" title="Terraform">
+<div created="20210220111854189" modified="20210617141345346" tags="Automation" title="Terraform">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Terraform'&gt;&gt;
 &lt;/div&gt;
@@ -12423,6 +12413,10 @@ https://www.terraform.io/
 
 ```
 terraform fmt -recursive -check
+```
+
+```
+terraform fmt file.tf
 ```
 
 ```
