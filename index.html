@@ -305,6 +305,8 @@ Error message and password prompt
 
 <li>Flush DNS cach</li>
 
+<li>for loop</li>
+
 <li>get hardware info</li>
 
 <li>gist</li>
@@ -10161,8 +10163,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Plugin for firefox]]
-# [[Configuring KeePass to launch RDP]]</pre>
+# [[for loop]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10263,7 +10264,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210617071346898" list="TableOfContents" modified="20210617210047622" title="$:/StoryList">
+<div created="20210617071346898" list="TableOfContents" modified="20210618092104674" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10330,7 +10331,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210617205020687" title="$:/temp/search">
+<div created="20201031112729614" modified="20210618092157833" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11015,6 +11016,38 @@ netstat -an | findstr &quot;3389&quot;
 
 ```
 sudo /etc/init.d/networking restart
+```
+</pre>
+</div>
+<div created="20190228132831962" modified="20210216124501723" tags="[[Linux commands]]" title="for loop" tmap.id="adbfede8-5496-44d9-868b-86ca90ebd37a">
+<pre>```
+for A in *.??;  do gzip -d $A; done
+```
+
+
+```
+
+for A in *.??;  do gzip $A; done
+```
+
+
+
+```
+for A in *log*.???? ;  do gzip $A; done
+```
+
+
+
+```
+for word in $(cat peptides.txt); do echo $word; done
+```
+
+[[awk]]
+
+get pid from longest running apps started from /opt
+
+```
+for P in $(ps ax|grep /opt| awk '{print $4, $1, $5}'|sort -g|tail -n 5|awk '{print $2}'); do echo $P; done
 ```
 </pre>
 </div>
