@@ -279,6 +279,8 @@ Error message and password prompt
 
 <li>Centos 6 Vault Repo</li>
 
+<li>certbot letsencrypt</li>
+
 <li>Check_MK</li>
 
 <li>chmod</li>
@@ -10264,7 +10266,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210617071346898" list="TableOfContents" modified="20210618092104674" title="$:/StoryList">
+<div created="20210620135951254" list="TableOfContents" modified="20210620150022855" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10312,15 +10314,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10331,7 +10333,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210618092157833" title="$:/temp/search">
+<div created="20201031112729614" modified="20210620150021633" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10719,6 +10721,28 @@ yum clean all
 ```
 yum update
 ```
+</pre>
+</div>
+<div created="20210620140027735" modified="20210620150001368" tags="[[SSL new cert]]" title="certbot letsencrypt">
+<pre>Manual
+
+
+```
+sudo certbot certonly --manual \
+  --preferred-challenges=dns \
+  --email hostmaster@domain.com \
+  --server https://acme-v02.api.letsencrypt.org/directory \
+  --agree-tos \
+  --manual-public-ip-logging-ok \
+  -d &quot;*.domain.com&quot;
+```
+*add TXT record to your domain 
+*check it's loaded
+```
+dig _acme-challenge.domain.comt TXT @8.8.8.8
+```
+*press enter
+
 </pre>
 </div>
 <div created="20210309105457050" modified="20210607141525854" tags="Monitoring" title="Check_MK">
@@ -12292,8 +12316,14 @@ ssh -L 15672:localhost:15672 user@mqserver
 
 </pre>
 </div>
-<div created="20141014132814831" modified="20210511100026050" tags="Linux" title="SSL new cert">
-<pre>```
+<div created="20141014132814831" modified="20210620140024174" tags="Linux" title="SSL new cert">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'SSL new cert'&gt;&gt;
+
+&lt;/div&gt;
+
+```
 openssl genrsa -out {FQDN}.key 2048
 ```
 
