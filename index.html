@@ -10268,7 +10268,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210620135951254" list="TableOfContents jenkins jenkins.backup" modified="20210621172845473" title="$:/StoryList">
+<div created="20210620135951254" list="TableOfContents jenkins jenkins.backup" modified="20210621210726736" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10335,8 +10335,8 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210621153122147" title="$:/temp/search">
-<pre>vault</pre>
+<div created="20201031112729614" modified="20210621210752081" title="$:/temp/search">
+<pre>date </pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10895,7 +10895,7 @@ Cron job prevent the sending of errors and output
 ```
 </pre>
 </div>
-<div created="20210503090649236" modified="20210503091332219" tags="Linux.commands" title="date">
+<div created="20210503090649236" modified="20210621211344873" tags="Linux.commands" title="date">
 <pre>```
 echo $(date --date=&quot;40 days ago&quot;)
 ```
@@ -10914,6 +10914,11 @@ Show the local time for 9AM next Friday on the west coast of the US
 
 ```
 date --date='TZ=&quot;America/Los_Angeles&quot; 09:00 next Fri'
+```
+
+
+```
+echo `date +%Y-%m-%d_%H:%m`
 ```
 
 </pre>
