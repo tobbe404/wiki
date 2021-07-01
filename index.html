@@ -291,7 +291,11 @@ Error message and password prompt
 
 <li>date</li>
 
+<li>disk space</li>
+
 <li>Docker</li>
+
+<li>du</li>
 
 <li>elasticsearch</li>
 
@@ -10206,8 +10210,8 @@ fi
 <div created="20210306150819375" modified="20210603201232575" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
 </div>
-<div created="20210302064244857" modified="20210603201242441" title="$:/state/toc/TableOfContents-Linux-497309061">
-<pre>close</pre>
+<div created="20210302064244857" modified="20210701064638822" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>open</pre>
 </div>
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
@@ -10266,7 +10270,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210628104740309" list="TableOfContents" modified="20210628114218003" title="$:/StoryList">
+<div created="20210701064644100" list="TableOfContents" modified="20210701065247548" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10333,7 +10337,7 @@ fi
 <div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210628114245440" title="$:/temp/search">
+<div created="20201031112729614" modified="20210701065243326" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10921,6 +10925,11 @@ date --date='TZ=&quot;America/Los_Angeles&quot; 09:00 next Fri'
 
 </pre>
 </div>
+<div created="20210701065034783" modified="20210701065227165" tags="Windows.commands" title="disk space">
+<pre>what’s taking up all the available space
+
+https://www.jam-software.com/treesize_free</pre>
+</div>
 <div created="20201116165919622" modified="20210221002501931" tags="Virtualization" title="Docker">
 <pre>```
 docker volume create portainer_data
@@ -10954,6 +10963,14 @@ docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 --name=portainer --resta
 
 
 /var/lib/docker/volumes/</pre>
+</div>
+<div created="20210701064652003" modified="20210701065008747" tags="Linux.commands" title="du">
+<pre>what’s taking up all the available space
+
+```
+du -h --max-depth=1 / --exclude=/run --exclude=/proc
+```
+</pre>
 </div>
 <div created="20210309123345991" modified="20210309124958282" tags="graylog" title="elasticsearch">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
