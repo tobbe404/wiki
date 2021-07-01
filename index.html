@@ -263,6 +263,8 @@ Error message and password prompt
 
 <li>aliases</li>
 
+<li>Allow scripts to run</li>
+
 <li>amazon-linux-2</li>
 
 <li>Ansible</li>
@@ -291,6 +293,8 @@ Error message and password prompt
 
 <li>date</li>
 
+<li>deleta old files</li>
+
 <li>disk space</li>
 
 <li>Docker</li>
@@ -306,6 +310,8 @@ Error message and password prompt
 <li>error multipathd ubuntu</li>
 
 <li>Extend partition</li>
+
+<li>filehandle on deleted files</li>
 
 <li>findstr</li>
 
@@ -381,6 +387,8 @@ Error message and password prompt
 
 <li>relay subdomain</li>
 
+<li>remove old files with powershell</li>
+
 <li>restore</li>
 
 <li>rsync</li>
@@ -412,6 +420,8 @@ Error message and password prompt
 <li>TableOfContents</li>
 
 <li>tar</li>
+
+<li>Task Scheduler powershell</li>
 
 <li>Terraform</li>
 
@@ -10240,8 +10250,8 @@ fi
 <div created="20201031115142704" modified="20210603201123187" title="$:/state/toc/TableOfContents-Windows-497309061">
 <pre>close</pre>
 </div>
-<div created="20210220114521240" modified="20210603202235405" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
-<pre>close</pre>
+<div created="20210220114521240" modified="20210701131315916" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
+<pre>open</pre>
 </div>
 <div created="20210610075742372" modified="20210610075742372" title="$:/state/toc/TableOfContents/Automation-jenkins-497309061">
 <pre>open</pre>
@@ -10270,7 +10280,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210701064644100" list="TableOfContents" modified="20210701065247548" title="$:/StoryList">
+<div created="20210701064644100" list="Powershell [[deleta old files]] du Linux.commands TableOfContents Ansible.commands" modified="20210701133255882" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10334,11 +10344,11 @@ fi
 <div created="20210220112904638" modified="20210220112904638" title="$:/temp/NewFieldName-1521706823">
 <pre>caption</pre>
 </div>
-<div created="20201104145520707" modified="20210413121141300" title="$:/temp/NewTagName">
+<div created="20201104145520707" modified="20210701132941420" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210701065243326" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210701133254598" title="$:/temp/search">
+<pre>power</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10515,6 +10525,15 @@ postalias /etc/aliases
 newaliases
 postfix reload
 
+```
+</pre>
+</div>
+<div created="20210701133520153" modified="20210701133550636" tags="Powershell" title="Allow scripts to run">
+<pre>''Allow scripts to run''
+
+```
+Get-ExecutionPolicy
+Set-ExecutionPolicy RemoteSigned
 ```
 </pre>
 </div>
@@ -10925,6 +10944,14 @@ date --date='TZ=&quot;America/Los_Angeles&quot; 09:00 next Fri'
 
 </pre>
 </div>
+<div created="20210701132435605" modified="20210701133117517" tags="Linux.commands" title="deleta old files">
+<pre>Linux
+
+```
+find /opt/backup/*.gz -mtime +5 -type f -delete
+```
+</pre>
+</div>
 <div created="20210701065034783" modified="20210701065227165" tags="Windows.commands" title="disk space">
 <pre>what’s taking up all the available space
 
@@ -11053,6 +11080,11 @@ Enter ''w'' to write the partition table to disk. You will see an error about de
 xfs_growfs /dev/sda1
 ```
 </pre>
+</div>
+<div created="20210701132823774" modified="20210701132944838" tags="Linux.commands" title="filehandle on deleted files">
+<pre>lsof -n | grep deleted
+
+restart the process that owns the handle</pre>
 </div>
 <div created="20210413121049838" modified="20210413121142756" tags="Windows.commands" title="findstr">
 <pre>''windows grep ''
@@ -12019,6 +12051,24 @@ postmap /etc/postfix/transport
 Don't forget to restart postfix after your changes.
 </pre>
 </div>
+<div created="20210701133133617" modified="20210701133650245" tags="Powershell" title="remove old files with powershell">
+<pre>''[clean.ps1]''
+
+```
+$limit = (Get-Date).AddDays(-5)
+$path = &quot;C:\backup&quot;
+
+# Delete files older than the $limit.
+Get-ChildItem -Path $path -Recurse -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -lt $limit } | Remove-Item -Force
+
+# Delete any empty directories left behind after deleting the old files.
+Get-ChildItem -Path $path -Recurse -Force | Where-Object { $_.PSIsContainer -and (Get-ChildItem -Path $_.FullName -Recurse -Force | Where-Object { !$_.PSIsContainer }) -eq $null } | Remove-Item -Force -Recurse
+```
+
+{{Task Scheduler powershell}}
+
+{{Allow scripts to run}}</pre>
+</div>
 <div created="20210309124907627" modified="20210309124947840" tags="elasticsearch" title="restore">
 <pre>Restore a snapshot
 
@@ -12491,6 +12541,16 @@ Differential tar
 ```
 tar -zcvpf /opt/backup/www_diff-`date +&quot;%Y-%m-%d&quot;`.tar.gz -g /opt/backup/backup.snar /var/www/ /etc/nginx/
 ```
+</pre>
+</div>
+<div created="20210701133304642" modified="20210701133508839" tags="Powershell" title="Task Scheduler powershell">
+<pre>''to run it in shedual task ''
+
+
+```
+powershell c:\clean.ps1
+```
+
 </pre>
 </div>
 <div created="20210220111854189" modified="20210617141345346" tags="Automation" title="Terraform">
