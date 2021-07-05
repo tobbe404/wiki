@@ -291,6 +291,8 @@ Error message and password prompt
 
 <li>crontab</li>
 
+<li>curl</li>
+
 <li>date</li>
 
 <li>delete old files</li>
@@ -426,6 +428,10 @@ Error message and password prompt
 <li>Task Scheduler powershell</li>
 
 <li>Terraform</li>
+
+<li>terraform.basic.commands</li>
+
+<li>terraform.provider</li>
 
 <li>TiddlyWiki</li>
 
@@ -10183,7 +10189,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[vi vim]]</pre>
+# [[terraform.provider]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10284,7 +10290,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210704111532644" list="TableOfContents" modified="20210704125139051" title="$:/StoryList">
+<div created="20210704115951933" list="TableOfContents" modified="20210705155714767" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10332,15 +10338,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10348,10 +10354,10 @@ fi
 <div created="20210220112904638" modified="20210220112904638" title="$:/temp/NewFieldName-1521706823">
 <pre>caption</pre>
 </div>
-<div created="20201104145520707" modified="20210701132941420" title="$:/temp/NewTagName">
+<div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210704125146651" title="$:/temp/search">
+<div created="20201031112729614" modified="20210705155750668" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10920,6 +10926,40 @@ Cron job prevent the sending of errors and output
 ```
 </pre>
 </div>
+<div created="20191202113418513" modified="20210705155258693" tags="Linux.commands" title="curl" tmap.id="206fde85-0505-4104-9c64-60e6373f006f">
+<pre>! test proxy http
+
+
+```
+curl -x http://127.0.0.1:8888 -L http://ifconfig.me
+```
+
+Beware that if you are using a SOCKS proxy, instead of a HTTP/HTTPS proxy, you will need to use the --socks5 switch instead:
+
+
+```
+curl --socks5 127.0.0.1:8909 http://example.com/
+```
+
+
+! ignor cert
+
+
+```
+-k, --insecure
+```
+! download file
+
+```
+curl http://example.com/file.zip --output file.zip
+```
+! silent
+
+```
+-s, --silent
+```
+</pre>
+</div>
 <div created="20210503090649236" modified="20210628114215252" tags="Linux.commands" title="date">
 <pre>```
 echo $(date --date=&quot;40 days ago&quot;)
@@ -11400,12 +11440,12 @@ sort -u /backup/file.log|wc -l
 
 </pre>
 </div>
-<div created="20210704110703026" modified="20210704111857210" tags="Linux" title="haproxy">
+<div created="20210704110703026" modified="20210704110744697" tags="Linux" title="haproxy">
 <pre>test config
 
 
 ```
-haproxy2 -c -V -f /etc/haproxy2/haproxy2.cfg
+haproxy2 -c -V -f /etc/haproxy/haproxy2.cfg
 ```
 </pre>
 </div>
@@ -12593,6 +12633,67 @@ export AWS_ACCESS_KEY_ID=&quot;anaccesskey&quot;
 export AWS_SECRET_ACCESS_KEY=&quot;asecretkey&quot;
 export AWS_DEFAULT_REGION=&quot;us-west-2&quot;
 terraform plan
+```
+</pre>
+</div>
+<div created="20210216223141034" modified="20210705155650630" tags="Terraform" title="terraform.basic.commands" tmap.id="6132e602-9883-47cd-9264-e02f875c6238">
+<pre>{{terraform.provider}}
+
+&lt;br&gt;&lt;br&gt;
+
+
+```
+terraform plan 
+```
+(dry run)terraform.provider
+Show changes required by the current configuration
+
+
+```
+~ Change
+# Destroy
+```
+
+
+```
+terraform refresh 
+```
+Update the state to match remote systems
+
+
+```
+terraform apply
+```
+Create or update infrastructure
+
+&lt;&lt;&lt;
+infrastructure deployed by config will be destroyed if deleted in config
+&lt;&lt;&lt;
+
+```
+terraform destroy
+```
+delete everything deployed by config
+
+
+The -target flag, instead of affecting &quot;dependencies&quot; will instead also destroy any resources that depend on the target(s) specified. For more information, see the [[targeting docs from terraform plan|https://www.terraform.io/docs/cli/commands/plan.html#resource-targeting]].
+</pre>
+</div>
+<div created="20210216224457862" modified="20210705155725447" tags="Terraform" title="terraform.provider" tmap.id="c8a8963c-870b-4e48-ae77-92e7f55e09ff">
+<pre>in working dir&lt;br&gt;
+config.tf
+
+```
+# Configure the AWS Provider
+provider &quot;aws&quot; {
+  region = &quot;eu-north-1&quot;
+}
+```
+Install provider plugin&lt;br&gt;
+cd working dir
+
+```
+terraform init
 ```
 </pre>
 </div>
