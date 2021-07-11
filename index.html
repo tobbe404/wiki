@@ -291,6 +291,8 @@ Error message and password prompt
 
 <li>Configuring KeePass to launch RDP</li>
 
+<li>create user and add grants</li>
+
 <li>crontab</li>
 
 <li>curl</li>
@@ -10299,7 +10301,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210711065052205" list="$:/ControlPanel TableOfContents MySQL [[show all grants]]" modified="20210711134049562" title="$:/StoryList">
+<div created="20210711065052205" list="TableOfContents" modified="20210711135143426" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10864,6 +10866,24 @@ cmd://cmd /c &quot;cmdkey /generic:TERMSRV/{URL:RMVSCM} /user:{USERNAME} /pass:{
 ```
 Now any password entries that have a URL of rdp://{hostname or ip} (e.g. rdp://127.0.0.1) will be able to have mstsc.exe (remote desktop client) launched and logged in.
 
+
+</pre>
+</div>
+<div created="20210711135154419" modified="20210711140254417" tags="MySQL" title="create user and add grants">
+<pre>
+```
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+```
+
+
+```
+GRANT ALL PRIVILEGES ON db.* TO 'user'@'localhost';
+```
+
+
+```
+FLUSH PRIVILEGES; 
+```
 
 </pre>
 </div>
