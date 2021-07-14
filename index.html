@@ -297,6 +297,8 @@ Error message and password prompt
 
 <li>date</li>
 
+<li>dateutils</li>
+
 <li>delete old files</li>
 
 <li>disk space</li>
@@ -10311,7 +10313,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210712063612729" list="TableOfContents" modified="20210712085457430" title="$:/StoryList">
+<div created="20210712063612729" list="TableOfContents" modified="20210714090926547" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10378,7 +10380,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210712085425633" title="$:/temp/search">
+<div created="20201031112729614" modified="20210714090923866" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10981,7 +10983,7 @@ curl http://example.com/file.zip --output file.zip
 ```
 </pre>
 </div>
-<div created="20210503090649236" modified="20210628114215252" tags="Linux.commands" title="date">
+<div created="20210503090649236" modified="20210714083837669" tags="Linux.commands" title="date">
 <pre>```
 echo $(date --date=&quot;40 days ago&quot;)
 ```
@@ -11007,6 +11009,63 @@ date --date='TZ=&quot;America/Los_Angeles&quot; 09:00 next Fri'
 `date +%Y-%m-%d`
 ```
 
+
+
+&lt;&lt;&lt;
+include  [[dateutils]]
+&lt;&lt;&lt;
+
+
+{{dateutils}}</pre>
+</div>
+<div created="20210714083432177" modified="20210714085723940" tags="Linux.commands" title="dateutils">
+<pre>
+
+```
+sudo apt install dateutils
+```
+
+
+```
+dateutils.ddiff 2021-06-08 now
+```
+
+```
+dateutils.ddiff 2021-06-08 2021-07-08
+```
+
+
+```
+dateutils.dadd 2021-06-08 +30
+```
+
+```
+
+COMMANDS
+       dadd(1)
+           Add durations to dates or times
+
+       dconv(1)
+           Convert dates between calendars or time zones
+
+       ddiff(1)
+           Compute durations between dates and times
+
+       dgrep(1)
+           Find date or time matches in input stream
+
+       dround(1)
+           Round dates or times to designated values
+
+       dseq(1)
+           Generate sequences of dates or times
+
+       dtest(1)
+           Compare dates or times
+
+       strptime(1)
+           Command line version of the C function
+```
 </pre>
 </div>
 <div created="20210701132435605" modified="20210701133904969" tags="Linux.commands" title="delete old files">
