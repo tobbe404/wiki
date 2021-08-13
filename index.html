@@ -10325,7 +10325,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210810065932756" list="TableOfContents" modified="20210810121028449" title="$:/StoryList">
+<div created="20210810151159886" list="TableOfContents" modified="20210813134017732" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10392,7 +10392,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210810121035304" title="$:/temp/search">
+<div created="20201031112729614" modified="20210813133953084" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11078,11 +11078,16 @@ COMMANDS
 ```
 </pre>
 </div>
-<div created="20210701132435605" modified="20210701133904969" tags="Linux.commands" title="delete old files">
+<div created="20210701132435605" modified="20210813131544877" tags="Linux.commands" title="delete old files">
 <pre>Linux
 
 ```
 find /opt/backup/*.gz -mtime +5 -type f -delete
+```
+Minutes
+
+```
+-mmin 60
 ```
 </pre>
 </div>
@@ -11576,8 +11581,8 @@ Unlock Jenkins
 http://ip:8080
 </pre>
 </div>
-<div created="20210712081956694" modified="20210712082351788" tags="Linux.commands" title="journalctl">
-<pre>/etc/systemd/journald.conf:
+<div created="20210712081956694" modified="20210813133909571" tags="Linux.commands" title="journalctl">
+<pre>/etc/systemd/journald.conf
 
 
 ```
@@ -11588,6 +11593,17 @@ SystemMaxUse=400M
 ```
 sudo journalctl --vacuum-size=300M
 ```
+
+
+&lt;&lt;&lt;
+may not work
+
+```
+systemctl reload systemd-journald
+```
+
+&lt;&lt;&lt;
+
 </pre>
 </div>
 <div created="20170313213618831" modified="20210603201914410" tags="[[Password manager]]" title="KeePass" tmap.id="7d50c7ae-b98c-4dcf-9d70-110acc55e73a">
@@ -12773,13 +12789,16 @@ net.inet.tcp.syncookies=1  #Use TCP SYN cookies if the syncache overflows
 ```
 </pre>
 </div>
-<div created="20210519125104996" modified="20210519125144718" tags="Linux.commands" title="systemctl">
+<div created="20210519125104996" modified="20210813133941376" tags="Linux.commands" title="systemctl">
 <pre>```
 systemctl reset-failed
 ```
 
 ```
 systemctl list-units --type=service
+```
+```
+systemctl daemon-reload
 ```
 </pre>
 </div>
