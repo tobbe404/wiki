@@ -307,6 +307,8 @@ Error message and password prompt
 
 <li>du</li>
 
+<li>ec2.Extend partition</li>
+
 <li>elasticsearch</li>
 
 <li>env</li>
@@ -10280,8 +10282,8 @@ fi
 <div created="20201105072555355" modified="20210309105237328" title="$:/state/toc/TableOfContents-TiddlyWiki-497309061">
 <pre>close</pre>
 </div>
-<div created="20210221002224371" modified="20210318081514161" title="$:/state/toc/TableOfContents-Virtualization-497309061">
-<pre>close</pre>
+<div created="20210221002224371" modified="20210816090154662" title="$:/state/toc/TableOfContents-Virtualization-497309061">
+<pre>open</pre>
 </div>
 <div created="20201031115414950" modified="20201031115414950" title="$:/state/toc/TableOfContents-Windows--118161433">
 <pre>open</pre>
@@ -10325,7 +10327,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210810151159886" list="TableOfContents" modified="20210813134017732" title="$:/StoryList">
+<div created="20210813143730041" list="TableOfContents" modified="20210816164026534" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10392,8 +10394,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210813133953084" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210816161350337" title="$:/temp/search">
+<pre>disk</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10582,8 +10584,17 @@ Set-ExecutionPolicy RemoteSigned
 ```
 </pre>
 </div>
-<div created="20210324121410907" modified="20210324151808380" tags="Linux Check_MK" title="amazon-linux-2">
-<pre>```
+<div created="20210324121410907" modified="20210816161322389" tags="Linux Check_MK" title="amazon-linux-2">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'amazon-linux-2'&gt;&gt;
+
+&lt;/div&gt;
+
+
+
+
+```
 hostnamectl set-hostname checkmk
 ```
 
@@ -11135,6 +11146,70 @@ docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 --name=portainer --resta
 
 ```
 du -h --max-depth=1 / --exclude=/run --exclude=/proc
+```
+</pre>
+</div>
+<div created="20210816161333269" modified="20210816164003883" tags="amazon-linux-2" title="ec2.Extend partition">
+<pre>! To modify an EBS volume using the console
+
+*Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
+*Choose Volumes, select the volume to modify, and then choose Actions, Modify Volume.
+
+The Modify Volume window displays the volume ID and the volume's current configuration, including type, size, IOPS, and throughput. Set new configuration values as follows:
+
+*    To modify the type, choose a value for Volume Type.
+*    To modify the size, enter a new value for Size.
+*    To modify the IOPS, if the volume type is gp3, io1, or io2, enter a new value for IOPS.
+*    To modify the throughput, if the volume type is gp3, enter a new value for Throughput.
+
+After you have finished changing the volume settings, choose Modify. When prompted for confirmation, choose Yes.
+
+Modifying volume size has no practical effect until you also extend the volume's file system to make use of the new storage capacity. 
+
+*Connect to your instance. 
+*To verify the file system for each volume, use the df -hT command. 
+*To check whether the volume has a partition that must be extended, use the lsblk command to display information about the NVMe block devices attached to your instance. 
+
+
+```
+[ec2-user ~]$ lsblk
+NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+nvme1n1       259:0    0  30G  0 disk /data
+nvme0n1       259:1    0  16G  0 disk
+└─nvme0n1p1   259:2    0   8G  0 part /
+└─nvme0n1p128 259:3    0   1M  0 part
+```
+
+This example output shows the following:
+
+The root volume, /dev/nvme0n1, has a partition, /dev/nvme0n1p1. While the size of the root volume reflects the new size, 16 GB, the size of the partition reflects the original size, 8 GB, and must be extended before you can extend the file system.
+
+The volume /dev/nvme1n1 has no partitions. The size of the volume reflects the new size, 30 GB.
+
+For volumes that have a partition, such as the root volume shown in the previous step, use the growpart command to extend the partition. ''Notice that there is a space between the device name and the partition number. ''
+
+```
+sudo growpart /dev/nvme0n1 1
+```
+*(Optional) To verify that the partition reflects the increased volume size, use the lsblk command again. 
+
+*To extend the file system on each volume, use the correct command for your file system, as follows:
+*''[XFS file system] ''To extend the file system on each volume, use the xfs_growfs command. In this example, / and /data are the volume mount points shown in the output for df -h. 
+```
+sudo xfs_growfs -d /
+```
+If the XFS tools are not already installed, you can install them as follows.
+
+
+```
+sudo yum install xfsprogs
+```
+*''[ext4 file system] ''To extend the file system on each volume, use the resize2fs command.
+
+
+```
+sudo resize2fs /dev/nvme0n1p1
+sudo resize2fs /dev/nvme1n1
 ```
 </pre>
 </div>
