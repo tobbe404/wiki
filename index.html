@@ -10327,7 +10327,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210813143730041" list="TableOfContents" modified="20210816164026534" title="$:/StoryList">
+<div created="20210813143730041" list="TableOfContents" modified="20210816180652315" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10394,8 +10394,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210816161350337" title="$:/temp/search">
-<pre>disk</pre>
+<div created="20201031112729614" modified="20210816164039206" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -11149,7 +11149,7 @@ du -h --max-depth=1 / --exclude=/run --exclude=/proc
 ```
 </pre>
 </div>
-<div created="20210816161333269" modified="20210816164003883" tags="amazon-linux-2" title="ec2.Extend partition">
+<div created="20210816161333269" modified="20210816180800997" tags="amazon-linux-2" title="ec2.Extend partition">
 <pre>! To modify an EBS volume using the console
 
 *Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
@@ -11167,7 +11167,13 @@ After you have finished changing the volume settings, choose Modify. When prompt
 Modifying volume size has no practical effect until you also extend the volume's file system to make use of the new storage capacity. 
 
 *Connect to your instance. 
-*To verify the file system for each volume, use the df -hT command. 
+*To verify the file system for each volume, use the command.
+
+```
+df -hT 
+```
+
+
 *To check whether the volume has a partition that must be extended, use the lsblk command to display information about the NVMe block devices attached to your instance. 
 
 
