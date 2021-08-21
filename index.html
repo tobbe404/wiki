@@ -277,6 +277,10 @@ Error message and password prompt
 
 <li>awk</li>
 
+<li>AWS</li>
+
+<li>awscli</li>
+
 <li>AWX</li>
 
 <li>backup</li>
@@ -10327,7 +10331,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210819182157747" list="TableOfContents" modified="20210819203521015" title="$:/StoryList">
+<div created="20210821145603845" list="TableOfContents" modified="20210821150329602" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10394,7 +10398,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210819203516124" title="$:/temp/search">
+<div created="20201031112729614" modified="20210821150331718" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10686,6 +10690,75 @@ ls -all | awk '{print $1, $2}'
 
 ```
 cal 10 2015 |tail -n 5 |awk  '{print $1}'
+```
+</pre>
+</div>
+<div created="20210821145608137" modified="20210821145637580" tags="Virtualization" title="AWS">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable '&quot;AWS'&gt;&gt;
+
+&lt;/div&gt;</pre>
+</div>
+<div created="20210821145640192" modified="20210821150321006" tags="AWS" title="awscli">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+&lt;&lt;toc-selective-expandable 'awscli'&gt;&gt;
+&lt;/div&gt;
+
+
+https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install
+
+
+```
+curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;awscliv2.zip&quot;
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+
+[[AWS CLI command reference|https://docs.aws.amazon.com/cli/latest/reference/#available-services]]
+
+
+```
+export AWS_ACCESS_KEY_ID=&quot;anaccesskey&quot;
+export AWS_SECRET_ACCESS_KEY=&quot;asecretkey&quot;
+```
+
+''verify IAM user access''
+
+```
+Maws sts get-caller-identity
+```
+
+''Assume the IAM role''
+
+
+```
+Maws sts assume-role --role-arn &quot;arn:aws:iam::123456789012:role/example-role&quot; --role-session-name AWSCLI-Session
+```
+''Create environment variables to assume the IAM role and verify access''
+
+
+```
+export AWS_ACCESS_KEY_ID=RoleAccessKeyID
+export AWS_SECRET_ACCESS_KEY=RoleSecretKey
+export AWS_SESSION_TOKEN=RoleSessionToken
+```
+''Verify that you assumed the IAM role by running this command:''
+
+```
+aws sts get-caller-identity
+```
+
+```
+aws ec2 describe-instances --query &quot;Reservations[*].Instances[*].[VpcId, InstanceId, ImageId, InstanceType]&quot;
+aws rds describe-db-instances --query &quot;DBInstances[*].[DBInstanceIdentifier, DBName, DBInstanceStatus, AvailabilityZone, DBInstanceClass]&quot;
+```
+''To return to the IAM user, remove the environment variables:''
+
+```
+unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+aws sts get-caller-identity
 ```
 </pre>
 </div>
