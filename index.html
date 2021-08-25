@@ -483,6 +483,8 @@ Error message and password prompt
 
 <li>wmstat</li>
 
+<li>yum</li>
+
 </ul>
 </p>
 
@@ -10268,8 +10270,8 @@ fi
 <div created="20210306150819375" modified="20210603201232575" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
 </div>
-<div created="20210302064244857" modified="20210704111721664" title="$:/state/toc/TableOfContents-Linux-497309061">
-<pre>close</pre>
+<div created="20210302064244857" modified="20210825085902589" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>open</pre>
 </div>
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
@@ -10331,7 +10333,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210821145603845" list="TableOfContents" modified="20210821150329602" title="$:/StoryList">
+<div created="20210824083800084" list="TableOfContents" modified="20210825085905766" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10379,15 +10381,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10398,7 +10400,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210821150331718" title="$:/temp/search">
+<div created="20201031112729614" modified="20210825090205633" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10588,7 +10590,7 @@ Set-ExecutionPolicy RemoteSigned
 ```
 </pre>
 </div>
-<div created="20210324121410907" modified="20210816161322389" tags="Linux Check_MK" title="amazon-linux-2">
+<div created="20210324121410907" modified="20210825085808545" tags="Linux Check_MK" title="amazon-linux-2">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
 &lt;&lt;toc-selective-expandable 'amazon-linux-2'&gt;&gt;
@@ -10605,7 +10607,7 @@ hostnamectl set-hostname checkmk
 
 ```
 amazon-linux-extras install epel
-yum install -y net-tools bash-completion tmux htop wget mlocate xinetd multitail
+yum install -y net-tools bash-completion tmux htop wget mlocate multitail
 ```
 
 ```
@@ -13494,6 +13496,26 @@ Yet here in top you can see I have swap space allocated:-
 Mem:    475236k total,   245076k used,   230160k free,     9720k buffers
 Swap:   491512k total,    78588k used,   412924k free,    72476k cached
 ```
+
+
+</pre>
+</div>
+<div created="20210825085909290" modified="20210825090152650" tags="Linux.commands" title="yum">
+<pre>exclude
+
+
+```
+yum -x kerne* update
+```
+config
+
+
+```
+vi /etc/yum.conf
+```
+Append the following line under [main] section, enter:
+
+exclude=php* kernel* 
 
 
 </pre>
