@@ -419,6 +419,8 @@ Error message and password prompt
 
 <li>relay subdomain</li>
 
+<li>Remove file by an inode number</li>
+
 <li>remove old files with powershell</li>
 
 <li>restore</li>
@@ -10341,7 +10343,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210827191309204" list="TableOfContents" modified="20210903131000026" title="$:/StoryList">
+<div created="20210907083542663" list="TableOfContents" modified="20210908095532231" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10408,8 +10410,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210903130958561" title="$:/temp/search">
-<pre>regex</pre>
+<div created="20201031112729614" modified="20210908095531143" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -11385,8 +11387,7 @@ xfs_growfs /dev/sda1
 </pre>
 </div>
 <div created="20210902124052938" modified="20210902124220564" tags="Ansible.commands" title="Fileglob">
-<pre>
-```
+<pre>```
 - name: Copy each file over that matches the given pattern
   copy:
     src: &quot;{{ item }}&quot;
@@ -12347,7 +12348,6 @@ openssl base64 -A -in Plaintext.bin -out Plaintext.b64
 </div>
 <div created="20210830135406477" modified="20210830135556130" tags="Linux" title="openssl read cert">
 <pre>
-
 ```
 openssl x509 -text -noout -in certificate.crt 
 ```
@@ -12572,6 +12572,33 @@ subdomain.domain.tld smtp:XX.XX.XX.XX:YYYY
 postmap /etc/postfix/transport
 ```
 Don't forget to restart postfix after your changes.
+</pre>
+</div>
+<div created="20210908095401638" modified="20210908095515786" tags="Linux.commands" title="Remove file by an inode number">
+<pre>
+
+The -i option to ls displays the index number (inode) of each file:
+
+
+```
+ls -li
+```
+
+
+Use find command as follows to delete the file if the file has inode number 4063242:
+
+
+```
+find . -inum 4063242 -delete
+```
+
+
+OR
+
+
+```
+find . -inum 4063242 -exec rm -i {} ;
+```
 </pre>
 </div>
 <div created="20210701133133617" modified="20210701133650245" tags="Powershell" title="remove old files with powershell">
