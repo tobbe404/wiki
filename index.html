@@ -273,6 +273,8 @@ Error message and password prompt
 
 <li>Ansible.commands</li>
 
+<li>ansible.posix.synchronize</li>
+
 <li>Automation</li>
 
 <li>awk</li>
@@ -10343,7 +10345,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210907083542663" list="TableOfContents" modified="20210908095532231" title="$:/StoryList">
+<div created="20210907083542663" list="TableOfContents" modified="20210908095621607" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10682,6 +10684,21 @@ Run playbook
 ```
 ansible-playbook first_playbook.yml
 ```
+</pre>
+</div>
+<div created="20210908095626897" modified="20210908100100105" tags="Ansible.commands" title="ansible.posix.synchronize">
+<pre>
+```
+- name: Synchronize passing in extra rsync options
+  ansible.posix.synchronize:
+    src: /tmp/helloworld
+    dest: /var/www/helloworld
+    rsync_opts:
+      - &quot;--no-motd&quot;
+      - &quot;--exclude=.git&quot;
+      - &quot;--chown=root:root&quot;
+```
+
 </pre>
 </div>
 <div created="20210220111752285" modified="20210220111828033" tags="TableOfContents" title="Automation">
