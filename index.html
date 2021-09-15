@@ -207,6 +207,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Monitoring-497309061</li>
 
+<li>$:/state/toc/TableOfContents-Password manager-497309061</li>
+
 <li>$:/state/toc/TableOfContents-test--118161433</li>
 
 <li>$:/state/toc/TableOfContents-test--278054137</li>
@@ -366,6 +368,8 @@ Error message and password prompt
 <li>journalctl</li>
 
 <li>KeePass</li>
+
+<li>LDAP</li>
 
 <li>Linux</li>
 
@@ -10267,8 +10271,8 @@ fi
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
 <pre>open</pre>
 </div>
-<div created="20210318073822275" modified="20210318073822275" title="$:/state/toc/Linux-Linux.commands-1152169851">
-<pre>open</pre>
+<div created="20210318073822275" modified="20210914070017109" title="$:/state/toc/Linux-Linux.commands-1152169851">
+<pre>close</pre>
 </div>
 <div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
 <pre>open</pre>
@@ -10276,17 +10280,20 @@ fi
 <div created="20210603201943614" modified="20210603201943614" title="$:/state/toc/Password manager-KeePass-1918720731">
 <pre>open</pre>
 </div>
-<div created="20210220113945412" modified="20210912165850682" title="$:/state/toc/TableOfContents-Automation-497309061">
-<pre>open</pre>
+<div created="20210220113945412" modified="20210914070002863" title="$:/state/toc/TableOfContents-Automation-497309061">
+<pre>close</pre>
 </div>
 <div created="20210306150819375" modified="20210827191340749" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
 </div>
-<div created="20210302064244857" modified="20210827191342137" title="$:/state/toc/TableOfContents-Linux-497309061">
+<div created="20210302064244857" modified="20210914070058408" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>close</pre>
 </div>
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
+</div>
+<div created="20210914070030213" modified="20210914070043005" title="$:/state/toc/TableOfContents-Password manager-497309061">
+<pre>open</pre>
 </div>
 <div created="20201031094620241" modified="20201031094620241" title="$:/state/toc/TableOfContents-test--118161433">
 <pre>open</pre>
@@ -10312,8 +10319,8 @@ fi
 <div created="20201031115142704" modified="20210603201123187" title="$:/state/toc/TableOfContents-Windows-497309061">
 <pre>close</pre>
 </div>
-<div created="20210220114521240" modified="20210827191331731" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
-<pre>open</pre>
+<div created="20210220114521240" modified="20210914070001962" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
+<pre>close</pre>
 </div>
 <div created="20210610075742372" modified="20210827191307830" title="$:/state/toc/TableOfContents/Automation-jenkins-497309061">
 <pre>open</pre>
@@ -10345,7 +10352,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210912061503450" list="TableOfContents jenkins" modified="20210912165934021" title="$:/StoryList">
+<div created="20210914070011433" list="TableOfContents" modified="20210915120713684" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10393,11 +10400,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10412,7 +10419,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210912165933091" title="$:/temp/search">
+<div created="20201031112729614" modified="20210915120711652" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11950,6 +11957,16 @@ otp
 
 https://github.com/rookiestyle/keepassotp/#configuration</pre>
 </div>
+<div created="20210914070059781" modified="20210914082525469" tags="TableOfContents" title="LDAP">
+<pre>Test:
+
+
+```
+sudo apt install ldap-utils
+```
+
+</pre>
+</div>
 <div created="20201104145334541" modified="20201104145420018" tags="TableOfContents" title="Linux">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;Linux&quot; &quot;sort[title]&quot;&gt;&gt;
@@ -12598,8 +12615,7 @@ Don't forget to restart postfix after your changes.
 </pre>
 </div>
 <div created="20210908095401638" modified="20210908095515786" tags="Linux.commands" title="Remove file by an inode number">
-<pre>
-The -i option to ls displays the index number (inode) of each file:
+<pre>The -i option to ls displays the index number (inode) of each file:
 
 
 ```
