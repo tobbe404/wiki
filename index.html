@@ -319,6 +319,8 @@ Error message and password prompt
 
 <li>elasticsearch</li>
 
+<li>Empty log file using echo command</li>
+
 <li>env</li>
 
 <li>error</li>
@@ -10354,7 +10356,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210915161221243" list="TableOfContents" modified="20210917114856926" title="$:/StoryList">
+<div created="20210918210233809" list="TableOfContents" modified="20210918210345104" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10402,11 +10404,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10421,7 +10423,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210917115226824" title="$:/temp/search">
+<div created="20201031112729614" modified="20210918210330906" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11352,6 +11354,13 @@ Stop snapshot and restore operations
 curl -X DELETE http://localhost:9200/_snapshot/my_backup/snapshot_1
 ```</pre>
 </div>
+<div created="20210918210237817" modified="20210918210318276" tags="Linux.commands" title="Empty log file using echo command">
+<pre>
+```
+echo &quot;&quot; &gt; logfile
+```
+</pre>
+</div>
 <div created="20210328101937716" modified="20210328102057345" tags="Linux.commands" title="env">
 <pre>*printenv 
 **Print all or part of environment
@@ -11800,8 +11809,7 @@ tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 ```</pre>
 </div>
 <div created="20210916121903579" modified="20210916122338658" tags="Linux.commands" title="iotop">
-<pre>
-o - only show processes or threads actually doing I/O
+<pre>o - only show processes or threads actually doing I/O
 
 a - accumulated
 
