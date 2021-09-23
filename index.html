@@ -10358,7 +10358,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210922114930116" list="TableOfContents" modified="20210922115729256" title="$:/StoryList">
+<div created="20210922114930116" list="TableOfContents" modified="20210923220124918" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10425,8 +10425,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210918210330906" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20210923220123054" title="$:/temp/search">
+<pre>date</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -11128,13 +11128,16 @@ curl http://example.com/file.zip --output file.zip
 ```
 </pre>
 </div>
-<div created="20210503090649236" modified="20210908134317282" tags="Linux.commands" title="date">
+<div created="20210503090649236" modified="20210923220452819" tags="Linux.commands" title="date">
 <pre>```
 echo $(date --date=&quot;40 days ago&quot;)
 ```
 
 ```
 date --date=&quot;40 days ago&quot;
+```
+```
+date +%Y-%m-%d_%H_%M_%S --date=&quot;60 days ago&quot;
 ```
 
 ```
@@ -11143,6 +11146,10 @@ echo `date +%Y-%m-%d_%H_%M_%S`
 
 ```
 date --date=&quot;40 days&quot;
+```
+
+```
+date +%Y-%m-%d_%H_%M_%S --date=&quot;60 days&quot;
 ```
 
 
