@@ -365,6 +365,8 @@ Error message and password prompt
 
 <li>iotop</li>
 
+<li>java</li>
+
 <li>jenkins</li>
 
 <li>jenkins.install ubuntu</li>
@@ -10292,8 +10294,8 @@ fi
 <div created="20210306150819375" modified="20210827191340749" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
 </div>
-<div created="20210302064244857" modified="20210916121854873" title="$:/state/toc/TableOfContents-Linux-497309061">
-<pre>open</pre>
+<div created="20210302064244857" modified="20210924064801106" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>close</pre>
 </div>
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
@@ -10358,7 +10360,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210924063417844" list="TableOfContents" modified="20210924063728125" title="$:/StoryList">
+<div created="20210924064337271" list="TableOfContents" modified="20210924064503690" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10425,7 +10427,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210918210330906" title="$:/temp/search">
+<div created="20201031112729614" modified="20210924064759526" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11128,13 +11130,16 @@ curl http://example.com/file.zip --output file.zip
 ```
 </pre>
 </div>
-<div created="20210503090649236" modified="20210908134317282" tags="Linux.commands" title="date">
+<div created="20210503090649236" modified="20210924064437515" tags="Linux.commands" title="date">
 <pre>```
 echo $(date --date=&quot;40 days ago&quot;)
 ```
 
 ```
 date --date=&quot;40 days ago&quot;
+```
+```
+date +%Y-%m-%d_%H_%M_%S --date=&quot;60 days ago&quot;
 ```
 
 ```
@@ -11143,6 +11148,10 @@ echo `date +%Y-%m-%d_%H_%M_%S`
 
 ```
 date --date=&quot;40 days&quot;
+```
+
+```
+date +%Y-%m-%d_%H_%M_%S --date=&quot;60 days&quot;
 ```
 
 
@@ -11815,6 +11824,23 @@ tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 a - accumulated
 
 -&gt; / &lt;- switch sort by column with arrow keys</pre>
+</div>
+<div created="20210924064507278" modified="20210924064746371" tags="Linux" title="java">
+<pre>!List all the trusted public Root CAs in your Java truststore
+
+```
+keytool -keystore $JAVA_HOME/jre/lib/security/cacerts -list
+```
+The default password for the truststore: changeit
+
+
+!How to Change the Java Keystore Password
+
+
+```
+keytool -storepasswd -keystore $JAVA_HOME/jre/lib/security/cacerts/cacerts
+```
+</pre>
 </div>
 <div created="20210327165930546" modified="20210912165929937" tags="Automation" title="jenkins">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
@@ -13427,7 +13453,7 @@ To link to a tiddler and specify the text of the link:
 <pre>~~apt install icedtea-netx-common~~
 </pre>
 </div>
-<div created="20170321080519618" modified="20171025135618677" tags="KeePass" title="URL Overrides for KeePass">
+<div created="20170321080519618" modified="20210924064350239" tags="KeePass" title="URL Overrides for KeePass">
 <pre>Here I collect url override scripts for KeePass in Linux and Windows systems.
 
 &lt;&lt;&lt;
