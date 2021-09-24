@@ -365,8 +365,6 @@ Error message and password prompt
 
 <li>iotop</li>
 
-<li>java</li>
-
 <li>jenkins</li>
 
 <li>jenkins.install ubuntu</li>
@@ -486,6 +484,8 @@ Error message and password prompt
 <li>ubuntu</li>
 
 <li>ubuntu.firefox.java</li>
+
+<li>URL Overrides for KeePass</li>
 
 <li>Vagrant</li>
 
@@ -10251,7 +10251,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[New database]]</pre>
+# [[URL Overrides for KeePass]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10358,7 +10358,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210922114930116" list="TableOfContents" modified="20210923220124918" title="$:/StoryList">
+<div created="20210924063417844" list="TableOfContents" modified="20210924063728125" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10406,15 +10406,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10425,8 +10425,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210923220123054" title="$:/temp/search">
-<pre>date</pre>
+<div created="20201031112729614" modified="20210918210330906" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -11128,16 +11128,13 @@ curl http://example.com/file.zip --output file.zip
 ```
 </pre>
 </div>
-<div created="20210503090649236" modified="20210923220452819" tags="Linux.commands" title="date">
+<div created="20210503090649236" modified="20210908134317282" tags="Linux.commands" title="date">
 <pre>```
 echo $(date --date=&quot;40 days ago&quot;)
 ```
 
 ```
 date --date=&quot;40 days ago&quot;
-```
-```
-date +%Y-%m-%d_%H_%M_%S --date=&quot;60 days ago&quot;
 ```
 
 ```
@@ -11146,10 +11143,6 @@ echo `date +%Y-%m-%d_%H_%M_%S`
 
 ```
 date --date=&quot;40 days&quot;
-```
-
-```
-date +%Y-%m-%d_%H_%M_%S --date=&quot;60 days&quot;
 ```
 
 
@@ -11822,23 +11815,6 @@ tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 a - accumulated
 
 -&gt; / &lt;- switch sort by column with arrow keys</pre>
-</div>
-<div created="20210922114935918" modified="20210922120333042" tags="Linux" title="java">
-<pre>!List all the trusted public Root CAs in your Java truststore
-
-```
-keytool -keystore $JAVA_HOME/jre/lib/security/cacerts -list
-```
-The default password for the truststore: changeit
-
-
-!How to Change the Java Keystore Password
-
-
-```
-keytool -storepasswd -keystore $JAVA_HOME/jre/lib/security/cacerts/cacerts
-```
-</pre>
 </div>
 <div created="20210327165930546" modified="20210912165929937" tags="Automation" title="jenkins">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
@@ -13449,6 +13425,276 @@ To link to a tiddler and specify the text of the link:
 </div>
 <div created="20210529085524867" modified="20210603201707289" tags="ubuntu" title="ubuntu.firefox.java">
 <pre>~~apt install icedtea-netx-common~~
+</pre>
+</div>
+<div created="20170321080519618" modified="20171025135618677" tags="KeePass" title="URL Overrides for KeePass">
+<pre>Here I collect url override scripts for KeePass in Linux and Windows systems.
+
+&lt;&lt;&lt;
+source: https://github.com/kvaps/keepass-url-overrides
+&lt;&lt;&lt;
+
+
+
+! SSH
+
+
+&lt;sup&gt;[windows]&lt;/sup&gt; PuTTY
+
+* Scheme:** `ssh`
+* Command:**
+
+```
+cmd://&quot;{ENV_PROGRAMFILES_X86}\PuTTY\putty.exe&quot; -ssh &quot;{USERNAME}@{URL:HOST}&quot; -P {BASE:PORT} -pw &quot;{PASSWORD}&quot; 
+```
+!! Tested With key
+```
+cmd://Z:\nextcloud\appz_home\PortableApps\KiTTYPortable\KiTTYPortable.exe -ssh -l {USERNAME} {URL:HOST}
+```
+
+&lt;sup&gt;[linux]&lt;/sup&gt; OpenSSH Client
+
+* Scheme:** `ssh`
+* Command:**
+```
+cmd://xterm -e sshpass -p {PASSWORD} ssh -o StrictHostKeyChecking=no {USERNAME}@{BASE:RMVSCM}
+```
+!! Tested With key
+
+```
+cmd://putty -ssh -l {USERNAME} {BASE:RMVSCM}
+```
+
+More secure command:
+
+```
+cmd://bash -c 'FILE=$(mktemp) &amp;&amp; chmod 600 $FILE &amp;&amp; echo {PASSWORD} &gt; $FILE ; xterm -e sshpass -f $FILE ssh -o StrictHostKeyChecking=no {USERNAME}@{BASE:RMVSCM}; rm -f $FILE'
+```
+
+
+You need to install `sshpass` package.
+*Instead of `xterm` you can write your own favorite terminal emulator*
+
+! RDP
+
+&lt;sup&gt;[windows]&lt;/sup&gt; MSTSC
+
+* Scheme:** `rdp`
+* Command:**
+```
+cmd://cmd /c &quot;cmdkey /generic:TERMSRV/{URL:HOST} /user:{USERNAME} /pass:{PASSWORD} &amp;&amp; mstsc /v:{BASE:RMVSCM} &amp;&amp; cmdkey /delete:TERMSRV/{URL:HOST}&quot;
+```
+!! Tested 
+
+```
+cmd://cmd /c &quot;cmdkey /generic:TERMSRV/{URL:RMVSCM} /user:{USERNAME} /pass:{PASSWORD} &amp;&amp; mstsc /v:{URL:RMVSCM} &amp;&amp; timeout /t 5 /nobreak &amp;&amp; cmdkey /delete:TERMSRV/{URL:RMVSCM}&quot;
+```
+
+*Thanks Valiant from bitcollectors.com and [DeWhite](https://habrahabr.ru/users/dewhite/) from habrahabr.ru for this solution*
+
+&lt;sup&gt;[linux]&lt;/sup&gt; Remmina
+
+* Scheme:** `rdp`
+* Command:**
+```
+cmd://bash -c &quot;FILE=/tmp/connect.remmina ; echo -en '[remmina]\nname={TITLE}\nprotocol=RDP\nserver={BASE:RMVSCM}\nscale=1\nviewmode=1\nusername={USERNAME}\npassword='`remmina-encode-password.py {PASSWORD}` &gt; $FILE ; remmina -c $FILE ; rm -f $FILE&quot;
+```
+!! Tested 
+```
+cmd://bash -c &quot;FILE=/tmp/connect.remmina ; echo -en '[remmina]\nname={TITLE}\nprotocol=RDP\nserver={BASE:RMVSCM}\nscale=1\nviewmode=1\nusername={USERNAME}' &gt; $FILE ; remmina -c $FILE ; rm -f $FILE&quot;
+```
+
+More secure command:
+
+```
+cmd://bash -c &quot;export DIR=/tmp/remmina; mkdir -p $DIR; chmod 700 $DIR; export FILE=$(mktemp -p $DIR XXXXXXXXXX --suffix=.remmina); echo -e '[remmina]\nname={TITLE}\nprotocol=RDP\nserver={BASE:RMVSCM}\nscale=1\nviewmode=1\nusername={USERNAME}\npassword='`remmina-encode-password.py {PASSWORD}` &gt; $FILE ; nohup remmina -c $FILE &amp;&quot;
+```
+
+also we will need to install a small helper script:
+
+```
+bash curl -o /usr/local/bin/remmina-encode-password.py https://raw.githubusercontent.com/kvaps/keepass2-url-overriddes/master/remmina/remmina-encode-password.py
+chmod +x /usr/local/bin/remmina-encode-password.py
+```
+! vSphere
+
+&lt;sup&gt;[windows]&lt;/sup&gt; VpxClient
+
+* Scheme:** `vm`
+* Command:**
+
+!! Tested
+
+```
+cmd://&quot;C:\Program Files (x86)\VMware\Infrastructure\Virtual Infrastructure Client\Launcher\VpxClient.exe&quot; -s {URL:HOST} -u {USERNAME} -p {PASSWORD}
+
+```
+
+! VNC
+
+&lt;sup&gt;[windows]&lt;/sup&gt; RealVNC
+
+* Scheme:** `vnc`
+* Command:**
+
+```
+cmd://java -jar &quot;{ENV_PROGRAMFILES}\tightvnc-jviewer.jar&quot; -user=&quot;{USERNAME}&quot; -password=&quot;{PASSWORD}&quot; {BASE:RMVSCM}
+```
+
+Save `tightvnc-jviewer.jar` to `C:\Program Files\tightvnc-jviewer.jar`.
+
+portable apps
+https://www.realvnc.com
+
+```
+cmd://&quot;C:\Program Files (x86)\VMware\Infrastructure\Virtual Infrastructure Client\Launcher\VpxClient.exe&quot; -s {URL:HOST} -u {USERNAME} -p {PASSWORD}
+```
+
+
+&lt;sup&gt;[linux]&lt;/sup&gt; Remmina
+
+* Scheme:** `vnc`
+* Command:**
+```
+cmd://bash -c &quot;FILE=/tmp/connect.remmina ; echo -en '[remmina]\nname={TITLE}\nprotocol=VNC\nserver={BASE:RMVSCM}\nscale=1\nviewmode=1\nusername={USERNAME}\npassword='`remmina-encode-password.py {PASSWORD}` &gt; $FILE ; remmina -c $FILE ; rm -f $FILE&quot;
+```
+
+More secure command:
+
+```
+cmd://bash -c &quot;export DIR=/tmp/remmina; mkdir -p $DIR; chmod 700 $DIR; export FILE=$(mktemp -p $DIR XXXXXXXXXX --suffix=.remmina); echo -e '[remmina]\nname={TITLE}\nprotocol=VNC\nserver={BASE:RMVSCM}\nscale=1\nviewmode=1\nusername={USERNAME}\npassword='`remmina-encode-password.py {PASSWORD}` &gt; $FILE ; nohup remmina -c $FILE &amp;&quot;
+```
+
+We do also need a little helper script, about which I wrote above
+
+```bash
+curl -o /usr/local/bin/remmina-encode-password.py https://raw.githubusercontent.com/kvaps/keepass2-url-overriddes/master/remmina/remmina-encode-password.py
+chmod +x /usr/local/bin/remmina-encode-password.py
+```
+
+! SAMBA
+
+ &lt;sup&gt;[windows]&lt;/sup&gt; Explorer
+
+* Scheme:** `smb`
+* Command:**
+```
+cmd://cmd /c &quot;net use &quot;{BASE:RMVSCM}&quot; /user:&quot;{USERNAME}&quot; &quot;{PASSWORD}&quot; &amp;&amp; start \\{BASE:RMVSCM}&quot;
+```
+
+ &lt;sup&gt;[linux]&lt;/sup&gt; Nautilus / Thunar / Dolphin
+
+* Scheme:** `smb`
+* Command:**
+```
+cmd://bash -c &quot;echo -e '\n{PASSWORD}' | gvfs-mount 'smb://{USERNAME}@{BASE:RMVSCM}' ; nautilus 'smb://{USERNAME}@{BASE:RMVSCM}'&quot;
+```
+
+More secure command:
+
+```
+cmd://bash -c &quot;echo -e '\n{PASSWORD}' | gvfs-mount 'smb://{USERNAME}@{BASE:RMVSCM}' ; nohup nautilus 'smb://{USERNAME}@{BASE:RMVSCM}' &amp;&quot;
+```
+
+For Thunar and Dolphin is the same command, just replace `nautilus` to `thunar` or `dolphin`.
+
+
+! FTP
+
+ &lt;sup&gt;[windows]&lt;/sup&gt; FileZilla FTP Client
+
+* Scheme:** `ftp`
+* Command:**
+```
+cmd://&quot;{ENV_PROGRAMFILES_X86}\FileZilla FTP Client\filezilla.exe&quot; 'ftp://{USERNAME}:{PASSWORD}@{BASE:RMVSCM}'
+```
+
+ &lt;sup&gt;[windows]&lt;/sup&gt; Windows Explorer
+
+* Scheme:** `ftp`
+* Command:**
+```
+cmd://&quot;explorer.exe&quot; 'ftp://{USERNAME}:{PASSWORD}@{BASE:RMVSCM}'
+```
+
+ &lt;sup&gt;[linux]&lt;/sup&gt; FileZilla FTP Client
+
+* Scheme:** `ftp`
+* Command:**
+```
+cmd://filezilla 'ftp://{USERNAME}:{PASSWORD}@{BASE:RMVSCM}'
+```
+
+ &lt;sup&gt;[linux]&lt;/sup&gt; Nautilus / Thunar / Dolphin
+
+* Scheme:** `smb`
+* Command:**
+```
+cmd://bash -c &quot;echo -e '\n{PASSWORD}' | gvfs-mount 'ftp://{USERNAME}@{BASE:RMVSCM}' ; nautilus 'ftp://{USERNAME}@{BASE:RMVSCM}'&quot;
+```
+More secure command:
+
+```
+cmd://bash -c &quot;echo -e '\n{PASSWORD}' | gvfs-mount 'ftp://{USERNAME}@{BASE:RMVSCM}' ; nohup nautilus 'ftp://{USERNAME}@{BASE:RMVSCM}' &amp;&quot;
+```
+
+For Thunar and Dolphin is the same command, just replace `nautilus` to `thunar` or `dolphin`.
+
+! ~TeamViewer
+
+ &lt;sup&gt;[windows]&lt;/sup&gt; TeamViewer
+
+* Scheme:** `teamviewer`
+* Command:**
+```
+cmd://&quot;{ENV_PROGRAMFILES_X86}\TeamViewer\TeamViewer.exe&quot; -i &quot;{USERNAME}&quot; --Password &quot;{PASSWORD}&quot;
+```
+
+ &lt;sup&gt;[linux]&lt;/sup&gt; TeamViewer
+
+* Scheme:** `teamviewer`
+* Command:**
+```
+cmd://teamviewer -i &quot;{USERNAME}&quot; --Password &quot;{PASSWORD}&quot;
+```
+
+! Winbox
+
+ &lt;sup&gt;[windows]&lt;/sup&gt; Winbox
+
+* Scheme:** `winbox`
+* Command:**
+```
+cmd://{ENV_PROGRAMFILES_X86}\winbox.exe '{BASE:RMVSCM}' '{USERNAME}' '{PASSWORD}'
+```
+
+Сохраните `winbox.exe` в `C:\Program Files (x86)\winbox.exe`.
+
+ &lt;sup&gt;[linux]&lt;/sup&gt; Winbox
+
+* Scheme:** `winbox`
+* Command:**
+```
+cmd://winbox '{BASE:RMVSCM}' '{USERNAME}' '{PASSWORD}'
+```
+
+*I use winbox from [AUR](https://aur.archlinux.org/packages/winbox/).*
+
+
+! Cisco
+
+&lt;sup&gt;[windows]&lt;/sup&gt;  PuTTY
+
+* Scheme:** `cisco`
+* Command:**
+```
+cmd://{ENV_PROGRAMFILES_X86}\scriptsdir\Connector_Cisco.vbs &quot;{S:lan}&quot; &quot;{USERNAME}&quot; &quot;{PASSWORD}&quot; &quot;{S:enable}&quot;
+```
+
+  Also download script [Connector_Cisco.vbs](https://raw.githubusercontent.com/kvaps/keepass-url-overrides/master/cisco/Connector_Cisco.vbs)
+  Save it to: `C:\Program Files (x86)\Connector_Cisco.vbs`
+
+    *Thanks [therb1](https://habrahabr.ru/users/therb1/) from habrahabr.ru for this solution and script*
 </pre>
 </div>
 <div created="20210302064207409" modified="20210309125831918" tags="Virtualization Automation" title="Vagrant">
