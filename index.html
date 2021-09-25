@@ -183,6 +183,10 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/Excise/--989494398/tagnew</li>
+
+<li>$:/state/Excise/--989494398/type</li>
+
 <li>$:/state/showeditpreview</li>
 
 <li>$:/state/tab-1749438307</li>
@@ -313,6 +317,8 @@ Error message and password prompt
 
 <li>Docker</li>
 
+<li>Draft of 'AWX'</li>
+
 <li>du</li>
 
 <li>ec2.Extend partition</li>
@@ -336,6 +342,8 @@ Error message and password prompt
 <li>find</li>
 
 <li>findstr</li>
+
+<li>Fix Postgres Pod in CrashLoopBackOff state</li>
 
 <li>Flush DNS cach</li>
 
@@ -10264,6 +10272,12 @@ fi
 <div created="20201031102552809" modified="20201031102552809" title="$:/SiteTitle">
 <pre>TiddlyWiki</pre>
 </div>
+<div created="20210925130345020" modified="20210925130345020" title="$:/state/Excise/--989494398/tagnew">
+<pre>yes</pre>
+</div>
+<div created="20210925130348606" modified="20210925130348606" title="$:/state/Excise/--989494398/type">
+<pre>link</pre>
+</div>
 <div created="20201031094900477" modified="20210309124457511" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
@@ -10288,8 +10302,8 @@ fi
 <div created="20210603201943614" modified="20210603201943614" title="$:/state/toc/Password manager-KeePass-1918720731">
 <pre>open</pre>
 </div>
-<div created="20210220113945412" modified="20210914070002863" title="$:/state/toc/TableOfContents-Automation-497309061">
-<pre>close</pre>
+<div created="20210220113945412" modified="20210925115208278" title="$:/state/toc/TableOfContents-Automation-497309061">
+<pre>open</pre>
 </div>
 <div created="20210306150819375" modified="20210827191340749" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
@@ -10327,8 +10341,8 @@ fi
 <div created="20201031115142704" modified="20210603201123187" title="$:/state/toc/TableOfContents-Windows-497309061">
 <pre>close</pre>
 </div>
-<div created="20210220114521240" modified="20210914070001962" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
-<pre>close</pre>
+<div created="20210220114521240" modified="20210925120820900" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
+<pre>open</pre>
 </div>
 <div created="20210610075742372" modified="20210827191307830" title="$:/state/toc/TableOfContents/Automation-jenkins-497309061">
 <pre>open</pre>
@@ -10360,7 +10374,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210924064337271" list="TableOfContents" modified="20210924064503690" title="$:/StoryList">
+<div created="20210925115211636" list="TableOfContents [[Draft of 'AWX']]" modified="20210925130411717" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -11276,6 +11290,188 @@ docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 --name=portainer --resta
 
 /var/lib/docker/volumes/</pre>
 </div>
+<div created="20210220114353952" draft.of="AWX" draft.title="AWX" modified="20210925140632852" tags="Ansible" title="Draft of 'AWX'">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'AWX'&gt;&gt;
+
+&lt;/div&gt;
+
+
+https://github.com/ansible/awx
+https://computingforgeeks.com/how-to-install-ansible-awx-on-ubuntu-linux/
+
+!Install Single Node k3s Kubernetes
+
+```
+curl -sfL https://get.k3s.io | sudo bash -
+```
+!Validate K3s installation:
+
+```
+kubectl get nodes
+or
+kubectl version --short
+```
+!Deploy AWX Operator on Kubernetes
+
+This Kubernetes Operator has to be deployed in your Kubernetes cluster, which in our case is powered by K3s. The operator we’ll deploy can manage one or more AWX instances in any namespace.
+
+
+!!Check all currently running pods in all namespaces:
+
+```
+kubectl get pods -A
+```
+!!Run the command below to deploy AWX Operator into your cluster:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/ansible/awx-operator/devel/deploy/awx-operator.yaml
+```
+
+```
+kubectl get pods
+```
+!Install Ansible AWX on Ubuntu 20.04/18.04 using Operator
+
+Create Static data PVC – Ref [[AWX data persistence|https://github.com/ansible/awx-operator#persisting-projects-directory]]:
+
+```
+cat &lt;&lt;EOF | kubectl create -f -
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: static-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 2Gi
+EOF
+```
+Let’s now create AWX deployment file with basic information about what is installed:
+
+
+```
+vim awx-deploy.yml
+```
+Paste below contents into the file:
+
+```
+---
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: awx
+spec:
+  service_type: nodeport
+  projects_persistence: true
+  projects_storage_access_mode: ReadWriteOnce
+  web_extra_volume_mounts: |
+    - name: static-data
+      mountPath: /var/lib/awx/public
+  extra_volumes: |
+    - name: static-data
+      persistentVolumeClaim:
+        claimName: static-data-pvc
+```
+We have defined resource name as awx and service type as nodeport to enable us access AWX from the Node IP address and given port. We also added extra PV mount on the web server pod.
+
+!!Apply configuration manifest file:
+
+```
+kubectl apply -f awx-deploy.yml
+```
+Wait a few minutes then check AWX instance deployed:
+
+
+```
+kubectl get pods -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+
+
+This dident happen to me
+
+![[Fix Postgres Pod in CrashLoopBackOff state]]
+
+
+
+
+!Access Ansible AWX Dashboard
+
+List all available services and check awx-service Nodeport
+
+```
+kubectl get svc -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+You can edit the Node Port and set to figure of your preference, but has to be &gt;=32000
+
+
+```
+kubectl edit svc awx-service
+```
+
+
+```
+....
+ports:
+  - name: http
+    nodePort: 32000
+    port: 80
+    protocol: TCP
+    targetPort: 8052
+
+```
+
+
+
+Confirm if the change was updated successfully:
+
+
+```
+kubectl get svc -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+
+
+```
+NAME           TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+awx-postgres   ClusterIP   None           &lt;none&gt;        5432/TCP       8m58s
+awx-service    NodePort    10.43.182.53   &lt;none&gt;        80:32000/TCP   8m49s
+
+```
+
+Ansible AWX web portal is now accessible on http://hostip_or_hostname:32000.
+
+The login username is admin
+
+Obtain admin user password by decoding the secret with the password value:
+
+
+```
+kubectl get secret awx-admin-password -o jsonpath=&quot;{.data.password}&quot; | base64 --decode
+```
+
+
+Better output format:
+
+
+```
+kubectl get secret awx-admin-password -o go-template='{{range $k,$v := .data}}{{printf &quot;%s: &quot; $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{&quot;\n&quot;}}{{end}}'
+```
+
+
+Login with admin username and decoded password:
+
+!Review Kubernetes Node resources to ensure they are enough to run AWX:
+
+
+```
+kubectl top nodes --use-protocol-buffers
+```
+</pre>
+</div>
 <div created="20210701064652003" modified="20210701065008747" tags="Linux.commands" title="du">
 <pre>what’s taking up all the available space
 
@@ -11485,6 +11681,80 @@ find /tmp/ -maxdepth 1 -type d -name &quot;temporary-*&quot; -mtime +10  -exec r
 ```
 netstat -an | findstr &quot;3389&quot;
 ```</pre>
+</div>
+<div created="20210925130350171" modified="20210925130350171" tags="AWX" title="Fix Postgres Pod in CrashLoopBackOff state">
+<pre>!Fix Postgres Pod in ~CrashLoopBackOff state
+
+Check status of PostgreSQL Pod:
+
+```
+kubectl get pods -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+Check logs of the Pod:
+
+
+```
+kubectl logs awx-postgres-0
+```
+
+```
+mkdir: cannot create directory ‘/var/lib/postgresql/data’: Permission denied
+```
+It means the Postgres pod cannot write to the persistent volume directory inside /var/lib/rancher/k3s/storage/:
+
+
+```
+ls -lh /var/lib/rancher/k3s/storage/ | grep awx-postgres-0
+total 0
+drwx------ 3 root root 4.0K Aug 24 09:18 pvc-b2acb2d0-6d2f-457b-a40c-390cff5ec6d2_default_postgres-awx-postgres-0
+
+```
+
+```
+chmod -R 777  /var/lib/rancher/k3s/storage/*
+# kubectl delete pods -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+pod &quot;awx-66c64f8d67-qvfk9&quot; deleted
+pod &quot;awx-postgres-0&quot; deleted
+```
+
+The Postgres container pod should come up in few seconds:
+
+
+```
+# kubectl get pods -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+NAME                   READY   STATUS             RESTARTS   AGE
+awx-postgres-0         1/1     Running            0          42s
+awx-66c64f8d67-4qmh5   4/4     Running            0          42s
+```
+
+If you experience any issues with the Pods starting check deployment logs:
+
+```
+kubectl logs -f deployments/awx-operator
+```
+
+
+The database data will be persistent as they are stored in a persistent volume:
+
+
+```
+kubectl get pvc
+NAME                      STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+postgres-awx-postgres-0   Bound    pvc-c0149545-8631-4aa1-a03f-2134a7f42aa6   8Gi        RWO            local-path     84s
+static-data-pvc           Bound    pvc-6b6005de-0888-4634-b0a2-d5cc92eb85cc   1Gi        RWO            local-path     2m10s
+awx-projects-claim        Bound    pvc-91e751e9-0e8e-40c8-9953-f8d9db5f612b   8Gi        RWO            local-path     77s
+```
+
+
+Volumes are created using local-path-provisioner and host path
+
+
+```
+ls /var/lib/rancher/k3s/storage/
+pvc-edb29795-7dae-4a00-805f-2d989694fe3d_default_postgres-awx-postgres-0
+
+```
+</pre>
 </div>
 <div created="20210402121859191" modified="20210402131424256" tags="Linux.commands" title="Flush DNS cach">
 <pre>!Ubuntu desktop
