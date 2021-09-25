@@ -317,8 +317,6 @@ Error message and password prompt
 
 <li>Docker</li>
 
-<li>Draft of 'AWX'</li>
-
 <li>du</li>
 
 <li>ec2.Extend partition</li>
@@ -370,6 +368,8 @@ Error message and password prompt
 <li>haproxy</li>
 
 <li>How do I Compress a Whole Linux or UNIX Directory</li>
+
+<li>Install Single Node k3s Kubernetes</li>
 
 <li>iotop</li>
 
@@ -10374,7 +10374,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210925115211636" list="TableOfContents [[Draft of 'AWX']]" modified="20210925130411717" title="$:/StoryList">
+<div created="20210925115211636" list="TableOfContents AWX" modified="20210925130411717" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10819,7 +10819,7 @@ aws sts get-caller-identity
 ```
 </pre>
 </div>
-<div created="20210220114353952" modified="20210220114418512" tags="Ansible" title="AWX">
+<div created="20210220114353952" modified="20210925141452268" tags="Ansible" title="AWX">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
 &lt;&lt;toc-selective-expandable 'AWX'&gt;&gt;
@@ -10827,7 +10827,9 @@ aws sts get-caller-identity
 &lt;/div&gt;
 
 
-https://github.com/ansible/awx</pre>
+https://github.com/ansible/awx
+https://computingforgeeks.com/how-to-install-ansible-awx-on-ubuntu-linux/
+</pre>
 </div>
 <div created="20210309124404103" modified="20210309124628128" tags="elasticsearch" title="backup">
 <pre>check for repository
@@ -11289,188 +11291,6 @@ docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 --name=portainer --resta
 
 
 /var/lib/docker/volumes/</pre>
-</div>
-<div created="20210220114353952" draft.of="AWX" draft.title="AWX" modified="20210925140632852" tags="Ansible" title="Draft of 'AWX'">
-<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
-
-&lt;&lt;toc-selective-expandable 'AWX'&gt;&gt;
-
-&lt;/div&gt;
-
-
-https://github.com/ansible/awx
-https://computingforgeeks.com/how-to-install-ansible-awx-on-ubuntu-linux/
-
-!Install Single Node k3s Kubernetes
-
-```
-curl -sfL https://get.k3s.io | sudo bash -
-```
-!Validate K3s installation:
-
-```
-kubectl get nodes
-or
-kubectl version --short
-```
-!Deploy AWX Operator on Kubernetes
-
-This Kubernetes Operator has to be deployed in your Kubernetes cluster, which in our case is powered by K3s. The operator we’ll deploy can manage one or more AWX instances in any namespace.
-
-
-!!Check all currently running pods in all namespaces:
-
-```
-kubectl get pods -A
-```
-!!Run the command below to deploy AWX Operator into your cluster:
-
-```
-kubectl apply -f https://raw.githubusercontent.com/ansible/awx-operator/devel/deploy/awx-operator.yaml
-```
-
-```
-kubectl get pods
-```
-!Install Ansible AWX on Ubuntu 20.04/18.04 using Operator
-
-Create Static data PVC – Ref [[AWX data persistence|https://github.com/ansible/awx-operator#persisting-projects-directory]]:
-
-```
-cat &lt;&lt;EOF | kubectl create -f -
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: static-data-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: local-path
-  resources:
-    requests:
-      storage: 2Gi
-EOF
-```
-Let’s now create AWX deployment file with basic information about what is installed:
-
-
-```
-vim awx-deploy.yml
-```
-Paste below contents into the file:
-
-```
----
-apiVersion: awx.ansible.com/v1beta1
-kind: AWX
-metadata:
-  name: awx
-spec:
-  service_type: nodeport
-  projects_persistence: true
-  projects_storage_access_mode: ReadWriteOnce
-  web_extra_volume_mounts: |
-    - name: static-data
-      mountPath: /var/lib/awx/public
-  extra_volumes: |
-    - name: static-data
-      persistentVolumeClaim:
-        claimName: static-data-pvc
-```
-We have defined resource name as awx and service type as nodeport to enable us access AWX from the Node IP address and given port. We also added extra PV mount on the web server pod.
-
-!!Apply configuration manifest file:
-
-```
-kubectl apply -f awx-deploy.yml
-```
-Wait a few minutes then check AWX instance deployed:
-
-
-```
-kubectl get pods -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
-```
-
-
-This dident happen to me
-
-![[Fix Postgres Pod in CrashLoopBackOff state]]
-
-
-
-
-!Access Ansible AWX Dashboard
-
-List all available services and check awx-service Nodeport
-
-```
-kubectl get svc -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
-```
-You can edit the Node Port and set to figure of your preference, but has to be &gt;=32000
-
-
-```
-kubectl edit svc awx-service
-```
-
-
-```
-....
-ports:
-  - name: http
-    nodePort: 32000
-    port: 80
-    protocol: TCP
-    targetPort: 8052
-
-```
-
-
-
-Confirm if the change was updated successfully:
-
-
-```
-kubectl get svc -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
-```
-
-
-```
-NAME           TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
-awx-postgres   ClusterIP   None           &lt;none&gt;        5432/TCP       8m58s
-awx-service    NodePort    10.43.182.53   &lt;none&gt;        80:32000/TCP   8m49s
-
-```
-
-Ansible AWX web portal is now accessible on http://hostip_or_hostname:32000.
-
-The login username is admin
-
-Obtain admin user password by decoding the secret with the password value:
-
-
-```
-kubectl get secret awx-admin-password -o jsonpath=&quot;{.data.password}&quot; | base64 --decode
-```
-
-
-Better output format:
-
-
-```
-kubectl get secret awx-admin-password -o go-template='{{range $k,$v := .data}}{{printf &quot;%s: &quot; $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{&quot;\n&quot;}}{{end}}'
-```
-
-
-Login with admin username and decoded password:
-
-!Review Kubernetes Node resources to ensure they are enough to run AWX:
-
-
-```
-kubectl top nodes --use-protocol-buffers
-```
-</pre>
 </div>
 <div created="20210701064652003" modified="20210701065008747" tags="Linux.commands" title="du">
 <pre>what’s taking up all the available space
@@ -12087,6 +11907,178 @@ haproxy2 -c -V -f /etc/haproxy/haproxy2.cfg
 <pre>```
 tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 ```</pre>
+</div>
+<div created="20210925141414848" modified="20210925141414848" tags="AWX" title="Install Single Node k3s Kubernetes">
+<pre>!Install Single Node k3s Kubernetes
+
+```
+curl -sfL https://get.k3s.io | sudo bash -
+```
+!Validate K3s installation:
+
+```
+kubectl get nodes
+or
+kubectl version --short
+```
+!Deploy AWX Operator on Kubernetes
+
+This Kubernetes Operator has to be deployed in your Kubernetes cluster, which in our case is powered by K3s. The operator we’ll deploy can manage one or more AWX instances in any namespace.
+
+
+!!Check all currently running pods in all namespaces:
+
+```
+kubectl get pods -A
+```
+!!Run the command below to deploy AWX Operator into your cluster:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/ansible/awx-operator/devel/deploy/awx-operator.yaml
+```
+
+```
+kubectl get pods
+```
+!Install Ansible AWX on Ubuntu 20.04/18.04 using Operator
+
+Create Static data PVC – Ref [[AWX data persistence|https://github.com/ansible/awx-operator#persisting-projects-directory]]:
+
+```
+cat &lt;&lt;EOF | kubectl create -f -
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: static-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 2Gi
+EOF
+```
+Let’s now create AWX deployment file with basic information about what is installed:
+
+
+```
+vim awx-deploy.yml
+```
+Paste below contents into the file:
+
+```
+---
+apiVersion: awx.ansible.com/v1beta1
+kind: AWX
+metadata:
+  name: awx
+spec:
+  service_type: nodeport
+  projects_persistence: true
+  projects_storage_access_mode: ReadWriteOnce
+  web_extra_volume_mounts: |
+    - name: static-data
+      mountPath: /var/lib/awx/public
+  extra_volumes: |
+    - name: static-data
+      persistentVolumeClaim:
+        claimName: static-data-pvc
+```
+We have defined resource name as awx and service type as nodeport to enable us access AWX from the Node IP address and given port. We also added extra PV mount on the web server pod.
+
+!!Apply configuration manifest file:
+
+```
+kubectl apply -f awx-deploy.yml
+```
+Wait a few minutes then check AWX instance deployed:
+
+
+```
+kubectl get pods -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+
+
+This dident happen to me
+
+![[Fix Postgres Pod in CrashLoopBackOff state]]
+
+
+
+
+!Access Ansible AWX Dashboard
+
+List all available services and check awx-service Nodeport
+
+```
+kubectl get svc -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+You can edit the Node Port and set to figure of your preference, but has to be &gt;=32000
+
+
+```
+kubectl edit svc awx-service
+```
+
+
+```
+....
+ports:
+  - name: http
+    nodePort: 32000
+    port: 80
+    protocol: TCP
+    targetPort: 8052
+
+```
+
+
+
+Confirm if the change was updated successfully:
+
+
+```
+kubectl get svc -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+
+
+```
+NAME           TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+awx-postgres   ClusterIP   None           &lt;none&gt;        5432/TCP       8m58s
+awx-service    NodePort    10.43.182.53   &lt;none&gt;        80:32000/TCP   8m49s
+
+```
+
+Ansible AWX web portal is now accessible on http://hostip_or_hostname:32000.
+
+The login username is admin
+
+Obtain admin user password by decoding the secret with the password value:
+
+
+```
+kubectl get secret awx-admin-password -o jsonpath=&quot;{.data.password}&quot; | base64 --decode
+```
+
+
+Better output format:
+
+
+```
+kubectl get secret awx-admin-password -o go-template='{{range $k,$v := .data}}{{printf &quot;%s: &quot; $k}}{{if not $v}}{{$v}}{{else}}{{$v | base64decode}}{{end}}{{&quot;\n&quot;}}{{end}}'
+```
+
+
+Login with admin username and decoded password:
+
+!Review Kubernetes Node resources to ensure they are enough to run AWX:
+
+
+```
+kubectl top nodes --use-protocol-buffers
+```
+</pre>
 </div>
 <div created="20210916121903579" modified="20210916122338658" tags="Linux.commands" title="iotop">
 <pre>o - only show processes or threads actually doing I/O
