@@ -207,6 +207,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-git-497309061</li>
 
+<li>$:/state/toc/TableOfContents-Linux--118161433</li>
+
 <li>$:/state/toc/TableOfContents-Linux-497309061</li>
 
 <li>$:/state/toc/TableOfContents-Monitoring-497309061</li>
@@ -236,6 +238,8 @@ Error message and password prompt
 <li>$:/state/toc/TableOfContents/Automation-Terraform-497309061</li>
 
 <li>$:/state/toc/TableOfContents/Automation-Vagrant-497309061</li>
+
+<li>$:/state/toc/TableOfContents/Automation/Ansible-AWX-497309061</li>
 
 <li>$:/state/toc/TableOfContents/Linux-Linux.commands-497309061</li>
 
@@ -369,7 +373,11 @@ Error message and password prompt
 
 <li>How do I Compress a Whole Linux or UNIX Directory</li>
 
+<li>init vault database</li>
+
 <li>Install Single Node k3s Kubernetes</li>
+
+<li>Install Vault</li>
 
 <li>iotop</li>
 
@@ -475,6 +483,8 @@ Error message and password prompt
 
 <li>SSL new cert</li>
 
+<li>Static IP address</li>
+
 <li>symlink</li>
 
 <li>sysctl</li>
@@ -510,6 +520,8 @@ Error message and password prompt
 <li>vi vim</li>
 
 <li>Virtualization</li>
+
+<li>VMWare Image Clone Problem: eth0 Renamed As eth1</li>
 
 <li>wc</li>
 
@@ -10265,7 +10277,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[URL Overrides for KeePass]]</pre>
+# [[VMWare Image Clone Problem: eth0 Renamed As eth1]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10291,7 +10303,7 @@ fi
 <div created="20201030075715490" modified="20210328111318915" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20201029102045487" modified="20210704111719080" title="$:/state/tab/sidebar--595412856">
+<div created="20201029102045487" modified="20210926141213023" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
@@ -10306,11 +10318,14 @@ fi
 <div created="20210603201943614" modified="20210603201943614" title="$:/state/toc/Password manager-KeePass-1918720731">
 <pre>open</pre>
 </div>
-<div created="20210220113945412" modified="20210926105156867" title="$:/state/toc/TableOfContents-Automation-497309061">
-<pre>close</pre>
+<div created="20210220113945412" modified="20210926112713672" title="$:/state/toc/TableOfContents-Automation-497309061">
+<pre>open</pre>
 </div>
 <div created="20210306150819375" modified="20210827191340749" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
+</div>
+<div created="20210926140000285" modified="20210926140000285" title="$:/state/toc/TableOfContents-Linux--118161433">
+<pre>open</pre>
 </div>
 <div created="20210302064244857" modified="20210924064801106" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>close</pre>
@@ -10357,6 +10372,9 @@ fi
 <div created="20210311130747837" modified="20210327165927447" title="$:/state/toc/TableOfContents/Automation-Vagrant-497309061">
 <pre>close</pre>
 </div>
+<div created="20210926112715645" modified="20210926112715645" title="$:/state/toc/TableOfContents/Automation/Ansible-AWX-497309061">
+<pre>open</pre>
+</div>
 <div created="20210309105222297" modified="20210413121212427" title="$:/state/toc/TableOfContents/Linux-Linux.commands-497309061">
 <pre>close</pre>
 </div>
@@ -10378,7 +10396,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210926103915813" list="TableOfContents" modified="20210926105204266" title="$:/StoryList">
+<div created="20210926103915813" list="TableOfContents" modified="20210926135836739" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10445,7 +10463,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20210926104300282" title="$:/temp/search">
+<div created="20201031112729614" modified="20210926141211439" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11912,6 +11930,24 @@ haproxy2 -c -V -f /etc/haproxy/haproxy2.cfg
 tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 ```</pre>
 </div>
+<div created="20210926132632129" modified="20210926133527627" tags="Vault" title="init vault database">
+<pre>one person vault
+
+
+```
+export VAULT_ADDR=https://...:8200
+```
+
+```
+vault operator init -n 1 -t 1
+```
+if you dount have correct cert
+
+```
+vault operator init -n 1 -t 1 -tls-skip-verify
+```
+</pre>
+</div>
 <div created="20210925141414848" modified="20210925141414848" tags="AWX" title="Install Single Node k3s Kubernetes">
 <pre>!Install Single Node k3s Kubernetes
 
@@ -12083,6 +12119,15 @@ Login with admin username and decoded password:
 kubectl top nodes --use-protocol-buffers
 ```
 </pre>
+</div>
+<div created="20210926125243888" modified="20210926133911858" tags="Vault" title="Install Vault">
+<pre>https://learn.hashicorp.com/tutorials/vault/getting-started-install
+
+```
+systemctl enable vault
+systemctl start vault
+```
+[[init a new vault|init vault database]]</pre>
 </div>
 <div created="20210916121903579" modified="20210916122338658" tags="Linux.commands" title="iotop">
 <pre>o - only show processes or threads actually doing I/O
@@ -13464,6 +13509,67 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout {FQDN}.key -out {FQ
 [enter *.domain.com for the Common Name]
 </pre>
 </div>
+<div created="20210926134852142" modified="20210926141144579" tags="Linux" title="Static IP address">
+<pre>!Ubuntu 17.10 and later uses Netplan
+
+
+```
+ip add
+```
+
+```
+vi /etc/netplan/00-installer-config.yaml
+```
+
+```
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: true
+  version: 2
+```
+
+```
+network:
+  ethernets:
+    enp0s3:
+      addresses: [192.168.1.3/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [4.2.2.2, 8.8.8.8]
+  version: 2
+```
+
+```
+sudo netplan try
+```
+
+```
+sudo netplan apply
+```
+
+
+!Centos (6)
+
+Configure eth0
+
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+
+```
+DEVICE=&quot;eth0&quot;
+NM_CONTROLLED=&quot;yes&quot;
+ONBOOT=yes
+HWADDR=A4:BA:DB:37:F1:04
+TYPE=Ethernet
+BOOTPROTO=static
+NAME=&quot;System eth0&quot;
+UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03
+IPADDR=192.168.1.44
+NETMASK=255.255.255.0
+```
+</pre>
+</div>
 <div created="20141011100104946" modified="20210708090105682" tags="Linux.commands" title="symlink" tmap.id="e3a60f1a-f00c-4a2a-9d7b-af80eb0689c9">
 <pre>```
 ln -s TARGET LINK_NAME
@@ -14225,6 +14331,35 @@ vault kv get -field=my_b64_key keys/testkeys &gt; Plaintext.b64
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Virtualization'&gt;&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20141127145315610" modified="20210926140118641" tags="vmware Linux" title="VMWare Image Clone Problem: eth0 Renamed As eth1">
+<pre>VMWare Image Clone Problem: eth0 Renamed As eth1
+
+# cd /etc/udev/rules.d
+# cp 70-persistent-net.rules /root/
+# rm 70-persistent-net.rules
+# reboot
+
+Update your /etc/sysconfig/networking-scripts/ifcfg-eth0 with eth1 HWaddr (MAC address), enter:
+# cat /etc/sysconfig/networking-scripts/ifcfg-eth0
+Sample outputs:
+
+ 
+
+```
+DEVICE=&quot;eth0&quot;
+BOOTPROTO=&quot;dhcp&quot;
+NM_CONTROLLED=&quot;yes&quot;
+ONBOOT=&quot;yes&quot;
+HWADDR=&quot;xx:xx:xx:xx:xx:xx&quot;
+
+```
+
+
+''From KVM''
+
+http://www.jonathanmedd.net/2013/12/vsphere-importing-a-centos-vm-exported-as-a-vmdk-from-kvm.html
+</pre>
 </div>
 <div created="20210328102428964" modified="20210328102530127" tags="Linux.commands" title="wc">
 <pre>wc - print newline, word, and byte counts for each file
