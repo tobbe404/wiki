@@ -383,6 +383,8 @@ Error message and password prompt
 
 <li>KeePass</li>
 
+<li>kubectl</li>
+
 <li>Kubernetes</li>
 
 <li>LDAP</li>
@@ -10376,7 +10378,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20210926103915813" list="TableOfContents Kubernetes" modified="20210926105204266" title="$:/StoryList">
+<div created="20210926103915813" list="TableOfContents" modified="20210926105204266" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -12273,6 +12275,50 @@ http://about:addons
 otp
 
 https://github.com/rookiestyle/keepassotp/#configuration</pre>
+</div>
+<div created="20210926105840323" modified="20210926111633920" tags="Kubernetes" title="kubectl">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+&lt;&lt;toc-selective-expandable 'kubectl'&gt;&gt;
+&lt;/div&gt;
+
+
+```
+kubectl config view
+```
+```
+kubectl cluster-info
+```
+```
+kubectl get pods 
+```
+```
+kubectl get svc
+```
+```
+kubectl edit svc awx-service
+```
+```
+kubectl top nodes --use-protocol-buffers
+```
+```
+kubectl logs awx-postgres-0
+```
+```
+kubectl get pods -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+```
+kubectl apply -f https://raw.githubusercontent.com/ansible/awx-operator/devel/deploy/awx-operator.yaml
+
+```
+```
+kubectl apply -f awx-deploy.yml
+```
+```
+kubectl get svc -l &quot;app.kubernetes.io/managed-by=awx-operator&quot;
+```
+```
+kubectl describe secret
+```</pre>
 </div>
 <div created="20210926103923200" modified="20210926105556479" tags="Virtualization" title="Kubernetes">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
