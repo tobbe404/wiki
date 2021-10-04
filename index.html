@@ -347,6 +347,8 @@ Error message and password prompt
 
 <li>Fix Postgres Pod in CrashLoopBackOff state</li>
 
+<li>Fix serial port permission denied errors on Linux</li>
+
 <li>Flush DNS cach</li>
 
 <li>for loop</li>
@@ -10283,8 +10285,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Untitled]]
-# [[Port scan]]</pre>
+# [[Fix serial port permission denied errors on Linux]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10403,7 +10404,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211004070203531" list="TableOfContents" modified="20211004121327178" title="$:/StoryList">
+<div created="20211004070203531" list="TableOfContents" modified="20211004123845165" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10470,7 +10471,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20211004121324001" title="$:/temp/search">
+<div created="20201031112729614" modified="20211004123909887" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11604,6 +11605,49 @@ pvc-edb29795-7dae-4a00-805f-2d989694fe3d_default_postgres-awx-postgres-0
 
 ```
 </pre>
+</div>
+<div created="20150224102555429" modified="20211004123906872" tags="Linux" title="Fix serial port permission denied errors on Linux" tmap.id="ac7af4ce-f1de-4f98-be4a-2cdec17771a5">
+<pre>By Jesin A   April 8, 2013 July 11, 2013 Linux  16 Comments
+
+linux category thumbnail
+The ancient serial port which is no longer found on the latest motherboards and even the not so latest laptops is still used for connecting to the console of networking devices, headless computers and a lot other applications. On computers which do not have built-in serial ports USB-to-Serial adapters can be used. Linux identifies inbuilt serial ports as /dev/ttyS0, /dev/ttyS1,….. /dev/ttySn and USB-to-Serial adapters as /dev/ttyUSB0, …. /dev/ttyUSBn and they can be accessed using terminal emulator applications like PuTTY, minicom and screen.
+Normally when the serial console is accessed using the terminal emulator of your choice as a non-root user you’ll get a “permission denied” error. Using PuTTY on Ubuntu I got the following error – “Unable to open connection to: Unable to open serial port“.
+putty serial port error
+PuTTY on Linux throws this error if the user running it does not have permissions to access the serial port device file
+This is because the device file of the serial port does not have permissions to allow to currently logged in user to “read” or “write” to the serial device. The following command will confirm that.
+
+```
+jesin@localhost:~$ ls -l /dev/ttyUSB*
+crw-rw---- 1 root dialout 188, 0 Apr  8 21:54 /dev/ttyUSB0
+crw-rw---- 1 root dialout 188, 1 Apr  8 21:54 /dev/ttyUSB1
+```
+So we can see that only the “root” user and the “dialout” group have proper permissions, while chmod can be used to grant access to the required user or everyone it is messy and not a secure way. The easier way is the add the user to the dialout group.
+First verify if the user does belong to the dialout group using the “id” command.
+
+```
+jesin@localhost:~$ id -Gn jesin
+jesin adm cdrom sudo dip plugdev lpadmin sambashare kvm
+```
+Next add the user to the “dialout” supplementary group.
+
+```
+jesin@localhost:~$ sudo usermod -a -G dialout &lt;username&gt;
+```
+
+Example:
+
+```
+jesin@localhost:~$ sudo usermod -a -G dialout jesin
+
+```
+You have to logout and login before changes take effect. After logging back in try the “id” command again.
+
+```
+jesin@localhost:~$ id -Gn jesin
+jesin adm dialout cdrom sudo dip plugdev lpadmin sambashare kvm
+```
+
+Now all your terminal emulator applications will work with the serial port without any issues.</pre>
 </div>
 <div created="20210402121859191" modified="20210402131424256" tags="Linux.commands" title="Flush DNS cach">
 <pre>!Ubuntu desktop
