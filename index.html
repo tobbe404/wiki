@@ -10406,7 +10406,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211004143224661" list="TableOfContents" modified="20211004145451335" title="$:/StoryList">
+<div created="20211006082036012" list="TableOfContents" modified="20211006082819323" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10473,7 +10473,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20211004145538989" title="$:/temp/search">
+<div created="20201031112729614" modified="20211006082817994" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12669,7 +12669,7 @@ mongorestore /patch/to/dump
 &lt;&lt;toc-selective-expandable  &quot;MsSQL&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20210428144740342" modified="20210503150413928" tags="Linux.commands" title="multitail">
+<div created="20210428144740342" modified="20211006082742389" tags="Linux.commands" title="multitail">
 <pre>The first example shows only lines from /var/log/messages which have the string &quot;gnu-pop3d&quot; somewhere in them. 
 
 ```
@@ -12688,7 +12688,48 @@ merge 2 logs with different colors
 multitail -ci green --mergeall /var/log/syslog -ci red /var/log/auth.log
 ```
 
-
+| q  |quit the program|
+| F1 |this help|
+| /  |search in all windows|
+| shift + / |highlight in all windows|
+| b  |scroll back|
+| B  |scroll back in ALL windows merged into one window|
+| I  |toggle case sensitivity for searches|
+| a  |add a new window or add another file/program to an existing window|
+| d  |delete a window (or a file/program from awindow)|
+| s  |swap the location of 2 windows|
+| e  |enter/edit regular expressions|
+| f  |enter/edit in line filter regexps|
+| c  |set/change colors (only works if your terminal supports colors)|
+| C  |edit the r/g/b components of a color|
+| b  |scrollback in the buffer of a window|
+| v  |toggle vertical split|
+| 0...9 |set a mark in a window so that you can easily see what has changed since the last time you looked|
+| R  |restart a window|
+| ctrl + v |select conversion scheme(s)|
+| ctrl + t |toggle subwindow before lines|
+| Y  |send a signal to a window (for commands)|
+| y  |set linewrap|
+| o  |wipe (clear) a window|
+| O  |wipe all windows|
+| T  |truncate a logfile|
+| g  |make screendump|
+| r  |redraw screen|
+| I  |toggle case sensitivity for searches|
+| l  |list keybindings|
+| i  |info|
+| t  |statistics|
+| j  |set window sizes|
+| z  |hide/unhide a window|
+| u  |hide all windows but the one selected|
+| U  |unhide all windows|
+| w  |write a script which starts multitail with the current settings (the files that are monitored, regular expressions, etc.)|
+| n  |clear the buffer of a window|
+| N  |clear all buffers of all windows|
+| m  |set the size of a buffer|
+| k  |enter a (limited) terminal-mode|
+| p  |pause all windows|
+| P  |(un-)pause one window|
 
 https://linuxgazette.net/issue95/vanheusden.html
 
