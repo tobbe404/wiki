@@ -517,6 +517,8 @@ Error message and password prompt
 
 <li>TiddlyWiki</li>
 
+<li>tmux</li>
+
 <li>ubuntu</li>
 
 <li>ubuntu.firefox.java</li>
@@ -10289,7 +10291,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Fix serial port permission denied errors on Linux]]</pre>
+# [[tmux cheat cheat]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10321,7 +10323,7 @@ fi
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
 <pre>open</pre>
 </div>
-<div created="20210318073822275" modified="20210914070017109" title="$:/state/toc/Linux-Linux.commands-1152169851">
+<div created="20210318073822275" modified="20211028062047557" title="$:/state/toc/Linux-Linux.commands-1152169851">
 <pre>close</pre>
 </div>
 <div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
@@ -10408,7 +10410,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211027145911364" list="TableOfContents" modified="20211027145939539" title="$:/StoryList">
+<div created="20211028061618573" list="TableOfContents" modified="20211028061819532" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10475,7 +10477,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20211027145937164" title="$:/temp/search">
+<div created="20201031112729614" modified="20211028062057491" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13142,7 +13144,7 @@ openssl pkcs12 -in &lt;filename&gt;.p12 -clcerts -nodes -out &lt;filename&gt;.cr
 ```
 </pre>
 </div>
-<div created="20210830135406477" modified="20211027145931402" tags="Linux [[SSL new cert]]" title="openssl read cert">
+<div created="20210830135406477" modified="20210830135556130" tags="Linux" title="openssl read cert">
 <pre>```
 openssl x509 -text -noout -in certificate.crt 
 ```
@@ -14222,6 +14224,55 @@ To link to a tiddler and specify the text of the link:
 &lt;/html&gt;
 
 ```
+
+</pre>
+</div>
+<div created="20141024063653713" modified="20211028062026510" tags="Linux.commands" title="tmux" tmap.id="ec3b11b6-5489-49b2-ab09-65b5883b3dda">
+<pre>
+
+start new with session name:
+
+```
+tmux new -s myname
+```
+attach
+
+```
+tmux a -t myname
+
+```
+list sessions
+
+```
+tmux ls
+```
+detach
+
+```
+Ctrl-b d
+```
+
+kill session
+
+```
+tmux kill-session -t myname
+```
+
+Ctrl-b
+
+* %  vertical split
+* &quot;  horizontal split
+
+* o  swap panes
+* q  show pane numbers
+* x  kill pane
+* +  break pane into window (e.g. to select text by mouse to copy)
+* -  restore pane from window
+* ⍽  space - toggle between layouts
+*&lt; prefix &gt;  q (Show pane numbers, when the numbers show up type the key to goto that pane)
+* &lt; prefix &gt; { (Move the current pane left)
+* &lt; prefix &gt; } (Move the current pane right)
+* &lt; prefix &gt; z toggle pane zoom
 
 </pre>
 </div>
