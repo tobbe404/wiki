@@ -523,6 +523,8 @@ Error message and password prompt
 
 <li>ubuntu.firefox.java</li>
 
+<li>ubuntu.reset password</li>
+
 <li>URL Overrides for KeePass</li>
 
 <li>Vagrant</li>
@@ -10410,7 +10412,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211101093546016" list="TableOfContents" modified="20211101102726464" title="$:/StoryList">
+<div created="20211103085143046" list="TableOfContents" modified="20211103121604490" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10477,8 +10479,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20211101102725453" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20211103114915275" title="$:/temp/search">
+<pre>pass</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -14228,8 +14230,7 @@ To link to a tiddler and specify the text of the link:
 </pre>
 </div>
 <div created="20141024063653713" modified="20211028062026510" tags="Linux.commands" title="tmux" tmap.id="ec3b11b6-5489-49b2-ab09-65b5883b3dda">
-<pre>
-start new with session name:
+<pre>start new with session name:
 
 ```
 tmux new -s myname
@@ -14284,6 +14285,79 @@ Ctrl-b
 </div>
 <div created="20210529085524867" modified="20210603201707289" tags="ubuntu" title="ubuntu.firefox.java">
 <pre>~~apt install icedtea-netx-common~~
+</pre>
+</div>
+<div created="20211103120545444" modified="20211103121555083" tags="ubuntu" title="ubuntu.reset password">
+<pre>!boot live usb
+
+find the disk
+
+```
+sudo fdisk -l
+```
+mount it
+
+```
+sudo mount /dev/sda5 /mnt
+```
+
+cross-mount things from the live install
+
+```
+for d in dev sys run proc; do sudo mount --bind /$d /mnt/$d; done
+```
+become the root of the system using chroot
+
+```
+sudo chroot /mnt
+```
+
+st new password
+
+```
+passwd username
+```
+reboot
+
+
+!Root shell from boot
+
+When you are booting into Ubuntu, press, and hold Shift. This should open up the GRUB menu
+
+Select “Ubuntu” and press “e”. This will open up the grub parameters to edit.
+
+Now, use the arrow keys and scroll down to the line that starts with “linux /boot/vmlinuz”.
+
+From that line, replace 
+
+```
+ro quiet splash $vt_handoff 
+```
+
+with
+
+```
+rw init=/bin/bash
+```
+
+Press “Ctrl + X” or F10. This will reboot the system
+
+verify mount
+
+```
+mount | grep -w /
+```
+
+```
+passwd username
+```
+reboot
+
+```
+exec /sbin/init
+```
+
+
 </pre>
 </div>
 <div created="20170321080519618" modified="20210924064350239" tags="KeePass" title="URL Overrides for KeePass">
