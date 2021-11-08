@@ -423,6 +423,8 @@ Error message and password prompt
 
 <li>MySQL</li>
 
+<li>mysql.max_allowed_packet</li>
+
 <li>mysql.New database</li>
 
 <li>mysql.reset password</li>
@@ -10412,7 +10414,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211103085143046" list="TableOfContents" modified="20211103121604490" title="$:/StoryList">
+<div created="20211108150001974" list="TableOfContents" modified="20211108150415732" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -12756,6 +12758,28 @@ https://github.com/loncarales/CheatSheets/blob/master/ccze_multitail.md
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;MySQL&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20211108150021631" modified="20211108150411649" tags="MySQL" title="mysql.max_allowed_packet">
+<pre>
+check
+
+```
+Select @@global.max_allowed_packet;
+```
+
+Update in runtime (8M)
+
+```
+SET GLOBAL max_allowed_packet=8388608;
+```
+
+make persistent&lt;br&gt;
+in /etc/my.cnf under [mysqld] section
+
+```
+max_allowed_packet=8M
+```
+</pre>
 </div>
 <div created="20141017203130915" modified="20210726082424106" tags="MySQL" title="mysql.New database">
 <pre>CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
