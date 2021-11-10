@@ -10414,7 +10414,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211108150001974" list="TableOfContents" modified="20211108150415732" title="$:/StoryList">
+<div created="20211110064840584" list="TableOfContents" modified="20211110072359383" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10462,11 +10462,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10481,8 +10481,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20211103114915275" title="$:/temp/search">
-<pre>pass</pre>
+<div created="20201031112729614" modified="20211110072413490" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10909,7 +10909,7 @@ curl -X GET http://localhost:9200/_snapshot/my_backup/snapshot_1/_status?pretty=
 ```
 </pre>
 </div>
-<div created="20210222095816365" modified="20210312075519131" tags="Linux" title="Centos 6 Vault Repo" tmap.id="2af5649e-4f21-471b-be39-8ea3ca7d9080">
+<div created="20210222095816365" modified="20211110072347579" tags="Linux" title="Centos 6 Vault Repo" tmap.id="2af5649e-4f21-471b-be39-8ea3ca7d9080">
 <pre>*Go to /etc/yum.repos.d/ directory:
 
 
@@ -10971,6 +10971,35 @@ yum clean all
 
 ```
 yum update
+```
+
+
+
+```
+[epel]
+name=Extra Packages for Enterprise Linux 6 - $basearch
+baseurl=https://archives.fedoraproject.org/pub/archive/epel/6/$basearch
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+metadata_expire=never
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 6 - $basearch - Debug
+baseurl=https://archives.fedoraproject.org/pub/archive/epel/6/$basearch/debug
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=1
+metadata_expire=never
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 6 - $basearch - Source
+baseurl=https://archives.fedoraproject.org/pub/archive/epel/6/SRPMS
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+gpgcheck=1
+metadata_expire=never
+
 ```
 </pre>
 </div>
@@ -12760,8 +12789,7 @@ https://github.com/loncarales/CheatSheets/blob/master/ccze_multitail.md
 &lt;/div&gt;</pre>
 </div>
 <div created="20211108150021631" modified="20211108150411649" tags="MySQL" title="mysql.max_allowed_packet">
-<pre>
-check
+<pre>check
 
 ```
 Select @@global.max_allowed_packet;
