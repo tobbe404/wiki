@@ -331,6 +331,10 @@ Error message and password prompt
 
 <li>Empty log file using echo command</li>
 
+<li>Encrypt the home folder for a new user</li>
+
+<li>Encrypt the home folder for an existing user account</li>
+
 <li>env</li>
 
 <li>error</li>
@@ -376,6 +380,8 @@ Error message and password prompt
 <li>haproxy</li>
 
 <li>How do I Compress a Whole Linux or UNIX Directory</li>
+
+<li>How to encrypt the swap too</li>
 
 <li>init vault database</li>
 
@@ -10416,7 +10422,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211202072107983" list="TableOfContents" modified="20211202143440938" title="$:/StoryList">
+<div created="20211204102150494" list="TableOfContents Linux ubuntu" modified="20211204104904217" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10464,15 +10470,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -11491,6 +11497,57 @@ echo &quot;&quot; &gt; logfile
 ```
 </pre>
 </div>
+<div created="20211204104907261" modified="20211204105014028" tags="ubuntu" title="Encrypt the home folder for a new user">
+<pre>```
+sudo apt install ecryptfs-utils cryptsetup
+```
+
+```
+sudo adduser --encrypt-home &lt;user&gt;
+```
+
+```
+sudo usermod -aG sudo &lt;user&gt;
+```
+
+Logout and login with the new user credentials. Do not reboot!
+
+```
+ecryptfs-unwrap-passphrase
+```
+</pre>
+</div>
+<div created="20211204105129458" modified="20211204105812756" tags="ubuntu" title="Encrypt the home folder for an existing user account">
+<pre>```
+sudo apt install ecryptfs-utils cryptsetup
+```
+
+```
+sudo adduser &lt;user2&gt;
+sudo usermod -aG sudo &lt;user2&gt;
+```
+
+login to an admin account &lt;user2&gt;
+
+```
+sudo ecryptfs-migrate-home -u &lt;user1&gt;
+```
+
+
+
+Make sure you use the password that &lt; user1 &gt; has set when prompted, after running the command above.
+
+
+Logout and login using the encrypted user credentials &lt; user1 &gt;. Do not reboot!
+
+```
+ecryptfs-unwrap-passphrase
+```
+
+Save this information (output) somewhere safe!
+
+Reboot and if everything is ok, you can safely remove the temporary user as well as the backup</pre>
+</div>
 <div created="20210328101937716" modified="20210328102057345" tags="Linux.commands" title="env">
 <pre>*printenv 
 **Print all or part of environment
@@ -12064,6 +12121,19 @@ haproxy2 -c -V -f /etc/haproxy/haproxy2.cfg
 <pre>```
 tar -zcvf prog-1-jan-2005.tar.gz /home/jerry/prog
 ```</pre>
+</div>
+<div created="20211204105021819" modified="20211204105105975" tags="ubuntu" title="How to encrypt the swap too">
+<pre>It's important to note that ''encrypting the swap breaks hibernate / resume''
+
+```
+sudo apt install ecryptfs-utils cryptsetup
+```
+
+```
+sudo ecryptfs-setup-swap
+```
+
+When asked, press y to proceed with encrypting the swap. After it's done, you may see a message saying: &quot;swapon: cannot open /dev/mapper/cryptswap1: No such file or directory&quot; - the swap encryption process did not fail, but this does mean you don't currently have a swap though. Reboot your computer and everything will work as it should.</pre>
 </div>
 <div created="20210926132632129" modified="20210926133527627" tags="Vault" title="init vault database">
 <pre>one person vault
