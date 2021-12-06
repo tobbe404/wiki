@@ -10420,7 +10420,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211204102150494" list="TableOfContents" modified="20211204104904217" title="$:/StoryList">
+<div created="20211206213037424" list="TableOfContents" modified="20211206213941738" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10468,11 +10468,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10484,7 +10484,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20211202144309301" title="$:/temp/search">
+<div created="20201031112729614" modified="20211206213947237" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11989,14 +11989,35 @@ __pycache__/
 ```
 </pre>
 </div>
-<div created="20210306150821563" modified="20210306151004876" tags="git" title="gitlab">
+<div created="20210306150821563" modified="20211206213906516" tags="git" title="gitlab">
 <pre>install sever
 
 https://about.gitlab.com/install/#ubuntu
 
 backup
 
-https://docs.gitlab.com/ee/raketasks/backup_restore.html</pre>
+https://docs.gitlab.com/ee/raketasks/backup_restore.html
+
+remote backup
+
+```
+#!/bin/bash
+echo &quot;gitlab&quot;
+IP=10.0.0.1
+DIR=/backup/gitlab
+mkdir -p ${DIR}/files/etc
+ssh -C root@${IP} gitlab-backup create
+
+    if [ `date +%u` == 1 ]; then
+    	rm -f ${DIR}/*.snar
+	fi
+
+rsync -az --delete --timeout=3600 ${IP}:/etc/gitlab ${DIR}/files/etc
+rsync -az --delete --timeout=3600 ${IP}:/var/opt/gitlab/backups ${DIR}/files
+tar -zcpf ${DIR}/gitlab_etc-`date +&quot;%Y-%m-%d&quot;`.tar.gz -g ${DIR}/gitlab_etc.snar ${DIR}/files/etc
+
+```
+</pre>
 </div>
 <div created="20210825090604591" modified="20210825112908581" tags="gitlab" title="gitlab.commands">
 <pre>```
