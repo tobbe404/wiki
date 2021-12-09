@@ -10420,7 +10420,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211206213037424" list="TableOfContents" modified="20211206213941738" title="$:/StoryList">
+<div created="20211209140624749" list="TableOfContents" modified="20211209142245934" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10476,7 +10476,7 @@ fi
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10484,7 +10484,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20211206213947237" title="$:/temp/search">
+<div created="20201031112729614" modified="20211209142321153" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13451,7 +13451,7 @@ tar cf - mysqldb|ssh 192.168.0.18 tar xf -
 ```
 </pre>
 </div>
-<div created="20210505204620683" modified="20211123135547560" tags="Linux" title="regexp">
+<div created="20210505204620683" modified="20211209142316912" tags="Linux" title="regexp">
 <pre>emty line
 
 ```
@@ -13496,6 +13496,13 @@ Getting the text that follows after the regex match
 
 ```
 [a-z]{4}-
+```
+
+find first word after config/
+
+
+```
+(?&lt;=config\/)[a-z]*
 ```
 </pre>
 </div>
