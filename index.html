@@ -411,6 +411,8 @@ Error message and password prompt
 
 <li>linux.firewall</li>
 
+<li>Logging stopped working</li>
+
 <li>Megaraid</li>
 
 <li>mem</li>
@@ -10420,7 +10422,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20211209140624749" list="TableOfContents" modified="20211209142245934" title="$:/StoryList">
+<div created="20211210103855467" list="TableOfContents" modified="20211210130416748" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10484,7 +10486,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20211209142321153" title="$:/temp/search">
+<div created="20201031112729614" modified="20211210130359298" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12654,6 +12656,18 @@ touch /etc/sysconfig/iptables;touch /etc/sysconfig/ip6tables;systemctl start ipt
 iptables -L
 ```
 
+</pre>
+</div>
+<div created="20211210130206772" modified="20211210130350295" tags="Linux" title="Logging stopped working">
+<pre>centos7 / linux2
+
+```
+systemctl restart systemd-journald.service
+```
+
+```
+systemctl restart rsyslog.service
+```
 </pre>
 </div>
 <div created="20210413121225569" modified="20210916101924683" tags="Linux" title="Megaraid">
