@@ -441,6 +441,8 @@ Error message and password prompt
 
 <li>mysql.slow queries</li>
 
+<li>mysqldump</li>
+
 <li>Nagios</li>
 
 <li>netstat</li>
@@ -10426,7 +10428,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220104071317266" list="TableOfContents" modified="20220105091632820" title="$:/StoryList">
+<div created="20220112145956087" list="TableOfContents" modified="20220113095424742" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10490,8 +10492,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220105091628791" title="$:/temp/search">
-<pre>logg</pre>
+<div created="20201031112729614" modified="20220113095417300" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12664,7 +12666,6 @@ iptables -L
 </div>
 <div created="20220105091718127" modified="20220105091820281" tags="Linux" title="Logging">
 <pre>
-
 https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
 </pre>
 </div>
@@ -13084,6 +13085,69 @@ log_slow_queries = 1;
 slow_query_log_file = &lt;some file name&gt;;
 ```
 </pre>
+</div>
+<div created="20220113094603306" modified="20220113095346829" tags="MySQL" title="mysqldump">
+<pre>''Backup no data''
+
+```
+mysqldump --no-data {dbname}&gt;{dbname}.sql
+```
+ 
+
+''Remote backup over ssh''
+
+```
+ssh -C {ssh.user}@{remote_host} mysqldump -u {remote_dbuser} --password={remote_dbpassword} {remote_dbname} | gzip &gt; {dbname}.sql.gz
+
+```
+
+''selection from table over SSH''
+
+|--no-create-db|Do not write CREATE DATABASE statements|
+|--no-create-info|Do not write CREATE TABLE statements that re-create each dumped table|
+
+
+
+```
+ssh root@192.168.0.16 &quot;mysqldump --no-create-info --where=\&quot;request_time &gt;= '2013-01-01' and request_time &lt; '2014-01-01'\&quot; dms dms_log_solicits&quot; &gt; dms.dms_log_solicits.p1301-p1312.sql
+```
+
+
+```
+ssh root@192.168.0.16 &quot;mysqldump --no-create-info --where=\&quot;request_time &gt;= '2014-01-01' and request_time &lt; '2015-01-01'\&quot; dms dms_log_solicits&quot; &gt; dms.dms_log_solicits.p1401-p1412.sql
+
+```
+
+''backup''
+
+```
+mysqldump {database} |gzip &gt; /backup/database.sql.gz
+
+```
+
+```
+mysqldump {database} |gzip &gt; /backup/database-2014-04-17.sql.gz
+```
+''restore ''
+
+```
+gunzip &lt; [backupfile.sql.gz] | mysql -u {user} -p{pass} {database}
+```
+
+```
+mysql -u root -p[root_password] [database_name] &lt; dumpfilename.sql
+```
+''--all-databases''
+
+```
+mysqldump --all-databases |gzip &gt; /opt/backup/all_db-`date +&quot;%Y-%m-%d&quot;`.sql.gz
+```
+
+''dump a table''
+
+```
+mysqldump {db} {tbl1} {tbl2} |gzip &gt; /backup/filename-`date +&quot;%Y-%m-%d&quot;`.sql.gz
+```</pre>
 </div>
 <div created="20210309105423755" modified="20210309105453548" tags="Monitoring" title="Nagios">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
