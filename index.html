@@ -519,6 +519,8 @@ Error message and password prompt
 
 <li>systemctl</li>
 
+<li>systemd</li>
+
 <li>TableOfContents</li>
 
 <li>tar</li>
@@ -10341,8 +10343,8 @@ fi
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
 <pre>open</pre>
 </div>
-<div created="20210318073822275" modified="20220105091713848" title="$:/state/toc/Linux-Linux.commands-1152169851">
-<pre>close</pre>
+<div created="20210318073822275" modified="20220120093555025" title="$:/state/toc/Linux-Linux.commands-1152169851">
+<pre>open</pre>
 </div>
 <div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
 <pre>open</pre>
@@ -10428,7 +10430,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220112145956087" list="TableOfContents" modified="20220113095424742" title="$:/StoryList">
+<div created="20220120093217536" list="TableOfContents" modified="20220120093848885" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10476,11 +10478,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10492,7 +10494,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220113095417300" title="$:/temp/search">
+<div created="20201031112729614" modified="20220120095613187" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12665,8 +12667,7 @@ iptables -L
 </pre>
 </div>
 <div created="20220105091718127" modified="20220105091820281" tags="Linux" title="Logging">
-<pre>
-https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
+<pre>https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
 </pre>
 </div>
 <div created="20211210130206772" modified="20211210130430130" tags="Linux" title="Logging stopped working">
@@ -14168,7 +14169,7 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout {FQDN}.key -out {FQ
 [enter *.domain.com for the Common Name]
 </pre>
 </div>
-<div created="20210926134852142" modified="20210926141144579" tags="Linux" title="Static IP address">
+<div created="20210926134852142" modified="20220120093544856" tags="Linux" title="Static IP address">
 <pre>!Ubuntu 17.10 and later uses Netplan
 
 
@@ -14261,6 +14262,15 @@ systemctl list-units --type=service
 ```
 ```
 systemctl daemon-reload
+```
+</pre>
+</div>
+<div created="20220120093615914" modified="20220120093831456" tags="Linux.commands" title="systemd">
+<pre>
+check DNS servers configured in Ubuntu
+
+```
+systemd-resolve --status 
 ```
 </pre>
 </div>
