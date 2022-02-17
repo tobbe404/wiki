@@ -10443,7 +10443,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220217071415835" list="TableOfContents" modified="20220217071546424" title="$:/StoryList">
+<div created="20220217071415835" list="TableOfContents" modified="20220217072041998" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10507,7 +10507,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220217071617045" title="$:/temp/search">
+<div created="20201031112729614" modified="20220217072344637" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13875,7 +13875,7 @@ https://askubuntu.com/questions/1233623/workaround-to-install-ubuntu-20-04-with-
 https://discourse.ubuntu.com/t/ubuntu-installation-on-computers-with-intel-r-rst-enabled/15347
 </pre>
 </div>
-<div created="20210318073814060" modified="20210318124931871" tags="Linux.commands" title="rsync">
+<div created="20210318073814060" modified="20220217072340203" tags="Linux.commands" title="rsync">
 <pre>|! |! |! |! |! . |
 |-a |arcive | archive mode; equals -rlptgoD (no -H,-A,-X) | | |
 |-v |verbose | | | |
@@ -13914,6 +13914,10 @@ No trialing slash on source dir will copy the folder
 rsync -avz foo:src/bar /data/tmp
 ```
 
+
+```
+rsync -avzn --include=&quot;*/&quot; --include=&quot;*.gz*&quot; --include=&quot;*.jar&quot; --exclude=&quot;*&quot;  /source /destination
+```
 
 
 
