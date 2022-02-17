@@ -189,6 +189,8 @@ Error message and password prompt
 
 <li>$:/state/showeditpreview</li>
 
+<li>$:/state/sidebar</li>
+
 <li>$:/state/tab-1749438307</li>
 
 <li>$:/state/tab-2065006209</li>
@@ -10344,6 +10346,9 @@ fi
 <div created="20201031094900477" modified="20210309124457511" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
+<div created="20220217102509400" modified="20220217102916707" title="$:/state/sidebar">
+<pre>yes</pre>
+</div>
 <div created="20201030075711482" modified="20210324121949181" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
@@ -10443,7 +10448,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220217071415835" list="TableOfContents" modified="20220217072041998" title="$:/StoryList">
+<div created="20220217071415835" list="tmux Docker TableOfContents" modified="20220217101150505" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10507,7 +10512,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220217072344637" title="$:/temp/search">
+<div created="20201031112729614" modified="20220217102919014" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14679,7 +14684,7 @@ To link to a tiddler and specify the text of the link:
 
 </pre>
 </div>
-<div created="20141024063653713" modified="20211028062026510" tags="Linux.commands" title="tmux" tmap.id="ec3b11b6-5489-49b2-ab09-65b5883b3dda">
+<div created="20141024063653713" modified="20220217102920897" tags="Linux.commands" title="tmux" tmap.id="ec3b11b6-5489-49b2-ab09-65b5883b3dda">
 <pre>start new with session name:
 
 ```
@@ -14710,19 +14715,60 @@ tmux kill-session -t myname
 
 Ctrl-b
 
-* %  vertical split
-* &quot;  horizontal split
 
-* o  swap panes
-* q  show pane numbers
-* x  kill pane
-* +  break pane into window (e.g. to select text by mouse to copy)
-* -  restore pane from window
-* ⍽  space - toggle between layouts
-*&lt; prefix &gt;  q (Show pane numbers, when the numbers show up type the key to goto that pane)
-* &lt; prefix &gt; { (Move the current pane left)
-* &lt; prefix &gt; } (Move the current pane right)
-* &lt; prefix &gt; z toggle pane zoom
+```
+!           Break the current pane out of the window.
+&quot;           Split the current pane into two, top and bottom.
+#           List all paste buffers.
+$           Rename the current session.
+%           Split the current pane into two, left and right.
+&amp;           Kill the current window.
+’           Prompt for a window index to select.
+,           Rename the current window.
+-           Delete the most recently copied buffer of text.
+.           Prompt for an index to move the current window.
+0 to 9      Select windows 0 to 9.
+:           Enter the tmux command prompt.
+;           Move to the previously active pane.
+=           Choose which buffer to paste interactively from a list.
+?           List all key bindings.
+D           Choose a client to detach.
+[           Enter copy mode to copy text or view the history.
+]           Paste the most recently copied buffer of text.
+c           Create a new window.
+d           Detach the current client.
+f           Prompt to search for text in open windows.
+i           Display some information about the current window.
+l           Move to the previously selected window.
+n           Change to the next window.
+o           Select the next pane in the current window.
+p           Change to the previous window.
+q           Briefly display pane indexes.
+r           Force redraw of the attached client.
+s           Select a new session for the attached client interactively.
+L           Switch the attached client back to the last session.
+t           Show the time.
+w           Choose the current window interactively.
+x           Kill the current pane.
+{           Swap the current pane with the previous pane.
+}           Swap the current pane with the next pane.
+~           Show previous messages from tmux, if any.
+Page Up     Enter copy mode and scroll one page up.
+Up, Down
+Left, Right
+            Change to the pane above, below, to the left, or to the right of the current pane.
+M-1 to M-5  Arrange panes in one of the five preset layouts: even-horizontal, even-vertical, main-horizontal, main-vertical, or tiled.
+M-n         Move to the next window with a bell or activity marker.
+M-o         Rotate the panes in the current window backwards.
+M-p         Move to the previous window with a bell or activity marker.
+C-Up, C-Down
+C-Left, C-Right
+            Resize the current pane in steps of one cell.
+M-Up, M-Down
+M-Left, M-Right
+           Resize the current pane in steps of five cells.
+```
+
 
 </pre>
 </div>
