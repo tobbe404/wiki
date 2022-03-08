@@ -417,6 +417,8 @@ Error message and password prompt
 
 <li>Logging stopped working</li>
 
+<li>LVM</li>
+
 <li>Megaraid</li>
 
 <li>mem</li>
@@ -10465,7 +10467,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220304064504272" list="TableOfContents" modified="20220305102003964" title="$:/StoryList">
+<div created="20220308082832406" list="TableOfContents" modified="20220308130758356" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10513,11 +10515,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10529,7 +10531,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220305102014493" title="$:/temp/search">
+<div created="20201031112729614" modified="20220308133736045" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12821,6 +12823,30 @@ systemctl restart systemd-journald.service
 ```
 systemctl restart rsyslog.service
 ```
+</pre>
+</div>
+<div created="20220308110745021" modified="20220308140441938" tags="Linux.commands" title="LVM">
+<pre>test
+
+```
+pvcreate /dev/sda /dev/sdb /dev/sdc
+```
+
+```
+vgcreate vg_all /dev/sda /dev/sdb /dev/sdc
+```
+
+
+```
+lvcreate -L 20G -n lv_1 vg_all
+```
+
+```
+lvcreate -l +20% -n lv_1 vg_all
+```
+
+
+
 </pre>
 </div>
 <div created="20210413121225569" modified="20210916101924683" tags="Linux" title="Megaraid">
