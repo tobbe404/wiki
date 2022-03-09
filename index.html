@@ -535,6 +535,8 @@ Error message and password prompt
 
 <li>Task Scheduler powershell</li>
 
+<li>tee</li>
+
 <li>Terraform</li>
 
 <li>terraform.basic.commands</li>
@@ -10473,7 +10475,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220308082832406" list="TableOfContents" modified="20220308144257178" title="$:/StoryList">
+<div created="20220309072308382" list="TableOfContents" modified="20220309132907146" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10537,7 +10539,7 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220308155730671" title="$:/temp/search">
+<div created="20201031112729614" modified="20220309132920911" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14557,6 +14559,25 @@ tar -zcvf /opt/backup/www-`date +&quot;%Y-%m-%d_%H_%M&quot;`.tar.gz
 powershell c:\clean.ps1
 ```
 
+</pre>
+</div>
+<div created="20220309072309821" modified="20220309073330702" tags="Linux.commands" title="tee">
+<pre>-a apend
+
+```
+xyz 2&gt;&amp;1 | tee logfile
+```
+-a apend
+
+```
+xyz 2&gt;&amp;1 | tee -a logfile
+```
+
+bash
+
+```
+xyz |&amp; tee logfile
+```
 </pre>
 </div>
 <div created="20210220111854189" modified="20210707081502037" tags="Automation" title="Terraform">
