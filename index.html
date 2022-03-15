@@ -10346,11 +10346,15 @@ fi
 <div created="20201104085551529" modified="20201104085844514" title="$:/GitLab/Username">
 <pre></pre>
 </div>
-<div status="complete" title="$:/Import">
-<pre>The following tiddlers were imported:
-
-# [[Untitled]]
-# [[Mailx]]</pre>
+<div plugin-type="import" status="pending" title="$:/Import" type="application/json">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;Untitled&quot;: {
+            &quot;title&quot;: &quot;Untitled&quot;,
+            &quot;text&quot;: &quot;&lt;pre&gt;&lt;code&gt;(?&amp;lt;=regex ).*&lt;/code&gt;&lt;/pre&gt;&quot;
+        }
+    }
+}</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10472,7 +10476,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220310073823373" list="crontab TableOfContents" modified="20220310082726263" title="$:/StoryList">
+<div created="20220315130836166" list="TableOfContents" modified="20220315135628156" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10536,8 +10540,8 @@ fi
 <div created="20201104145520707" modified="20210705155455400" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220310082723732" title="$:/temp/search">
-<pre>cron</pre>
+<div created="20201031112729614" modified="20220315135700338" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12877,8 +12881,7 @@ lvcreate -l +20% -n lv_1 vg_all
 </pre>
 </div>
 <div created="20190218092508449" modified="20220310074438942" tags="Linux.commands" title="mailx" tmap.id="b0308962-484c-4ac8-8b63-6aaec0bb07b1">
-<pre>
-|h|List headers|
+<pre>|h|List headers|
 |delete 1-5|delete message1-5|
 |q|Quit|
 |n|next message|
@@ -13763,7 +13766,7 @@ tar cf - mysqldb|ssh 192.168.0.18 tar xf -
 ```
 </pre>
 </div>
-<div created="20210505204620683" modified="20211216140347065" tags="Linux" title="regexp">
+<div created="20210505204620683" modified="20220315135655494" tags="Linux" title="regexp">
 <pre>emty line
 
 ```
@@ -13804,6 +13807,13 @@ Getting the text that follows after the regex match
 ```
 (?&lt;=regex ).*
 ```
+match anything between in multiple lines
+
+```
+(?s)(?&lt;=beginningword).*?(?=endingword)
+```
+
+
 4 lower case character ends with a dash
 
 ```
