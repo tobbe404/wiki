@@ -609,7 +609,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20210327142131265" modified="20220304064717741" tags="Linux.commands" title=".bash">
+<div created="20210327142131265" modified="20220428062001228" tags="Linux.commands" title=".bash">
 <pre>! Bash shebang
 
 
@@ -656,6 +656,10 @@ So 2&gt;&amp;1 says to send standard error to where ever standard output is bein
 
 ```
 /root/bin/script.sh &gt;&gt; /var/log/script.log 2&gt;&amp;1
+```
+
+```
+/root/bin/script.sh &gt; /var/log/`date +\%Y\%m\%d`-script.log 2&gt;&amp;1
 ```
 
 
@@ -10487,7 +10491,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220426133734611" list="TableOfContents" modified="20220426134122888" title="$:/StoryList">
+<div created="20220428054500102" list="TableOfContents" modified="20220428062017863" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10535,11 +10539,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2144&quot;
+            &quot;text&quot;: &quot;2859&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1206&quot;
+            &quot;text&quot;: &quot;1608&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10551,7 +10555,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220426134025473" title="$:/temp/search">
+<div created="20201031112729614" modified="20220428062024090" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12338,7 +12342,6 @@ sort -u /backup/file.log|wc -l
 </div>
 <div created="20220426133737171" modified="20220426133956196" tags="ubuntu" title="gvfsd-admin daemon authentication forces me to restart">
 <pre>
-
 remove it by pressing the 
 
 ```
