@@ -10493,7 +10493,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220502061359773" list="TableOfContents" modified="20220502062556343" title="$:/StoryList">
+<div created="20220502061359773" list="TableOfContents" modified="20220502071227377" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -14706,7 +14706,7 @@ ln -s TARGET LINK_NAME
 
 </pre>
 </div>
-<div created="20210317151818172" modified="20220502064257055" tags="Linux.commands" title="sysctl">
+<div created="20210317151818172" modified="20220502071553793" tags="Linux.commands" title="sysctl">
 <pre>sysctl.conf
 
 
@@ -14720,11 +14720,20 @@ net.inet.tcp.syncookies=1  #Use TCP SYN cookies if the syncache overflows
 
 ```
 
+check value
+
+```
+sysctl  net.core.somaxconn
+sysctl  net.ipv4.tcp_max_syn_backlog
+
+```
+
 Ubunto desktop default
 
 ```
 net.core.somaxconn = 4096
 net.ipv4.tcp_max_syn_backlog = 4096
+
 ```
 
 AWS es2 default
@@ -14733,12 +14742,15 @@ AWS es2 default
 ```
 net.core.somaxconn = 128
 net.ipv4.tcp_max_syn_backlog = 512
+
 ```
+
 Increase the value with a command
 
 ```
 sysctl -w net.core.somaxconn=4096
 sysctl -w net.ipv4.tcp_max_syn_backlog=4096
+
 ```
 
 Persist this change across reboots by entering the corresponding line into /etc/sysctl.conf:
@@ -14748,6 +14760,7 @@ Raw
 ```
 echo &quot;net.core.somaxconn = 4096&quot; &gt;&gt; /etc/sysctl.conf
 echo &quot;net.ipv4.tcp_max_syn_backlog = 4096&quot; &gt;&gt; /etc/sysctl.conf
+
 ```
 After changing this tunable, restart the application for the changes to take effect at the next listen() call.
 
