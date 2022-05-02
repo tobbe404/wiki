@@ -413,6 +413,8 @@ Error message and password prompt
 
 <li>LDAP</li>
 
+<li>libssl</li>
+
 <li>Linux</li>
 
 <li>Linux.commands</li>
@@ -10491,7 +10493,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220428054500102" list="TableOfContents" modified="20220428062017863" title="$:/StoryList">
+<div created="20220502061359773" list="ubuntu libssl sysctl TableOfContents" modified="20220502062556343" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10539,11 +10541,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2859&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1608&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10555,8 +10557,8 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220428062024090" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20220502062551901" title="$:/temp/search">
+<pre>ubuntu</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12341,8 +12343,7 @@ sort -u /backup/file.log|wc -l
 </pre>
 </div>
 <div created="20220426133737171" modified="20220426133956196" tags="ubuntu" title="gvfsd-admin daemon authentication forces me to restart">
-<pre>
-remove it by pressing the 
+<pre>remove it by pressing the 
 
 ```
 Alt + F2 
@@ -12845,6 +12846,15 @@ kubectl describe secret
 sudo apt install ldap-utils
 ```
 
+</pre>
+</div>
+<div created="20220502062602274" modified="20220502062634852" tags="ubuntu" title="libssl">
+<pre>Desktop 
+
+```
+wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.7_amd64.deb
+sudo apt install ./libssl1.0.0_1.0.2n-1ubuntu5.7_amd64.deb
+```
 </pre>
 </div>
 <div created="20201104145334541" modified="20201104145420018" tags="TableOfContents" title="Linux">
@@ -14696,7 +14706,7 @@ ln -s TARGET LINK_NAME
 
 </pre>
 </div>
-<div created="20210317151818172" modified="20210318081412054" tags="Linux.commands" title="sysctl">
+<div created="20210317151818172" modified="20220502062538341" tags="Linux.commands" title="sysctl">
 <pre>sysctl.conf
 
 
@@ -14707,6 +14717,12 @@ net.inet.udp.blackhole=1  #Do not send port unreachables for refused connects
 net.inet.sctp.blackhole=2  #Prevent sending an ABORT for incoming INIT and unexpected packets
 net.inet.tcp.drop_synfin=1  #Drop TCP packets with SYN+FIN
 net.inet.tcp.syncookies=1  #Use TCP SYN cookies if the syncache overflows
+
+```
+
+Ubunto desktop default
+
+```
 
 ```
 </pre>
