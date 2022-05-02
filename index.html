@@ -10493,7 +10493,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220502061359773" list="ubuntu libssl sysctl TableOfContents" modified="20220502062556343" title="$:/StoryList">
+<div created="20220502061359773" list="TableOfContents" modified="20220502062556343" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10557,8 +10557,8 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220502062551901" title="$:/temp/search">
-<pre>ubuntu</pre>
+<div created="20201031112729614" modified="20220502064318726" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12848,12 +12848,12 @@ sudo apt install ldap-utils
 
 </pre>
 </div>
-<div created="20220502062602274" modified="20220502062634852" tags="ubuntu" title="libssl">
+<div created="20220502062602274" modified="20220502063308315" tags="ubuntu" title="libssl">
 <pre>Desktop 
 
 ```
-wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.7_amd64.deb
-sudo apt install ./libssl1.0.0_1.0.2n-1ubuntu5.7_amd64.deb
+wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.8_amd64.deb
+sudo apt install ./libssl1.0.0_1.0.2n-1ubuntu5.8_amd64.deb
 ```
 </pre>
 </div>
@@ -14706,7 +14706,7 @@ ln -s TARGET LINK_NAME
 
 </pre>
 </div>
-<div created="20210317151818172" modified="20220502062538341" tags="Linux.commands" title="sysctl">
+<div created="20210317151818172" modified="20220502064257055" tags="Linux.commands" title="sysctl">
 <pre>sysctl.conf
 
 
@@ -14723,8 +14723,35 @@ net.inet.tcp.syncookies=1  #Use TCP SYN cookies if the syncache overflows
 Ubunto desktop default
 
 ```
+net.core.somaxconn = 4096
+net.ipv4.tcp_max_syn_backlog = 4096
+```
+
+AWS es2 default
+
 
 ```
+net.core.somaxconn = 128
+net.ipv4.tcp_max_syn_backlog = 512
+```
+Increase the value with a command
+
+```
+sysctl -w net.core.somaxconn=4096
+sysctl -w net.ipv4.tcp_max_syn_backlog=4096
+```
+
+Persist this change across reboots by entering the corresponding line into /etc/sysctl.conf:
+Raw
+
+
+```
+echo &quot;net.core.somaxconn = 4096&quot; &gt;&gt; /etc/sysctl.conf
+echo &quot;net.ipv4.tcp_max_syn_backlog = 4096&quot; &gt;&gt; /etc/sysctl.conf
+```
+After changing this tunable, restart the application for the changes to take effect at the next listen() call.
+
+
 </pre>
 </div>
 <div created="20210519125104996" modified="20210813133941376" tags="Linux.commands" title="systemctl">
