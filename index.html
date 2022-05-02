@@ -10493,7 +10493,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220502061359773" list="TableOfContents" modified="20220502071227377" title="$:/StoryList">
+<div created="20220502061359773" list="TableOfContents" modified="20220502093217875" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10557,7 +10557,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220502064318726" title="$:/temp/search">
+<div created="20201031112729614" modified="20220502095424954" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14706,7 +14706,7 @@ ln -s TARGET LINK_NAME
 
 </pre>
 </div>
-<div created="20210317151818172" modified="20220502071553793" tags="Linux.commands" title="sysctl">
+<div created="20210317151818172" modified="20220502071837673" tags="Linux.commands" title="sysctl">
 <pre>sysctl.conf
 
 
@@ -14732,7 +14732,7 @@ Ubunto desktop default
 
 ```
 net.core.somaxconn = 4096
-net.ipv4.tcp_max_syn_backlog = 4096
+net.ipv4.tcp_max_syn_backlog = 2048
 
 ```
 
@@ -14749,7 +14749,7 @@ Increase the value with a command
 
 ```
 sysctl -w net.core.somaxconn=4096
-sysctl -w net.ipv4.tcp_max_syn_backlog=4096
+sysctl -w net.ipv4.tcp_max_syn_backlog=2048
 
 ```
 
@@ -14759,7 +14759,7 @@ Raw
 
 ```
 echo &quot;net.core.somaxconn = 4096&quot; &gt;&gt; /etc/sysctl.conf
-echo &quot;net.ipv4.tcp_max_syn_backlog = 4096&quot; &gt;&gt; /etc/sysctl.conf
+echo &quot;net.ipv4.tcp_max_syn_backlog = 2048&quot; &gt;&gt; /etc/sysctl.conf
 
 ```
 After changing this tunable, restart the application for the changes to take effect at the next listen() call.
