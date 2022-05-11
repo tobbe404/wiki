@@ -10502,7 +10502,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220503084817568" list="TableOfContents" modified="20220503085311984" title="$:/StoryList">
+<div created="20220511081625994" list="TableOfContents" modified="20220511085404388" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10566,7 +10566,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220503085310886" title="$:/temp/search">
+<div created="20201031112729614" modified="20220511085245075" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15727,7 +15727,7 @@ vault kv get -field=my_b64_key keys/testkeys &gt; Plaintext.b64
 |:wq |save and exit|
 |:q! |quit witout saving|</pre>
 </div>
-<div created="20210218094247553" modified="20220426134520414" tags="linux Virtualization Phyton" title="virtual environment" tmap.id="d5bbcec9-fa12-45cb-8e18-f07b82eb0f8f">
+<div created="20210218094247553" modified="20220511085240997" tags="linux Virtualization Phyton" title="virtual environment" tmap.id="d5bbcec9-fa12-45cb-8e18-f07b82eb0f8f">
 <pre>```
 python3 -m venv ./ansible
 
@@ -15741,6 +15741,35 @@ source ~/.virtualenvs/ansible/env/bin/activate
 ```
 deactivate
 ```
+
+```
+list --outdated
+```
+
+
+Requirements.txt
+Make a requirements file
+
+
+```
+pip freeze &gt; requirements.txt
+```
+
+Using requirements.txt
+
+
+```
+pip install -r requirements.txt
+```
+
+
+!!Command for either Windows or Linux for updating packages
+
+pip freeze first outputs a list of installed packages into a requirements file (requirements.txt). Then the user needs to edit requirements.txt, and replace all ‘==’ with ‘&gt;=’. Use the ‘Replace All’ command in the editor. It then upgrades all outdated packages.
+
+```
+pip install -r requirements.txt --upgrade
+```
 </pre>
 </div>
 <div created="20210220174718336" modified="20210220221512292" tags="TableOfContents" title="Virtualization">
@@ -15749,8 +15778,7 @@ deactivate
 &lt;/div&gt;</pre>
 </div>
 <div created="20220503085020581" modified="20220503085216200" tags="Tools" title="Visual Studio Code">
-<pre>
-|Ctrl+P|Find a file by name in Visual Studio Code|
+<pre>|Ctrl+P|Find a file by name in Visual Studio Code|
 
 </pre>
 </div>
