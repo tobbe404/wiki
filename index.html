@@ -197,6 +197,8 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
+<li>$:/state/toc/git-gitlab-1537883583</li>
+
 <li>$:/state/toc/graylog-elasticsearch-1310995713</li>
 
 <li>$:/state/toc/Linux-Linux.commands-1152169851</li>
@@ -560,6 +562,8 @@ Error message and password prompt
 <li>terraform.basic.commands</li>
 
 <li>terraform.provider</li>
+
+<li>test a branche</li>
 
 <li>TiddlyWiki</li>
 
@@ -10409,6 +10413,9 @@ fi
 <div created="20201029102045487" modified="20210926141213023" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
+<div created="20220511092658383" modified="20220511092701030" title="$:/state/toc/git-gitlab-1537883583">
+<pre>close</pre>
+</div>
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
 <pre>open</pre>
 </div>
@@ -10502,7 +10509,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220511081625994" list="TableOfContents" modified="20220511085404388" title="$:/StoryList">
+<div created="20220511081625994" list="TableOfContents" modified="20220511092639782" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10566,7 +10573,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220511085245075" title="$:/temp/search">
+<div created="20201031112729614" modified="20220511103233781" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14984,6 +14991,19 @@ cd working dir
 
 ```
 terraform init
+```
+</pre>
+</div>
+<div created="20220511092726607" modified="20220511103221273" tags="git" title="test a branche">
+<pre>
+```
+mkdir test
+cd test
+git clone https://github.com/tobbe404/wiki.git .
+git branch -a
+git checkout -b demo1
+git fetch origin demo1
+git pull origin demo1
 ```
 </pre>
 </div>
