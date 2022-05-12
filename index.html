@@ -10509,7 +10509,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220511081625994" list="TableOfContents" modified="20220511092639782" title="$:/StoryList">
+<div created="20220512084542228" list="TableOfContents" modified="20220512084648216" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10573,7 +10573,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220511103233781" title="$:/temp/search">
+<div created="20201031112729614" modified="20220512084632162" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12086,7 +12086,7 @@ dmidecode | grep -A3 '^System Information'
 
 [[helloworld|https://gist.github.com/tobbe404/940b162f0003f568f329c53802a0eaa3#file-helloworld-ps1]] </pre>
 </div>
-<div created="20210306144935855" modified="20211130103251118" tags="TableOfContents" title="git">
+<div created="20210306144935855" modified="20220512084629241" tags="TableOfContents" title="git">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'git'&gt;&gt;
 &lt;/div&gt;
@@ -12194,6 +12194,13 @@ git branch &lt;new-branch&gt;
 
 ```
 git push origin &lt;new-branch&gt;
+```
+
+
+The top commit on this was the commit that deleted the file. You can then browse the commit itself on the GitLab GUI using the commit ID.
+
+```
+git log --all --full-history -- **/myfile.ext
 ```
 
 </pre>
@@ -14995,8 +15002,7 @@ terraform init
 </pre>
 </div>
 <div created="20220511092726607" modified="20220511103221273" tags="git" title="test a branche">
-<pre>
-```
+<pre>```
 mkdir test
 cd test
 git clone https://github.com/tobbe404/wiki.git .
