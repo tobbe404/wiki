@@ -293,6 +293,8 @@ Error message and password prompt
 
 <li>ansible.posix.synchronize</li>
 
+<li>apt</li>
+
 <li>Automation</li>
 
 <li>awk</li>
@@ -10515,7 +10517,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220513093335086" list="TableOfContents" modified="20220513181309207" title="$:/StoryList">
+<div created="20220514142236538" list="Linux.commands Docker TableOfContents" modified="20220514194207338" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10563,15 +10565,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1366&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;768&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10579,7 +10581,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220513181307645" title="$:/temp/search">
+<div created="20201031112729614" modified="20220514194140649" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10984,6 +10986,17 @@ ansible-playbook first_playbook.yml
 
 </pre>
 </div>
+<div created="20220514154607651" modified="20220514155146941" tags="Linux.commands" title="apt">
+<pre>
+```
+apt-mark hold gitlab
+```
+
+```
+apt-mark unhold package
+```
+</pre>
+</div>
 <div created="20210220111752285" modified="20210220111828033" tags="TableOfContents" title="Automation">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
@@ -11125,8 +11138,7 @@ curl -X GET http://localhost:9200/_snapshot/my_backup/snapshot_1/_status?pretty=
 </pre>
 </div>
 <div created="20220513181057659" modified="20220513181238905" tags=".bash" title="bash shell pause function">
-<pre>
-```
+<pre>```
 #!/bin/bash
 function pause(){
    read -p &quot;$*&quot;
@@ -11605,8 +11617,23 @@ dhclient -d -nw eno2
 
 https://www.jam-software.com/treesize_free</pre>
 </div>
-<div created="20201116165919622" modified="20210221002501931" tags="Virtualization" title="Docker">
-<pre>```
+<div created="20201116165919622" modified="20220514154524535" tags="Virtualization" title="Docker">
+<pre>Upgrag portainer
+
+```
+docker stop portainer
+docker rm portainer
+docker pull portainer/portainer-ce:2.13.1
+
+docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 -p 9443:9443 \
+    --name=portainer --restart=always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v portainer_data:/data \
+    portainer/portainer-ce:2.13.1
+```
+
+
+```
 docker volume create portainer_data
 docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
 ```
