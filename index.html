@@ -10526,7 +10526,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220608075458671" list="TableOfContents Phyton [[virtual environment]]" modified="20220608091548456" title="$:/StoryList">
+<div created="20220707095808824" list="TableOfContents" modified="20220707212742987" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10574,15 +10574,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10590,7 +10590,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220608091545960" title="$:/temp/search">
+<div created="20201031112729614" modified="20220707212716910" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11635,7 +11635,7 @@ dhclient -d -nw eno2
 
 https://www.jam-software.com/treesize_free</pre>
 </div>
-<div created="20201116165919622" modified="20220514154524535" tags="Virtualization" title="Docker">
+<div created="20201116165919622" modified="20220707101709431" tags="Virtualization" title="Docker">
 <pre>Upgrag portainer
 
 ```
@@ -11647,7 +11647,7 @@ docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 -p 9443:9443 \
     --name=portainer --restart=always \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v portainer_data:/data \
-    portainer/portainer-ce:2.13.1
+    portainer/portainer-ce::latest
 ```
 
 
@@ -11678,6 +11678,16 @@ docker run -d -p 0.0.0.0:8000:8000 -p 0.0.0.0:9000:9000 --name=portainer --resta
 ```
 
 
+reset password
+
+
+```
+docker stop portainer
+```
+
+```
+docker run --rm -v portainer_data:/data portainer/helper-reset-password
+```
 
 
 
