@@ -10535,7 +10535,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220709194813077" list="TableOfContents" modified="20220710122626909" title="$:/StoryList">
+<div created="20220812115827460" list="TableOfContents" modified="20220812115836184" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10583,15 +10583,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;1366&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;768&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10599,7 +10599,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220709093514990" title="$:/temp/search">
+<div created="20201031112729614" modified="20220812115908661" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11052,7 +11052,7 @@ cal 10 2015 |tail -n 5 |awk  '{print $1}'
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20210821145640192" modified="20210821150321006" tags="AWS" title="awscli">
+<div created="20210821145640192" modified="20220812115902221" tags="AWS" title="awscli">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'awscli'&gt;&gt;
 &lt;/div&gt;
@@ -11079,14 +11079,14 @@ export AWS_SECRET_ACCESS_KEY=&quot;asecretkey&quot;
 ''verify IAM user access''
 
 ```
-Maws sts get-caller-identity
+aws sts get-caller-identity
 ```
 
 ''Assume the IAM role''
 
 
 ```
-Maws sts assume-role --role-arn &quot;arn:aws:iam::123456789012:role/example-role&quot; --role-session-name AWSCLI-Session
+aws sts assume-role --role-arn &quot;arn:aws:iam::123456789012:role/example-role&quot; --role-session-name AWSCLI-Session
 ```
 ''Create environment variables to assume the IAM role and verify access''
 
