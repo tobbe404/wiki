@@ -473,6 +473,8 @@ Error message and password prompt
 
 <li>mysql.slow queries</li>
 
+<li>mysql.WHERE IN Array</li>
+
 <li>mysqldump</li>
 
 <li>Nagios</li>
@@ -10535,7 +10537,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220816095428249" list="TableOfContents" modified="20220816095914220" title="$:/StoryList">
+<div created="20220823122237377" list="TableOfContents" modified="20220823140000568" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10599,7 +10601,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220816095910100" title="$:/temp/search">
+<div created="20201031112729614" modified="20220823140012902" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13465,7 +13467,7 @@ https://github.com/loncarales/CheatSheets/blob/master/ccze_multitail.md
 
 </pre>
 </div>
-<div created="20201104145043268" modified="20210724081744333" tags="TableOfContents" title="MySQL">
+<div created="20201104145043268" modified="20220823122357329" tags="TableOfContents" title="MySQL">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;MySQL&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
@@ -13630,6 +13632,13 @@ in my.cnf
 ```
 log_slow_queries = 1; 
 slow_query_log_file = &lt;some file name&gt;;
+```
+</pre>
+</div>
+<div created="20220823122358724" modified="20220823122911753" tags="MySQL" title="mysql.WHERE IN Array">
+<pre>
+```
+SELECT * FROM DemoArray WHERE PersonName IN('Nikhil', 'Meenu', 'Anita')
 ```
 </pre>
 </div>
