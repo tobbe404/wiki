@@ -465,6 +465,8 @@ Error message and password prompt
 
 <li>mysql.client</li>
 
+<li>mysql.date</li>
+
 <li>mysql.max_allowed_packet</li>
 
 <li>mysql.New database</li>
@@ -10537,7 +10539,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220823122237377" list="TableOfContents" modified="20220823140000568" title="$:/StoryList">
+<div created="20220823122237377" list="TableOfContents" modified="20220824074911468" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10601,7 +10603,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220823140012902" title="$:/temp/search">
+<div created="20201031112729614" modified="20220824074903416" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13482,6 +13484,15 @@ https://github.com/loncarales/CheatSheets/blob/master/ccze_multitail.md
 --port=port_number 
 --host=localhost --socket=file_name 
 (to connect to a local server using a Unix socket file or a Windows named pipe.)
+```
+</pre>
+</div>
+<div created="20220824074842041" modified="20220824074859131" tags="MySQL" title="mysql.date">
+<pre>
+```
+select CURDATE() - INTERVAL 30 DAY;
+select CURDATE();
+select CURDATE() + INTERVAL 30 DAY;
 ```
 </pre>
 </div>
