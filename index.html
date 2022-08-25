@@ -10541,7 +10541,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220825072121401" list="TableOfContents" modified="20220825080114057" title="$:/StoryList">
+<div created="20220825082758532" list="TableOfContents" modified="20220825113209212" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10605,7 +10605,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220825080113073" title="$:/temp/search">
+<div created="20201031112729614" modified="20220825112948967" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13489,7 +13489,7 @@ https://github.com/loncarales/CheatSheets/blob/master/ccze_multitail.md
 ```
 </pre>
 </div>
-<div created="20220825072316183" modified="20220825080059571" tags="MySQL" title="mysql.Command Line">
+<div created="20220825072316183" modified="20220825113211680" tags="MySQL" title="mysql.Command Line">
 <pre>Execute SQL query from the Linux command-line:
 
 ```
@@ -13544,6 +13544,30 @@ mysql -u root -psecret &lt;&lt;MY_QUERY
 USE mysql
 SHOW tables
 MY_QUERY
+```
+
+```
+#!/bin/bash
+DATABASE=$( ssh -C sqlserver1 mysql -N &lt;&lt; EOF
+SELECT webapp 
+FROM DB_systems.webapp 
+where server = 'backup1' 
+AND name NOT LIKE 'do not delete' 
+AND credate &lt;= CURDATE() - INTERVAL 30 DAY
+EOF
+)
+```
+
+
+```
+#!/bin/bash
+host=`ssh -l user sqlserver1 &quot;mysql -N DB_systems -e 'select server, type from webapp where webapp=\&quot;$1\&quot;;'&quot;`
+if [ ! -z &quot;$host&quot; ]
+then
+        echo $host
+else
+        echo Webapp not found!
+fi
 ```
 </pre>
 </div>
