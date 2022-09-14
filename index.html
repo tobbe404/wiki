@@ -10556,7 +10556,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220830063909608" list="TableOfContents" modified="20220831140715637" title="$:/StoryList">
+<div created="20220914100257655" list="TableOfContents" modified="20220914100332893" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -13505,8 +13505,7 @@ https://github.com/loncarales/CheatSheets/blob/master/ccze_multitail.md
 </pre>
 </div>
 <div created="20220825072316183" modified="20220829103322561" tags="MySQL" title="mysql.Command Line">
-<pre>
-```
+<pre>```
 SHOW FULL PROCESSLIST\G
 ```
 
@@ -13592,11 +13591,17 @@ fi
 ```
 </pre>
 </div>
-<div created="20220824074842041" modified="20220824074859131" tags="MySQL" title="mysql.date">
+<div created="20220824074842041" modified="20220914100327403" tags="MySQL" title="mysql.date">
 <pre>```
 select CURDATE() - INTERVAL 30 DAY;
 select CURDATE();
 select CURDATE() + INTERVAL 30 DAY;
+```
+
+```
+SELECT *
+FROM `objects`
+WHERE (date_field BETWEEN '2010-01-30 14:15:55' AND '2010-09-29 10:15:55')
 ```
 </pre>
 </div>
