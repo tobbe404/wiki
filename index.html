@@ -219,6 +219,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Monitoring-497309061</li>
 
+<li>$:/state/toc/TableOfContents-Network-497309061</li>
+
 <li>$:/state/toc/TableOfContents-Password manager-497309061</li>
 
 <li>$:/state/toc/TableOfContents-Phyton-497309061</li>
@@ -254,6 +256,8 @@ Error message and password prompt
 <li>$:/state/toc/TableOfContents/Linux-Linux.commands-497309061</li>
 
 <li>$:/state/toc/TableOfContents/Linux-ubuntu-497309061</li>
+
+<li>$:/state/toc/TableOfContents/Network-OpenVPN-497309061</li>
 
 <li>$:/state/toc/TableOfContents/Virtualization-Vagrant-497309061</li>
 
@@ -10491,6 +10495,9 @@ fi
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
 </div>
+<div created="20220917185428221" modified="20220917185428222" title="$:/state/toc/TableOfContents-Network-497309061">
+<pre>open</pre>
+</div>
 <div created="20210914070030213" modified="20210930100257612" title="$:/state/toc/TableOfContents-Password manager-497309061">
 <pre>close</pre>
 </div>
@@ -10545,6 +10552,9 @@ fi
 <div created="20210529085512752" modified="20210529085512752" title="$:/state/toc/TableOfContents/Linux-ubuntu-497309061">
 <pre>open</pre>
 </div>
+<div created="20220917185429470" modified="20220917185429470" title="$:/state/toc/TableOfContents/Network-OpenVPN-497309061">
+<pre>open</pre>
+</div>
 <div created="20210317114118624" modified="20220426101548898" title="$:/state/toc/TableOfContents/Virtualization-Vagrant-497309061">
 <pre>close</pre>
 </div>
@@ -10560,7 +10570,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220917173959183" list="TableOfContents Network" modified="20220917174541819" title="$:/StoryList">
+<div created="20220917173959183" list="TableOfContents" modified="20220917185430557" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -14103,7 +14113,7 @@ openssl base64 -A -in Plaintext.bin -out Plaintext.b64
 
 </pre>
 </div>
-<div created="20220917134335225" modified="20220917173948129" tags="OpenVPN" title="openssl new versions consider certificates too weak">
+<div created="20220917134335225" modified="20220917185523033" tags="OpenVPN" title="openssl new versions consider certificates too weak">
 <pre>! workaround
 
 
@@ -14112,6 +14122,11 @@ openssl base64 -A -in Plaintext.bin -out Plaintext.b64
 ```
 [vpn]
 tls-cipher=DEFAULT:@SECLEVEL=0
+```
+
+```
+sudo systemctl restart NetworkManager.service
+
 ```
 </pre>
 </div>
