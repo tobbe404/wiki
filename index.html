@@ -491,9 +491,13 @@ Error message and password prompt
 
 <li>openssl base64</li>
 
+<li>openssl new versions consider certificates too weak</li>
+
 <li>openssl p12 to pem</li>
 
 <li>openssl read cert</li>
+
+<li>OpenVPN</li>
 
 <li>Packer</li>
 
@@ -10556,7 +10560,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220914100257655" list="TableOfContents" modified="20220914100332893" title="$:/StoryList">
+<div created="20220917173959183" list="TableOfContents" modified="20220917173959184" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10604,15 +10608,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1366&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;768&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10620,7 +10624,7 @@ fi
 <div created="20201104145520707" modified="20220426134519105" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220831140731708" title="$:/temp/search">
+<div created="20201031112729614" modified="20220917173956438" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14099,6 +14103,18 @@ openssl base64 -A -in Plaintext.bin -out Plaintext.b64
 
 </pre>
 </div>
+<div created="20220917134335225" modified="20220917173948129" tags="OpenVPN" title="openssl new versions consider certificates too weak">
+<pre>! workaround
+
+
+/etc/~NetworkManager/system-connections/vpn.nmconnection
+
+```
+[vpn]
+tls-cipher=DEFAULT:@SECLEVEL=0
+```
+</pre>
+</div>
 <div created="20211001124814308" modified="20211001130817334" tags="[[SSL new cert]]" title="openssl p12 to pem">
 <pre>```
 openssl pkcs12 -in &lt;filename&gt;.p12 -clcerts -nodes -out &lt;filename&gt;.crt
@@ -14110,6 +14126,13 @@ openssl pkcs12 -in &lt;filename&gt;.p12 -clcerts -nodes -out &lt;filename&gt;.cr
 openssl x509 -text -noout -in certificate.crt 
 ```
 </pre>
+</div>
+<div created="20220917134229934" modified="20220917134305788" tags="" title="OpenVPN">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'OpenVPN'&gt;&gt;
+
+&lt;/div&gt;</pre>
 </div>
 <div created="20210220141434281" modified="20210220143738762" tags="Automation" title="Packer">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
