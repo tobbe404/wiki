@@ -10572,7 +10572,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220920121623772" list="TableOfContents" modified="20220922071445761" title="$:/StoryList">
+<div created="20220922190347539" list="TableOfContents" modified="20220923142020130" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10620,11 +10620,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1366&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;768&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10636,7 +10636,7 @@ fi
 <div created="20201104145520707" modified="20220922071512553" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220922072354503" title="$:/temp/search">
+<div created="20201031112729614" modified="20220923142016378" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13454,7 +13454,7 @@ sudo mount -o remount,rw /partition/identifier /mount/point
 &lt;&lt;toc-selective-expandable  &quot;MsSQL&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20210428144740342" modified="20211006082742389" tags="Linux.commands" title="multitail">
+<div created="20210428144740342" modified="20220923142018087" tags="Linux.commands" title="multitail">
 <pre>The first example shows only lines from /var/log/messages which have the string &quot;gnu-pop3d&quot; somewhere in them. 
 
 ```
@@ -13465,6 +13465,12 @@ The second example only shows lines which do not have the string &quot;ssh&quot;
 
 ```
 multitail -v -e &quot;ssh&quot; -v -e &quot;gnu-pop3d&quot; -e &quot;localhost&quot; /var/log/messages
+```
+Read logfil and ignore GET and PUT
+and in the same logfil grep for &quot;Events bootstrapped&quot;
+
+```
+multitail -ev &quot;GET&quot; -ev &quot;PUT&quot; /var/log/logfile -e &quot;Events bootstrapped&quot; /var/log/logfile
 ```
 
 merge 2 logs with different colors
