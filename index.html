@@ -573,6 +573,8 @@ Error message and password prompt
 
 <li>Static IP address</li>
 
+<li>sudo</li>
+
 <li>symlink</li>
 
 <li>sysctl</li>
@@ -10572,7 +10574,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220922190347539" list="TableOfContents" modified="20220923142020130" title="$:/StoryList">
+<div created="20220926064207920" list="TableOfContents" modified="20220926111856784" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10620,11 +10622,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1366&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;768&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10636,7 +10638,7 @@ fi
 <div created="20201104145520707" modified="20220922071512553" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220923142016378" title="$:/temp/search">
+<div created="20201031112729614" modified="20220926111855757" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15091,6 +15093,28 @@ NAME=&quot;System eth0&quot;
 UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03
 IPADDR=192.168.1.44
 NETMASK=255.255.255.0
+```
+</pre>
+</div>
+<div created="20220926082708686" modified="20220926111849328" tags="Linux.commands" title="sudo">
+<pre>! Run only specific sudo commands without password
+Open the file for editing:
+
+```
+sudo visudo
+```
+
+And then add a line like this:
+
+```
+user_name ALL=(ALL) NOPASSWD:/usr/bin/apt update, /usr/bin/apt upgrade
+```
+
+
+sudo without password for a user
+
+```
+user_name ALL=(ALL) NOPASSWD:ALL
 ```
 </pre>
 </div>
