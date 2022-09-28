@@ -10576,7 +10576,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20220928095651452" list="TableOfContents" modified="20220928100349989" title="$:/StoryList">
+<div created="20220928095651452" list="TableOfContents" modified="20220928135158710" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10640,7 +10640,7 @@ fi
 <div created="20201104145520707" modified="20220922071512553" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220928100347548" title="$:/temp/search">
+<div created="20201031112729614" modified="20220928150919456" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13807,7 +13807,7 @@ SELECT * FROM DemoArray WHERE PersonName IN('Nikhil', 'Meenu', 'Anita')
 ```
 </pre>
 </div>
-<div created="20220113094603306" modified="20220921141807624" tags="MySQL" title="mysqldump">
+<div created="20220113094603306" modified="20220928150915033" tags="MySQL" title="mysqldump">
 <pre>''Backup no data''
 
 ```
@@ -13872,6 +13872,13 @@ mysqldump {db} {tbl1} {tbl2} |gzip &gt; /backup/filename-`date +&quot;%Y-%m-%d&q
 
 
 sed remove DEFINER in mysqldump before version 5.7.8
+
+in bash
+
+```
+| /usr/bin/sed -e \&quot;s/DEFINER[ ]*=[ ]*[^*]*\*/\*/\&quot; &gt;
+```
+oneliner
 
 ```
 sed 's/\sDEFINER=`[^`]*`@`[^`]*`//g' -i dbname_dump.sql
