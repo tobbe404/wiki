@@ -341,6 +341,10 @@ Error message and password prompt
 
 <li>disk space</li>
 
+<li>DNS</li>
+
+<li>DNS trubble</li>
+
 <li>Docker</li>
 
 <li>docker.cleanup</li>
@@ -10438,7 +10442,7 @@ fi
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[virtual environment]]</pre>
+# [[DNS trubble]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10578,7 +10582,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221002093300575" list="TableOfContents" modified="20221002093306787" title="$:/StoryList">
+<div created="20221003081007408" list="TableOfContents" modified="20221003081353422" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10626,23 +10630,23 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
 </div>
-<div created="20201104145520707" modified="20220922071512553" title="$:/temp/NewTagName">
+<div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20220928150919456" title="$:/temp/search">
+<div created="20201031112729614" modified="20221003081401069" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11704,6 +11708,54 @@ dhclient -d -nw eno2
 
 https://www.jam-software.com/treesize_free</pre>
 </div>
+<div created="20221003081239948" modified="20221003081309048" tags="Linux.commands" title="DNS">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'DNS'&gt;&gt;
+
+&lt;/div&gt;</pre>
+</div>
+<div created="20170704093554078" modified="20221003081323653" tags="DNS" title="DNS trubble" tmap.id="f9965e38-3dc4-4d6c-a6aa-ac24e4630226">
+<pre>! fedora
+
+
+vi /etc/nsswitch.conf
+
+
+```
+hosts:      files dns myhostname mymachines
+```
+
+Web browser cant resolv .local domain
+vi /etc/avahi/avahi-daemon.conf
+
+```
+domain-name=.alocal
+```
+
+```
+systemctl restart avahi-daemon.service
+```
+
+! ubuntu
+
+/etc/nsswitch.conf (same file)
+
+```
+hosts:      files dns myhostname mymachines
+```
+
+```
+apt-get remove libnss-mdns 
+```
+vi /etc/NetworkManager/NetworkManager.conf
+
+```
+#dns=dnsmasq
+```
+
+</pre>
+</div>
 <div created="20201116165919622" modified="20220922071506680" tags="Virtualization" title="Docker">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
@@ -12175,7 +12227,7 @@ jesin adm dialout cdrom sudo dip plugdev lpadmin sambashare kvm
 
 Now all your terminal emulator applications will work with the serial port without any issues.</pre>
 </div>
-<div created="20210402121859191" modified="20210402131424256" tags="Linux.commands" title="Flush DNS cach">
+<div created="20210402121859191" modified="20221003081333478" tags="DNS" title="Flush DNS cach">
 <pre>!Ubuntu desktop
 
 ```
