@@ -377,6 +377,8 @@ Error message and password prompt
 
 <li>findstr</li>
 
+<li>firefox</li>
+
 <li>Fix Postgres Pod in CrashLoopBackOff state</li>
 
 <li>Fix serial port permission denied errors on Linux</li>
@@ -10584,7 +10586,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221017065207403" list="TableOfContents" modified="20221017070248469" title="$:/StoryList">
+<div created="20221024094919405" list="TableOfContents" modified="20221024095008675" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10648,7 +10650,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221017071952758" title="$:/temp/search">
+<div created="20201031112729614" modified="20221024095037009" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12111,6 +12113,62 @@ find /data1/fileupload/*/subfolder -type f -exec chmod 664 {} \;
 ```
 netstat -an | findstr &quot;3389&quot;
 ```</pre>
+</div>
+<div created="20221024095010865" modified="20221024095034382" tags="Linux.commands" title="firefox">
+<pre>Config
+
+
+remove snap and install local
+
+```
+    SNAP: /home/$USER/snap/firefox/common/.mozilla/firefox
+    NORMAL: /home/$USER/.mozilla/firefox
+```
+
+
+```
+sudo add-apt-repository ppa:mozillateam/ppa
+```
+
+```
+echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+```
+
+
+```
+sudo snap remove firefox
+```
+
+```
+sudo apt install firefox
+```
+
+```
+echo 'Unattended-Upgrade::Allowed-Origins:: &quot;LP-PPA-mozillateam:${distro_codename}&quot;;' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+```
+
+
+To undo these changes
+Remove the firefox PPA.
+
+```
+sudo add-apt-repository -r ppa:mozillateam/ppa
+```
+Remove the apt pin.
+
+```
+sudo rm -rf /etc/apt/preferences.d/mozilla-firefox
+```
+Remove the apt version and reinstall snap.
+
+```
+sudo apt remove firefox &amp;&amp; sudo snap install firefox
+```
+</pre>
 </div>
 <div created="20210925130350171" modified="20210925130350171" tags="AWX" title="Fix Postgres Pod in CrashLoopBackOff state">
 <pre>!Fix Postgres Pod in ~CrashLoopBackOff state
