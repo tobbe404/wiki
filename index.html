@@ -10586,7 +10586,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221025065801732" list="git OpenVPN TableOfContents" modified="20221025101950942" title="$:/StoryList">
+<div created="20221102082017194" list="TableOfContents" modified="20221102152000367" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10650,8 +10650,8 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221025101948186" title="$:/temp/search">
-<pre>sys</pre>
+<div created="20201031112729614" modified="20221102151959440" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -15355,7 +15355,7 @@ After changing this tunable, restart the application for the changes to take eff
 
 </pre>
 </div>
-<div created="20210519125104996" modified="20210813133941376" tags="Linux.commands" title="systemctl">
+<div created="20210519125104996" modified="20221102082047185" tags="Linux.commands" title="systemctl">
 <pre>```
 systemctl reset-failed
 ```
@@ -15366,9 +15366,13 @@ systemctl list-units --type=service
 ```
 systemctl daemon-reload
 ```
+
+```
+systemctl list-timers
+```
 </pre>
 </div>
-<div created="20220120093615914" modified="20220328081753877" tags="Linux.commands" title="systemd">
+<div created="20220120093615914" modified="20221102082141808" tags="Linux.commands" title="systemd">
 <pre>check DNS servers configured in Ubuntu
 
 ```
@@ -15377,6 +15381,11 @@ systemd-resolve --status
 
 ```
 systemd-resolve --status | grep 'DNS Servers' -A2
+```
+centos7
+
+```
+30 04 * * * systemctl restart systemd-tmpfiles-clean.service
 ```
 </pre>
 </div>
