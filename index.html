@@ -349,6 +349,8 @@ Error message and password prompt
 
 <li>docker.cleanup</li>
 
+<li>docker.host</li>
+
 <li>du</li>
 
 <li>ec2.Extend partition</li>
@@ -10466,7 +10468,7 @@ fi
 <div created="20201031094900477" modified="20210309124457511" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20220217102509400" modified="20220217102916707" title="$:/state/sidebar">
+<div created="20220217102509400" modified="20221106001742445" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20201030075711482" modified="20210324121949181" title="$:/state/tab-1749438307">
@@ -10586,7 +10588,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221102082017194" list="TableOfContents" modified="20221102152000367" title="$:/StoryList">
+<div created="20221105232622979" list="$:/ControlPanel Docker TableOfContents" modified="20221106001743946" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10634,11 +10636,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10650,7 +10652,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221102151959440" title="$:/temp/search">
+<div created="20201031112729614" modified="20221106001746014" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11836,6 +11838,55 @@ Show docker disk usage
 
 ```
 docker system df
+```
+</pre>
+</div>
+<div created="20221105234725672" modified="20221106001739080" tags="Docker" title="docker.host">
+<pre>centos
+
+```
+---
+- name: Install docker and friends
+  yum:
+    name:
+      - docker
+      - python3-pip
+    state: present
+
+- name: Install python packages
+  pip:
+    name:
+      - docker
+      - requests
+
+- name: ensure docker is running
+  service: 
+    name: docker 
+    state: started
+    enabled: yes
+```
+
+ubuntu
+
+```
+apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+sudo mkdir -p /etc/apt/keyrings
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+&quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+
+apt-get update
+
+apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
 ```
 </pre>
 </div>
@@ -15355,7 +15406,7 @@ After changing this tunable, restart the application for the changes to take eff
 
 </pre>
 </div>
-<div created="20210519125104996" modified="20221102082047185" tags="Linux.commands" title="systemctl">
+<div created="20210519125104996" modified="20210813133941376" tags="Linux.commands" title="systemctl">
 <pre>```
 systemctl reset-failed
 ```
@@ -15366,13 +15417,9 @@ systemctl list-units --type=service
 ```
 systemctl daemon-reload
 ```
-
-```
-systemctl list-timers
-```
 </pre>
 </div>
-<div created="20220120093615914" modified="20221102082141808" tags="Linux.commands" title="systemd">
+<div created="20220120093615914" modified="20220328081753877" tags="Linux.commands" title="systemd">
 <pre>check DNS servers configured in Ubuntu
 
 ```
@@ -15381,11 +15428,6 @@ systemd-resolve --status
 
 ```
 systemd-resolve --status | grep 'DNS Servers' -A2
-```
-centos7
-
-```
-30 04 * * * systemctl restart systemd-tmpfiles-clean.service
 ```
 </pre>
 </div>
