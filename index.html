@@ -10590,7 +10590,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221107120310624" list="TableOfContents" modified="20221107131706559" title="$:/StoryList">
+<div created="20221109123518217" list="TableOfContents" modified="20221109123850064" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -11372,8 +11372,7 @@ dig _acme-challenge.domain.comt TXT @8.8.8.8
 </pre>
 </div>
 <div created="20221107132208795" modified="20221107132243235" tags="Check_MK" title="change admin password">
-<pre>
-```
+<pre>```
 su - cmk
 htpasswd -m etc/htpasswd cmkadmin
 ```
@@ -11837,12 +11836,19 @@ docker run --rm -v portainer_data:/data portainer/helper-reset-password
 
 /var/lib/docker/volumes/</pre>
 </div>
-<div created="20220922071236193" modified="20220922072351120" tags="Docker" title="docker.cleanup">
+<div created="20220922071236193" modified="20221109123838219" tags="Docker" title="docker.cleanup">
 <pre>Remove unused data
 
 ```
 docker system prune -f
 ```
+
+Remove all unused containers, networks, images (both dangling and unreferenced), and volumes.
+
+```
+docker system prune -a --volumes
+```
+
 
 Show docker disk usage
 
