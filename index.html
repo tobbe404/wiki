@@ -10590,7 +10590,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221109123518217" list="TableOfContents" modified="20221109123850064" title="$:/StoryList">
+<div created="20221122171028071" list="TableOfContents" modified="20221123090400632" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10638,11 +10638,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10654,7 +10654,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221107132256178" title="$:/temp/search">
+<div created="20201031112729614" modified="20221123091056822" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11455,7 +11455,7 @@ Now any password entries that have a URL of rdp://{hostname or ip} (e.g. rdp://1
 
 </pre>
 </div>
-<div created="20141011100335137" modified="20220310083110155" tags="Linux" title="crontab">
+<div created="20141011100335137" modified="20221123091038325" tags="Linux" title="crontab">
 <pre>For details see man 4 crontabs
 
 Example of job definition:
@@ -11468,13 +11468,13 @@ Example of job definition:
 # |  |  |  |  |
 # *  *  *  *  * user-name command to be executed
 
-edit
+!!! edit
 
 ```
 crontab -e
 ```
 
-list
+!!! list
 
 ```
 crontab -l
@@ -11485,20 +11485,33 @@ This line executes the &quot;ping&quot; and the &quot;ls&quot; command every 12a
 ```
 0 0,12 1 */2 * /sbin/ping -c 192.168.0.1; ls -la &gt;&gt;/var/log/cronrun
 ```
-using date in crontab for log
+!!! using date in crontab for log
 
 ```
 crontab -l &gt; /backup/crontab/crontab-root-backup-`date +\%Y\%m\%d`.txt
 
 ```
+
+
 ```
 % needs to be escaped with \
-
 `date +%Y%m%d`
 --&gt;
 `date +\%Y\%m\%d`
 ```
 
+
+!!! clean out docker last Sunday of every month
+
+```
+0 20 24-30 * * [ &quot;$(date '+\%a')&quot; = &quot;Sun&quot; ] &amp;&amp; sudo docker system prune -a --volumes
+```
+
+&lt;&lt;&lt;
+% needs to be escaped with \
+&lt;&lt;&lt;
+
+&lt;br&gt;&lt;br&gt;
 
 This line executes the &quot;ping&quot; command every minute of every hour of every day of every month. The standard output is redirected to dev null so we will get no e-mail but will allow the standard error to be sent as a e-mail. If you want no e-mail ever change the command line to 
 &quot;/sbin/ping -c 1 192.168.0.1 &gt; /dev/null 2&gt;&amp;1&quot;.
