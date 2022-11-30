@@ -373,6 +373,8 @@ Error message and password prompt
 
 <li>Extend partition</li>
 
+<li>Extract information from the SSL Certificate</li>
+
 <li>Fileglob</li>
 
 <li>filehandle on deleted files</li>
@@ -10447,10 +10449,15 @@ fi
 <div created="20201104085551529" modified="20201104085844514" title="$:/GitLab/Username">
 <pre></pre>
 </div>
-<div status="complete" title="$:/Import">
-<pre>The following tiddlers were imported:
-
-# [[DNS trubble]]</pre>
+<div plugin-type="import" status="pending" title="$:/Import" type="application/json">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;Untitled&quot;: {
+            &quot;title&quot;: &quot;Untitled&quot;,
+            &quot;text&quot;: &quot; &quot;
+        }
+    }
+}</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10590,7 +10597,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221122171028071" list="TableOfContents" modified="20221123090400632" title="$:/StoryList">
+<div created="20221130080905303" list="[[SSL new cert]] [[Extract information from the SSL Certificate]] TableOfContents" modified="20221130080905303" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10638,11 +10645,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10654,7 +10661,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221123091056822" title="$:/temp/search">
+<div created="20201031112729614" modified="20221130081709150" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12141,6 +12148,57 @@ Enter ''w'' to write the partition table to disk. You will see an error about de
 
 ```
 xfs_growfs /dev/sda1
+```
+</pre>
+</div>
+<div created="20221130080911854" modified="20221130081704407" tags="[[SSL new cert]]" title="Extract information from the SSL Certificate">
+<pre>Your certificate should start with 
+
+```
+-----BEGIN CERTIFICATE----- 
+```
+
+and end with
+
+```
+-----END CERTIFICATE-----
+```
+
+
+
+```
+openssl x509 -in cert.crt  -text
+```
+Who issued the cert?
+
+```
+openssl x509 -in cert.crt -noout  -issuer
+```
+To whom was it issued?
+
+```
+openssl x509 -in cert.crt -noout -subject
+```
+For what dates is it valid?
+
+```
+openssl x509 -in cert.crt -noout -dates
+```
+The above, all at once
+
+```
+openssl x509 -in cert.crt -issuer -noout -subject -dates
+
+```
+What is its hash value?
+
+```
+openssl x509 -in cert.crt -noout -hash
+```
+What is its MD5 fingerprint?
+
+```
+openssl x509 -in cert.crt  -noout  -fingerprint
 ```
 </pre>
 </div>
