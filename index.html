@@ -373,8 +373,6 @@ Error message and password prompt
 
 <li>Extend partition</li>
 
-<li>Extract information from the SSL Certificate</li>
-
 <li>Fileglob</li>
 
 <li>filehandle on deleted files</li>
@@ -426,6 +424,8 @@ Error message and password prompt
 <li>Install Single Node k3s Kubernetes</li>
 
 <li>Install Vault</li>
+
+<li>inventory</li>
 
 <li>iotop</li>
 
@@ -576,8 +576,6 @@ Error message and password prompt
 <li>sort</li>
 
 <li>ssh</li>
-
-<li>ssh_config</li>
 
 <li>ssh-keygen</li>
 
@@ -10451,15 +10449,10 @@ fi
 <div created="20201104085551529" modified="20201104085844514" title="$:/GitLab/Username">
 <pre></pre>
 </div>
-<div plugin-type="import" status="pending" title="$:/Import" type="application/json">
-<pre>{
-    &quot;tiddlers&quot;: {
-        &quot;Untitled&quot;: {
-            &quot;title&quot;: &quot;Untitled&quot;,
-            &quot;text&quot;: &quot; &quot;
-        }
-    }
-}</pre>
+<div status="complete" title="$:/Import">
+<pre>The following tiddlers were imported:
+
+# [[DNS trubble]]</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10599,7 +10592,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221130080905303" list="ssh TableOfContents" modified="20221130082837869" title="$:/StoryList">
+<div created="20221203120915714" list="TableOfContents" modified="20221204125206413" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10647,11 +10640,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10663,7 +10656,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221130083821756" title="$:/temp/search">
+<div created="20201031112729614" modified="20221204131015728" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12153,57 +12146,6 @@ xfs_growfs /dev/sda1
 ```
 </pre>
 </div>
-<div created="20221130080911854" modified="20221130081704407" tags="[[SSL new cert]]" title="Extract information from the SSL Certificate">
-<pre>Your certificate should start with 
-
-```
------BEGIN CERTIFICATE----- 
-```
-
-and end with
-
-```
------END CERTIFICATE-----
-```
-
-
-
-```
-openssl x509 -in cert.crt  -text
-```
-Who issued the cert?
-
-```
-openssl x509 -in cert.crt -noout  -issuer
-```
-To whom was it issued?
-
-```
-openssl x509 -in cert.crt -noout -subject
-```
-For what dates is it valid?
-
-```
-openssl x509 -in cert.crt -noout -dates
-```
-The above, all at once
-
-```
-openssl x509 -in cert.crt -issuer -noout -subject -dates
-
-```
-What is its hash value?
-
-```
-openssl x509 -in cert.crt -noout -hash
-```
-What is its MD5 fingerprint?
-
-```
-openssl x509 -in cert.crt  -noout  -fingerprint
-```
-</pre>
-</div>
 <div created="20210902124052938" modified="20210902124220564" tags="Ansible.commands" title="Fileglob">
 <pre>```
 - name: Copy each file over that matches the given pattern
@@ -13049,6 +12991,74 @@ systemctl enable vault
 systemctl start vault
 ```
 [[init a new vault|init vault database]]</pre>
+</div>
+<div created="20221204125213036" modified="20221204130955852" tags="Ansible" title="inventory">
+<pre>
+Dynamic
+
+```
+ansible-inventory -i inventory/production/ --graph
+```
+!ec2
+
+
+inventory/production/prod.aws_ec2.yml
+
+```
+# Minimal example using environment vars or instance role credentials
+# Fetch all hosts in us-east-1, the hostname is the public DNS if it exists, otherwise the private IP address
+plugin: aws_ec2
+iam_role_arn: arn:aws:iam::012345678901:role/name
+regions:
+  - eu-north-1
+filters:
+  instance-state-name: running
+hostnames:
+  - tag:HostName
+  - tag:Name
+compose:
+  # Use the private IP address to connect to the host
+  # (note: this does not modify inventory_hostname, which is set via I(hostnames))
+  ansible_host: private_ip_address
+  db_server: tags.DbServer
+  remote_user: 'username'
+keyed_groups:
+  - key: tags['Type']
+    separator: &quot;&quot;
+
+```
+!RDS
+
+inventory/production/prod.aws_rds.yml
+
+```
+# Minimal example using environment vars or instance role credentials
+# Fetch all hosts in us-east-1, the hostname is the public DNS if it exists, otherwise the private IP address
+plugin: aws_rds
+iam_role_arn: arn:aws:iam::012345678901:role/name
+regions:
+  - eu-north-1
+hostnames:
+  - tag:Name
+compose:
+  # Use the private IP address to connect to the host
+  # (note: this does not modify inventory_hostname, which is set via I(hostnames))
+  ansible_host: private_ip_address
+keyed_groups:
+  - key: tags['Type']
+    separator: &quot;&quot;
+
+```
+
+
+inventory/production/staticHosts
+
+```
+[oldservers]
+server1 ansible_host=10.0.0.1 ansible_user=username ansible_become=yes ansible_python_interpreter=/usr/bin/python2.7
+server2 ansible_host=10.0.0.2 ansible_user=username ansible_become=yes db_server=10.0.0.3  ansible_python_interpreter=/usr/bin/python2.7
+```
+</pre>
 </div>
 <div created="20210916121903579" modified="20210916122338658" tags="Linux.commands" title="iotop">
 <pre>o - only show processes or threads actually doing I/O
@@ -15107,26 +15117,6 @@ cat /var/log/nginx/error2.log|awk '{print $11}'|sort|uniq -d -c
 &lt;&lt;toc-selective-expandable 'ssh'&gt;&gt;
 
 &lt;/div&gt;</pre>
-</div>
-<div created="20221130082844373" modified="20221130083809845" tags="ssh" title="ssh_config">
-<pre>
-```
-MaxStartups 10:30:60
-```
-
-10: Number of unauthenticated connections before we start dropping
-
-30: Percentage chance of dropping once we reach 10 (increases linearly for more than 10)
-
-60: Maximum number of connections at which we start dropping everything
-
-
-```
-MaxStartups 50:30:500
-```
-
-
-</pre>
 </div>
 <div created="20220928095704234" modified="20220928100336246" tags="ssh" title="ssh-keygen">
 <pre>The old and most compatible keys &lt;br&gt;
