@@ -425,8 +425,6 @@ Error message and password prompt
 
 <li>Install Vault</li>
 
-<li>inventory</li>
-
 <li>iotop</li>
 
 <li>java</li>
@@ -624,6 +622,8 @@ Error message and password prompt
 <li>Tools</li>
 
 <li>ubuntu</li>
+
+<li>ubuntu 22.04 VPN stopped working</li>
 
 <li>ubuntu.firefox.java</li>
 
@@ -10592,7 +10592,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221203120915714" list="TableOfContents" modified="20221204125206413" title="$:/StoryList">
+<div created="20221205012308923" list="TableOfContents" modified="20221205012425042" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10640,11 +10640,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10656,7 +10656,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221204131015728" title="$:/temp/search">
+<div created="20201031112729614" modified="20221205012447922" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12991,74 +12991,6 @@ systemctl enable vault
 systemctl start vault
 ```
 [[init a new vault|init vault database]]</pre>
-</div>
-<div created="20221204125213036" modified="20221204130955852" tags="Ansible" title="inventory">
-<pre>
-Dynamic
-
-```
-ansible-inventory -i inventory/production/ --graph
-```
-!ec2
-
-
-inventory/production/prod.aws_ec2.yml
-
-```
-# Minimal example using environment vars or instance role credentials
-# Fetch all hosts in us-east-1, the hostname is the public DNS if it exists, otherwise the private IP address
-plugin: aws_ec2
-iam_role_arn: arn:aws:iam::012345678901:role/name
-regions:
-  - eu-north-1
-filters:
-  instance-state-name: running
-hostnames:
-  - tag:HostName
-  - tag:Name
-compose:
-  # Use the private IP address to connect to the host
-  # (note: this does not modify inventory_hostname, which is set via I(hostnames))
-  ansible_host: private_ip_address
-  db_server: tags.DbServer
-  remote_user: 'username'
-keyed_groups:
-  - key: tags['Type']
-    separator: &quot;&quot;
-
-```
-!RDS
-
-inventory/production/prod.aws_rds.yml
-
-```
-# Minimal example using environment vars or instance role credentials
-# Fetch all hosts in us-east-1, the hostname is the public DNS if it exists, otherwise the private IP address
-plugin: aws_rds
-iam_role_arn: arn:aws:iam::012345678901:role/name
-regions:
-  - eu-north-1
-hostnames:
-  - tag:Name
-compose:
-  # Use the private IP address to connect to the host
-  # (note: this does not modify inventory_hostname, which is set via I(hostnames))
-  ansible_host: private_ip_address
-keyed_groups:
-  - key: tags['Type']
-    separator: &quot;&quot;
-
-```
-
-
-inventory/production/staticHosts
-
-```
-[oldservers]
-server1 ansible_host=10.0.0.1 ansible_user=username ansible_become=yes ansible_python_interpreter=/usr/bin/python2.7
-server2 ansible_host=10.0.0.2 ansible_user=username ansible_become=yes db_server=10.0.0.3  ansible_python_interpreter=/usr/bin/python2.7
-```
-</pre>
 </div>
 <div created="20210916121903579" modified="20210916122338658" tags="Linux.commands" title="iotop">
 <pre>o - only show processes or threads actually doing I/O
@@ -15943,6 +15875,14 @@ M-Left, M-Right
 &lt;&lt;toc-selective-expandable 'ubuntu'&gt;&gt;
 
 &lt;/div&gt;</pre>
+</div>
+<div created="20221205012316896" modified="20221205012434632" tags="OpenVPN" title="ubuntu 22.04 VPN stopped working">
+<pre>updated ubuntu to 22.04 and my VPN stopped working. I fixed it with: 
+
+```
+sudo ln /usr/bin/resolvectl /usr/bin/systemd-resolve
+```
+</pre>
 </div>
 <div created="20210529085524867" modified="20210603201707289" tags="ubuntu" title="ubuntu.firefox.java">
 <pre>~~apt install icedtea-netx-common~~
