@@ -353,6 +353,8 @@ Error message and password prompt
 
 <li>docker.host</li>
 
+<li>docker.ps</li>
+
 <li>du</li>
 
 <li>ec2.Extend partition</li>
@@ -622,8 +624,6 @@ Error message and password prompt
 <li>Tools</li>
 
 <li>ubuntu</li>
-
-<li>ubuntu 22.04 VPN stopped working</li>
 
 <li>ubuntu.firefox.java</li>
 
@@ -10592,7 +10592,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221205012308923" list="TableOfContents" modified="20221205012425042" title="$:/StoryList">
+<div created="20221206110208562" list="Docker TableOfContents" modified="20221206110208562" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10656,7 +10656,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221205012447922" title="$:/temp/search">
+<div created="20201031112729614" modified="20221206110318299" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11919,6 +11919,64 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 ```
+</pre>
+</div>
+<div created="20221206110214661" modified="20221206110303618" tags="Docker" title="docker.ps">
+<pre>Names:
+
+
+```
+docker ps --format '{{.Names}}'
+```
+
+
+ID:
+
+
+```
+docker ps --format '{{.ID}}'
+```
+
+
+Image:
+
+```
+
+docker ps --format '{{.Image}}'
+```
+
+
+Command:
+
+
+```
+docker ps --format '{{.Command}}'
+```
+
+
+Created:
+
+
+```
+docker ps --format '{{.RunningFor}}'
+```
+
+
+Status:
+
+
+```
+docker ps --format '{{.Status}}'
+```
+
+
+Ports:
+
+
+```
+docker ps --format '{{.Ports}}'
+```
+
 </pre>
 </div>
 <div created="20210701064652003" modified="20220308142733927" tags="Linux.commands" title="du">
@@ -15875,14 +15933,6 @@ M-Left, M-Right
 &lt;&lt;toc-selective-expandable 'ubuntu'&gt;&gt;
 
 &lt;/div&gt;</pre>
-</div>
-<div created="20221205012316896" modified="20221205012434632" tags="OpenVPN" title="ubuntu 22.04 VPN stopped working">
-<pre>updated ubuntu to 22.04 and my VPN stopped working. I fixed it with: 
-
-```
-sudo ln /usr/bin/resolvectl /usr/bin/systemd-resolve
-```
-</pre>
 </div>
 <div created="20210529085524867" modified="20210603201707289" tags="ubuntu" title="ubuntu.firefox.java">
 <pre>~~apt install icedtea-netx-common~~
