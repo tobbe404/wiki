@@ -353,8 +353,6 @@ Error message and password prompt
 
 <li>docker.host</li>
 
-<li>docker.ps</li>
-
 <li>du</li>
 
 <li>ec2.Extend partition</li>
@@ -602,8 +600,6 @@ Error message and password prompt
 <li>systemd</li>
 
 <li>TableOfContents</li>
-
-<li>tail</li>
 
 <li>tar</li>
 
@@ -10594,7 +10590,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221206110208562" list="TableOfContents" modified="20221206152418652" title="$:/StoryList">
+<div created="20221207080912658" list="TableOfContents" modified="20221207142914549" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10658,7 +10654,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221206163649815" title="$:/temp/search">
+<div created="20201031112729614" modified="20221207143030572" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11382,7 +11378,7 @@ htpasswd -m etc/htpasswd cmkadmin
 ```
 </pre>
 </div>
-<div created="20210309105457050" modified="20211202072424909" tags="Monitoring" title="Check_MK">
+<div created="20210309105457050" modified="20221207143014785" tags="Monitoring" title="Check_MK">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Check_MK'&gt;&gt;
 &lt;/div&gt;
@@ -11405,7 +11401,20 @@ cd /usr/local/bin/
 ln -s /opt/MegaRAID/MegaCli/MegaCli64 MegaCli64
 ```
 web_api_references
-https://docs.checkmk.com/latest/en/web_api_references.html</pre>
+https://docs.checkmk.com/latest/en/web_api_references.html
+
+
+```
+.j2
+
+```
+
+```
+{% for value in docker_list.stdout_lines %}
+{{ value.split(' ')[0] }} {{ value.split(' ')[1] }}
+{% endfor %}
+```
+</pre>
 </div>
 <div created="20210505173221329" modified="20210506104144887" tags="Linux.commands" title="chmod">
 <pre>* 0 = ---
@@ -11921,64 +11930,6 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 ```
-</pre>
-</div>
-<div created="20221206110214661" modified="20221206110303618" tags="Docker" title="docker.ps">
-<pre>Names:
-
-
-```
-docker ps --format '{{.Names}}'
-```
-
-
-ID:
-
-
-```
-docker ps --format '{{.ID}}'
-```
-
-
-Image:
-
-```
-
-docker ps --format '{{.Image}}'
-```
-
-
-Command:
-
-
-```
-docker ps --format '{{.Command}}'
-```
-
-
-Created:
-
-
-```
-docker ps --format '{{.RunningFor}}'
-```
-
-
-Status:
-
-
-```
-docker ps --format '{{.Status}}'
-```
-
-
-Ports:
-
-
-```
-docker ps --format '{{.Ports}}'
-```
-
 </pre>
 </div>
 <div created="20210701064652003" modified="20220308142733927" tags="Linux.commands" title="du">
@@ -15545,25 +15496,6 @@ systemd-resolve --status | grep 'DNS Servers' -A2
     \___)=(___/
 ```
 </pre>
-</div>
-<div created="20221206141518393" modified="20221206142050048" tags="Linux.commands" title="tail">
-<pre>to start from second line
-
-```
-tail +2 &lt;filename&gt;
-```
-list docker container by name and skip colume name
-
-
-```
-docker ps --format &quot;{{.Names}}&quot;|tail +2
-```
-
--f, --follow[={name|descriptor}]
-              output appended data as the file grows;
-
--n, --lines=[+]NUM
-              output the last NUM lines, instead of the last 10; or use -n +NUM to output starting with line NUM</pre>
 </div>
 <div created="20141017185801036" modified="20210909082756424" tags="Linux.commands" title="tar" tmap.id="bf8f9cf2-8784-43b2-a18a-50678d26f268">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
