@@ -351,6 +351,8 @@ Error message and password prompt
 
 <li>docker.cleanup</li>
 
+<li>docker.command</li>
+
 <li>docker.host</li>
 
 <li>du</li>
@@ -10590,7 +10592,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20221208085825641" list="docker.host TableOfContents" modified="20221208085836300" title="$:/StoryList">
+<div created="20221208085825641" list="TableOfContents" modified="20221208124021620" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10654,7 +10656,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20221208090118330" title="$:/temp/search">
+<div created="20201031112729614" modified="20221208125021071" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11784,7 +11786,7 @@ vi /etc/NetworkManager/NetworkManager.conf
 
 </pre>
 </div>
-<div created="20201116165919622" modified="20221208090115418" tags="Virtualization" title="Docker">
+<div created="20201116165919622" modified="20221208122645968" tags="Virtualization" title="Docker">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
 &lt;&lt;toc-selective-expandable 'Docker'&gt;&gt;
@@ -11850,18 +11852,6 @@ docker run --rm -v portainer_data:/data portainer/helper-reset-password
 /var/lib/docker/volumes/
 
 
-List running containers, name and IP
-
-
-```
-docker inspect -f &quot;{{.Name}} {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&quot; $(docker ps -q)| sed &quot;s#/##g&quot;
-```
-
-Commandline in ansible 
-
-```
-docker inspect -f {{' &quot;{{.Name}} {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&quot; $(docker ps -q)| sed &quot;s#/##g&quot; '}}
-```
 </pre>
 </div>
 <div created="20220922071236193" modified="20221109123838219" tags="Docker" title="docker.cleanup">
@@ -11882,6 +11872,39 @@ Show docker disk usage
 
 ```
 docker system df
+```
+</pre>
+</div>
+<div created="20221208122459685" modified="20221208125016714" tags="Docker" title="docker.command">
+<pre>!List running containers, name and IP
+
+
+```
+docker inspect -f &quot;{{.Name}} {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&quot; $(docker ps -q)| sed &quot;s#/##g&quot;
+```
+
+Commandline in ansible 
+
+```
+docker inspect -f {{' &quot;{{.Name}} {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&quot; $(docker ps -q)| sed &quot;s#/##g&quot; '}}
+```
+!List running containers
+
+```
+docker ps
+```
+
+!Docker exec command
+
+run a command inside a container using the docker exec command through the command
+
+```
+sudo docker exec -it &lt;container−id&gt; ps ax
+```
+
+```
+sudo docker exec -it &lt;image−name&gt; bash
+sudo docker exec -it &lt;image−name&gt; sh
 ```
 </pre>
 </div>
@@ -13012,7 +13035,7 @@ a - accumulated
 
 -&gt; / &lt;- switch sort by column with arrow keys</pre>
 </div>
-<div created="20210924064507278" modified="20220217071543761" tags="Linux" title="java">
+<div created="20210924064507278" modified="20221208125013473" tags="Linux" title="java">
 <pre>!!List all the trusted public Root CAs in your Java truststore
 
 ```
@@ -13033,6 +13056,14 @@ keytool -storepasswd -keystore $JAVA_HOME/jre/lib/security/cacerts/cacerts
 ```
 export _JAVA_OPTIONS=&quot;-Djava.net.preferIPv4Stack=true&quot;
 ```
+
+
+!!Try to trigger GC
+
+```
+jcmd &lt;PID-number&gt; GC.run
+```
+
 </pre>
 </div>
 <div created="20210327165930546" modified="20210912165929937" tags="Automation" title="jenkins">
