@@ -319,6 +319,8 @@ Error message and password prompt
 
 <li>backup</li>
 
+<li>Backup &amp; restore</li>
+
 <li>bash shell pause function</li>
 
 <li>Centos 6 Vault Repo</li>
@@ -10599,7 +10601,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230124103336438" list="TableOfContents" modified="20230124104451321" title="$:/StoryList">
+<div created="20230124195756310" list="TableOfContents" modified="20230124195931426" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10663,7 +10665,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230124104450272" title="$:/temp/search">
+<div created="20201031112729614" modified="20230124195928284" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11256,6 +11258,11 @@ curl -X GET http://localhost:9200/_snapshot/my_backup/_all?pretty=true
 curl -X GET http://localhost:9200/_snapshot/my_backup/snapshot_1/_status?pretty=true
 ```
 </pre>
+</div>
+<div created="20230124195803734" modified="20230124195914969" tags="OpenVPN" title="Backup &amp; restore">
+<pre>or migrate to nwe server
+
+https://openvpn.net/vpn-server-resources/migrating-an-access-server-installation/</pre>
 </div>
 <div created="20220513181057659" modified="20220513181238905" tags=".bash" title="bash shell pause function">
 <pre>```
@@ -13733,7 +13740,7 @@ sudo mount -o remount,rw /partition/identifier /mount/point
 &lt;&lt;toc-selective-expandable  &quot;MsSQL&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20210428144740342" modified="20230124104039382" tags="Linux.commands" title="multitail">
+<div created="20210428144740342" modified="20220923142018087" tags="Linux.commands" title="multitail">
 <pre>The first example shows only lines from /var/log/messages which have the string &quot;gnu-pop3d&quot; somewhere in them. 
 
 ```
@@ -13743,7 +13750,7 @@ multitail -e &quot;gnu-pop3d&quot; /var/log/messages
 The second example only shows lines which do not have the string &quot;ssh&quot; and not have the string &quot;gnu-pop3d&quot; and DO HAVE the string &quot;localhost&quot; in them. 
 
 ```
-multitail -ev &quot;ssh&quot; -ev &quot;gnu-pop3d&quot; -e &quot;localhost&quot; /var/log/messages
+multitail -v -e &quot;ssh&quot; -v -e &quot;gnu-pop3d&quot; -e &quot;localhost&quot; /var/log/messages
 ```
 Read logfil and ignore GET and PUT
 and in the same logfil grep for &quot;Events bootstrapped&quot;
