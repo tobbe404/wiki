@@ -10606,7 +10606,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230129155448796" list="TableOfContents" modified="20230129155635503" title="$:/StoryList">
+<div created="20230129155448796" list="TableOfContents" modified="20230129161251350" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10670,7 +10670,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230129160808496" title="$:/temp/search">
+<div created="20201031112729614" modified="20230129162752233" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11039,7 +11039,7 @@ echo '$ANSIBLE_VAULT;1.1;AES256\.......' | ansible-vault decrypt --output=/dev/s
 ```
 </pre>
 </div>
-<div created="20221208135623160" modified="20230126131726185" tags="Ansible" title="Ansible.collection">
+<div created="20221208135623160" modified="20230129162740523" tags="Ansible" title="Ansible.collection">
 <pre>ansible 2.10
 
 upgrade
@@ -11048,10 +11048,11 @@ upgrade
 ansible-galaxy collection install -f ansible.posix
 ansible-galaxy collection install -f community.general
 ansible-galaxy collection install tribe29.checkmk
+ansible-galaxy collection install amazon.aws
 ```
 
 ```
-pip install botocore boto3
+pip install ansible boto3 botocore cffi cryptography Jinja2 jmespath MarkupSafe pycparser python-dateutil PyYAML s3transfer six urllib3
 ```
 </pre>
 </div>
