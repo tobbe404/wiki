@@ -515,6 +515,8 @@ Error message and password prompt
 
 <li>Network</li>
 
+<li>NetworkManager DNS</li>
+
 <li>nmap</li>
 
 <li>openssl base64</li>
@@ -10606,7 +10608,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230130094307681" list="TableOfContents" modified="20230130094307681" title="$:/StoryList">
+<div created="20230205114443379" list="TableOfContents" modified="20230205114831778" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10654,11 +10656,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10670,7 +10672,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230130094511355" title="$:/temp/search">
+<div created="20201031112729614" modified="20230205114759619" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14236,6 +14238,21 @@ The private address space specified in RFC 1918 is defined by the following thre
 * 172.16.0.0 - 172.31.255.255
 * 10.0.0.0 - 10.255.255.255
 </pre>
+</div>
+<div created="20230205114644047" modified="20230205114835472" tags="DNS" title="NetworkManager DNS">
+<pre>By default, NM will not do split DNS, which means when the VPN is
+connected, the VPN nameservers replace the existing nameservers.  This
+is required to ensure that if for some reason the VPN nameservers cannot
+be contacted, that your queries don't fall back to the non-VPN
+nameservers and return bogus (and potentially malicious) results.
+
+But, if you add &quot;dns=dnsmasq&quot; to
+the /etc/NetworkManager/NetworkManager.conf file and install 'dnsmasq',
+then NM will run in split DNS mode.  Here, NM will spawn a private copy
+of dnsmasq and send it configuration to direct any queries ending in the
+domain passed back from the openvpn server (or entered into the NM
+configuration for that VPN connection) to the VPN nameservers, and
+everything else to the non-VPN nameservers.</pre>
 </div>
 <div created="20141017182313637" modified="20211004121313502" tags="Linux.commands" title="nmap" tmap.id="19e6e300-f1a3-42f8-b0e1-038bf264fe2a">
 <pre>!Port scan
