@@ -10608,7 +10608,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230205114443379" list="TableOfContents" modified="20230205114831778" title="$:/StoryList">
+<div created="20230205114443379" list="git TableOfContents" modified="20230205124257598" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10672,8 +10672,8 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230205114759619" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20230205123553189" title="$:/temp/search">
+<pre>git</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12515,20 +12515,20 @@ dmidecode | grep -A3 '^System Information'
 
 [[helloworld|https://gist.github.com/tobbe404/940b162f0003f568f329c53802a0eaa3#file-helloworld-ps1]] </pre>
 </div>
-<div created="20210306144935855" modified="20221025104200727" tags="TableOfContents" title="git">
+<div created="20210306144935855" modified="20230205130124761" tags="TableOfContents" title="git">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'git'&gt;&gt;
 &lt;/div&gt;
 
 apt install git
 
-config git
+!config git
 
 ```
 git config --global user.email &quot;you@example.com&quot;
 git config --global user.name &quot;Your Name&quot;
 ```
-Git checkout remote branch
+!Git checkout remote branch
 
 ```
 git fetch
@@ -12537,7 +12537,7 @@ git checkout branchxyz
 ```
 
 
-start a repo
+!start a repo
 
 ```
 cd /folder
@@ -12545,48 +12545,66 @@ git init .
 ```
 
 
-clona a repo
+!clona a repo
 
 ```
 git clone [url.git]
 ```
 
-clone a branche
+!clone a branche
 
 ```
 git clone  [url.git] -b develop
 ```
 
-git add files you want to save
+!git add files you want to save
 
 ```
 git add file1 file2 file3
 ```
 
-for all files
+!for all files
 
 ```
 git add . 
 ```
 
-commit
+!commit
 
 ```
 git commit -am 'initial commit'
 ```
-status
+!status
 
 ```
 git status 
 ```
 
-push
+!push
 
 ```
 git push
 ```
+!merge
 
-Clone contents of a git repository (without the folder itself)
+```
+ (on branch development)$ 
+git merge master
+ (resolve any merge conflicts if there are any)
+git checkout master
+git merge --no-ff development
+ (there won't be any conflicts now)
+```
+!Merge
+
+Let's say you have created a branch for the purpose of developing a single feature. When you want to bring those changes back to master, you probably want merge.
+
+!Rebase
+
+A second scenario would be if you started doing some development and then another developer made an unrelated change. You probably want to pull and then rebase to base your changes from the current version from the repository.
+
+
+!Clone contents of a git repository (without the folder itself)
 
 If the current directory is empty, you can do that with:
 
