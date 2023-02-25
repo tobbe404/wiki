@@ -585,6 +585,8 @@ Error message and password prompt
 
 <li>sort</li>
 
+<li>SPF</li>
+
 <li>ssh</li>
 
 <li>ssh-keygen</li>
@@ -10608,7 +10610,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230205114443379" list="git TableOfContents" modified="20230205124257598" title="$:/StoryList">
+<div created="20230225112643080" list="TableOfContents" modified="20230225130850512" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10656,15 +10658,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10672,8 +10674,8 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230205123553189" title="$:/temp/search">
-<pre>git</pre>
+<div created="20201031112729614" modified="20230225130859315" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -15198,6 +15200,19 @@ rpm -vi filebeat-7.12.0-x86_64.rpm
 cat /var/log/nginx/error2.log|awk '{print $11}'|sort|uniq -d -c
 ```
 </pre>
+</div>
+<div created="20230225130752273" modified="20230225130846628" tags="DNS" title="SPF">
+<pre>v=spf1 ip4=192.0.2.0 ip4=192.0.2.1 include:examplesender.email -all
+
+v=spf1 tells the server that this contains an SPF record. Every SPF record must begin with this string.
+
+Then comes the “guest list” portion of the SPF record or the list of authorized IP addresses. In this example, the SPF record is telling the server that ip4=192.0.2.0 and ip4=192.0.2.1 are authorized to send emails on behalf of the domain. 
+
+include:examplesender.net is an example of the include tag, which tells the server what third-party organizations are authorized to send emails on behalf of the domain. This tag signals that the content of the SPF record for the included domain (examplesender.net) should be checked and the IP addresses it contains should also be considered authorized. Multiple domains can be included within an SPF record but this tag will only work for valid domains. 
+
+Finally, -all tells the server that addresses not listed in the SPF record are not authorized to send emails and should be rejected. 
+
+Alternative options here include ~all, which states that unlisted emails will be marked as insecure or spam but still accepted, and, less commonly, +all, which signifies that any server can send emails on behalf of your domain. </pre>
 </div>
 <div created="20210329110433712" modified="20210329110451515" tags="Linux.commands" title="ssh">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
