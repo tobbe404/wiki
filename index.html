@@ -605,6 +605,8 @@ Error message and password prompt
 
 <li>Static IP address</li>
 
+<li>string seems like an object</li>
+
 <li>sudo</li>
 
 <li>symlink</li>
@@ -10612,7 +10614,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230226095905313" list="TableOfContents" modified="20230226100240805" title="$:/StoryList">
+<div created="20230227070654432" list="TableOfContents" modified="20230227231313908" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10660,15 +10662,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10676,7 +10678,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230226100459494" title="$:/temp/search">
+<div created="20201031112729614" modified="20230227231329087" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15525,6 +15527,23 @@ IPADDR=192.168.1.44
 NETMASK=255.255.255.0
 ```
 </pre>
+</div>
+<div created="20230227230740345" modified="20230227231309082" tags="Ansible" title="string seems like an object">
+<pre>There is a thing about Ansible template engine.
+
+If a string seems like an object (starts with { or [) Ansible converts it into object.
+
+To prevent this, you may use one of STRING_TYPE_FILTERS:
+
+
+```
+- SPRING_APPLICATION_JSON: &quot;{{ {'test-host.1':test_host_1,'test-host.2':test_host_2} | to_json }}&quot;
+```
+
+''you can still trick Ansible to think it is a string by adding a space before first { ''
+
+
+Ansible misses startswith(&quot;{&quot;) comparison and don't convert string to object.</pre>
 </div>
 <div created="20220926082708686" modified="20220926112126707" tags="Linux.commands" title="sudo">
 <pre>! Run only specific sudo commands without password
