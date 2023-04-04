@@ -549,6 +549,8 @@ Error message and password prompt
 
 <li>Powershell</li>
 
+<li>Quicksearch</li>
+
 <li>RabbitMQ</li>
 
 <li>Recursive Copy of Directories over ssh</li>
@@ -10530,7 +10532,7 @@ fi
 <div created="20210926140000285" modified="20210926140000285" title="$:/state/toc/TableOfContents-Linux--118161433">
 <pre>open</pre>
 </div>
-<div created="20210302064244857" modified="20230226100158063" title="$:/state/toc/TableOfContents-Linux-497309061">
+<div created="20210302064244857" modified="20230404142402565" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>close</pre>
 </div>
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
@@ -10614,7 +10616,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230327132414199" list="TableOfContents" modified="20230327133850636" title="$:/StoryList">
+<div created="20230404085533787" list="TableOfContents" modified="20230404142418941" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10678,8 +10680,8 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230327132412136" title="$:/temp/search">
-<pre>find</pre>
+<div created="20201031112729614" modified="20230404142255504" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -11420,7 +11422,7 @@ htpasswd -m etc/htpasswd cmkadmin
 ```
 </pre>
 </div>
-<div created="20210309105457050" modified="20211202072424909" tags="Monitoring" title="Check_MK">
+<div created="20210309105457050" modified="20230404141714829" tags="Monitoring" title="Check_MK">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Check_MK'&gt;&gt;
 &lt;/div&gt;
@@ -12245,7 +12247,7 @@ Use remote_src: yes to copy file in remote machine from one path to another.
 
 restart the process that owns the handle</pre>
 </div>
-<div created="20210826105323545" modified="20230327133846595" tags="Linux.commands" title="find">
+<div created="20210826105323545" modified="20220305102010039" tags="Linux.commands" title="find">
 <pre> named Removing all __empty__ directories older then 10 days
 
 ```
@@ -12262,12 +12264,6 @@ change prem
 
 ```
 find /data1/fileupload/*/subfolder -type f -exec chmod 664 {} \;
-```
-
-
-
-```
-find /data/old_logfiles/*/*/ -not -path &quot;*/root*&quot; -type f -mtime +365
 ```
 </pre>
 </div>
@@ -14699,6 +14695,23 @@ vagrant scp /opt/backup/ /home/vagrant/ default
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;Powershell&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20230404141717113" modified="20230404142240087" tags="Check_MK" title="Quicksearch">
+<pre>
+|s:|service|s:memory|
+|h:|host|h:server01|
+|sl:|servicelabel||
+|hl:|hostlabel||
+
+```
+s:memory h:server*
+```
+
+```
+prod*server-[1-9]
+```
+
+</pre>
 </div>
 <div created="20210930091530114" modified="20210930100229271" tags="Linux" title="RabbitMQ">
 <pre>!Do not change host name.
