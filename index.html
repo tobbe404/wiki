@@ -499,8 +499,6 @@ Error message and password prompt
 
 <li>mysql.date</li>
 
-<li>mysql.extract table from mysqldump</li>
-
 <li>mysql.max_allowed_packet</li>
 
 <li>mysql.New database</li>
@@ -512,6 +510,8 @@ Error message and password prompt
 <li>mysql.WHERE IN Array</li>
 
 <li>mysqldump</li>
+
+<li>mysqldump.column_statistics</li>
 
 <li>Nagios</li>
 
@@ -10616,7 +10616,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230418122718387" list="mysqldump TableOfContents" modified="20230419092704977" title="$:/StoryList">
+<div created="20230424111535186" list="TableOfContents" modified="20230424111937352" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10680,7 +10680,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230419114432671" title="$:/temp/search">
+<div created="20201031112729614" modified="20230424111936289" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13998,30 +13998,6 @@ WHERE (date_field BETWEEN '2010-01-30 14:15:55' AND '2010-09-29 10:15:55')
 ```
 </pre>
 </div>
-<div created="20230419083317806" modified="20230419114511203" tags="MySQL" title="mysql.extract table from mysqldump">
-<pre>
-
-```
-sed -n -e '/CREATE TABLE.*`table`/,/UNLOCK TABLES/p' dump.sql &gt; table.sql
-```
-
-
-ad on top
-
-```
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES latin1 */;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-```
-set
-
-```
-SET GLOBAL sql_mode = '';
-```
-</pre>
-</div>
 <div created="20211108150021631" modified="20220122091230144" tags="MySQL" title="mysql.max_allowed_packet">
 <pre>check
 
@@ -14258,6 +14234,24 @@ remove DEFINER in mysqldump after version 5.7.8
 
 ```
 --skip-definer
+```
+</pre>
+</div>
+<div created="20230424111556120" modified="20230424111929080" tags="MySQL" title="mysqldump.column_statistics">
+<pre>
+
+
+```
+mysqldump: Couldn't execute 'SELECT COLUMN_NAME,                       JSON_EXTRACT(HISTOGRAM, '$.&quot;number-of-buckets-specified&quot;')                FROM information_schema.COLUMN_STATISTICS                WHERE SCHEMA_NAME = 'DB_1' AND TABLE_NAME = 'table1';': Unknown table 'COLUMN_STATISTICS' in information_schema (1109)
+```
+
+in
+.~/.my.cnf
+
+
+```
+[mysqldump]
+column-statistics=0
 ```
 </pre>
 </div>
