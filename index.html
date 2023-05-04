@@ -10618,7 +10618,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230503093813057" list="TableOfContents" modified="20230504141856858" title="$:/StoryList">
+<div created="20230503093813057" list="date TableOfContents" modified="20230504195341343" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -11643,7 +11643,7 @@ curl http://example.com/file.zip --output file.zip
 ```
 </pre>
 </div>
-<div created="20210503090649236" modified="20230405122209763" tags="Linux.commands" title="date">
+<div created="20210503090649236" modified="20230504195837628" tags="Linux.commands" title="date">
 <pre>!Change the current date:
 
 
@@ -11695,6 +11695,13 @@ Show the local time for 9AM next Friday on the west coast of the US
 date --date='TZ=&quot;America/Los_Angeles&quot; 09:00 next Fri'
 ```
 
+UNIX time to readable
+
+```
+date -d @1267619929
+```
+
+YYYY-mm-dd
 
 ```
 `date +%Y-%m-%d`
