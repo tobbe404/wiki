@@ -363,6 +363,8 @@ Error message and password prompt
 
 <li>du</li>
 
+<li>dummy file</li>
+
 <li>ec2.Extend partition</li>
 
 <li>elasticsearch</li>
@@ -10616,7 +10618,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230424111535186" list="TableOfContents" modified="20230424112219935" title="$:/StoryList">
+<div created="20230503093813057" list="TableOfContents" modified="20230504141856858" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10680,7 +10682,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230424111936289" title="$:/temp/search">
+<div created="20201031112729614" modified="20230504140727368" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12014,6 +12016,25 @@ see filesystem type
  df -Th
 ```
 
+</pre>
+</div>
+<div created="20230504141004494" modified="20230504141836847" tags=".bash" title="dummy file">
+<pre>create a dummy file
+
+```
+head -c 100000 /dev/urandom &gt;dummy_file.sql
+```
+
+
+How do I create a 1GB random file in Linux?
+
+```
+dd if=/dev/urandom of=sample.txt bs=64M count=16
+```
+
+```
+head -c 1G /dev/urandom &gt; sample.txt
+```
 </pre>
 </div>
 <div created="20210816161333269" modified="20210816180800997" tags="amazon-linux-2" title="ec2.Extend partition">
@@ -14239,7 +14260,6 @@ remove DEFINER in mysqldump after version 5.7.8
 </div>
 <div created="20230424111556120" modified="20230424112231188" tags="MySQL" title="mysqldump.column_statistics">
 <pre>
-
 
 ```
 mysqldump: Couldn't execute 'SELECT COLUMN_NAME,                       JSON_EXTRACT(HISTOGRAM, '$.&quot;number-of-buckets-specified&quot;')                FROM information_schema.COLUMN_STATISTICS                WHERE SCHEMA_NAME = 'DB_1' AND TABLE_NAME = 'table1';': Unknown table 'COLUMN_STATISTICS' in information_schema (1109)
