@@ -10478,10 +10478,16 @@ fi
 <div created="20201104085551529" modified="20201104085844514" title="$:/GitLab/Username">
 <pre></pre>
 </div>
-<div status="complete" title="$:/Import">
-<pre>The following tiddlers were imported:
-
-# [[DNS trubble]]</pre>
+<div plugin-type="import" status="pending" title="$:/Import" type="application/json">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;Untitled&quot;: {
+            &quot;title&quot;: &quot;Untitled&quot;,
+            &quot;text&quot;: &quot;swift list backup -p latest&quot;,
+            &quot;type&quot;: &quot;text/plain&quot;
+        }
+    }
+}</pre>
 </div>
 <div created="20210327142320327" modified="20210327142320327" title="$:/Import!!popup-crontab">
 <pre>yes</pre>
@@ -10627,7 +10633,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230510064055575" list="TableOfContents" modified="20230510064230396" title="$:/StoryList">
+<div created="20230510064055575" list="TableOfContents" modified="20230510144312070" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10691,7 +10697,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230510064227610" title="$:/temp/search">
+<div created="20201031112729614" modified="20230510144404822" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11060,7 +11066,7 @@ echo '$ANSIBLE_VAULT;1.1;AES256\.......' | ansible-vault decrypt --output=/dev/s
 ```
 </pre>
 </div>
-<div created="20221208135623160" modified="20230129162740523" tags="Ansible" title="Ansible.collection">
+<div created="20221208135623160" modified="20230510144355481" tags="Ansible" title="Ansible.collection">
 <pre>ansible 2.10
 
 upgrade
@@ -11075,6 +11081,14 @@ ansible-galaxy collection install amazon.aws
 ```
 pip install ansible boto3 botocore cffi cryptography Jinja2 jmespath MarkupSafe pycparser python-dateutil PyYAML s3transfer six urllib3
 ```
+upgrade Since Ansible 2.11
+
+```
+ansible-galaxy collection install -U &lt;collection&gt;
+ansible-galaxy collection install -U ansible.windows
+```
+
+
 </pre>
 </div>
 <div created="20210220115435083" modified="20230309100623179" tags="Ansible" title="Ansible.commands">
