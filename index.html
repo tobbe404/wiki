@@ -591,6 +591,8 @@ Error message and password prompt
 
 <li>sidecar.filebeat</li>
 
+<li>Snap-installed app doesn't put icon into launcher</li>
+
 <li>sort</li>
 
 <li>SPF</li>
@@ -10549,8 +10551,8 @@ fi
 <div created="20210926140000285" modified="20210926140000285" title="$:/state/toc/TableOfContents-Linux--118161433">
 <pre>open</pre>
 </div>
-<div created="20210302064244857" modified="20230226100158063" title="$:/state/toc/TableOfContents-Linux-497309061">
-<pre>close</pre>
+<div created="20210302064244857" modified="20230525102609442" title="$:/state/toc/TableOfContents-Linux-497309061">
+<pre>open</pre>
 </div>
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
@@ -10633,7 +10635,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230515113050271" list="TableOfContents" modified="20230515113401673" title="$:/StoryList">
+<div created="20230525102613960" list="TableOfContents" modified="20230525103056291" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10697,7 +10699,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230515113400309" title="$:/temp/search">
+<div created="20201031112729614" modified="20230525103053549" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15346,6 +15348,23 @@ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.12.0
 rpm -vi filebeat-7.12.0-x86_64.rpm
 ```
 </pre>
+</div>
+<div created="20230525102754063" modified="20230525103046630" tags="ubuntu" title="Snap-installed app doesn't put icon into launcher">
+<pre>If you are using zsh, the snap binary and desktop directories will not automatically be added to your environment variables.
+
+The step I did specifically was to add 
+
+```
+emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'
+```
+
+ to the bottom of my
+
+```
+/etc/zsh/zprofile
+```
+
+file.</pre>
 </div>
 <div created="20141017185327687" modified="20210328102320782" tags="Linux.commands" title="sort">
 <pre>sort file1 file2 | uniq -d |wc -l
