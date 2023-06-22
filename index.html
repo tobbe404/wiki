@@ -439,8 +439,6 @@ Error message and password prompt
 
 <li>iotop</li>
 
-<li>ISO to USB</li>
-
 <li>java</li>
 
 <li>jenkins</li>
@@ -679,11 +677,11 @@ Error message and password prompt
 
 <li>Windows</li>
 
+<li>windows</li>
+
 <li>Windows.commands</li>
 
 <li>wmstat</li>
-
-<li>Your exteranl IP</li>
 
 <li>yum</li>
 
@@ -10639,7 +10637,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230614105217521" list="TableOfContents Tools [[ISO to USB]]" modified="20230615111524650" title="$:/StoryList">
+<div created="20230620061638478" list="TableOfContents" modified="20230622133500532" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10703,7 +10701,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230615134943247" title="$:/temp/search">
+<div created="20201031112729614" modified="20230622133458980" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11072,7 +11070,7 @@ echo '$ANSIBLE_VAULT;1.1;AES256\.......' | ansible-vault decrypt --output=/dev/s
 ```
 </pre>
 </div>
-<div created="20221208135623160" modified="20230615134937931" tags="Ansible" title="Ansible.collection">
+<div created="20221208135623160" modified="20230510144355481" tags="Ansible" title="Ansible.collection">
 <pre>ansible 2.10
 
 upgrade
@@ -11080,7 +11078,7 @@ upgrade
 ```
 ansible-galaxy collection install -f ansible.posix
 ansible-galaxy collection install -f community.general
-ansible-galaxy collection install tribe29.checkmk:==0.17.1
+ansible-galaxy collection install tribe29.checkmk
 ansible-galaxy collection install amazon.aws
 ```
 
@@ -11962,7 +11960,7 @@ docker system df
 ```
 </pre>
 </div>
-<div created="20221208122459685" modified="20230614145136721" tags="Docker" title="docker.command">
+<div created="20221208122459685" modified="20230605230301685" tags="Docker" title="docker.command">
 <pre>!List running containers, name and IP
 
 
@@ -11975,15 +11973,10 @@ Commandline in ansible
 ```
 docker inspect -f {{' &quot;{{.Name}} {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&quot; $(docker ps -q)| sed &quot;s#/##g&quot; '}}
 ```
-
-```
-docker inspect &lt;containernme&gt; -f &quot;{{.Name}} {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&quot;|sed &quot;s#/##g&quot;
-```
-
 !List running containers
 
 ```
-docker ps -a
+docker ps
 ```
 
 !Docker exec command
@@ -13252,23 +13245,6 @@ systemctl start vault
 a - accumulated
 
 -&gt; / &lt;- switch sort by column with arrow keys</pre>
-</div>
-<div created="20230614130700444" modified="20230614140925814" tags="Tools" title="ISO to USB">
-<pre>!Windows
-
-Rufus&lt;br&gt;
-http://rufus.ie/en/
-
-!Linux&lt;br&gt;
-Startup Disk Creator in Ubuntu&lt;br&gt;
-
-```
-sudo dd bs=4M if=Downloads/ubuntu-19.04-desktop-amd64.iso of=/dev/sdb conv=fdatasync
-```
-
-UNetbootin&lt;br&gt;
-https://unetbootin.github.io/
-</pre>
 </div>
 <div created="20210924064507278" modified="20221208125013473" tags="Linux" title="java">
 <pre>!!List all the trusted public Root CAs in your Java truststore
@@ -16275,7 +16251,7 @@ M-Left, M-Right
 
 </pre>
 </div>
-<div created="20220503084835026" modified="20230614114104711" tags="TableOfContents" title="Tools">
+<div created="20220503084835026" modified="20220503084914273" tags="TableOfContents" title="Tools">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Tools'&gt;&gt;
 &lt;/div&gt;</pre>
@@ -16924,6 +16900,15 @@ ls -all |wc -l
 &lt;&lt;toc-selective-expandable  &quot;Windows&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
+<div created="20230621094416878" modified="20230621094453819" tags="Vagrant" title="windows">
+<pre>
+```
+vagrant plugin install winrm  
+vagrant plugin install winrm-fs  
+vagrant plugin install winrm-elevated 
+```
+</pre>
+</div>
 <div created="20210413120959869" modified="20210413121133176" tags="Windows" title="Windows.commands">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
@@ -16964,20 +16949,6 @@ Mem:    475236k total,   245076k used,   230160k free,     9720k buffers
 Swap:   491512k total,    78588k used,   412924k free,    72476k cached
 ```
 
-
-</pre>
-</div>
-<div created="20230614113853886" modified="20230614114116212" tags="Tools" title="Your exteranl IP">
-<pre>In Powershell
-
-```
-(Invoke-WebRequest -uri &quot;http://ifconfig.me/ip&quot;).Content
-```
-In Linux / Mac command line
-
-```
-curl http://ifconfig.me/ip 
-```
 
 </pre>
 </div>
