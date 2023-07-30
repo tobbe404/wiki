@@ -10637,7 +10637,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230726095505606" list="TableOfContents" modified="20230726095505606" title="$:/StoryList">
+<div created="20230728151330455" list="TableOfContents" modified="20230730224054888" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10701,7 +10701,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230726095737397" title="$:/temp/search">
+<div created="20201031112729614" modified="20230730224051170" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11960,7 +11960,7 @@ docker system df
 ```
 </pre>
 </div>
-<div created="20221208122459685" modified="20230605230301685" tags="Docker" title="docker.command">
+<div created="20221208122459685" modified="20230730224048658" tags="Docker" title="docker.command">
 <pre>!List running containers, name and IP
 
 
@@ -11977,6 +11977,16 @@ docker inspect -f {{' &quot;{{.Name}} {{range .NetworkSettings.Networks}}{{.IPAd
 
 ```
 docker ps
+```
+!List all containers
+
+```
+docker ps -a
+```
+!List mounts
+
+```
+docker inspect -f '{{ .Mounts }}' containerid
 ```
 
 !Docker exec command
@@ -12002,6 +12012,22 @@ logs
 ```
 docker logs  &lt;container-name&gt;
 ```
+
+! backup volymes
+In this command, replace {volume-name} with the name of the volume you want to back up, {target} with the mount point inside the docker container, and {backup-filename} with a name for the backup file.
+
+```
+docker run --rm \
+--mount source=&lt;volume-name&gt;,target=&lt;target&gt; \
+-v $(pwd):/backup \
+busybox \
+tar -czvf /backup/&lt;backup-filename&gt;.tar.gz &lt;target&gt;
+```
+
+
+
+
+
 
 </pre>
 </div>
@@ -16795,7 +16821,7 @@ vault kv get -field=my_b64_key keys/testkeys &gt; Plaintext.b64
 |:wq |save and exit|
 |:q! |quit witout saving|</pre>
 </div>
-<div created="20210218094247553" modified="20230726095732969" tags="linux Virtualization Phyton" title="virtual environment" tmap.id="d5bbcec9-fa12-45cb-8e18-f07b82eb0f8f">
+<div created="20210218094247553" modified="20230129160803899" tags="linux Virtualization Phyton" title="virtual environment" tmap.id="d5bbcec9-fa12-45cb-8e18-f07b82eb0f8f">
 <pre>Ubuntu requiers 
 
 ```
@@ -16846,11 +16872,6 @@ pip freeze first outputs a list of installed packages into a requirements file (
 
 ```
 pip install -r requirements.txt --upgrade
-```
-test and set vnev
-
-```
-test -z &quot;$VIRTUAL_ENV&quot; &amp;&amp; source /opt/python-venv/bin/activate
 ```
 </pre>
 </div>
