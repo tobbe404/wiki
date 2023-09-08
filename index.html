@@ -10637,7 +10637,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230807084238088" list="TableOfContents" modified="20230808161849764" title="$:/StoryList">
+<div created="20230908080902075" list="TableOfContents" modified="20230908220552652" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10685,15 +10685,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1600&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10701,7 +10701,7 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20230808161703477" title="$:/temp/search">
+<div created="20201031112729614" modified="20230908220610566" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11070,7 +11070,7 @@ echo '$ANSIBLE_VAULT;1.1;AES256\.......' | ansible-vault decrypt --output=/dev/s
 ```
 </pre>
 </div>
-<div created="20221208135623160" modified="20230807091130204" tags="Ansible" title="Ansible.collection">
+<div created="20221208135623160" modified="20230908220550154" tags="Ansible" title="Ansible.collection">
 <pre>ansible 2.10
 
 upgrade
@@ -11080,6 +11080,32 @@ ansible-galaxy collection install -f ansible.posix
 ansible-galaxy collection install -f community.general
 ansible-galaxy collection install checkmk.general
 ansible-galaxy collection install amazon.aws
+```
+
+You can also include it in a requirements.yml file:
+
+```
+---
+collections:
+# With just the collection name
+#- my_namespace.my_collection
+
+# With the collection name, version, and source options
+#- name: my_namespace.my_other_collection
+#  version: &quot;&gt;=1.2.0&quot; # Version range identifiers (default: ``*``)
+
+  - name: amazon.aws
+    #    version: &quot;==1.5.1&quot;
+  - name: checkmk.general
+  - name: community.docker
+  - name: openstack.cloud
+      version: &quot;==0.99.0&quot;
+```
+And then install it with:
+
+```
+ansible-galaxy collection install -r requirements.yml
+
 ```
 
 ```
