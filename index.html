@@ -10641,7 +10641,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20230919082300186" list="TableOfContents" modified="20230919083155606" title="$:/StoryList">
+<div created="20230919082300186" list="TableOfContents" modified="20230919083424217" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -11345,12 +11345,19 @@ curl -X GET http://localhost:9200/_snapshot/my_backup/snapshot_1/_status?pretty=
 ```
 </pre>
 </div>
-<div created="20230919082304349" modified="20230919083151202" tags="Tools" title="barrier">
+<div created="20230919082304349" modified="20230919083709396" tags="Tools" title="barrier">
 <pre>https://github.com/debauchee/barrier/releases/tag/v2.3.4
 
 https://github.com/debauchee/barrier/releases/tag/v2.4.0
 
 On Ubuntu, disable Wayland if you run in to mouse problem
+
+```
+sudo nano /etc/gdm3/custom.conf
+WaylandEnable=false
+sudo systemctl restart gdm3
+
+```
 
 On Windows, downgrade to v2.3.4, if display scaling factor: &gt; 100% 
 </pre>
