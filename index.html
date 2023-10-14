@@ -209,6 +209,8 @@ Error message and password prompt
 
 <li>$:/state/toc/Linux.commands-ssh-1789903183</li>
 
+<li>$:/state/toc/Monitoring-Check_MK-651979291</li>
+
 <li>$:/state/toc/Password manager-KeePass-1918720731</li>
 
 <li>$:/state/toc/TableOfContents-Automation-497309061</li>
@@ -646,6 +648,8 @@ Error message and password prompt
 <li>test a branche</li>
 
 <li>TiddlyWiki</li>
+
+<li>timeout</li>
 
 <li>tmux</li>
 
@@ -10545,6 +10549,9 @@ fi
 <div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
 <pre>open</pre>
 </div>
+<div created="20231014085533743" modified="20231014085533743" title="$:/state/toc/Monitoring-Check_MK-651979291">
+<pre>open</pre>
+</div>
 <div created="20210603201943614" modified="20210603201943614" title="$:/state/toc/Password manager-KeePass-1918720731">
 <pre>open</pre>
 </div>
@@ -10641,7 +10648,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20231005083606826" list="TableOfContents" modified="20231005135503112" title="$:/StoryList">
+<div created="20231014085530183" list="TableOfContents" modified="20231014085637603" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10689,11 +10696,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -16251,6 +16258,13 @@ To link to a tiddler and specify the text of the link:
 ```
 
 </pre>
+</div>
+<div created="20231014085541372" modified="20231014085629934" tags="Check_MK" title="timeout">
+<pre>On the command line do a cmk --debug -vvn hostname If it runs correctly you get a time at the end.
+
+For the RAW edition you can only change the timeout globally. This is important to remember as you have to consider this for the check interval settings of hosts with high runtime.
+
+Go to ~/etc/nagios/nagios.d/ open the tuning.cfg and search for this option service_check_timeout=60. This is the global check timeout for service checks.</pre>
 </div>
 <div created="20141024063653713" modified="20220217102920897" tags="Linux.commands" title="tmux" tmap.id="ec3b11b6-5489-49b2-ab09-65b5883b3dda">
 <pre>start new with session name:
