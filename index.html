@@ -10648,7 +10648,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20231014085530183" list="TableOfContents" modified="20231014085637603" title="$:/StoryList">
+<div created="20231014085530183" list="[[for loop]] TableOfContents" modified="20231014203928848" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10712,8 +10712,8 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20231005144647600" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20231014203926543" title="$:/temp/search">
+<pre>loop</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12623,7 +12623,7 @@ sudo /etc/init.d/networking restart
 ```
 </pre>
 </div>
-<div created="20190228132831962" modified="20210704111627863" tags="Linux.commands" title="for loop" tmap.id="adbfede8-5496-44d9-868b-86ca90ebd37a">
+<div created="20190228132831962" modified="20231014204547806" tags="Linux.commands" title="for loop" tmap.id="adbfede8-5496-44d9-868b-86ca90ebd37a">
 <pre>```
 for A in *.??;  do gzip -d $A; done
 ```
@@ -12652,6 +12652,10 @@ get pid from longest running apps started from /opt
 
 ```
 for P in $(ps ax|grep /opt| awk '{print $4, $1, $5}'|sort -g|tail -n 5|awk '{print $2}'); do echo $P; done
+```
+
+```
+for A in {2..9}; do ssh prod-dkr$A sudo systemctl reset-failed;done
 ```
 </pre>
 </div>
