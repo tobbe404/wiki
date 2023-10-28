@@ -10558,8 +10558,8 @@ fi
 <div created="20210220113945412" modified="20221208140117477" title="$:/state/toc/TableOfContents-Automation-497309061">
 <pre>close</pre>
 </div>
-<div created="20210306150819375" modified="20220709133848367" title="$:/state/toc/TableOfContents-git-497309061">
-<pre>close</pre>
+<div created="20210306150819375" modified="20231028200918082" title="$:/state/toc/TableOfContents-git-497309061">
+<pre>open</pre>
 </div>
 <div created="20210926140000285" modified="20210926140000285" title="$:/state/toc/TableOfContents-Linux--118161433">
 <pre>open</pre>
@@ -10621,8 +10621,8 @@ fi
 <div created="20210926112715645" modified="20210926112715645" title="$:/state/toc/TableOfContents/Automation/Ansible-AWX-497309061">
 <pre>open</pre>
 </div>
-<div created="20220709093547456" modified="20220709133846287" title="$:/state/toc/TableOfContents/git-gitlab-497309061">
-<pre>close</pre>
+<div created="20220709093547456" modified="20231028200920044" title="$:/state/toc/TableOfContents/git-gitlab-497309061">
+<pre>open</pre>
 </div>
 <div created="20210309105222297" modified="20210413121212427" title="$:/state/toc/TableOfContents/Linux-Linux.commands-497309061">
 <pre>close</pre>
@@ -10648,7 +10648,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20231014085530183" list="[[for loop]] TableOfContents" modified="20231014203928848" title="$:/StoryList">
+<div created="20231028200907078" list="TableOfContents" modified="20231028201417039" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10696,15 +10696,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1600&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10712,8 +10712,8 @@ fi
 <div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20231014203926543" title="$:/temp/search">
-<pre>loop</pre>
+<div created="20201031112729614" modified="20231028201200280" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12983,9 +12983,28 @@ sudo gitlab-ctl reconfigure
 <div created="20220709093552209" modified="20220709093606163" tags="gitlab" title="gitlab-runner">
 <pre>https://techoverflow.net/2021/01/12/how-to-fix-gitlab-ci-error-during-connect-post-http-docker2375-v1-40-auth-dial-tcp-lookup-docker-on-no-such-host/</pre>
 </div>
-<div created="20210825090604591" modified="20210825112908581" tags="gitlab" title="gitlab.commands">
+<div created="20210825090604591" modified="20231028201151932" tags="gitlab" title="gitlab.commands">
 <pre>```
 gitlab-ctl stop / start
+```
+reconfigure edit /etc/gitlab/gitlab.rb
+
+```
+gitlab-ctl reconfigure
+```
+
+reset password
+
+```
+gitlab-rails console
+user = User.find_by_username 'root'
+new_password = ::User.random_password
+user.password = new_password
+user.password_confirmation = new_password
+user.password_automatically_set = false
+user.save!
+exit
+
 ```
 </pre>
 </div>
