@@ -10650,7 +10650,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20231114164820709" list="TableOfContents" modified="20231115065031212" title="$:/StoryList">
+<div created="20231121105313868" list="TableOfContents" modified="20231121114413001" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10698,11 +10698,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10711,10 +10711,10 @@ fi
     }
 }</pre>
 </div>
-<div created="20201104145520707" modified="20221003081331681" title="$:/temp/NewTagName">
+<div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20231115065027135" title="$:/temp/search">
+<div created="20201031112729614" modified="20231121114450268" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11212,14 +11212,14 @@ cal 10 2015 |tail -n 5 |awk  '{print $1}'
 ```
 </pre>
 </div>
-<div created="20210821145608137" modified="20210821145637580" tags="Virtualization" title="AWS">
+<div created="20210821145608137" modified="20231121105615480" tags="Virtualization" title="AWS">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
-&lt;&lt;toc-selective-expandable '&quot;AWS'&gt;&gt;
+&lt;&lt;toc-selective-expandable 'AWS'&gt;&gt;
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20210821145640192" modified="20230531102940556" tags="AWS" title="awscli">
+<div created="20210821145640192" modified="20231121114404271" tags="AWS" title="awscli">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'awscli'&gt;&gt;
 &lt;/div&gt;
@@ -11302,7 +11302,34 @@ How to Apply Pending Modification immediately to RDS
 ```
 aws rds modify-db-instance – db-instance-identifier &lt;your-db-instance-name&gt; – apply-immediately
 ```
-</pre>
+
+!!Multi profil
+
+~/.aws/config
+
+```
+[default]
+region = eu-north-1
+
+[profile sandbox]
+region = eu-north-1
+```
+
+~/.aws/credentials
+
+```
+[default]
+aws_access_key_id = anaccesskey
+aws_secret_access_key = asecretkey
+
+[sandbox]
+aws_access_key_id = anaccesskey
+aws_secret_access_key = asecretkey
+
+```
+
+
+aws --profile sandbox s3 sync /opt/backup s3://bucket/prefix/</pre>
 </div>
 <div created="20210220114353952" modified="20210925141452268" tags="Ansible" title="AWX">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
@@ -12179,7 +12206,7 @@ head -c 1G /dev/urandom &gt; sample.txt
 ```
 </pre>
 </div>
-<div created="20210816161333269" modified="20210816180800997" tags="amazon-linux-2" title="ec2.Extend partition">
+<div created="20210816161333269" modified="20231121105704020" tags="amazon-linux-2 AWS" title="ec2.Extend partition">
 <pre>! To modify an EBS volume using the console
 
 *Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
@@ -12669,7 +12696,7 @@ ps -eo user,pid,cmd -q &quot;$(fuser /dev/video0 2&gt;/dev/null | xargs)&quot;
 ```
 </pre>
 </div>
-<div created="20230506105200496" modified="20230506142422770" tags="KeePassXC" title="get cridential">
+<div created="20230506105200496" modified="20231121113843501" tags="KeePassXC" title="get cridential">
 <pre>sudo apt install libsecret-tools
 
 keepassxc-get-aws-credentials.sh
