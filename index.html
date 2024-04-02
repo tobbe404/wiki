@@ -10652,7 +10652,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20231230210427685" list="TableOfContents" modified="20231231104731980" title="$:/StoryList">
+<div created="20240402093314568" list="TableOfContents" modified="20240402122332223" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10700,15 +10700,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1710&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1112&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10716,7 +10716,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20231221115352130" title="$:/temp/search">
+<div created="20201031112729614" modified="20240402122335761" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13069,7 +13069,7 @@ exit
 &lt;&lt;toc-selective-expandable 'graylog'&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20210413120230944" modified="20210413120941187" tags="Linux.commands" title="grep">
+<div created="20210413120230944" modified="20240402122251555" tags="Linux.commands" title="grep">
 <pre>multiple lines multiple words
 
 ```
@@ -13160,7 +13160,17 @@ sort /backup/file.log|uniq|wc -l
 sort -u /backup/file.log|wc -l
 
 
+get IP from eth0
 
+```
+/sbin/ifconfig eth0 | grep 'inet ' | awk '{ print $2 }'
+```
+
+ubuntu
+
+```
+/sbin/ifconfig enx803f5d089c0d: | grep 'inet ' | awk '{ print $2 }'
+```
 </pre>
 </div>
 <div created="20220426133737171" modified="20220426133956196" tags="ubuntu" title="gvfsd-admin daemon authentication forces me to restart">
@@ -15101,7 +15111,7 @@ tar cf - mysqldb|ssh 192.168.0.18 tar xf -
 ```
 </pre>
 </div>
-<div created="20210505204620683" modified="20220315135655494" tags="Linux" title="regexp">
+<div created="20210505204620683" modified="20240402113545276" tags="Linux" title="regexp">
 <pre>emty line
 
 ```
@@ -15160,6 +15170,12 @@ find first word after config/
 
 ```
 (?&lt;=config\/)[a-z]*
+```
+
+find my IP
+
+```
+ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}'
 ```
 </pre>
 </div>
