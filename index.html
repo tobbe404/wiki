@@ -10652,7 +10652,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20240402093314568" list="TableOfContents" modified="20240402122332223" title="$:/StoryList">
+<div created="20240403073922892" list="TableOfContents" modified="20240403083306216" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10716,7 +10716,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20240402122335761" title="$:/temp/search">
+<div created="20201031112729614" modified="20240403083358063" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14487,8 +14487,16 @@ SELECT * FROM DemoArray WHERE PersonName IN('Nikhil', 'Meenu', 'Anita')
 ```
 </pre>
 </div>
-<div created="20220113094603306" modified="20220928150915033" tags="MySQL" title="mysqldump">
-<pre>''Backup no data''
+<div created="20220113094603306" modified="20240403083301093" tags="MySQL" title="mysqldump">
+<pre>''backup and restore''
+
+```
+mysqldump --default-character-set=latin1 --max_allowed_packet=400M {DB}| gzip -9 &gt; {DB}.sql.gz
+zcat {DB}.sql.gz |mysql {DB}
+```
+
+
+''Backup no data''
 
 ```
 mysqldump --no-data {dbname}&gt;{dbname}.sql
