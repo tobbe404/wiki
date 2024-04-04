@@ -451,6 +451,8 @@ Error message and password prompt
 
 <li>journalctl</li>
 
+<li>journald</li>
+
 <li>KeePass</li>
 
 <li>KeePassXC</li>
@@ -10568,7 +10570,7 @@ fi
 <div created="20210926140000285" modified="20210926140000285" title="$:/state/toc/TableOfContents-Linux--118161433">
 <pre>open</pre>
 </div>
-<div created="20210302064244857" modified="20231109164723515" title="$:/state/toc/TableOfContents-Linux-497309061">
+<div created="20210302064244857" modified="20240404072829698" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>close</pre>
 </div>
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
@@ -10628,8 +10630,8 @@ fi
 <div created="20220709093547456" modified="20231028200920044" title="$:/state/toc/TableOfContents/git-gitlab-497309061">
 <pre>open</pre>
 </div>
-<div created="20210309105222297" modified="20231031121339698" title="$:/state/toc/TableOfContents/Linux-Linux.commands-497309061">
-<pre>open</pre>
+<div created="20210309105222297" modified="20240404072741812" title="$:/state/toc/TableOfContents/Linux-Linux.commands-497309061">
+<pre>close</pre>
 </div>
 <div created="20210529085512752" modified="20231031121330491" title="$:/state/toc/TableOfContents/Linux-ubuntu-497309061">
 <pre>close</pre>
@@ -10652,7 +10654,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20240403073922892" list="TableOfContents" modified="20240403083306216" title="$:/StoryList">
+<div created="20240403073922892" list="TableOfContents" modified="20240404072831363" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10716,7 +10718,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20240403083358063" title="$:/temp/search">
+<div created="20201031112729614" modified="20240404072835340" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13507,6 +13509,24 @@ systemctl reload systemd-journald
 
 </pre>
 </div>
+<div created="20240404072442084" modified="20240404072703064" tags="Logging" title="journald">
+<pre>
+
+```
+journalctl --disk-usage
+journalctl --vacuum-time=2d
+```
+
+vi /etc/systemd/journald.conf
+
+```
+SystemMaxUse=2G
+```
+
+systemctl restart systemd-journald
+
+</pre>
+</div>
 <div created="20170313213618831" modified="20210603201914410" tags="[[Password manager]]" title="KeePass" tmap.id="7d50c7ae-b98c-4dcf-9d70-110acc55e73a">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'KeePass'&gt;&gt;
@@ -13864,11 +13884,15 @@ docker run -d \
 https://docs.gitlab.com/ee/administration/packages/container_registry.html
 </pre>
 </div>
-<div created="20220105091718127" modified="20220105091820281" tags="Linux" title="Logging">
-<pre>https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
+<div created="20220105091718127" modified="20240404072728059" tags="Linux" title="Logging">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'Logging'&gt;&gt;
+
+&lt;/div&gt;https://stackoverflow.com/questions/818255/in-the-shell-what-does-21-mean
 </pre>
 </div>
-<div created="20211210130206772" modified="20211210130430130" tags="Linux" title="Logging stopped working">
+<div created="20211210130206772" modified="20240404072802499" tags="Logging" title="Logging stopped working">
 <pre>centos7 / linux2
 
 ```
