@@ -337,6 +337,10 @@ Error message and password prompt
 
 <li>chmod</li>
 
+<li>cluster in swarm</li>
+
+<li>compose yml</li>
+
 <li>Configuring KeePass to launch RDP</li>
 
 <li>crontab</li>
@@ -489,7 +493,11 @@ Error message and password prompt
 
 <li>mkdir</li>
 
+<li>mongo commands</li>
+
 <li>MongoDB</li>
+
+<li>mongoDB</li>
 
 <li>Monitoring</li>
 
@@ -10501,8 +10509,7 @@ fi
     &quot;tiddlers&quot;: {
         &quot;Untitled&quot;: {
             &quot;title&quot;: &quot;Untitled&quot;,
-            &quot;text&quot;: &quot;swift list backup -p latest&quot;,
-            &quot;type&quot;: &quot;text/plain&quot;
+            &quot;text&quot;: &quot;mongodb&quot;
         }
     }
 }</pre>
@@ -10654,7 +10661,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20240403073922892" list="TableOfContents" modified="20240404072831363" title="$:/StoryList">
+<div created="20240416084605868" list="TableOfContents" modified="20240416142231253" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10718,7 +10725,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20240404072835340" title="$:/temp/search">
+<div created="20201031112729614" modified="20240416141940886" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11630,6 +11637,116 @@ chmod -R MODE DIRECTORY
 * chmod o+w filename
 * chmod o-rwx foldername
 
+</pre>
+</div>
+<div created="20240416141612580" modified="20240416142223050" tags="mongoDB" title="cluster in swarm">
+<pre>docker node ls get ID for server
+
+docker node update --label-add mongo.replica=1 &lt;ID&gt;
+
+docker node update --label-add mongo.replica=2 &lt;ID&gt;
+
+docker node update --label-add mongo.replica=3 &lt;ID&gt;
+
+docker network create --driver overlay mongo-net
+
+docker stack deploy -c mongo-replica.yml mongodb
+
+docker exec -it ID /bin/bash
+mongo (mongoshell)
+
+&amp;# rs.initiate ( { _id: &quot;test-rs&quot;, members: [ { _id: 1, host: &quot;mongo-1:27017&quot;}, { _id: 2, host: &quot;mongo-2:27017&quot;},{ _id: 3, host: &quot;mongo-3:27017&quot;} ], settings: } )
+
+rs.initiate ( { _id: &quot;test-rs&quot;, members: [ { _id: 1, host: &quot;mongo-1:27017&quot;}, { _id: 2, host: &quot;mongo-2:27017&quot;},{ _id: 3, host: &quot;mongo-3:27017&quot;} ] } )
+
+docker stack deploy -c mongo-replica.yml mongodb
+
+
+
+docker exec -it ID /bin/bash
+mongo
+rs.status()
+look for &quot;stateStr&quot; : &quot;PRIMARY&quot;,
+
+go to docker server 
+docker exec -it ID /bin/bash
+mongo
+use admin
+db.createUser( { user: 'admin', pwd: 'supersecret', roles: [ { role: &quot;root&quot;, db: &quot;admin&quot;} ] } )
+db.createUser( { user: 'app1', pwd: 'supersecret', roles: [ { role: &quot;readWrite&quot;, db: &quot;app1&quot;} ] } )
+db.auth(&quot;admin&quot;, &quot;supersecret&quot;)
+db.auth(&quot;app1&quot;, &quot;supersecret&quot;)</pre>
+</div>
+<div created="20240416141450845" modified="20240416142241483" tags="mongoDB" title="compose yml">
+<pre>mongo-replica.yml
+
+```
+version: '3.7'
+
+services:
+  mongo-1:
+  image: mongo:4
+  command: [&quot;mongod&quot;, &quot;--replSet&quot;, &quot;test-rs&quot;]
+  networks:
+    - mongo-net
+  port:
+    - '27017'
+  volumes:
+    - /data/mongo/db-1:/data/db
+	- /data/mongo/config-1:/data/mongo/configdb
+  deploy:
+    mode: replicated
+	replicas: 1
+	pestart_policy:
+	  condition: unless-stopped
+    placement:
+	  constraints:
+	    - node.lables.mongo.replica == 1
+
+services:
+  mongo-2:
+  image: mongo:4
+  command: [&quot;mongod&quot;, &quot;--replSet&quot;, &quot;test-rs&quot;]
+  networks:
+    - mongo-net
+  port:
+    - '27017'
+  volumes:
+    - /data/mongo/db-2:/data/db
+	- /data/mongo/config-2:/data/mongo/configdb
+  deploy:
+    mode: replicated
+	replicas: 1
+	pestart_policy:
+	  condition: unless-stopped
+    placement:
+	  constraints:
+	    - node.lables.mongo.replica == 2
+		
+services:
+  mongo-3:
+  image: mongo:4
+  command: [&quot;mongod&quot;, &quot;--replSet&quot;, &quot;test-rs&quot;]
+  networks:
+    - mongo-net
+  port:
+    - '27017'
+  volumes:
+    - /data/mongo/db-3:/data/db
+	- /data/mongo/config-3:/data/mongo/configdb
+  deploy:
+    mode: replicated
+	replicas: 1
+	pestart_policy:
+	  condition: unless-stopped
+    placement:
+	  constraints:
+	    - node.lables.mongo.replica == 3
+		
+networks:
+  mongo-net:
+    external: true
+```
 </pre>
 </div>
 <div created="20160803074751456" modified="20210207102000480" tags="KeePass" title="Configuring KeePass to launch RDP" tmap.id="6a93278f-7bd2-4584-9af7-926b65d7eb58">
@@ -13511,7 +13628,6 @@ systemctl reload systemd-journald
 </div>
 <div created="20240404072442084" modified="20240404072703064" tags="Logging" title="journald">
 <pre>
-
 ```
 journalctl --disk-usage
 journalctl --vacuum-time=2d
@@ -14104,6 +14220,16 @@ mkdir -p /home/user/test1/test2
 ```
 </pre>
 </div>
+<div created="20240416141544461" modified="20240416142138690" tags="mongoDB" title="mongo commands">
+<pre>
+show dbs
+
+use admin
+
+show collections
+
+db.collections.find()</pre>
+</div>
 <div created="20210309124631966" modified="20210309124827955" tags="graylog" title="MongoDB">
 <pre>backup
 
@@ -14117,6 +14243,13 @@ restore
 mongorestore /patch/to/dump
 ```
 </pre>
+</div>
+<div created="20240416141412448" modified="20240416142121473" tags="TableOfContents" title="mongoDB">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'mongoDB'&gt;&gt;
+
+&lt;/div&gt;</pre>
 </div>
 <div created="20210309105340783" modified="20230309114419676" tags="TableOfContents" title="Monitoring">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
