@@ -10663,7 +10663,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20240529080716284" list="TableOfContents" modified="20240529080952789" title="$:/StoryList">
+<div created="20240604160101753" list="TableOfContents" modified="20240605061910434" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10711,11 +10711,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10727,7 +10727,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20240529080956354" title="$:/temp/search">
+<div created="20201031112729614" modified="20240605061914165" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11055,7 +11055,7 @@ omd start prod
 https://galaxy.ansible.com/
 </pre>
 </div>
-<div created="20220322144223464" modified="20240529080948366" tags="Ansible.commands" title="ansible-vault">
+<div created="20220322144223464" modified="20231221083053570" tags="Ansible.commands" title="ansible-vault">
 <pre>You can point Ansible's configuration (ansible.cfg) to a vault-password-file that is outside of your repository. All that goes into this file is your Ansible Vault password. This step eliminates the need for you to type your password every time you edit an Ansible Vault:
 
 
@@ -11090,11 +11090,6 @@ ansible-vault encrypt_string 'foobar' --name 'the_secret'
 ```
 
 decrypt string on comandline 
-
-
-```
-echo -e '$ANSIBLE_VAULT;1.1;AES256... '| ansible-vault decrypt --vault-password-file ~/ansible_vault
-```
 
 ```
 echo '$ANSIBLE_VAULT;1.1;AES256\.......' | ansible-vault decrypt --output=/dev/stderr &gt; /dev/null
@@ -11871,7 +11866,8 @@ Cron job prevent the sending of errors and output
 </pre>
 </div>
 <div created="20240508085003208" modified="20240508085100825" tags="Linux.commands" title="ctrl+z fg bg">
-<pre>After you press ctrl+z it will pause execution of the current process and move it to the background. If you wish to start running it in the background, then type bg after pressing ctrl-z.
+<pre>
+After you press ctrl+z it will pause execution of the current process and move it to the background. If you wish to start running it in the background, then type bg after pressing ctrl-z.
 
 If you wish to have it run in the foreground (and take away your ability to enter new commands into the prompt), type fg after pressing ctrl-z
 
@@ -12335,21 +12331,11 @@ apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 </pre>
 </div>
-<div created="20210701064652003" modified="20240523185205814" tags="Linux.commands" title="du">
+<div created="20210701064652003" modified="20220308142733927" tags="Linux.commands" title="du">
 <pre>what’s taking up all the available space
 
 ```
 du -h --max-depth=1 / --exclude=/run --exclude=/proc
-```
-top ten in /var
-
-```
-du -a -h /var | sort -h -r | head -n 10
-```
-soert 
-
-```
-du -h --max-depth=1 / --exclude=/run --exclude=/proc   --exclude=/data1 | sort -h -r 
 ```
 
 see filesystem type
@@ -14411,13 +14397,18 @@ https://learnubuntu.com/change-dns-server/</pre>
 ```
 </pre>
 </div>
-<div created="20220825072316183" modified="20231220095509027" tags="MySQL" title="mysql.Command Line">
+<div created="20220825072316183" modified="20240605061915701" tags="MySQL" title="mysql.Command Line">
 <pre>```
 SHOW FULL PROCESSLIST\G
 ```
 
 ```
 SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST where DB ='database';
+```
+
+
+```
+watch &quot;mysql -e 'show full processlist' |grep DB | grep -v 'Sleep'&quot;
 ```
 
 
