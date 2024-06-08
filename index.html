@@ -615,6 +615,8 @@ Error message and password prompt
 
 <li>Snap-installed app doesn't put icon into launcher</li>
 
+<li>snapcraft.io</li>
+
 <li>sort</li>
 
 <li>SPF</li>
@@ -10558,8 +10560,8 @@ fi
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
 <pre>open</pre>
 </div>
-<div created="20210318073822275" modified="20220120093555025" title="$:/state/toc/Linux-Linux.commands-1152169851">
-<pre>open</pre>
+<div created="20210318073822275" modified="20240608074004018" title="$:/state/toc/Linux-Linux.commands-1152169851">
+<pre>close</pre>
 </div>
 <div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
 <pre>open</pre>
@@ -10663,7 +10665,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20240604160101753" list="TableOfContents" modified="20240605061910434" title="$:/StoryList">
+<div created="20240608073928051" list="TableOfContents" modified="20240608074613783" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10711,11 +10713,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10727,7 +10729,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20240605061914165" title="$:/temp/search">
+<div created="20201031112729614" modified="20240608074612858" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14397,18 +14399,13 @@ https://learnubuntu.com/change-dns-server/</pre>
 ```
 </pre>
 </div>
-<div created="20220825072316183" modified="20240605061915701" tags="MySQL" title="mysql.Command Line">
+<div created="20220825072316183" modified="20231220095509027" tags="MySQL" title="mysql.Command Line">
 <pre>```
 SHOW FULL PROCESSLIST\G
 ```
 
 ```
 SELECT * FROM INFORMATION_SCHEMA.PROCESSLIST where DB ='database';
-```
-
-
-```
-watch &quot;mysql -e 'show full processlist' |grep DB | grep -v 'Sleep'&quot;
 ```
 
 
@@ -15793,6 +15790,36 @@ emulate sh -c 'source /etc/profile.d/apps-bin-path.sh'
 ```
 
 file.</pre>
+</div>
+<div created="20240608074006393" modified="20240608074605230" tags="Linux" title="snapcraft.io">
+<pre>https://snapcraft.io/store
+
+
+```
+sudo snap install code --classic
+```
+
+```
+sudo snap revert code --classic
+```
+
+```
+sudo snap install --revision 159 --classic code
+
+```
+
+```
+sudo snap refresh
+```
+
+```
+snap refresh --hold=72h code
+```
+
+```
+snap refresh --hold code
+```
+</pre>
 </div>
 <div created="20141017185327687" modified="20210328102320782" tags="Linux.commands" title="sort">
 <pre>sort file1 file2 | uniq -d |wc -l
