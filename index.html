@@ -10673,7 +10673,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20240612092112960" list="TableOfContents" modified="20240613075918473" title="$:/StoryList">
+<div created="20240614120157956" list="TableOfContents" modified="20240614120157956" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10721,11 +10721,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10737,7 +10737,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20240613075912926" title="$:/temp/search">
+<div created="20201031112729614" modified="20240614120216128" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13643,7 +13643,7 @@ Unlock Jenkins
 http://ip:8080
 </pre>
 </div>
-<div created="20210712081956694" modified="20210813133909571" tags="Linux.commands" title="journalctl">
+<div created="20210712081956694" modified="20240614120211083" tags="Linux.commands" title="journalctl">
 <pre>/etc/systemd/journald.conf
 
 
@@ -13654,6 +13654,12 @@ SystemMaxUse=400M
 
 ```
 sudo journalctl --vacuum-size=300M
+```
+or
+
+
+```
+sudo journalctl --vacuum-time=30d
 ```
 
 
