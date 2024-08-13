@@ -469,8 +469,6 @@ Error message and password prompt
 
 <li>KeePassXC</li>
 
-<li>keepassxc.snap</li>
-
 <li>Keeshare: Syncing Your Keepass Database Between Devices</li>
 
 <li>kubectl</li>
@@ -581,6 +579,8 @@ Error message and password prompt
 
 <li>postfix</li>
 
+<li>Power management</li>
+
 <li>Powershell</li>
 
 <li>RabbitMQ</li>
@@ -646,8 +646,6 @@ Error message and password prompt
 <li>SSL new cert</li>
 
 <li>Static IP address</li>
-
-<li>stormssh</li>
 
 <li>string seems like an object</li>
 
@@ -10585,8 +10583,8 @@ fi
 <div created="20210603201943614" modified="20210603201943614" title="$:/state/toc/Password manager-KeePass-1918720731">
 <pre>open</pre>
 </div>
-<div created="20210220113945412" modified="20240613075735654" title="$:/state/toc/TableOfContents-Automation-497309061">
-<pre>open</pre>
+<div created="20210220113945412" modified="20240813101158473" title="$:/state/toc/TableOfContents-Automation-497309061">
+<pre>close</pre>
 </div>
 <div created="20210306150819375" modified="20231031121321555" title="$:/state/toc/TableOfContents-git-497309061">
 <pre>close</pre>
@@ -10681,7 +10679,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20240723135929354" list="ssh TableOfContents" modified="20240725081741956" title="$:/StoryList">
+<div list="TableOfContents" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10729,11 +10727,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10745,8 +10743,8 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20240725081739022" title="$:/temp/search">
-<pre>ssh</pre>
+<div created="20201031112729614" modified="20240813114949045" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -12374,7 +12372,7 @@ apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 </pre>
 </div>
-<div created="20210701064652003" modified="20240723140250544" tags="Linux.commands" title="du">
+<div created="20210701064652003" modified="20220308142733927" tags="Linux.commands" title="du">
 <pre>what’s taking up all the available space
 
 ```
@@ -12388,19 +12386,7 @@ see filesystem type
  df -Th
 ```
 
-Top 10
-
-```
-du -a -h /var | sort -h -r | head -n 10
-
-```
-
-Sort 
-
-```
-du -h --max-depth=1 / --exclude=/run --exclude=/proc   --exclude=/data1 | sort -h -r 
-
-```</pre>
+</pre>
 </div>
 <div created="20230504141004494" modified="20230504141836847" tags=".bash" title="dummy file">
 <pre>create a dummy file
@@ -13854,13 +13840,9 @@ Rename old db when you save
 ```
 </pre>
 </div>
-<div created="20240627095234419" modified="20240627095252267" tags="KeePassXC" title="keepassxc.snap">
-<pre>integration
-
-https://ubuntuhandbook.org/index.php/2024/06/keepassxc-browser-integration-snap/</pre>
-</div>
 <div created="20240626094220674" modified="20240626094247980" tags="KeePassXC" title="Keeshare: Syncing Your Keepass Database Between Devices">
-<pre>https://smarpo.com/posts/2022/2022-03-17-keeshare-sharing-your-keepass-database-between-devices/</pre>
+<pre>
+https://smarpo.com/posts/2022/2022-03-17-keeshare-sharing-your-keepass-database-between-devices/</pre>
 </div>
 <div created="20210926105840323" modified="20210926111633920" tags="Kubernetes" title="kubectl">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
@@ -15317,6 +15299,33 @@ vagrant scp /opt/backup/ /home/vagrant/ default
 
 &lt;/div&gt;</pre>
 </div>
+<div created="20240813114904789" modified="20240813114926698" tags="Linux" title="Power management">
+<pre>!!Ubuntu:
+
+
+```
+/etc/systemd/logind.conf
+```
+
+
+```
+#HandlePowerKey=poweroff
+
+#HandleLidSwitch=hibernate
+```
+
+
+to
+
+
+```
+HandlePowerKey=ignore
+
+HandleLidSwitch=ignore
+```
+
+</pre>
+</div>
 <div created="20201031114949834" modified="20201104090100750" tags="Windows" title="Powershell">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;Powershell&quot; &quot;sort[title]&quot;&gt;&gt;
@@ -16234,16 +16243,6 @@ IPADDR=192.168.1.44
 NETMASK=255.255.255.0
 ```
 </pre>
-</div>
-<div created="20240725081745909" modified="20240725081826565" tags="ssh" title="stormssh">
-<pre>
-
-```
-sudo pip3 install stormssh
-```
-
-
-https://stormssh.readthedocs.io/en/stable/usage.html</pre>
 </div>
 <div created="20230227230740345" modified="20230227231309082" tags="Ansible" title="string seems like an object">
 <pre>There is a thing about Ansible template engine.
