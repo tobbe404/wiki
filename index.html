@@ -10679,7 +10679,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20240827083947677" list="TableOfContents" modified="20240827102708933" title="$:/StoryList">
+<div created="20240829055710765" list="TableOfContents" modified="20240829062200691" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10727,11 +10727,11 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10743,7 +10743,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20240827102503216" title="$:/temp/search">
+<div created="20201031112729614" modified="20240829062204237" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12372,7 +12372,7 @@ apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 </pre>
 </div>
-<div created="20210701064652003" modified="20220308142733927" tags="Linux.commands" title="du">
+<div created="20210701064652003" modified="20240829062156840" tags="Linux.commands" title="du">
 <pre>what’s taking up all the available space
 
 ```
@@ -12386,6 +12386,15 @@ see filesystem type
  df -Th
 ```
 
+top 10
+
+```
+du -h --max-depth=1 / --exclude=/run --exclude=/proc  | sort -h -r | head -n 10
+```
+
+```
+du -a -h /var | sort -h -r | head -n 10
+```
 </pre>
 </div>
 <div created="20230504141004494" modified="20230504141836847" tags=".bash" title="dummy file">
