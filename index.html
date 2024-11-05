@@ -10683,7 +10683,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20241026102527197" list="TableOfContents" modified="20241026102859121" title="$:/StoryList">
+<div created="20241104091430145" list="TableOfContents" modified="20241105063001524" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10731,15 +10731,15 @@ fi
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10747,7 +10747,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20241026102857993" title="$:/temp/search">
+<div created="20201031112729614" modified="20241105062959454" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12220,7 +12220,7 @@ docker run --rm -v portainer_data:/data portainer/helper-reset-password
 
 </pre>
 </div>
-<div created="20220922071236193" modified="20241003074131194" tags="Docker" title="docker.cleanup">
+<div created="20220922071236193" modified="20241105062954293" tags="Docker" title="docker.cleanup">
 <pre>Show docker disk usage
 
 ```
@@ -12247,6 +12247,30 @@ Show docker disk usage
 ```
 docker system df
 ```
+
+
+
+
+bug in 23 and later &quot;--volumes -f&quot; will not work
+
+
+! WARNING this will delete all volumes not recommended
+
+```
+docker system prune --all --volumes --force &amp;&amp; docker volume prune --all --force
+```
+alias
+
+```
+alias dprune='docker system prune --all --volumes --force &amp;&amp; docker volume prune --all --force'
+```
+
+WARNING! This will remove anonymous local volumes not used by at least one container.
+
+```
+docker volume prune --filter all=1 -f
+```
+
 </pre>
 </div>
 <div created="20221208122459685" modified="20240903145132919" tags="Docker" title="docker.command">
