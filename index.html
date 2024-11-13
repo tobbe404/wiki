@@ -337,6 +337,8 @@ Error message and password prompt
 
 <li>change admin password</li>
 
+<li>check cert</li>
+
 <li>Check_MK</li>
 
 <li>chmod</li>
@@ -10683,7 +10685,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20241113073731911" list="TableOfContents" modified="20241113073731911" title="$:/StoryList">
+<div created="20241113073731911" list="TableOfContents" modified="20241113074133051" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10747,8 +10749,8 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20241113073728438" title="$:/temp/search">
-<pre>cert</pre>
+<div created="20201031112729614" modified="20241113074542299" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -11614,6 +11616,21 @@ dig _acme-challenge.domain.comt TXT @8.8.8.8
 <pre>```
 su - cmk
 htpasswd -m etc/htpasswd cmkadmin
+```
+</pre>
+</div>
+<div created="20241113074557785" modified="20241113075207537" tags="[[SSL new cert]]" title="check cert">
+<pre>
+read CSR
+
+```
+openssl req -noout -text -in &lt;CSR_FILE&gt;
+```
+
+read CRT
+
+```
+openssl x509 -noout -text -in &lt;CA_CERTIFICATE&gt;
 ```
 </pre>
 </div>
