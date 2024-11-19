@@ -337,8 +337,6 @@ Error message and password prompt
 
 <li>change admin password</li>
 
-<li>check cert</li>
-
 <li>Check_MK</li>
 
 <li>chmod</li>
@@ -10685,7 +10683,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20241113073731911" list="TableOfContents" modified="20241113074133051" title="$:/StoryList">
+<div created="20241115095218855" list="TableOfContents" modified="20241119115254726" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10749,7 +10747,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20241113074542299" title="$:/temp/search">
+<div created="20201031112729614" modified="20241119115253707" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11616,21 +11614,6 @@ dig _acme-challenge.domain.comt TXT @8.8.8.8
 <pre>```
 su - cmk
 htpasswd -m etc/htpasswd cmkadmin
-```
-</pre>
-</div>
-<div created="20241113074557785" modified="20241113075207537" tags="[[SSL new cert]]" title="check cert">
-<pre>
-read CSR
-
-```
-openssl req -noout -text -in &lt;CSR_FILE&gt;
-```
-
-read CRT
-
-```
-openssl x509 -noout -text -in &lt;CA_CERTIFICATE&gt;
 ```
 </pre>
 </div>
@@ -15219,13 +15202,17 @@ openssl pkcs12 -in &lt;filename&gt;.p12 -clcerts -nodes -out &lt;filename&gt;.cr
 ```
 </pre>
 </div>
-<div created="20210830135406477" modified="20231114191110626" tags="Linux [[SSL new cert]]" title="openssl read cert">
+<div created="20210830135406477" modified="20241119115250446" tags="Linux [[SSL new cert]]" title="openssl read cert">
 <pre>```
 openssl x509 -text -noout -in certificate.crt 
 ```
 
 ```
 openssl pkcs12 -nokeys -info -in certificate.p12
+```
+
+```
+openssl s_client -connect &lt;ip-adress&gt;:443 -servername &lt;hostname&gt; 2&gt;/dev/null | openssl x509 -noout -text
 ```
 </pre>
 </div>
@@ -16187,7 +16174,7 @@ RabbitMQ webui only lissens on local host with a jumpserver
 
 </pre>
 </div>
-<div created="20141014132814831" modified="20241113073914033" tags="Linux" title="SSL new cert">
+<div created="20141014132814831" modified="20211101102648439" tags="Linux" title="SSL new cert">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
 &lt;&lt;toc-selective-expandable 'SSL new cert'&gt;&gt;
@@ -16266,13 +16253,6 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout {FQDN}.key -out {FQ
 ''wildcard''
 
 [enter *.domain.com for the Common Name]
-
-! check dns for TCT records
-
-```
-dig domain.net TXT @1.1.1.1
-```
-
 </pre>
 </div>
 <div created="20210926134852142" modified="20220120093544856" tags="Linux" title="Static IP address">
