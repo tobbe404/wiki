@@ -615,6 +615,8 @@ Error message and password prompt
 
 <li>sed</li>
 
+<li>selinux</li>
+
 <li>Set Nemo as Default File Manager in Ubuntu</li>
 
 <li>set timezone</li>
@@ -10575,8 +10577,8 @@ fi
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
 <pre>open</pre>
 </div>
-<div created="20210318073822275" modified="20240608074004018" title="$:/state/toc/Linux-Linux.commands-1152169851">
-<pre>close</pre>
+<div created="20210318073822275" modified="20241128095940171" title="$:/state/toc/Linux-Linux.commands-1152169851">
+<pre>open</pre>
 </div>
 <div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
 <pre>open</pre>
@@ -10683,7 +10685,7 @@ fi
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20241128092835186" list="TableOfContents" modified="20241128095458176" title="$:/StoryList">
+<div created="20241128092835186" list="TableOfContents" modified="20241128095951879" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10747,7 +10749,7 @@ fi
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20241128095615266" title="$:/temp/search">
+<div created="20201031112729614" modified="20241128095918688" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15803,6 +15805,27 @@ zcat backup.sql.gz |sed '15700,535179 d' &gt; no_log_solicits.sql
 zcat backup.sql.gz |sed -e 's/\sDEFINER=`[^`]*`@`[^`]*`//g' &gt; backup.sql
 ```
 </pre>
+</div>
+<div created="20241128095956824" modified="20241128100017496" tags="Linux.commands" title="selinux">
+<pre>/etc/selinux/config
+
+set it to logging
+
+SELINUX=permissive
+
+set it to logging in runtime
+echo 0 &gt;/selinux/enforce
+
+ore
+
+```
+setenforce 0
+```
+turn it back on
+
+```
+setenforce 1
+```</pre>
 </div>
 <div created="20220406085352415" modified="20220406101115472" tags="Linux" title="Set Nemo as Default File Manager in Ubuntu">
 <pre>You can run this command in Terminal to show the default app for folder:
