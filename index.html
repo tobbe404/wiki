@@ -10693,7 +10693,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20241130223740796" list="TableOfContents" modified="20241130223740796" title="$:/StoryList">
+<div created="20241202100733511" list="TableOfContents" modified="20241202100733511" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10749,7 +10749,7 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10757,7 +10757,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20241130224104518" title="$:/temp/search">
+<div created="20201031112729614" modified="20241202100749444" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13028,7 +13028,7 @@ printf &quot;{
 
 aws --profile sandbox s3 sync /opt/backup s3://bucket/prefix/</pre>
 </div>
-<div created="20210302064356213" modified="20230405071100858" tags="Linux.commands" title="get hardware info">
+<div created="20210302064356213" modified="20241202100745360" tags="Linux.commands" title="get hardware info">
 <pre>tool for dumping a computer's DMI (some say SMBIOS) table contents in a human-readable format
 
 ```
@@ -13052,7 +13052,88 @@ dmidecode -s system-manufacturer
 ```
 dmidecode | grep -A3 '^System Information'
 ```
-</pre>
+
+Followings are the  DMI types that are used on dmidecode command
+
+
+```
+       Type   Information
+       --------------------------------------------
+          0   BIOS
+          1   System
+          2   Baseboard
+          3   Chassis
+          4   Processor
+          5   Memory Controller
+          6   Memory Module
+          7   Cache
+          8   Port Connector
+          9   System Slots
+         10   On Board Devices
+         11   OEM Strings
+         12   System Configuration Options
+         13   BIOS Language
+         14   Group Associations
+         15   System Event Log
+         16   Physical Memory Array
+         17   Memory Device
+         18   32-bit Memory Error
+         19   Memory Array Mapped Address
+         20   Memory Device Mapped Address
+         21   Built-in Pointing Device
+         22   Portable Battery
+         23   System Reset
+         24   Hardware Security
+         25   System Power Controls
+         26   Voltage Probe
+         27   Cooling Device
+         28   Temperature Probe
+         29   Electrical Current Probe
+         30   Out-of-band Remote Access31   Boot Integrity Services
+         32   System Boot
+         33   64-bit Memory Error
+         34   Management Device
+         35   Management Device Component
+         36   Management Device Threshold Data
+         37   Memory Channel
+         38   IPMI Device
+         39   Power Supply
+         40   Additional Information
+         41   Onboard Devices Extended Information
+         42   Management Controller Host Interface
+
+```
+
+
+```
+       Keyword     Types
+       ------------------------------
+       bios        0, 13
+       system      1, 12, 15, 23, 32
+       baseboard   2, 10, 41
+       chassis     3
+       processor   4
+       memory      5, 6, 16, 17
+       cache       7
+       connector   8
+       slot        9
+```
+
+
+Display hardware information using type id
+
+In dmidecode command we can use either keyword or type id to get hardware information of system, 
+
+```
+
+dmidecode -t cache
+```
+
+Or
+
+```
+dmidecode -t 7
+```</pre>
 </div>
 <div created="20201031115509117" modified="20201104105734595" tags="Powershell" title="gist">
 <pre>https://gist.github.com/tobbe404
