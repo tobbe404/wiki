@@ -10570,8 +10570,8 @@ brew install zsh-autosuggestions
 <div created="20201030075715490" modified="20210328111318915" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20201029102045487" modified="20240612122109604" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20201029102045487" modified="20241211123649055" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20221208140037911" modified="20221208140037911" title="$:/state/toc/Ansible-Ansible.commands-1041029491">
 <pre>open</pre>
@@ -10693,7 +10693,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20241202100733511" list="TableOfContents" modified="20241202100733511" title="$:/StoryList">
+<div created="20241211115836805" list="[[mongo commands]]" modified="20241211115840548" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10741,15 +10741,15 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -14456,7 +14456,7 @@ mkdir -p /home/user/test1/test2
 ```
 </pre>
 </div>
-<div created="20240416141544461" modified="20240612114303734" tags="mongoDB" title="mongo commands">
+<div created="20240416141544461" modified="20241211123428842" tags="mongoDB" title="mongo commands">
 <pre>show dbs
 
 use admin
@@ -14469,6 +14469,10 @@ rsconf = rs.conf()&lt;br&gt;
 rsconf.members = [{_id: 0, host: &quot;localhost:27017&quot;}]
 [ { &quot;_id&quot; : 0, &quot;host&quot; : &quot;localhost:27017&quot; } ]&lt;br&gt;
 rs.reconfig(rsconf, {force: true})
+
+
+Hitta specifik fil i exempelvis &quot;images&quot; kollektionen och indentera det snygg och prydligt:
+db.images.find({ image: &quot;07273493ce1c121ae329d1275e071576_image.png&quot; }).pretty()
 
 https://www.mongodb.com/developer/products/mongodb/cheat-sheet/</pre>
 </div>
