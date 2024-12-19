@@ -293,6 +293,8 @@ Error message and password prompt
 
 <li>add files to repo</li>
 
+<li>Add swap file</li>
+
 <li>add user</li>
 
 <li>aliases</li>
@@ -10585,8 +10587,8 @@ brew install zsh-autosuggestions
 <div created="20210317114049201" modified="20210414140640607" title="$:/state/toc/graylog-elasticsearch-1310995713">
 <pre>open</pre>
 </div>
-<div created="20210318073822275" modified="20241128095940171" title="$:/state/toc/Linux-Linux.commands-1152169851">
-<pre>open</pre>
+<div created="20210318073822275" modified="20241219100700380" title="$:/state/toc/Linux-Linux.commands-1152169851">
+<pre>close</pre>
 </div>
 <div created="20210414060828650" modified="20210414060828650" title="$:/state/toc/Linux.commands-ssh-1789903183">
 <pre>open</pre>
@@ -10693,7 +10695,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20241212101726761" list="TableOfContents" modified="20241212101726761" title="$:/StoryList">
+<div created="20241219100647543" list="TableOfContents" modified="20241219100653397" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10757,7 +10759,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20241212102510677" title="$:/temp/search">
+<div created="20201031112729614" modified="20241219123841733" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10924,6 +10926,23 @@ Git push using HTTPS
 ```
 git push --set-upstream https://gitlab.example.com/namespace/nonexistent-project.git master
 
+```
+</pre>
+</div>
+<div created="20241219100705244" modified="20241219100935005" tags="Linux" title="Add swap file">
+<pre>
+
+
+```
+dd if=/dev/zero of=/swapfile bs=1024 count=2048k
+chmod 600 /swapfile 
+mkswap /swapfile
+swapon /swapfile
+```
+vi /etc/fstab
+
+```
+/swapfile none swap sw 0 0
 ```
 </pre>
 </div>
