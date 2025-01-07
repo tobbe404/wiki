@@ -565,6 +565,8 @@ Error message and password prompt
 
 <li>openssl read cert</li>
 
+<li>Openstack</li>
+
 <li>OpenVPN</li>
 
 <li>openvpn3 client</li>
@@ -657,6 +659,8 @@ Error message and password prompt
 
 <li>sudo</li>
 
+<li>swift</li>
+
 <li>symlink</li>
 
 <li>sysctl</li>
@@ -686,6 +690,8 @@ Error message and password prompt
 <li>timeout</li>
 
 <li>tmux</li>
+
+<li>To display metadata for an OpenStack Swift object,</li>
 
 <li>Tools</li>
 
@@ -10695,7 +10701,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20241219100647543" list="TableOfContents" modified="20241219100653397" title="$:/StoryList">
+<div created="20250107104627512" list="TableOfContents" modified="20250107121307933" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10759,7 +10765,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20231121105702300" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20241219123841733" title="$:/temp/search">
+<div created="20201031112729614" modified="20250107121304698" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10931,7 +10937,6 @@ git push --set-upstream https://gitlab.example.com/namespace/nonexistent-project
 </div>
 <div created="20241219100705244" modified="20241219100935005" tags="Linux" title="Add swap file">
 <pre>
-
 
 ```
 dd if=/dev/zero of=/swapfile bs=1024 count=2048k
@@ -15342,6 +15347,13 @@ openssl s_client -connect &lt;ip-adress&gt;:443 -servername &lt;hostname&gt; 2&g
 ```
 </pre>
 </div>
+<div created="20250107120613523" modified="20250107120642602" tags="Virtualization" title="Openstack">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'Openstack'&gt;&gt;
+
+&lt;/div&gt;</pre>
+</div>
 <div created="20220917134229934" modified="20220917174613664" tags="Network" title="OpenVPN">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
@@ -16503,6 +16515,13 @@ user_name ALL=(ALL) NOPASSWD:ALL
 
 [[add user to sudo group|add user]]</pre>
 </div>
+<div created="20250107120645106" modified="20250107120709373" tags="Openstack" title="swift">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'swift'&gt;&gt;
+
+&lt;/div&gt;</pre>
+</div>
 <div created="20141011100104946" modified="20210708090105682" tags="Linux.commands" title="symlink" tmap.id="e3a60f1a-f00c-4a2a-9d7b-af80eb0689c9">
 <pre>```
 ln -s TARGET LINK_NAME
@@ -17022,6 +17041,63 @@ M-Up, M-Down
 M-Left, M-Right
            Resize the current pane in steps of five cells.
 ```
+
+
+</pre>
+</div>
+<div created="20250107120712193" modified="20250107121251428" tags="swift" title="To display metadata for an OpenStack Swift object,">
+<pre>Use the swift command-line tool
+
+
+Install the swift client (if it's not already installed):
+
+```
+sudo apt-get install python3-swiftclient
+```
+
+Authenticate with OpenStack: You need an openrc file or equivalent authentication credentials. Load the authentication by running:
+
+
+
+```
+source openrc
+```
+
+Display metadata for an object: Use the following command to list metadata for a specific object in a container:
+
+
+
+```
+swift stat &lt;container_name&gt; &lt;object_name&gt;
+```
+
+Example:
+
+
+```
+swift stat mycontainer myobject.txt
+```
+
+This command displays information such as size, the date the object was last modified, and any metadata associated with the object.
+
+Alternatively, via REST API:
+
+If you prefer using the API directly, you can make a HEAD request using curl:
+
+
+```
+curl -I -X HEAD -H &quot;X-Auth-Token: &lt;your_auth_token&gt;&quot; \
+     https://&lt;swift_storage_url&gt;/&lt;container_name&gt;/&lt;object_name&gt;
+```
+
+This returns headers that include the metadata.
+
+Make sure to replace &lt;your_auth_token&gt;, &lt;swift_storage_url&gt;, &lt;container_name&gt;, and &lt;object_name&gt; with your actual values.
+
+
+
+
+
 
 
 </pre>
