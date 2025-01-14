@@ -10715,7 +10715,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250108151748741" list="TableOfContents" modified="20250109110622836" title="$:/StoryList">
+<div created="20250114101151415" list="[[Add swap file]] TableOfContents" modified="20250114101151415" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10767,11 +10767,11 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1200&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10779,8 +10779,8 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250109110124183" title="$:/temp/search">
-<pre></pre>
+<div created="20201031112729614" modified="20250114101149257" title="$:/temp/search">
+<pre>swap</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
 <pre>{
@@ -10949,9 +10949,8 @@ git push --set-upstream https://gitlab.example.com/namespace/nonexistent-project
 ```
 </pre>
 </div>
-<div created="20241219100705244" modified="20241219100935005" tags="Linux" title="Add swap file">
-<pre>
-```
+<div created="20241219100705244" modified="20250114130732457" tags="Linux" title="Add swap file">
+<pre>```
 dd if=/dev/zero of=/swapfile bs=1024 count=2048k
 chmod 600 /swapfile 
 mkswap /swapfile
@@ -10962,6 +10961,7 @@ vi /etc/fstab
 ```
 /swapfile none swap sw 0 0
 ```
+Om du använder btrfs gäller det annorlunda, se: https://unix.stackexchange.com/questions/599949/swapfile-swapon-invalid-argument
 </pre>
 </div>
 <div created="20150317101627443" modified="20220331065906573" tags="Linux.commands" title="add user" tmap.id="226b56c2-e185-4170-9871-b299935c4b8f">
