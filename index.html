@@ -10717,7 +10717,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250121130246335" list="TableOfContents" modified="20250121135418420" title="$:/StoryList">
+<div created="20250315104453594" list="TableOfContents" modified="20250315104647406" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10733,19 +10733,19 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;https://tobbe404.github.io/wiki/&quot;
+            &quot;text&quot;: &quot;file:///Users/tobbe/github/wiki/index.html&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
-            &quot;text&quot;: &quot;tobbe404.github.io&quot;
+            &quot;text&quot;: &quot;&quot;
         },
         &quot;$:/info/url/hostname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/hostname&quot;,
-            &quot;text&quot;: &quot;tobbe404.github.io&quot;
+            &quot;text&quot;: &quot;&quot;
         },
         &quot;$:/info/url/protocol&quot;: {
             &quot;title&quot;: &quot;$:/info/url/protocol&quot;,
-            &quot;text&quot;: &quot;https:&quot;
+            &quot;text&quot;: &quot;file:&quot;
         },
         &quot;$:/info/url/port&quot;: {
             &quot;title&quot;: &quot;$:/info/url/port&quot;,
@@ -10753,7 +10753,7 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/wiki/&quot;
+            &quot;text&quot;: &quot;/Users/tobbe/github/wiki/index.html&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -10761,19 +10761,19 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/url/origin&quot;: {
             &quot;title&quot;: &quot;$:/info/url/origin&quot;,
-            &quot;text&quot;: &quot;https://tobbe404.github.io&quot;
+            &quot;text&quot;: &quot;null&quot;
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10781,7 +10781,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250121135846842" title="$:/temp/search">
+<div created="20201031112729614" modified="20250315104858883" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11334,8 +11334,7 @@ apt-mark unhold package
 </pre>
 </div>
 <div created="20250121135420973" modified="20250121135835405" tags="Linux.commands" title="ausearch">
-<pre>
-Search for an event matching the given success value. Legal values are yes and no.
+<pre>Search for an event matching the given success value. Legal values are yes and no.
 
 ```
 ausearch -m USER_LOGIN -sv no
@@ -13885,8 +13884,10 @@ Unlock Jenkins
 http://ip:8080
 </pre>
 </div>
-<div created="20210712081956694" modified="20240614120211083" tags="Linux.commands" title="journalctl">
-<pre>/etc/systemd/journald.conf
+<div created="20210712081956694" modified="20250315104849974" tags="Linux.commands" title="journalctl">
+<pre>Linux logs
+
+/etc/systemd/journald.conf
 
 
 ```
@@ -13913,6 +13914,17 @@ systemctl reload systemd-journald
 ```
 
 &lt;&lt;&lt;
+
+Find maillogs
+
+```
+journalctl -t postfix/smtpd -t postfix/smtp
+```
+all logs 1h back
+
+```
+journalctl --since &quot;1 hour ago&quot;
+```
 
 </pre>
 </div>
