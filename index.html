@@ -10717,7 +10717,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250315104453594" list="TableOfContents" modified="20250315104647406" title="$:/StoryList">
+<div created="20250317070113448" list="TableOfContents" modified="20250317155322066" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10733,19 +10733,19 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;file:///Users/tobbe/github/wiki/index.html&quot;
+            &quot;text&quot;: &quot;https://tobbe404.github.io/wiki/&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
-            &quot;text&quot;: &quot;&quot;
+            &quot;text&quot;: &quot;tobbe404.github.io&quot;
         },
         &quot;$:/info/url/hostname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/hostname&quot;,
-            &quot;text&quot;: &quot;&quot;
+            &quot;text&quot;: &quot;tobbe404.github.io&quot;
         },
         &quot;$:/info/url/protocol&quot;: {
             &quot;title&quot;: &quot;$:/info/url/protocol&quot;,
-            &quot;text&quot;: &quot;file:&quot;
+            &quot;text&quot;: &quot;https:&quot;
         },
         &quot;$:/info/url/port&quot;: {
             &quot;title&quot;: &quot;$:/info/url/port&quot;,
@@ -10753,7 +10753,7 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/Users/tobbe/github/wiki/index.html&quot;
+            &quot;text&quot;: &quot;/wiki/&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -10761,7 +10761,7 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/url/origin&quot;: {
             &quot;title&quot;: &quot;$:/info/url/origin&quot;,
-            &quot;text&quot;: &quot;null&quot;
+            &quot;text&quot;: &quot;https://tobbe404.github.io&quot;
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
@@ -10773,7 +10773,7 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10781,7 +10781,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250315104858883" title="$:/temp/search">
+<div created="20201031112729614" modified="20250317125122212" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -10951,8 +10951,22 @@ git push --set-upstream https://gitlab.example.com/namespace/nonexistent-project
 ```
 </pre>
 </div>
-<div created="20241219100705244" modified="20250114142959766" tags="Linux" title="Add swap file">
-<pre>```
+<div created="20241219100705244" modified="20250317125120773" tags="Linux" title="Add swap file">
+<pre>check swap
+
+```
+cat /proc/swaps 
+```
+
+```
+Filename                                Type            Size            Used            Priority
+/swapfile                               file            30719996        30432468        -2
+/swapfile1                              file            30719996        30442932        -3
+/swapfile2                              file            31457276        2372132         -4
+```
+Create swapfil
+
+```
 dd if=/dev/zero of=/swapfile bs=1024 count=2048k
 chmod 600 /swapfile 
 mkswap /swapfile
@@ -10961,7 +10975,7 @@ swapon /swapfile
 vi /etc/fstab
 
 ```
-/swapfile none swap sw 0 0
+/swapfile none swap sw,nofail 0 0
 ```
 For btrfs check this: https://unix.stackexchange.com/questions/599949/swapfile-swapon-invalid-argument
 
@@ -13884,10 +13898,8 @@ Unlock Jenkins
 http://ip:8080
 </pre>
 </div>
-<div created="20210712081956694" modified="20250315104849974" tags="Linux.commands" title="journalctl">
-<pre>Linux logs
-
-/etc/systemd/journald.conf
+<div created="20210712081956694" modified="20240614120211083" tags="Linux.commands" title="journalctl">
+<pre>/etc/systemd/journald.conf
 
 
 ```
@@ -13914,17 +13926,6 @@ systemctl reload systemd-journald
 ```
 
 &lt;&lt;&lt;
-
-Find maillogs
-
-```
-journalctl -t postfix/smtpd -t postfix/smtp
-```
-all logs 1h back
-
-```
-journalctl --since &quot;1 hour ago&quot;
-```
 
 </pre>
 </div>
