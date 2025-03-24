@@ -221,6 +221,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Linux-497309061</li>
 
+<li>$:/state/toc/TableOfContents-Mac-497309061</li>
+
 <li>$:/state/toc/TableOfContents-mongoDB-497309061</li>
 
 <li>$:/state/toc/TableOfContents-Monitoring-497309061</li>
@@ -10627,6 +10629,9 @@ brew install zsh-autosuggestions
 <div created="20210302064244857" modified="20250121135844987" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>close</pre>
 </div>
+<div created="20250324162934654" modified="20250324162934654" title="$:/state/toc/TableOfContents-Mac-497309061">
+<pre>open</pre>
+</div>
 <div created="20250109110412821" modified="20250109110648036" title="$:/state/toc/TableOfContents-mongoDB-497309061">
 <pre>close</pre>
 </div>
@@ -10717,7 +10722,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250324063736388" list="TableOfContents" modified="20250324091749364" title="$:/StoryList">
+<div created="20250324063736388" list="TableOfContents" modified="20250324174940500" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10781,7 +10786,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250324091705115" title="$:/temp/search">
+<div created="20201031112729614" modified="20250324175053998" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15639,7 +15644,7 @@ yum remove erlang*
 ```
 </pre>
 </div>
-<div created="20231031121344648" modified="20231031122123637" tags="Linux.commands" title="rclone">
+<div created="20231031121344648" modified="20250324175031329" tags="Linux.commands" title="rclone">
 <pre>```
 rclone ls remote:path # lists a remote
 ```
@@ -15651,6 +15656,18 @@ rclone copy remote:path/filename /local/path
 
 ```
 rclone sync -i /local/path remote:path # syncs /local/path to the remote
+```
+
+The complete logic is as follows: Rclone will look for an existing configuration file in any of the following locations, in priority order:
+
+
+```
+    rclone.conf (in program directory, where rclone executable is)
+    %APPDATA%/rclone/rclone.conf (only on Windows)
+    $XDG_CONFIG_HOME/rclone/rclone.conf (on all systems, including Windows)
+    ~/.config/rclone/rclone.conf
+    ~/.rclone.conf
+
 ```
 </pre>
 </div>
