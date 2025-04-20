@@ -585,6 +585,8 @@ Error message and password prompt
 
 <li>Password manager</li>
 
+<li>pfsense</li>
+
 <li>Phyton</li>
 
 <li>Plugin for firefox</li>
@@ -10642,7 +10644,7 @@ brew install zsh-autosuggestions
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
 </div>
-<div created="20220917185428221" modified="20230226100202539" title="$:/state/toc/TableOfContents-Network-497309061">
+<div created="20220917185428221" modified="20250420081022603" title="$:/state/toc/TableOfContents-Network-497309061">
 <pre>close</pre>
 </div>
 <div created="20210914070030213" modified="20210930100257612" title="$:/state/toc/TableOfContents-Password manager-497309061">
@@ -10726,7 +10728,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250407075332231" list="TableOfContents" modified="20250408085515162" title="$:/StoryList">
+<div created="20250420080424832" list="TableOfContents" modified="20250420080847517" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10774,15 +10776,15 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1710&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1112&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10790,7 +10792,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250408085717001" title="$:/temp/search">
+<div created="20201031112729614" modified="20250419204625612" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15518,6 +15520,17 @@ packer build -var-file ./vars.json ./packer.pkr.hcl
 &lt;&lt;toc-selective-expandable 'Password manager'&gt;&gt;
 
 &lt;/div&gt;</pre>
+</div>
+<div created="20250420080440795" modified="20250420080839267" tags="Network" title="pfsense">
+<pre>!fix can't upgrade from 2.7.0. to 2.7.1 and 2.7.2
+
+Menu -&gt; Diagnostics -&gt; Command Prompt
+
+```
+certctl rehash
+pkg-static -d update
+```
+</pre>
 </div>
 <div created="20220426134433238" modified="20241111104100824" tags="TableOfContents" title="Phyton">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
