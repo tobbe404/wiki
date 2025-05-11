@@ -641,6 +641,8 @@ Error message and password prompt
 
 <li>sidecar.filebeat</li>
 
+<li>siege</li>
+
 <li>Snap-installed app doesn't put icon into launcher</li>
 
 <li>snapcraft.io</li>
@@ -10726,7 +10728,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250508203757207" list="TableOfContents" modified="20250509182916716" title="$:/StoryList">
+<div created="20250508203757207" list="TableOfContents" modified="20250511064027916" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10790,7 +10792,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250509182950494" title="$:/temp/search">
+<div created="20201031112729614" modified="20250511064526478" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -16230,6 +16232,48 @@ https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-con
 ```
 curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.12.0-x86_64.rpm
 rpm -vi filebeat-7.12.0-x86_64.rpm
+```
+</pre>
+</div>
+<div created="20250511064134508" modified="20250511064523907" tags="Network" title="siege">
+<pre>For stress testing Loadbalancer/HAproxy/site
+
+siege -c255 -r1000 -v https://URL
+
+
+```
+SIEGE 4.1.7
+Usage: siege [options]
+       siege [options] URL
+       siege -g URL
+Options:
+  -V, --version             VERSION, prints the version number.
+  -h, --help                HELP, prints this section.
+  -C, --config              CONFIGURATION, show the current config.
+  -v, --verbose             VERBOSE, prints notification to screen.
+  -q, --quiet               QUIET turns verbose off and suppresses output.
+  -g, --get                 GET, pull down HTTP headers and display the
+                            transaction. Great for application debugging.
+  -p, --print               PRINT, like GET only it prints the entire page.
+  -c, --concurrent=NUM      CONCURRENT users, default is 10
+  -r, --reps=NUM            REPS, number of times to run the test.
+  -t, --time=NUMm           TIMED testing where &quot;m&quot; is modifier S, M, or H
+                            ex: --time=1H, one hour test.
+  -d, --delay=NUM           Time DELAY, random delay before each request
+  -b, --benchmark           BENCHMARK: no delays between requests.
+  -i, --internet            INTERNET user simulation, hits URLs randomly.
+  -f, --file=FILE           FILE, select a specific URLS FILE.
+  -R, --rc=FILE             RC, specify an siegerc file
+  -l, --log[=FILE]          LOG to FILE. If FILE is not specified, the
+                            default is used: PREFIX/var/siege.log
+  -m, --mark=&quot;text&quot;         MARK, mark the log file with a string.
+                            between .001 and NUM. (NOT COUNTED IN STATS)
+  -H, --header=&quot;text&quot;       Add a header to request (can be many)
+  -A, --user-agent=&quot;text&quot;   Sets User-Agent in request
+  -T, --content-type=&quot;text&quot; Sets Content-Type in request
+  -j, --json-output         JSON OUTPUT, print final stats to stdout as JSON
+      --no-parser           NO PARSER, turn off the HTML page parser
+      --no-follow           NO FOLLOW, do not follow HTTP redirects
 ```
 </pre>
 </div>
