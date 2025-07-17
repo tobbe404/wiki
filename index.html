@@ -10734,7 +10734,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250717090924648" list="TableOfContents" modified="20250717095757556" title="$:/StoryList">
+<div created="20250717090924648" list="proxmox TableOfContents" modified="20250717122822197" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -15694,7 +15694,7 @@ HandleLidSwitch=ignore
 &lt;&lt;toc-selective-expandable  &quot;Powershell&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20250325211747899" modified="20250717110417633" tags="Virtualization" title="proxmox">
+<div created="20250325211747899" modified="20250717162033004" tags="Virtualization" title="proxmox">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
 &lt;&lt;toc-selective-expandable 'proxmox'&gt;&gt;
@@ -15717,12 +15717,28 @@ clear EL config from cloned template
 yum install dbus-tools
 rm /etc/machine-id 
 systemd-machine-id-setup 
-hostnamectl set-hostname docker3
+hostnamectl set-hostname localhost.localdomain
 rm -f /etc/ssh/ssh_host_*
 ssh-keygen -A
 restorecon /etc/ssh/ssh_host_*
+unset HISTFILE
+
 reboot
 ```
+
+seal before clone
+
+```
+yum clean all
+hostnamectl set-hostname localhost.localdomain
+&gt; /etc/machine-id
+rm -f /etc/ssh/ssh_host_*
+rm -f /root/anaconda-ks.cfg
+rm -f /root/.bash_history
+unset HISTFILE
+
+```
+
 </pre>
 </div>
 <div created="20210930091530114" modified="20210930100229271" tags="Linux" title="RabbitMQ">
