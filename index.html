@@ -469,6 +469,8 @@ Error message and password prompt
 
 <li>iotop</li>
 
+<li>ipmitool</li>
+
 <li>java</li>
 
 <li>jenkins</li>
@@ -10734,7 +10736,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250717090924648" list="proxmox TableOfContents" modified="20250717122822197" title="$:/StoryList">
+<div created="20250723081245713" list="TableOfContents" modified="20250725064433827" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10782,11 +10784,11 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10798,7 +10800,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250717110428200" title="$:/temp/search">
+<div created="20201031112729614" modified="20250725064427962" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13164,8 +13166,14 @@ printf &quot;{
 
 aws --profile sandbox s3 sync /opt/backup s3://bucket/prefix/</pre>
 </div>
-<div created="20210302064356213" modified="20241202100745360" tags="Linux.commands" title="get hardware info">
-<pre>tool for dumping a computer's DMI (some say SMBIOS) table contents in a human-readable format
+<div created="20210302064356213" modified="20250725064422420" tags="Linux.commands" title="get hardware info">
+<pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
+
+&lt;&lt;toc-selective-expandable 'get hardware info'&gt;&gt;
+
+&lt;/div&gt;
+
+tool for dumping a computer's DMI (some say SMBIOS) table contents in a human-readable format
 
 ```
 yum install dmidecode
@@ -13188,6 +13196,10 @@ dmidecode -s system-manufacturer
 ```
 dmidecode | grep -A3 '^System Information'
 ```
+
+
+
+
 
 Followings are the  DMI types that are used on dmidecode command
 
@@ -13894,6 +13906,13 @@ systemctl start vault
 a - accumulated
 
 -&gt; / &lt;- switch sort by column with arrow keys</pre>
+</div>
+<div created="20250725064245086" modified="20250725064338276" tags="[[get hardware info]]" title="ipmitool">
+<pre>yum install ipmitool
+
+```
+ipmitool lan print  | grep &quot;IP Address&quot;
+```</pre>
 </div>
 <div created="20210924064507278" modified="20250109110117774" tags="Linux" title="java">
 <pre>!!List all the trusted public Root CAs in your Java truststore
