@@ -337,6 +337,8 @@ Error message and password prompt
 
 <li>backup</li>
 
+<li>backup and restore</li>
+
 <li>barrier</li>
 
 <li>bash shell pause function</li>
@@ -10736,7 +10738,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250723081245713" list="TableOfContents" modified="20250725064433827" title="$:/StoryList">
+<div created="20250723081245713" list="TableOfContents" modified="20250806085025006" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10800,7 +10802,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250725064427962" title="$:/temp/search">
+<div created="20201031112729614" modified="20250806085402072" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11567,6 +11569,24 @@ curl -X GET http://localhost:9200/_snapshot/my_backup/_all?pretty=true
 ```
 curl -X GET http://localhost:9200/_snapshot/my_backup/snapshot_1/_status?pretty=true
 ```
+</pre>
+</div>
+<div created="20250806085041078" modified="20250806085355871" tags="Linux" title="backup and restore">
+<pre>
+! remote backup tar
+
+```
+ssh hostname tar --exclude='/home/rocky' -czf - /home/ &gt; home.tar.gz
+```
+
+! remote restore tar
+
+```
+cat home.tar.gz | ssh hostname 'tar -xz -C /'
+```
+
+
+
 </pre>
 </div>
 <div created="20230919082304349" modified="20230919083709396" tags="Tools" title="barrier">
