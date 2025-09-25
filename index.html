@@ -10738,7 +10738,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20250807064520135" list="TableOfContents" modified="20250813090423306" title="$:/StoryList">
+<div created="20250924092625144" list="TableOfContents" modified="20250925082926625" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10786,11 +10786,11 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1470&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;956&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10802,7 +10802,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20250813091915481" title="$:/temp/search">
+<div created="20201031112729614" modified="20250925082923422" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12441,7 +12441,7 @@ docker volume prune --filter all=1 -f
 
 </pre>
 </div>
-<div created="20221208122459685" modified="20241128095607120" tags="Docker" title="docker.command">
+<div created="20221208122459685" modified="20250925082917849" tags="Docker" title="docker.command">
 <pre>!List running containers, name and IP
 
 
@@ -12527,7 +12527,10 @@ du -h --max-depth=1 /var/lib/docker/containers/ | sort -h -r | head -n 10
 ```
 docker run -it --log-opt mode=non-blocking --log-opt max-buffer-size=4m alpine ping 127.0.0.1
 ```
-</pre>
+
+```
+docker stats --no-stream
+```</pre>
 </div>
 <div created="20221105234725672" modified="20221106001739080" tags="Docker" title="docker.host">
 <pre>centos
