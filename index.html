@@ -765,6 +765,8 @@ Error message and password prompt
 
 <li>yum</li>
 
+<li>zfs</li>
+
 </ul>
 </p>
 
@@ -10744,7 +10746,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20251212123856637" list="TableOfContents" modified="20251216121425589" title="$:/StoryList">
+<div created="20251227153530692" list="TableOfContents Linux" modified="20251227173019029" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10800,7 +10802,7 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10808,7 +10810,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20251216121555635" title="$:/temp/search">
+<div created="20201031112729614" modified="20251227201302344" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -18274,6 +18276,28 @@ list all version
 yum list &lt;package_name&gt; --showduplicates
 ```
 
+</pre>
+</div>
+<div created="20251227165248027" modified="20251227165934421" tags="Linux" title="zfs">
+<pre>zfs
+
+''rocky linux 9''
+
+```
+dnf install -y https://zfsonlinux.org/epel/zfs-release-2-2.el9.noarch.rpm
+dnf config-manager --disable zfs
+dnf config-manager --enable zfs-kmod
+dnf install zfs -y
+modprobe zfs
+echo &quot;zfs&quot; | sudo tee /etc/modules-load.d/zfs.conf
+zpool import &lt;pool name&gt;
+
+```
+''zpool create''
+
+```
+zpool create &lt;option&gt; &lt;pool name&gt; &lt;drive 1&gt; &lt;drive 2&gt; .... &lt;drive n&gt;
+```
 </pre>
 </div>
 
