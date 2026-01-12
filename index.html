@@ -10746,7 +10746,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20251229120929503" list="TableOfContents" modified="20251229163644790" title="$:/StoryList">
+<div created="20260112113654703" list="TableOfContents" modified="20260112113654703" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10794,15 +10794,15 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1470&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;956&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10810,7 +10810,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20251229205132353" title="$:/temp/search">
+<div created="20201031112729614" modified="20260112114700834" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15548,7 +15548,7 @@ openssl pkcs12 -in &lt;filename&gt;.p12 -clcerts -nodes -out &lt;filename&gt;.cr
 ```
 </pre>
 </div>
-<div created="20210830135406477" modified="20241119115250446" tags="Linux [[SSL new cert]]" title="openssl read cert">
+<div created="20210830135406477" modified="20260112114656320" tags="Linux [[SSL new cert]]" title="openssl read cert">
 <pre>```
 openssl x509 -text -noout -in certificate.crt 
 ```
@@ -15559,6 +15559,12 @@ openssl pkcs12 -nokeys -info -in certificate.p12
 
 ```
 openssl s_client -connect &lt;ip-adress&gt;:443 -servername &lt;hostname&gt; 2&gt;/dev/null | openssl x509 -noout -text
+```
+
+
+```
+-----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
 ```
 </pre>
 </div>
