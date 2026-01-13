@@ -10746,7 +10746,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260112113654703" list="TableOfContents" modified="20260112113654703" title="$:/StoryList">
+<div created="20260112113654703" list="TableOfContents" modified="20260113052529948" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10810,7 +10810,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260112114700834" title="$:/temp/search">
+<div created="20201031112729614" modified="20260113053841079" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -16752,7 +16752,7 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout {FQDN}.key -out {FQ
 [enter *.domain.com for the Common Name]
 </pre>
 </div>
-<div created="20210926134852142" modified="20220120093544856" tags="Linux" title="Static IP address">
+<div created="20210926134852142" modified="20260113053838090" tags="Linux" title="Static IP address">
 <pre>!Ubuntu 17.10 and later uses Netplan
 
 
@@ -16810,6 +16810,15 @@ NAME=&quot;System eth0&quot;
 UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03
 IPADDR=192.168.1.44
 NETMASK=255.255.255.0
+```
+
+!Rocky 9
+
+
+```
+nmcli con modify ens18 ipv4.method manual ipv4.addresses 192.168.0.5/24 ipv4.gateway 192.168.0.1
+nmcli con modify ens18 ipv6.method manual ipv6.addresses 2001:db8:1:1::10/64 ipv6.gateway 2001:db8:1:1::1 ipv6.dns 2001:4860:4860::8888
+
 ```
 </pre>
 </div>
