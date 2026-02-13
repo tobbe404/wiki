@@ -10748,7 +10748,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260209103616651" list="TableOfContents" modified="20260209202106856" title="$:/StoryList">
+<div created="20260213071733989" list="TableOfContents" modified="20260213071733989" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10812,7 +10812,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260209202028890" title="$:/temp/search">
+<div created="20201031112729614" modified="20260213090941216" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -16529,7 +16529,7 @@ https://help.ubuntu.com/community/Postfix/SPF
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20220928095704234" modified="20220928100336246" tags="ssh" title="ssh-keygen">
+<div created="20220928095704234" modified="20260213090932801" tags="ssh" title="ssh-keygen">
 <pre>The old and most compatible keys &lt;br&gt;
 It is quite possible the RSA algorithm will become practically breakable in the foreseeable future.
 
@@ -16541,6 +16541,15 @@ ecdsa - a new Digital Signature Algorithm standarized by the US government, usin
 
 ```
 ssh-keygen -t ecdsa -b 521
+```
+
+
+
+EdDSA provides the highest security level compared to key length. It also improves on the insecurities found in ECDSA.
+
+
+```
+ssh-keygen -o -a 200 -t ed25519
 ```
 </pre>
 </div>
