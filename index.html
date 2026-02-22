@@ -569,6 +569,8 @@ Error message and password prompt
 
 <li>Network</li>
 
+<li>network e1000e Detected Hardware Unit Hang</li>
+
 <li>NetworkManager DNS</li>
 
 <li>nmap</li>
@@ -10748,7 +10750,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260213071733989" list="TableOfContents" modified="20260213103819663" title="$:/StoryList">
+<div created="20260222115016132" list="proxmox TableOfContents" modified="20260222115016132" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10796,15 +10798,15 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1920&quot;
+            &quot;text&quot;: &quot;1710&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1080&quot;
+            &quot;text&quot;: &quot;1112&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;en-US&quot;
+            &quot;text&quot;: &quot;sv-SE&quot;
         }
     }
 }</pre>
@@ -10812,7 +10814,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260213104235862" title="$:/temp/search">
+<div created="20201031112729614" modified="20260222115353808" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15287,6 +15289,22 @@ The private address space specified in RFC 1918 is defined by the following thre
 * 192.168.0.0 - 192.168.255.255
 * 172.16.0.0 - 172.31.255.255
 * 10.0.0.0 - 10.255.255.255
+</pre>
+</div>
+<div created="20260222115021899" modified="20260222115349904" tags="proxmox" title="network e1000e Detected Hardware Unit Hang">
+<pre>kernel: e1000e 0000:00:19.0 eno1: Detected Hardware Unit Hang:
+
+
+```
+ethtool -k eno1 | grep offload
+```
+
+
+workaround
+
+```
+ethtool -K eno1 gso off gro off tso off tx off rx off
+```
 </pre>
 </div>
 <div created="20230205114644047" modified="20230205114835472" tags="DNS" title="NetworkManager DNS">
