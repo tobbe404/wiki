@@ -10752,7 +10752,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260222115016132" list="proxmox TableOfContents" modified="20260222115016132" title="$:/StoryList">
+<div created="20260225105259384" list="TiddlyWiki" modified="20260225121047775" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10800,15 +10800,15 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1710&quot;
+            &quot;text&quot;: &quot;1470&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1112&quot;
+            &quot;text&quot;: &quot;956&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10816,7 +10816,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260222115553665" title="$:/temp/search">
+<div created="20201031112729614" modified="20260225121046516" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -14297,7 +14297,7 @@ sudo apt install ./libssl1.0.0_1.0.2n-1ubuntu5.8_amd64.deb
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20210418090049758" modified="20220120124100136" tags="Linux" title="linux.firewall">
+<div created="20210418090049758" modified="20260225121040721" tags="Linux" title="linux.firewall">
 <pre>!Firewalld
 
 
@@ -14307,10 +14307,22 @@ systemctl status firewalld
 
 ```
 firewall-cmd --zone=public --add-port=6556/tcp --permanent
-
+```
+```
 firewall-cmd --reload
 
 ```
+
+
+```
+irewall-cmd --list-all-zones
+
+firewall-cmd --list-all
+
+firewall-cmd --list-all --zone public
+```
+
+
 
 ''Disabling firewalld''
 
@@ -14445,7 +14457,6 @@ https://docs.gitlab.com/ee/administration/packages/container_registry.html
 </div>
 <div created="20260222115526052" modified="20260222115544155" tags="proxmox" title="logfiles">
 <pre>
-
 ```
 journalctl --since &quot;1 hour ago&quot;
 ```
