@@ -10611,7 +10611,7 @@ brew install zsh-autosuggestions
 <div created="20201031094900477" modified="20210309124457511" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
-<div created="20220217102509400" modified="20230309100640427" title="$:/state/sidebar">
+<div created="20220217102509400" modified="20260225124522667" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20201030075711482" modified="20240613075940081" title="$:/state/tab-1749438307">
@@ -10752,7 +10752,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260225105259384" list="TiddlyWiki" modified="20260225121047775" title="$:/StoryList">
+<div created="20260225121444369" list="TableOfContents" modified="20260225121444369" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10800,11 +10800,11 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1470&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;956&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -14297,7 +14297,7 @@ sudo apt install ./libssl1.0.0_1.0.2n-1ubuntu5.8_amd64.deb
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20210418090049758" modified="20260225121040721" tags="Linux" title="linux.firewall">
+<div created="20210418090049758" modified="20260225124518723" tags="Linux" title="linux.firewall">
 <pre>!Firewalld
 
 
@@ -14321,6 +14321,27 @@ firewall-cmd --list-all
 
 firewall-cmd --list-all --zone public
 ```
+
+
+firewall-cmd Options	Explanation
+
+|--get-zones|Lists all available zones|
+|--get-default-zone|Shows the zone currently set as the default zone|
+|--set-default-zone=&lt; ZONE &gt;|Changes the default zone|
+|--get-services	|Shows all available services|
+|--list-services	|Shows services currently in use|
+|--add-service=&lt; service-name &gt; --zone=&lt; ZONE &gt; |Adds a service to the current default zone or the zone that is specified|
+|--remove-service=&lt; service-name &gt;	|Removes a service from the configuration|
+|--list-all-zones	|Shows configuration for all zones|
+|--add-port=&lt;port/protocol&gt; [--zone=&lt; ZONE &gt;]	|Adds a port and protocol|
+|--remove-port=&lt;port/protocol&gt; [--zone=&lt; ZONE &gt;]	|Removes a port from the configuration|
+|--add-interface=&lt; INTERFACE &gt; [--zone=&lt; ZONE &gt;]	|Adds an interface to the default zone or a specific zone that is specified|
+|--remove-interface=&lt; INTERFACE &gt; [--zone=&lt; ZONE &gt;]	|Removes an interface from a specific zone|
+|--add-source=&lt; ipaddress/netmask &gt; [--zone=&lt; ZONE &gt;]	|Adds a specific IP address|
+|--remove-source=&lt; ipaddress/netmask &gt; [--zone=&lt; ZONE &gt;]	|Removes an IP address from the configuration|
+|--permanent	|Writes configuration to disk and not to runtime|
+|--reload	|Reloads the on-disk configuration|
+
 
 
 
@@ -14456,8 +14477,7 @@ https://docs.gitlab.com/ee/administration/packages/container_registry.html
 </pre>
 </div>
 <div created="20260222115526052" modified="20260222115544155" tags="proxmox" title="logfiles">
-<pre>
-```
+<pre>```
 journalctl --since &quot;1 hour ago&quot;
 ```
 </pre>
