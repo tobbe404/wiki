@@ -10754,7 +10754,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260304105524220" list="TableOfContents" modified="20260304125003410" title="$:/StoryList">
+<div created="20260305055307514" list="TableOfContents" modified="20260305055307514" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10802,11 +10802,11 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1470&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;956&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -12466,7 +12466,7 @@ docker volume prune --filter all=1 -f
 
 </pre>
 </div>
-<div created="20221208122459685" modified="20260304133748541" tags="Docker" title="docker.command">
+<div created="20221208122459685" modified="20260305055343185" tags="Docker" title="docker.command">
 <pre>!List running containers, name and IP
 
 
@@ -12583,6 +12583,10 @@ docker service logs -f -t --tail 50 --details webapp
 docker service logs webapp.5
 
 docker system events --filter type=service
+```
+
+```
+docker service update --force &lt;servicename&gt; will rebalance a service across all nodes that match its requirements and constraints.
 ```
 </pre>
 </div>
@@ -14941,8 +14945,7 @@ https://learnubuntu.com/change-dns-server/</pre>
 &lt;/div&gt;</pre>
 </div>
 <div created="20260227083627158" modified="20260227083951514" tags="MySQL" title="mysql.binlogs">
-<pre>
-```
+<pre>```
 PURGE BINARY LOGS BEFORE '2025-11-21 00:00:00';
 ```
 
