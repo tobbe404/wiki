@@ -10758,7 +10758,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260401083908133" list="TableOfContents" modified="20260401092614528" title="$:/StoryList">
+<div created="20260410084114490" list="mysqldump TableOfContents" modified="20260410084114490" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10822,7 +10822,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260401090059991" title="$:/temp/search">
+<div created="20201031112729614" modified="20260410084355078" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15256,7 +15256,7 @@ SELECT * FROM DemoArray WHERE PersonName IN('Nikhil', 'Meenu', 'Anita')
 ```
 </pre>
 </div>
-<div created="20220113094603306" modified="20240403083301093" tags="MySQL" title="mysqldump">
+<div created="20220113094603306" modified="20260410084358290" tags="MySQL" title="mysqldump">
 <pre>''backup and restore''
 
 ```
@@ -15345,7 +15345,18 @@ remove DEFINER in mysqldump after version 5.7.8
 ```
 --skip-definer
 ```
-</pre>
+
+!!From docker to host
+
+```
+docker exec {dbserver} mysqldump -u {user} -p{password} {db} &gt; {db}.sql
+```
+
+!!From host to docker
+
+```
+cat {db}.sql |docker exec -i {container}  mysql -u {user} -p{password} {db}
+```</pre>
 </div>
 <div created="20230424111556120" modified="20230424112231188" tags="MySQL" title="mysqldump.column_statistics">
 <pre>```
