@@ -10758,7 +10758,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260410084114490" list="mysqldump TableOfContents" modified="20260410084114490" title="$:/StoryList">
+<div created="20260411124129315" list="TableOfContents" modified="20260411124129315" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10806,11 +10806,11 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1470&quot;
+            &quot;text&quot;: &quot;2560&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;956&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10822,7 +10822,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260410084355078" title="$:/temp/search">
+<div created="20201031112729614" modified="20260411131214250" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -15256,7 +15256,7 @@ SELECT * FROM DemoArray WHERE PersonName IN('Nikhil', 'Meenu', 'Anita')
 ```
 </pre>
 </div>
-<div created="20220113094603306" modified="20260410084358290" tags="MySQL" title="mysqldump">
+<div created="20220113094603306" modified="20240403083301093" tags="MySQL" title="mysqldump">
 <pre>''backup and restore''
 
 ```
@@ -15345,18 +15345,7 @@ remove DEFINER in mysqldump after version 5.7.8
 ```
 --skip-definer
 ```
-
-!!From docker to host
-
-```
-docker exec {dbserver} mysqldump -u {user} -p{password} {db} &gt; {db}.sql
-```
-
-!!From host to docker
-
-```
-cat {db}.sql |docker exec -i {container}  mysql -u {user} -p{password} {db}
-```</pre>
+</pre>
 </div>
 <div created="20230424111556120" modified="20230424112231188" tags="MySQL" title="mysqldump.column_statistics">
 <pre>```
@@ -18483,7 +18472,7 @@ yum list &lt;package_name&gt; --showduplicates
 <div created="20260320120651178" modified="20260320120729793" tags="Mac" title="zcat --&gt; gzcat">
 <pre>On macOS, the zcat command is used to expand compressed files, but it may append a .Z extension to the filename, which can cause issues. It's often recommended to use gunzip -c or gzcat instead for better compatibility with .gz files</pre>
 </div>
-<div created="20251227165248027" modified="20251227165934421" tags="Linux" title="zfs">
+<div created="20251227165248027" modified="20260411131208649" tags="Linux" title="zfs">
 <pre>zfs
 
 ''rocky linux 9''
@@ -18503,7 +18492,35 @@ zpool import &lt;pool name&gt;
 ```
 zpool create &lt;option&gt; &lt;pool name&gt; &lt;drive 1&gt; &lt;drive 2&gt; .... &lt;drive n&gt;
 ```
-</pre>
+
+clear error
+
+```
+zpool clear &lt;pool name&gt;
+```
+We can wait until scrub has completed before returning by passing the -w 
+
+```
+zpool scrub -w &lt;pool name&gt; 
+```
+
+scrub in backround
+
+```
+zpool scrub  &lt;pool name&gt; 
+```
+
+A resilver is an automatic dynamic consistency restoration run after a disk or network failure or slowdown of one or more mirrors. The syntax is:
+
+
+```
+zpool resilver &lt;pool name&gt; 
+```
+
+
+
+
+To replace a failed drive in a ZFS pool, use the command zpool replace &lt;pool_name&gt; &lt;old_drive&gt; &lt;new_drive&gt; after physically swapping the drives. This will initiate the resilvering process to restore data integrity.</pre>
 </div>
 
 
