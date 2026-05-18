@@ -10758,7 +10758,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260429172618100" list="TableOfContents" modified="20260429174019397" title="$:/StoryList">
+<div created="20260518095658041" list="TableOfContents" modified="20260518100521943" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10806,15 +10806,15 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1710&quot;
+            &quot;text&quot;: &quot;1470&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1112&quot;
+            &quot;text&quot;: &quot;956&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
-            &quot;text&quot;: &quot;sv-SE&quot;
+            &quot;text&quot;: &quot;en-US&quot;
         }
     }
 }</pre>
@@ -10822,7 +10822,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260429173920022" title="$:/temp/search">
+<div created="20201031112729614" modified="20260518124817194" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11593,7 +11593,7 @@ curl -X GET http://localhost:9200/_snapshot/my_backup/snapshot_1/_status?pretty=
 ```
 </pre>
 </div>
-<div created="20250806085041078" modified="20250806085355871" tags="Linux" title="backup and restore">
+<div created="20250806085041078" modified="20260518100514444" tags="Linux" title="backup and restore">
 <pre>! remote backup tar
 
 ```
@@ -11607,7 +11607,9 @@ cat home.tar.gz | ssh hostname 'tar -xz -C /'
 ```
 
 
+docker
 
+docker exec CONTAINER mysqldump -u root --password=root DATABASE &gt; backup.sql
 </pre>
 </div>
 <div created="20230919082304349" modified="20230919083709396" tags="Tools" title="barrier">
@@ -12476,7 +12478,7 @@ docker volume prune --filter all=1 -f
 
 </pre>
 </div>
-<div created="20221208122459685" modified="20260305055343185" tags="Docker" title="docker.command">
+<div created="20221208122459685" modified="20260518100139884" tags="Docker" title="docker.command">
 <pre>!List running containers, name and IP
 
 
@@ -12517,6 +12519,15 @@ sudo docker exec -it &lt;container−id&gt; ps ax
 sudo docker exec -it &lt;image−name&gt; bash
 sudo docker exec -it &lt;image−name&gt; sh
 ```
+
+
+```
+docker exec -it mysql_container -e &quot;show databases;&quot;
+docker exec -it mysql_container mysql -e &quot;use mydb;&quot; -e &quot;show tables;&quot;
+docker exec -it mysql_container mysql -e &quot;use mydb;&quot; -e &quot;DESCRIBE parameters;&quot;
+```
+
+
 restart
 
 ```
