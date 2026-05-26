@@ -655,6 +655,8 @@ Error message and password prompt
 
 <li>show all grants</li>
 
+<li>show hidden files on Mac</li>
+
 <li>show version</li>
 
 <li>sidecar.filebeat</li>
@@ -10665,7 +10667,7 @@ brew install zsh-autosuggestions
 <div created="20210302064244857" modified="20250121135844987" title="$:/state/toc/TableOfContents-Linux-497309061">
 <pre>close</pre>
 </div>
-<div created="20250324162934654" modified="20250408085719550" title="$:/state/toc/TableOfContents-Mac-497309061">
+<div created="20250324162934654" modified="20260526114031624" title="$:/state/toc/TableOfContents-Mac-497309061">
 <pre>close</pre>
 </div>
 <div created="20250109110412821" modified="20250109110648036" title="$:/state/toc/TableOfContents-mongoDB-497309061">
@@ -10758,7 +10760,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260526075555637" list="TableOfContents" modified="20260526075555637" title="$:/StoryList">
+<div created="20260522074557727" list="TableOfContents" modified="20260526113329714" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10822,7 +10824,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260526075645053" title="$:/temp/search">
+<div created="20201031112729614" modified="20260526114024753" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13155,7 +13157,7 @@ sudo /etc/init.d/networking restart
 ```
 </pre>
 </div>
-<div created="20190228132831962" modified="20260526075640733" tags="Linux.commands" title="for loop" tmap.id="adbfede8-5496-44d9-868b-86ca90ebd37a">
+<div created="20190228132831962" modified="20231014204547806" tags="Linux.commands" title="for loop" tmap.id="adbfede8-5496-44d9-868b-86ca90ebd37a">
 <pre>```
 for A in *.??;  do gzip -d $A; done
 ```
@@ -13172,16 +13174,6 @@ for A in *.??;  do gzip $A; done
 for A in *log*.???? ;  do gzip $A; done
 ```
 
-
-```
-for A in {1..3}
-do 
-    scp /fil1.txt server$A:/tmp server$A:/tmp || { echo &quot;Fel vid kopiering av fil1 till server$A&quot;; continue; }
-    scp /fil1.txt server$A:/tmp server$A:/tmp || { echo &quot;Fel vid kopiering av fil2 till server$A&quot;; continue; }
-    scp /fil1.txt server$A:/tmp server$A:/tmp || { echo &quot;Fel vid kopiering av fil3 till server$A&quot;; continue; }
-    scp /fil1.txt server$A:/tmp server$A:/tmp || { echo &quot;Fel vid kopiering av fil4 till server$A&quot;; continue; }
-done
-```
 
 
 ```
@@ -16535,6 +16527,59 @@ done
 ```
 </pre>
 </div>
+<div created="20260526113336705" modified="20260526114018672" tags="Mac" title="show hidden files on Mac">
+<pre>
+
+```
+(CMD + Shift + .) – that’s (CMD + Shift + Period)
+```
+
+
+
+Terminal
+
+If you want to permanently show hidden folders on Mac in any location, you can use a Terminal command that affects the whole file system. Here’s how:
+
+''Step 1.''
+Open the Terminal app by opening Finder and navigating to the Applications folder &gt; Utilities &gt; Terminal.
+
+''Step 2.''
+Type the following command and press enter:
+
+
+```
+com.apple.Finder AppleShowAllFiles true
+```
+
+
+''Step 3.''
+To restart Finder and apply the command, type the following again and press enter:
+
+
+```
+killall Finder
+```
+
+''
+Step 4.''
+To enable hidden files on Mac again, type the following command and press enter:
+
+
+```
+com.apple.Finder AppleShowAllFiles false
+```
+
+
+''Step 5.''
+Finally, to confirm the command we just used, type the following again and press enter:
+
+
+```
+killall Finder
+```
+
+</pre>
+</div>
 <div created="20201104085436637" modified="20201104085518420" tags="Powershell" title="show version">
 <pre>```
 $PSVersionTable
@@ -17197,7 +17242,7 @@ systemd-resolve --status | grep 'DNS Servers' -A2
 ```
 </pre>
 </div>
-<div caption="Contents" created="20201027095529777" list-after="$:/core/ui/SideBar/Open" modified="20260526075724901" tags="$:/tags/SideBar" title="TableOfContents" type="">
+<div caption="Contents" created="20201027095529777" list-after="$:/core/ui/SideBar/Open" modified="20220514194303943" tags="$:/tags/SideBar" title="TableOfContents" type="">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable  &quot;TableOfContents&quot; &quot;sort[title]&quot;&gt;&gt;
 &lt;/div&gt;
