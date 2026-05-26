@@ -10758,7 +10758,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260518095658041" list="TableOfContents" modified="20260518100521943" title="$:/StoryList">
+<div created="20260526075555637" list="[[for loop]] TableOfContents" modified="20260526075555637" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10822,7 +10822,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260518124817194" title="$:/temp/search">
+<div created="20201031112729614" modified="20260526075645053" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -13155,7 +13155,7 @@ sudo /etc/init.d/networking restart
 ```
 </pre>
 </div>
-<div created="20190228132831962" modified="20231014204547806" tags="Linux.commands" title="for loop" tmap.id="adbfede8-5496-44d9-868b-86ca90ebd37a">
+<div created="20190228132831962" modified="20260526075640733" tags="Linux.commands" title="for loop" tmap.id="adbfede8-5496-44d9-868b-86ca90ebd37a">
 <pre>```
 for A in *.??;  do gzip -d $A; done
 ```
@@ -13172,6 +13172,16 @@ for A in *.??;  do gzip $A; done
 for A in *log*.???? ;  do gzip $A; done
 ```
 
+
+```
+for A in {1..3}
+do 
+    scp /fil1.txt server$A:/tmp server$A:/tmp || { echo &quot;Fel vid kopiering av fil1 till server$A&quot;; continue; }
+    scp /fil1.txt server$A:/tmp server$A:/tmp || { echo &quot;Fel vid kopiering av fil2 till server$A&quot;; continue; }
+    scp /fil1.txt server$A:/tmp server$A:/tmp || { echo &quot;Fel vid kopiering av fil3 till server$A&quot;; continue; }
+    scp /fil1.txt server$A:/tmp server$A:/tmp || { echo &quot;Fel vid kopiering av fil4 till server$A&quot;; continue; }
+done
+```
 
 
 ```
