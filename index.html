@@ -273,6 +273,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents/Network-OpenVPN-497309061</li>
 
+<li>$:/state/toc/TableOfContents/Virtualization-proxmox-497309061</li>
+
 <li>$:/state/toc/TableOfContents/Virtualization-Vagrant-497309061</li>
 
 <li>$:/state/toc/TableOfContents/Windows-Powershell--278054137</li>
@@ -10703,8 +10705,8 @@ brew install zsh-autosuggestions
 <div created="20230129155540979" modified="20250108151840917" title="$:/state/toc/TableOfContents-Tools-497309061">
 <pre>close</pre>
 </div>
-<div created="20210221002224371" modified="20250630181646693" title="$:/state/toc/TableOfContents-Virtualization-497309061">
-<pre>close</pre>
+<div created="20210221002224371" modified="20260528110323239" title="$:/state/toc/TableOfContents-Virtualization-497309061">
+<pre>open</pre>
 </div>
 <div created="20201031115414950" modified="20201031115414950" title="$:/state/toc/TableOfContents-Windows--118161433">
 <pre>open</pre>
@@ -10745,6 +10747,9 @@ brew install zsh-autosuggestions
 <div created="20220917185429470" modified="20220917185429470" title="$:/state/toc/TableOfContents/Network-OpenVPN-497309061">
 <pre>open</pre>
 </div>
+<div created="20260528110326165" modified="20260528110326165" title="$:/state/toc/TableOfContents/Virtualization-proxmox-497309061">
+<pre>open</pre>
+</div>
 <div created="20210317114118624" modified="20220426101548898" title="$:/state/toc/TableOfContents/Virtualization-Vagrant-497309061">
 <pre>close</pre>
 </div>
@@ -10760,7 +10765,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260522074557727" list="TableOfContents" modified="20260526113329714" title="$:/StoryList">
+<div created="20260522074557727" list="TableOfContents proxmox" modified="20260528110344557" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10824,7 +10829,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260526114024753" title="$:/temp/search">
+<div created="20201031112729614" modified="20260528110635355" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -12894,7 +12899,7 @@ blacklist {
 ```
 </pre>
 </div>
-<div created="20210309130901491" modified="20210309131213012" tags="Linux.commands" title="Extend partition">
+<div created="20210309130901491" modified="20260528110631689" tags="Linux.commands" title="Extend partition">
 <pre>! for virtual-box with [[Vagrant]] and  [[vagrant-disksize|plugins.vagrant]]
 
 
@@ -12918,6 +12923,14 @@ Enter ''w'' to write the partition table to disk. You will see an error about de
 ```
 xfs_growfs /dev/sda1
 ```
+
+! for proxmox vm with LVM
+
+* extend disk in proxmox
+* run cfdisk and extend partition
+* pvresize /dev/sda3  
+* lvextend -l +100%FREE /dev/mapper/rl-root  
+* xfs_growfs /
 </pre>
 </div>
 <div created="20210902124052938" modified="20210902124220564" tags="Ansible.commands" title="Fileglob">
