@@ -227,6 +227,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Monitoring-497309061</li>
 
+<li>$:/state/toc/TableOfContents-MySQL-497309061</li>
+
 <li>$:/state/toc/TableOfContents-Network-497309061</li>
 
 <li>$:/state/toc/TableOfContents-Password manager-497309061</li>
@@ -360,6 +362,8 @@ Error message and password prompt
 <li>cloud-init</li>
 
 <li>cluster in swarm</li>
+
+<li>comments in scripts</li>
 
 <li>compose yml</li>
 
@@ -10682,14 +10686,17 @@ brew install zsh-autosuggestions
 <div created="20210309123303854" modified="20210415215341143" title="$:/state/toc/TableOfContents-Monitoring-497309061">
 <pre>close</pre>
 </div>
+<div created="20261006125754223" modified="20261006125754223" title="$:/state/toc/TableOfContents-MySQL-497309061">
+<pre>open</pre>
+</div>
 <div created="20220917185428221" modified="20230226100202539" title="$:/state/toc/TableOfContents-Network-497309061">
 <pre>close</pre>
 </div>
 <div created="20210914070030213" modified="20210930100257612" title="$:/state/toc/TableOfContents-Password manager-497309061">
 <pre>close</pre>
 </div>
-<div created="20220503084829118" modified="20250109110649115" title="$:/state/toc/TableOfContents-Phyton-497309061">
-<pre>close</pre>
+<div created="20220503084829118" modified="20261006125717510" title="$:/state/toc/TableOfContents-Phyton-497309061">
+<pre>open</pre>
 </div>
 <div created="20201031094620241" modified="20201031094620241" title="$:/state/toc/TableOfContents-test--118161433">
 <pre>open</pre>
@@ -10709,8 +10716,8 @@ brew install zsh-autosuggestions
 <div created="20230129155540979" modified="20250108151840917" title="$:/state/toc/TableOfContents-Tools-497309061">
 <pre>close</pre>
 </div>
-<div created="20210221002224371" modified="20260528110323239" title="$:/state/toc/TableOfContents-Virtualization-497309061">
-<pre>open</pre>
+<div created="20210221002224371" modified="20261006125622807" title="$:/state/toc/TableOfContents-Virtualization-497309061">
+<pre>close</pre>
 </div>
 <div created="20201031115414950" modified="20201031115414950" title="$:/state/toc/TableOfContents-Windows--118161433">
 <pre>open</pre>
@@ -10718,7 +10725,7 @@ brew install zsh-autosuggestions
 <div created="20201104090719470" modified="20201104090719470" title="$:/state/toc/TableOfContents-Windows--278054137">
 <pre>open</pre>
 </div>
-<div created="20201031115142704" modified="20250408085718391" title="$:/state/toc/TableOfContents-Windows-497309061">
+<div created="20201031115142704" modified="20261006125624571" title="$:/state/toc/TableOfContents-Windows-497309061">
 <pre>close</pre>
 </div>
 <div created="20210220114521240" modified="20240827102557182" title="$:/state/toc/TableOfContents/Automation-Ansible-497309061">
@@ -10769,7 +10776,7 @@ brew install zsh-autosuggestions
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
-<div created="20260824192146238" list="TableOfContents" modified="20260824192146238" title="$:/StoryList">
+<div created="20261006125638480" list="TableOfContents" modified="20261006125852500" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10817,11 +10824,11 @@ brew install zsh-autosuggestions
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;2560&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1080&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -10833,7 +10840,7 @@ brew install zsh-autosuggestions
 <div created="20201104145520707" modified="20250108151957910" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201031112729614" modified="20260824192249524" title="$:/temp/search">
+<div created="20201031112729614" modified="20261006130756535" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -11933,6 +11940,68 @@ db.createUser( { user: 'admin', pwd: 'supersecret', roles: [ { role: &quot;root&
 db.createUser( { user: 'app1', pwd: 'supersecret', roles: [ { role: &quot;readWrite&quot;, db: &quot;app1&quot;} ] } )
 db.auth(&quot;admin&quot;, &quot;supersecret&quot;)
 db.auth(&quot;app1&quot;, &quot;supersecret&quot;)</pre>
+</div>
+<div created="20261006130004706" modified="20261007114634306" tags="Automation" title="comments in scripts">
+<pre>
+!sql script
+
+```
+#  For single line comments
+-- Also for single line, must be followed by space/control character
+/*
+    C-style multiline comment
+*/
+```
+
+!bash script
+
+```
+#  For single line comments
+```
+For a larger block, you can use a here-document with :
+
+bash
+
+
+
+```
+: &lt;&lt;'COMMENT'
+This is ignored by Bash.
+It can contain multiple lines.
+COMMENT
+```
+
+
+```
+: is a command that does nothing, and the text block is passed to it. This makes it work roughly like a multiline comment.
+```
+
+
+Be careful when writing code that contains variables or command substitutions inside the block:
+
+bash
+
+
+
+```
+: &lt;&lt;'COMMENT'
+$(rm -rf something)   # could still be interpreted
+COMMENT
+```
+
+Using a quoted delimiter, as in &lt;&lt;'COMMENT', ensures that the contents are treated literally.
+
+!bind zonfiles
+```
+; For single line comments
+```
+
+!TXT reckord bind zonfiles
+
+```
+blablabla          IN       TXT       &quot;bla bla bla server&quot;
+```
+</pre>
 </div>
 <div created="20240416141450845" modified="20240416142241483" tags="mongoDB" title="compose yml">
 <pre>mongo-replica.yml
